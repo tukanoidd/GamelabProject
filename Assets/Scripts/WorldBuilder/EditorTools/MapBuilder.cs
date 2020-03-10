@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MapBuilder : MonoBehaviour
-{
+{   
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +13,12 @@ public class MapBuilder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+    }
+
+    public void AddMapPartBuilder()
+    {
+        GameObject newMapPartBuilder = new GameObject("MapPartBuilder");
+        MapPartBuilder newMapPartBuilderComponent = newMapPartBuilder.AddComponent<MapPartBuilder>();
+        newMapPartBuilder.transform.parent = transform;
     }
 }

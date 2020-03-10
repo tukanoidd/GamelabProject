@@ -96,4 +96,10 @@ public class ConnectionPoint : MonoBehaviour
 #endif
         }
     }
+
+    public void CustomPointConnect(ConnectionPoint customConnectionPoint)
+    {
+        connection = customConnectionPoint;
+        customConnectionPoint.connection = this;
+    }
 }

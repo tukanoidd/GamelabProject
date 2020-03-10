@@ -38,6 +38,8 @@ public class Block : MonoBehaviour
     private Material _testBlockMat;
     private Material _connectionPointsMat;
     private Material _isWalkablePointMat;
+
+    [NonSerialized] public bool isCurrentBuildingBlock = false;
     
     private List<Edge> _blockEdges = new List<Edge>();
 
@@ -92,8 +94,6 @@ public class Block : MonoBehaviour
     
     void CreateConnectionPoints()
     {
-        Debug.Log("point1");
-        
         Vector3[] vertices = _mesh.vertices;
         HashSet<Vector3> connectionPointsPositions = new HashSet<Vector3>();
         
@@ -111,16 +111,18 @@ public class Block : MonoBehaviour
 
             if (newConnectionPoint)
             {
+                newConnectionPoint.transform.SetParent(transform);
+                
                 MeshRenderer connectionPointMeshRenderer = newConnectionPoint.GetComponent<MeshRenderer>();
                 if (connectionPointMeshRenderer) connectionPointMeshRenderer.sharedMaterial = _connectionPointsMat;
                 
                 newConnectionPoint.name = "ConnectionPoint" + (i + 1);
                 newConnectionPoint.transform.localScale = Vector3.one * ConnectionPoint.scale;
-                newConnectionPoint.transform.position = connectionPointsPositionsList[i];
+                newConnectionPoint.transform.localPosition = connectionPointsPositionsList[i];
                 newConnectionPoint.tag = "ConnectionPoint";
                 newConnectionPoint.layer = LayerMask.NameToLayer("Debug");
                 ConnectionPoint connectionPointComponent = newConnectionPoint.AddComponent<ConnectionPoint>();
-                newConnectionPoint.transform.SetParent(transform);
+                
 
                 if (connectionPointComponent) connectionPoints.Add(connectionPointComponent);
             }
@@ -129,7 +131,6 @@ public class Block : MonoBehaviour
 
     void CreateIsWalkablePoint()
     {
-        Debug.Log("point2");
         isWalkablePoint = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
         if (isWalkablePoint)
@@ -152,16 +153,6 @@ public class Block : MonoBehaviour
     void Start()
     {
            
-    }
-    
-    void InitLocation()
-    {        
-        Vector3 newPosition = transform.position;
-        newPosition.x = Mathf.RoundToInt(newPosition.x / blockSize.xSize) * blockSize.xSize;
-        newPosition.y = Mathf.RoundToInt(newPosition.y / blockSize.ySize) * blockSize.ySize;
-        newPosition.z = Mathf.RoundToInt(newPosition.z / blockSize.zSize) * blockSize.zSize;
-
-        transform.position = newPosition;
     }
 
     // Update is called once per frame
