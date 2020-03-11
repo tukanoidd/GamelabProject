@@ -1,63 +1,63 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Helpers;
+using HandleUtility = UnityEngine.ProBuilder.HandleUtility;
 #if UNITY_EDITOR
-using System.ComponentModel;
 using UnityEditor;
 
 [CustomEditor(typeof(Block))]
 public class BuildingBlockEditor : Editor
 {
-    private Vector3 currHandlePos = Vector3.zero;
-    private Matrix4x4 matrix = new Matrix4x4();
+    private Block _targetBlock;
+    private Transform _blockTransform;
+    private GameDefaultSettings _defaultGameSettings;
+
+    private void OnEnable()
+    {
+        EditorHelpers.ToolsHidden = true;
+        
+        _targetBlock = Selection.activeGameObject.GetComponent<Block>();
+        if (_targetBlock) _blockTransform = _targetBlock.transform;
+        
+        _defaultGameSettings = Resources.Load<GameDefaultSettings>("ScriptableObjects/DefaultGameSettings");
+    }
+
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+    }
 
     private void OnSceneGUI()
     {
-        Block targetBlock = (Block) target;
+        if (!_targetBlock) return;
+        if (!_blockTransform.parent) return;
 
-        if (targetBlock.transform.parent.name.ToLower().Contains("MapPartBuilder"))
+        if (_blockTransform.parent.name.Contains("MapPartBuilder"))
         {
-            int controlId = EditorGUIUtility.GetControlID("MoveBlock".GetHashCode(), FocusType.Keyboard);
+            Vector3 newPos = Handles.PositionHandle(_blockTransform.position, _blockTransform.rotation);
+            Vector3 snap = Handles.SnapValue(newPos, _defaultGameSettings.defaultBlockSize.ToVector());
 
-            Event e = Event.current;
-
-            switch (e.type)
+            if (_blockTransform.position != snap)
             {
-                case EventType.MouseDown:
-                    //check nearest control and set hotControl/keyboardControl
-                    if (HandleUtility.nearestControl == controlId && e.button == 0)
+                if (BlockHelpers.CheckIfPosInBlockGrid(snap, _defaultGameSettings.defaultBlockSize))
+                {
+                    GameObject newBlock = Instantiate(_targetBlock.gameObject, snap, _blockTransform.rotation, _blockTransform.parent);
+
+                    ConnectionPoint[] conPoints = newBlock.GetComponentsInChildren<ConnectionPoint>();
+                    foreach (ConnectionPoint conPoint in conPoints)
                     {
-                        GUIUtility.hotControl = controlId;
-                        GUIUtility.keyboardControl = controlId;
-                        e.Use();
-
-                        targetBlock.isCurrentBuildingBlock = true;
+                        conPoint.CheckForNearbyConnectionPoint();
                     }
-
-                    break;
-                case EventType.MouseUp:
-                    //check if i'm controlled and set hotControl/keyboardControl to 0
-                    if (GUIUtility.hotControl == controlId && e.button == 0)
-                    {
-                        GUIUtility.hotControl = 0;
-                        e.Use();
-                    }
-
-                    break;
-                case EventType.MouseDrag:
-                    //if i'm controlled, move the point
-                    break;
-                case EventType.Repaint:
-                    //draw point visual
-                    break;
-                case EventType.Layout:
-                    //register distance from mouse to my point
-                    
-                    
-                    break;
+                        
+                    Selection.activeGameObject = newBlock;
+                }   
             }
         }
+    }
+
+    private void OnDisable()
+    {
+        EditorHelpers.ToolsHidden = false;
     }
 }
 #endif

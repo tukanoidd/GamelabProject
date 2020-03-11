@@ -10,41 +10,14 @@ using Helpers;
 [RequireComponent(typeof(MeshRenderer))]
 public class Block : MonoBehaviour
 {
-    public struct BlockSize
-    {
-        public float xSize;
-        public float ySize;
-        public float zSize;
-
-        public BlockSize(float aXSize, float aYSize, float aZSize)
-        {
-            xSize = aXSize;
-            ySize = aYSize;
-            zSize = aZSize;
-        }
-
-        public Vector3 ToVector()
-        {
-            return new Vector3(
-                xSize,
-                ySize,
-                zSize
-            );
-        }
-    }
-    
     private Mesh _mesh;
     private MeshRenderer _meshRenderer;
     private Material _testBlockMat;
-    private Material _connectionPointsMat;
     private Material _isWalkablePointMat;
+    private GameDefaultSettings _defaultGameSettings;
 
-    [NonSerialized] public bool isCurrentBuildingBlock = false;
-    
     private List<Edge> _blockEdges = new List<Edge>();
 
-    [NonSerialized] public BlockSize blockSize;
-    
     [NonSerialized] public List<ConnectionPoint> connectionPoints = new List<ConnectionPoint>();
 
     public bool isTesting = true;
@@ -52,7 +25,7 @@ public class Block : MonoBehaviour
     public bool isWalkable = true;
     public float isWalkablePointScale = 0.25f;
     private GameObject isWalkablePoint;
-    
+
     private void Awake()
     {
         InitPrivateVars();
@@ -60,7 +33,9 @@ public class Block : MonoBehaviour
         if (isTesting) _meshRenderer.sharedMaterial = _testBlockMat;
 
         Vector3 meshRendererblockSize = _meshRenderer.bounds.size;
-        blockSize = new BlockSize(meshRendererblockSize.x, meshRendererblockSize.y, meshRendererblockSize.z);
+        transform.localScale = BlockHelpers.ScaleToDefaultSize(new BlockSize(Mathf.RoundToInt(meshRendererblockSize.x),
+            Mathf.RoundToInt(meshRendererblockSize.y),
+            Mathf.RoundToInt(meshRendererblockSize.z)), _defaultGameSettings.defaultBlockSize);
 
         CreatePoints();
     }
@@ -71,10 +46,11 @@ public class Block : MonoBehaviour
         _meshRenderer = GetComponent<MeshRenderer>();
 
         _testBlockMat = Resources.Load<Material>("Materials/TestBlockMat");
-        _connectionPointsMat = Resources.Load<Material>("Materials/ConnectionPointMat");
         _isWalkablePointMat = Resources.Load<Material>("Materials/WalkableBlockPointMat");
-        
+
         _blockEdges = EdgeHelpers.GetEdges(_mesh.triangles).FindBoundary().SortEdges();
+
+        _defaultGameSettings = Resources.Load<GameDefaultSettings>("ScriptableObjects/DefaultGameSettings");
     }
 
     void CreatePoints()
@@ -82,21 +58,20 @@ public class Block : MonoBehaviour
         ConnectionPoint[] checkConnectionPoints = GetComponentsInChildren<ConnectionPoint>();
         if (checkConnectionPoints.Length == 0) CreateConnectionPoints();
         else connectionPoints = checkConnectionPoints.ToList();
-        
+
         if (isWalkable && _meshRenderer)
         {
             Transform checkWalkablePoint = transform.Find("IsWalkablePoint");
             if (!checkWalkablePoint) CreateIsWalkablePoint();
             else isWalkablePoint = checkWalkablePoint.gameObject;
         }
-        
     }
-    
+
     void CreateConnectionPoints()
     {
         Vector3[] vertices = _mesh.vertices;
         HashSet<Vector3> connectionPointsPositions = new HashSet<Vector3>();
-        
+
         for (int i = 0; i < _blockEdges.Count; i++)
         {
             Edge edge = _blockEdges[i];
@@ -104,7 +79,7 @@ public class Block : MonoBehaviour
         }
 
         List<Vector3> connectionPointsPositionsList = connectionPointsPositions.ToList();
-        
+
         for (int i = 0; i < connectionPointsPositionsList.Count; i++)
         {
             GameObject newConnectionPoint = GameObject.CreatePrimitive(PrimitiveType.Sphere);
@@ -112,17 +87,21 @@ public class Block : MonoBehaviour
             if (newConnectionPoint)
             {
                 newConnectionPoint.transform.SetParent(transform);
-                
-                MeshRenderer connectionPointMeshRenderer = newConnectionPoint.GetComponent<MeshRenderer>();
-                if (connectionPointMeshRenderer) connectionPointMeshRenderer.sharedMaterial = _connectionPointsMat;
-                
+
                 newConnectionPoint.name = "ConnectionPoint" + (i + 1);
                 newConnectionPoint.transform.localScale = Vector3.one * ConnectionPoint.scale;
                 newConnectionPoint.transform.localPosition = connectionPointsPositionsList[i];
                 newConnectionPoint.tag = "ConnectionPoint";
                 newConnectionPoint.layer = LayerMask.NameToLayer("Debug");
+
+                Collider conPointCollider = newConnectionPoint.GetComponent<Collider>();
+                if (conPointCollider)
+                {
+                    conPointCollider.isTrigger = true;
+                }
+
                 ConnectionPoint connectionPointComponent = newConnectionPoint.AddComponent<ConnectionPoint>();
-                
+
 
                 if (connectionPointComponent) connectionPoints.Add(connectionPointComponent);
             }
@@ -137,14 +116,14 @@ public class Block : MonoBehaviour
         {
             MeshRenderer isWalkablePointMeshRenderer = isWalkablePoint.GetComponent<MeshRenderer>();
             isWalkablePointMeshRenderer.sharedMaterial = _isWalkablePointMat;
-            
+
             isWalkablePoint.name = "IsWalkablePoint";
             isWalkablePoint.transform.localScale = Vector3.one * isWalkablePointScale;
-                
+
             Bounds meshRendererBounds = _meshRenderer.bounds;
             isWalkablePoint.transform.position = meshRendererBounds.center + Vector3.up * meshRendererBounds.size.y / 2;
             isWalkablePoint.layer = LayerMask.NameToLayer("Debug");
-            
+
             isWalkablePoint.transform.SetParent(transform);
         }
     }
@@ -152,12 +131,10 @@ public class Block : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-           
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
 }

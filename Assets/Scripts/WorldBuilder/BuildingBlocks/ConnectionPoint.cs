@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Helpers;
 using UnityEngine;
 
 [ExecuteAlways]
@@ -11,7 +12,9 @@ public class ConnectionPoint : MonoBehaviour
 {
     private SphereCollider _collider;
     private MeshRenderer _meshRenderer;
-    private Material connectedMaterial;
+    private Material _standardMaterial;
+    private Material _connectedMaterial;
+    private GameDefaultSettings _defaultGameSettings;
     
     public static float scale = 0.05f;
 
@@ -21,7 +24,7 @@ public class ConnectionPoint : MonoBehaviour
     public bool isConnectedNearby = true;
     public bool hasCustomConnection = false;
     
-    public float nearbyRadius = 0.5f;
+    public float nearbyRadius = 1;
 
     public ConnectionPoint connection;
 
@@ -30,11 +33,17 @@ public class ConnectionPoint : MonoBehaviour
 
     private void Awake()
     {
+        _defaultGameSettings = Resources.Load<GameDefaultSettings>("ScriptableObjects/DefaultGameSettings");
+        if (_defaultGameSettings) nearbyRadius = BlockHelpers.Min(_defaultGameSettings.defaultBlockSize) / 2;
+        
         _collider = GetComponent<SphereCollider>();
         _collider.radius = nearbyRadius;
         
         _meshRenderer = GetComponent<MeshRenderer>();
-        connectedMaterial = Resources.Load<Material>("Materials/ConnectedConnectionPoint");
+        _standardMaterial = Resources.Load<Material>("Materials/ConnectionPointMat");
+        _connectedMaterial = Resources.Load<Material>("Materials/ConnectedConnectionPoint");
+
+        _meshRenderer.sharedMaterial = _standardMaterial;
 
         InitConnectionsSettings();
     }
@@ -70,21 +79,49 @@ public class ConnectionPoint : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckLoadedMaterials();
+        
         if (connection)
         {
-            if (_meshRenderer && _meshRenderer.sharedMaterial != connectedMaterial) _meshRenderer.sharedMaterial = connectedMaterial;
+            if (_meshRenderer && _meshRenderer.sharedMaterial != _connectedMaterial) _meshRenderer.sharedMaterial = _connectedMaterial;
             if (!connection.connection) connection.connection = this;
         }
-        
+        else
+        {
+            if (_meshRenderer && _meshRenderer.sharedMaterial != _standardMaterial) _meshRenderer.sharedMaterial = _standardMaterial;
+            if (isConnectedNearby)
+            {
+                CheckForNearbyConnectionPoint();
+            }
+        }
+
     }
 
-    private void OnCollisionStay(Collision other)
+    private float DistBtwPoints(ConnectionPoint pt1, ConnectionPoint pt2)
     {
-        if (isConnectedNearby && !connection)
+        return Vector3.Distance(pt1.transform.position, pt2.transform.position);
+    }
+
+    public void CheckForNearbyConnectionPoint()
+    {
+        List<ConnectionPoint> connectionPoints = FindObjectsOfType<ConnectionPoint>()
+            .Where(conPoint => conPoint != this && transform.parent != conPoint.transform.parent).Where(conPoint =>
+                DistBtwPoints(this, conPoint) <= nearbyRadius).OrderBy((conPoint) => DistBtwPoints(this, conPoint)).ToList();
+        
+        if (connectionPoints.Count > 0)
         {
-            ConnectionPoint collidedConnectionPoint = other.gameObject.GetComponent<ConnectionPoint>();
-            if (collidedConnectionPoint) connection = collidedConnectionPoint;
+            PointConnect(connectionPoints[0]);
+            return;
         }
+        
+        hasConnection = false;
+        InitConnectionsSettings();
+    }
+
+    private void CheckLoadedMaterials()
+    {
+        if (!_standardMaterial) _standardMaterial = Resources.Load<Material>("Materials/ConnectionPointMat");
+        if (!_connectedMaterial) _connectedMaterial = Resources.Load<Material>("Materials/ConnectedConnectionPoint");
     }
 
     private void OnDrawGizmos()
@@ -97,9 +134,11 @@ public class ConnectionPoint : MonoBehaviour
         }
     }
 
-    public void CustomPointConnect(ConnectionPoint customConnectionPoint)
+    public void PointConnect(ConnectionPoint customConnectionPoint)
     {
         connection = customConnectionPoint;
         customConnectionPoint.connection = this;
+
+        hasConnection = true;
     }
 }

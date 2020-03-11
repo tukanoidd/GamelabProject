@@ -52,7 +52,9 @@ public class TurnAroundCamera : MonoBehaviour
         switch (_deviceType)
         {
             case DeviceType.Desktop: return Input.GetAxis("Horizontal");
-            case DeviceType.Handheld: return _gyro.rotationRate.y;
+            case DeviceType.Handheld:
+                Debug.Log(_gyro.attitude.eulerAngles);
+                return _gyro.rotationRate.y;
             default: return 0;
         }
     }

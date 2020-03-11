@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 
 
@@ -10,22 +13,7 @@ public class MapPartBuilder : MonoBehaviour
     
     [NonSerialized] public bool startingBlockCreated = false;
 
-    private void Awake()
-    {
-        
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    #if UNITY_EDITOR
     public void CreateStartingBlock()
     {
         if (blockPrefab && !startingBlockCreated)
@@ -33,7 +21,10 @@ public class MapPartBuilder : MonoBehaviour
             GameObject firstBlock = Instantiate(blockPrefab, transform);
             firstBlock.transform.localPosition = Vector3.zero;
 
+            Selection.activeGameObject = firstBlock;
+
             startingBlockCreated = true;
         }
     } 
+    #endif
 }

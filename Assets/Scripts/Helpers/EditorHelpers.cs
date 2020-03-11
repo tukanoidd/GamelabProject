@@ -1,6 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
+using System.Reflection;
 using UnityEngine;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Helpers
 {
@@ -27,5 +30,20 @@ namespace Helpers
 
             targetTransform.position = newPosition;
         }
+        
+        #if UNITY_EDITOR
+        public static bool ToolsHidden {
+            get {
+                Type type = typeof (Tools);
+                FieldInfo field = type.GetField ("s_Hidden", BindingFlags.NonPublic | BindingFlags.Static);
+                return ((bool) field.GetValue (null));
+            }
+            set {
+                Type type = typeof (Tools);
+                FieldInfo field = type.GetField ("s_Hidden", BindingFlags.NonPublic | BindingFlags.Static);
+                field.SetValue (null, value);
+            }
+        }
+        #endif
     }   
 }
