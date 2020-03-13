@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - ConnectionPoint
+  - TargetToLookAt
   layers:
   - Default
   - TransparentFX

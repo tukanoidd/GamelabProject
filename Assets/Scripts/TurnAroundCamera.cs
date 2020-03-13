@@ -8,7 +8,7 @@ public class TurnAroundCamera : MonoBehaviour
     private DeviceType _deviceType;
     private Gyroscope _gyro;
 
-    [SerializeField] private GameObject targetToLookAt;
+    public GameObject targetToLookAt;
 
     private Vector3 _offsetFromTarget = Vector3.zero;
 
@@ -20,13 +20,21 @@ public class TurnAroundCamera : MonoBehaviour
 
         if (_deviceType == DeviceType.Handheld) _gyro.enabled = true;
 
-        if (!targetToLookAt)
-        {
-            targetToLookAt = new GameObject("Target To Look At");
-            targetToLookAt.transform.position = Vector3.zero;
-        }
+        CreateTargetToLookAt();
 
         _offsetFromTarget = targetToLookAt.transform.position - transform.position;
+    }
+
+    public void CreateTargetToLookAt()
+    {
+        GameObject target = GameObject.FindGameObjectWithTag("TargetToLookAt");
+        if (!target)
+        {
+            targetToLookAt = new GameObject("Target To Look At");
+            targetToLookAt.tag = "TargetToLookAt";
+            targetToLookAt.transform.position = Vector3.zero;
+        }
+        else targetToLookAt = target;
     }
 
     private void LateUpdate()

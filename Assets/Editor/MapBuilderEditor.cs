@@ -19,7 +19,7 @@ public class MapBuilderEditor : Editor
         
         if (GUILayout.Button("Add Map Part Builder"))
         {
-            mapBuilder.AddMapPartBuilder();
+            Selection.activeGameObject = mapBuilder.AddMapPartBuilder().gameObject;
         }
         
     }

@@ -21,14 +21,15 @@ namespace Helpers
             targetTransform.position = initPosition;
         }
 
-        public static void SnapToBlockGrid(Transform targetTransform, float sizeX, float sizeY, float sizeZ)
+        public static Vector3 SnapToBlockGrid(Vector3 pos, Vector3 size)
         {        
-            Vector3 newPosition = targetTransform.position;
-            newPosition.x = Mathf.RoundToInt(newPosition.x / sizeX) * sizeX;
-            newPosition.y = Mathf.RoundToInt(newPosition.y / sizeY) * sizeY;
-            newPosition.z = Mathf.RoundToInt(newPosition.z / sizeY) * sizeY;
+            Vector3 newPos = Vector3.zero;
+            
+            newPos.x = Mathf.RoundToInt(pos.x / size.x) * size.x;
+            newPos.y = Mathf.RoundToInt(pos.y / size.x) * size.x;
+            newPos.z = Mathf.RoundToInt(pos.z / size.x) * size.x;
 
-            targetTransform.position = newPosition;
+            return newPos;
         }
         
         #if UNITY_EDITOR

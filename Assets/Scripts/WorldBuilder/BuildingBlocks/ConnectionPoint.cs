@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Helpers;
+using TMPro;
 using UnityEngine;
 
 [ExecuteAlways]
@@ -10,6 +11,16 @@ using UnityEngine;
 [RequireComponent(typeof(MeshRenderer))]
 public class ConnectionPoint : MonoBehaviour
 {
+    public enum PosDir
+    {
+        UpRight,
+        UpLeft,
+        UpForward,
+        UpBackward,
+        
+        WIP
+    }
+    
     private SphereCollider _collider;
     private MeshRenderer _meshRenderer;
     private Material _standardMaterial;
@@ -28,8 +39,10 @@ public class ConnectionPoint : MonoBehaviour
 
     public ConnectionPoint connection;
 
-    public Vector3 customCameraPoaition = Vector3.zero;
+    public Vector3 customCameraPosition = Vector3.zero;
     public float customMaxOffset = 0.5f;
+
+    [NonSerialized] public PosDir posDir;
 
     private void Awake()
     {
@@ -45,10 +58,38 @@ public class ConnectionPoint : MonoBehaviour
 
         _meshRenderer.sharedMaterial = _standardMaterial;
 
-        InitConnectionsSettings();
+        GetPosDir();
+        UpdateConnectionsSettings();
     }
 
-    private void InitConnectionsSettings()
+    private void GetPosDir()
+    {
+        if (transform.parent)
+        {
+            MeshRenderer parentRenderer = transform.parent.GetComponent<MeshRenderer>();
+            if (parentRenderer)
+            {
+                Vector3 parentCenter = parentRenderer.bounds.center;
+                Vector3 pointPos = transform.position;
+
+                Vector3 offset = pointPos - parentCenter;
+
+                String up = offset.y >= 0 ? (offset.y == 0 ? "Center" : "Up") : "Down";
+                String right = offset.x >= 0 ? (offset.x == 0 ? "Center" : "Right") : "Left";
+                String forward = offset.z >= 0 ? (offset.z == 0 ? "Center" : "Forward") : "Backward";
+
+                String strPosDir = up + right + forward;
+
+                if (strPosDir == "UpCenterForward") posDir = PosDir.UpForward;
+                else if (strPosDir == "UpCenterBackward") posDir = PosDir.UpBackward;
+                else if (strPosDir == "UpRightCenter") posDir = PosDir.UpRight;
+                else if (strPosDir == "UpLeftCenter") posDir = PosDir.UpLeft;
+                else posDir = PosDir.WIP;
+            } 
+        }
+    }
+
+    public void UpdateConnectionsSettings()
     {
         if (!hasConnection)
         {
@@ -115,7 +156,7 @@ public class ConnectionPoint : MonoBehaviour
         }
         
         hasConnection = false;
-        InitConnectionsSettings();
+        UpdateConnectionsSettings();
     }
 
     private void CheckLoadedMaterials()

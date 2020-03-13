@@ -15,9 +15,13 @@ public class BuildingBlockEditor : Editor
     private void OnEnable()
     {
         EditorHelpers.ToolsHidden = true;
-        
-        _targetBlock = Selection.activeGameObject.GetComponent<Block>();
-        if (_targetBlock) _blockTransform = _targetBlock.transform;
+
+        GameObject selectedGameObject = Selection.activeGameObject;
+        if (selectedGameObject)
+        {
+            _targetBlock = selectedGameObject.GetComponent<Block>();
+            if (_targetBlock) _blockTransform = _targetBlock.transform;   
+        }
         
         _defaultGameSettings = Resources.Load<GameDefaultSettings>("ScriptableObjects/DefaultGameSettings");
     }

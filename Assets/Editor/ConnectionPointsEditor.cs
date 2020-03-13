@@ -6,37 +6,28 @@ using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 
-public class ConnectionPointsEditor
+[CustomEditor(typeof(ConnectionPoint))]
+public class ConnectionPointsEditor : Editor
 {
-    private static List<ConnectionPoint> GetSelectedConnectionPoints()
+    private ConnectionPoint _conPoint;
+
+    private void OnEnable()
     {
-        return Selection.gameObjects
-            .Where(obj => obj.GetComponent<ConnectionPoint>() != null)
-            .Select(obj => obj.GetComponent<ConnectionPoint>()).ToList();
+        _conPoint = Selection.activeGameObject.GetComponent<ConnectionPoint>();
     }
-    
-    [MenuItem("MapBuilder/Connect TWO Selected Points")]
-    private static void ConnectTwoSelectedPoints()
+
+    public override void OnInspectorGUI()
     {
-        List<ConnectionPoint> connectionPoints = GetSelectedConnectionPoints();
+        if (GUILayout.Button("Set Custom Camera Position"))
+        {
+            TurnAroundCamera camera = FindObjectOfType<TurnAroundCamera>();
+            if (_conPoint && camera)
+            {
+                _conPoint.customCameraPosition = camera.transform.position;
+            }    
+        }
         
-        if (connectionPoints.Count == 2 &&
-            connectionPoints[0].transform.parent != connectionPoints[1].transform.parent)
-        {
-            connectionPoints[0].PointConnect(connectionPoints[1]);
-        }
-    }
-
-    [MenuItem("MapBuilder/Disconnect Selected Points")]
-    private static void DisconnectSelectedPoints()
-    {
-        List<ConnectionPoint> connectionPoints = GetSelectedConnectionPoints();
-
-        foreach (ConnectionPoint connectionPoint in connectionPoints)
-        {
-            if (connectionPoint.connection) connectionPoint.connection = null;
-            connectionPoint.connection = null;
-        }
+        base.OnInspectorGUI();
     }
 }
 #endif
