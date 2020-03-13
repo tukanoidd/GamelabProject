@@ -511,7 +511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawDebugConnectionLines: 1
   hasConnection: 1
-  isConnectedNearby: 0
+  isConnectedNearby: 1
   hasCustomConnection: 0
   nearbyRadius: 0.5
   connection: {fileID: 604506041}
@@ -826,7 +826,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawDebugConnectionLines: 1
   hasConnection: 1
-  isConnectedNearby: 0
+  isConnectedNearby: 1
   hasCustomConnection: 0
   nearbyRadius: 0.5
   connection: {fileID: 728744110}
@@ -954,7 +954,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawDebugConnectionLines: 1
   hasConnection: 1
-  isConnectedNearby: 0
+  isConnectedNearby: 1
   hasCustomConnection: 0
   nearbyRadius: 0.5
   connection: {fileID: 938085258}
@@ -1540,7 +1540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawDebugConnectionLines: 1
   hasConnection: 1
-  isConnectedNearby: 0
+  isConnectedNearby: 1
   hasCustomConnection: 0
   nearbyRadius: 0.5
   connection: {fileID: 1808409108}
@@ -2354,7 +2354,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawDebugConnectionLines: 1
   hasConnection: 1
-  isConnectedNearby: 0
+  isConnectedNearby: 1
   hasCustomConnection: 0
   nearbyRadius: 0.5
   connection: {fileID: 738097055}
@@ -2810,7 +2810,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawDebugConnectionLines: 1
   hasConnection: 1
-  isConnectedNearby: 0
+  isConnectedNearby: 1
   hasCustomConnection: 0
   nearbyRadius: 0.5
   connection: {fileID: 546632126}
@@ -3631,7 +3631,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawDebugConnectionLines: 1
   hasConnection: 1
-  isConnectedNearby: 0
+  isConnectedNearby: 1
   hasCustomConnection: 0
   nearbyRadius: 0.5
   connection: {fileID: 1800014850}
@@ -3844,7 +3844,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -3868,13 +3868,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 693581663}
-  m_LocalRotation: {x: 0.39167705, y: -0.46534064, z: 0.24099807, w: 0.7562851}
-  m_LocalPosition: {x: 15.76, y: 24.99, z: -7.958258}
+  m_LocalRotation: {x: 0.23062931, y: -0.37922734, z: 0.09819296, w: 0.8907047}
+  m_LocalPosition: {x: 12.726888, y: 9.8, z: -12.236741}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 31.575, y: -45, z: 0}
 --- !u!114 &693581667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7400,7 +7400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawDebugConnectionLines: 1
   hasConnection: 1
-  isConnectedNearby: 0
+  isConnectedNearby: 1
   hasCustomConnection: 0
   nearbyRadius: 0.5
   connection: {fileID: 1249864913}
@@ -9911,7 +9911,7 @@ MonoBehaviour:
   isConnectedNearby: 0
   hasCustomConnection: 0
   nearbyRadius: 0.5
-  connection: {fileID: 100754330}
+  connection: {fileID: 0}
   customCameraPosition: {x: 0, y: 0, z: 0}
   customMaxOffset: 0.5
 --- !u!23 &1808945157
@@ -9932,7 +9932,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4352b14d325009d4c8e402211e307775, type: 2}
+  - {fileID: 2100000, guid: f6df3864e85dfe74ca32ef08e08cca0f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10115,7 +10115,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawDebugConnectionLines: 1
   hasConnection: 1
-  isConnectedNearby: 0
+  isConnectedNearby: 1
   hasCustomConnection: 0
   nearbyRadius: 0.5
   connection: {fileID: 1041781925}
@@ -10574,7 +10574,7 @@ MonoBehaviour:
   isConnectedNearby: 0
   hasCustomConnection: 0
   nearbyRadius: 0.5
-  connection: {fileID: 390444422}
+  connection: {fileID: 0}
   customCameraPosition: {x: 0, y: 0, z: 0}
   customMaxOffset: 0.5
 --- !u!23 &2032006419
@@ -10595,7 +10595,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4352b14d325009d4c8e402211e307775, type: 2}
+  - {fileID: 2100000, guid: f6df3864e85dfe74ca32ef08e08cca0f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11141,7 +11141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawDebugConnectionLines: 1
   hasConnection: 1
-  isConnectedNearby: 0
+  isConnectedNearby: 1
   hasCustomConnection: 0
   nearbyRadius: 0.5
   connection: {fileID: 1550936929}
