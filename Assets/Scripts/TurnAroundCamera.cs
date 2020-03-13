@@ -6,19 +6,16 @@ using UnityEngine;
 public class TurnAroundCamera : MonoBehaviour
 {
     private DeviceType _deviceType;
-    private Gyroscope _gyro;
-
-    public GameObject targetToLookAt;
+    
+    [SerializeField] private float accelerometerThreshold = 0.3f;
+    [SerializeField] private float rotationSpeed = 1.5f;
+    [SerializeField] private GameObject targetToLookAt;
 
     private Vector3 _offsetFromTarget = Vector3.zero;
 
     void Start()
     {
         _deviceType = SystemInfo.deviceType;
-        
-        _gyro = Input.gyro;
-
-        if (_deviceType == DeviceType.Handheld) _gyro.enabled = true;
 
         CreateTargetToLookAt();
 
@@ -39,7 +36,7 @@ public class TurnAroundCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        float horizontal = GetHorizontalRotation();
+        float horizontal = -GetHorizontalRotation();
 
         // Rotate with value that got from in[ut
         targetToLookAt.transform.Rotate(0, horizontal, 0);
@@ -61,8 +58,8 @@ public class TurnAroundCamera : MonoBehaviour
         {
             case DeviceType.Desktop: return Input.GetAxis("Horizontal");
             case DeviceType.Handheld:
-                Debug.Log(_gyro.attitude.eulerAngles);
-                return _gyro.rotationRate.y;
+                float acceleration = Input.acceleration.x;
+                return  Mathf.Abs(acceleration) < accelerometerThreshold ? 0 : Mathf.Sign(acceleration) * rotationSpeed;
             default: return 0;
         }
     }
