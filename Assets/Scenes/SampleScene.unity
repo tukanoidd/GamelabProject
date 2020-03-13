@@ -667,7 +667,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetToLookAt: {fileID: 0}
-  rotationSpeed: 5
 --- !u!20 &1687258584
 Camera:
   m_ObjectHideFlags: 0
@@ -694,7 +693,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:

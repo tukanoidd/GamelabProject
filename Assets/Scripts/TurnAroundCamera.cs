@@ -17,13 +17,21 @@ public class TurnAroundCamera : MonoBehaviour
     {
         _deviceType = SystemInfo.deviceType;
 
-        if (!targetToLookAt)
-        {
-            targetToLookAt = new GameObject("Target To Look At");
-            targetToLookAt.transform.position = Vector3.zero;
-        }
+        CreateTargetToLookAt();
 
         _offsetFromTarget = targetToLookAt.transform.position - transform.position;
+    }
+
+    public void CreateTargetToLookAt()
+    {
+        GameObject target = GameObject.FindGameObjectWithTag("TargetToLookAt");
+        if (!target)
+        {
+            targetToLookAt = new GameObject("Target To Look At");
+            targetToLookAt.tag = "TargetToLookAt";
+            targetToLookAt.transform.position = Vector3.zero;
+        }
+        else targetToLookAt = target;
     }
 
     private void LateUpdate()
