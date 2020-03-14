@@ -5,152 +5,327 @@ using System.ComponentModel;
 using System.Linq;
 using UnityEngine;
 
-public class MapBuilder : MonoBehaviour
+public struct MapCoords
 {
-    private GameDefaultSettings _defaultGameSettings;
+    public int x;
+    public int z;
 
-    private KeyValuePair<Vector2, Block>[,] _pathFindingMap;
-
-    private Block[] _blocks;
-
-    void Awake()
+    public MapCoords(int x, int z)
     {
-        _defaultGameSettings = Resources.Load<GameDefaultSettings>("ScriptableObjects/DefaultGameSettings");
+        this.x = x;
+        this.z = z;
+    }
+}
+
+public class MapBlockData
+{
+    public Block block;
+    public Transform blockTransform;
+    public Vector3 blockPos;
+    public Quaternion blockRot;
+
+    public MapBlockData(Block block)
+    {
+        this.block = block;
+        this.block.thisBlocksMapData = this;
+        blockTransform = block.transform;
+        blockPos = blockTransform.position;
+        blockRot = blockTransform.rotation;
+    }
+}
+
+public class MapData
+{
+    public int length;
+    public int height;
+
+    public int minCoordX;
+    public int maxCoordX;
+
+    public int minCoordZ;
+    public int maxCoordZ;
+
+    public int gridSizeX;
+    public int gridSizeZ;
+
+    public KeyValuePair<MapCoords, MapBlockData>[,] map;
+
+    private List<MapBlockData> _discardedBlockDatas;
+
+    public MapData(int minX, int maxX, int minZ, int maxZ, BlockSize size)
+    {
+        minCoordX = minX;
+        maxCoordX = maxX;
+
+        minCoordZ = minZ;
+        maxCoordZ = maxZ;
+
+        gridSizeX = (int) size.xSize;
+        gridSizeZ = (int) size.zSize;
+
+        length = (maxCoordX - minCoordX) / gridSizeX + 1;
+        height = (maxCoordZ - minCoordZ) / gridSizeZ + 1;
+
+        map = new KeyValuePair<MapCoords, MapBlockData>[length, height];
+
+        _discardedBlockDatas = new List<MapBlockData>();
     }
 
-    void Start()
-    {
-        GeneratePathfindingMap();
-        ShowMap();
-    }
-
-    private void ShowMap()
-    {
-        Vector3 offset = Vector3.one * 20;
-        
-        for (int i = 0; i < _pathFindingMap.GetLength(0); i++)
+    public void AddBlocksToMap(MapBlockData[] blockDatas)
+    {;
+        foreach (MapBlockData blockData in blockDatas)
         {
-            for (int j = 0; j < _pathFindingMap.GetLength(1); j++)
+            if (!_discardedBlockDatas.Contains(blockData))
             {
-                Block block = _pathFindingMap[i, j].Value;
-                if (block)
+                // Get first block with connection in column (if any)
+                // And discard blocks that have no purpose for pathfinding
+                MapBlockData blockOnTheMap = GetViableBlockInColumn(blockData, blockDatas);
+
+                if (blockOnTheMap != null)
                 {
-                    Instantiate(block.gameObject, block.transform.position + offset, block.transform.rotation);   
+                    AddBlockToMap(blockOnTheMap);
+
+                    // Cycle through viable block's connections to find other blocks and add them to the map if any
+                    AddBlocksFromConnections(blockOnTheMap);
                 }
             }
         }
     }
 
-    private void GeneratePathfindingMap()
+    private void AddBlocksFromConnections(MapBlockData block)
     {
-        _blocks = FindObjectsOfType<Block>().Where(block => block.isWalkable).ToArray();
-        int[] blocksXCoords = _blocks.Select(block => (int) block.transform.position.x).ToArray();
-        int[] blocksZCoords = _blocks.Select(block => (int) block.transform.position.z).ToArray();
+        ConnectionPoint[] viableConnections = GetViableConnections(block);
 
-        Vector2 blocksMinXZCoords = GetMinVec2Pos(blocksXCoords, blocksZCoords);
-        Vector2 blocksMaxXZCoords = GetMaxVec2Pos(blocksXCoords, blocksZCoords);
-
-        int mapLength =
-            (int) ((blocksMaxXZCoords.x - blocksMinXZCoords.x) / _defaultGameSettings.defaultBlockSize.xSize) + 1;
-        int mapHeight =
-            (int) ((blocksMaxXZCoords.y - blocksMinXZCoords.y) / _defaultGameSettings.defaultBlockSize.zSize) + 1;
-
-        _pathFindingMap = new KeyValuePair<Vector2, Block>[mapLength, mapHeight];
-
-        List<Block> discardedBlocks = new List<Block>();
-
-        foreach (Block block in _blocks)
+        foreach (ConnectionPoint conPoint in viableConnections)
         {
-            if (!discardedBlocks.Contains(block))
+            AddBlockToMapFromConnection(block, conPoint);
+        }
+    }
+
+    private void AddBlockToMapFromConnection(MapBlockData blockData, ConnectionPoint conPoint)
+    {
+        if (conPoint.hasConnection && conPoint.connection)
+        {
+            if (conPoint.connection.parentBlock)
             {
-                AddBlockToMap(block, ref discardedBlocks, blocksMinXZCoords);
+                if (conPoint.isConnectedNearby && conPoint.connection.parentBlock.thisBlocksMapData != null)
+                {
+                    AddBlockToMap(conPoint.connection.parentBlock.thisBlocksMapData);
+                }
+                else if (conPoint.hasCustomConnection && conPoint.connection.parentBlock.thisBlocksMapData != null)
+                {
+                    AddCustomlyConnectedBlock(blockData, conPoint, conPoint.connection.parentBlock.thisBlocksMapData);
+                }
             }
         }
     }
 
-    private void AddBlockToMap(Block block, ref List<Block> discardedBlocks, Vector2 minXZCoords)
+    private void AddCustomlyConnectedBlock(MapBlockData blockConnectedWith,
+        ConnectionPoint conPointTargetBlockConnectedWith,
+        MapBlockData targetBlockData)
     {
-        Block blockOnTheMap = DiscardBlocksBelow(block, ref discardedBlocks);
+        MapCoords customMapCoords =
+            GetCustomlyConnectedBlockMapCoords(blockConnectedWith, conPointTargetBlockConnectedWith);
 
+        AddBlockWithCoords(targetBlockData, customMapCoords);
+    }
+
+    private MapCoords GetCustomlyConnectedBlockMapCoords(MapBlockData blockConnectedWith,
+        ConnectionPoint conPointTargetBlockConnectedWith)
+    {
+        switch (conPointTargetBlockConnectedWith.posDir)
+        {
+            case ConnectionPoint.PosDir.UpForward:
+                return GetBlockMapCoords(blockConnectedWith.blockPos +
+                                         blockConnectedWith.blockTransform.forward * gridSizeZ);
+            case ConnectionPoint.PosDir.UpBackward:
+                return GetBlockMapCoords(blockConnectedWith.blockPos +
+                                         -blockConnectedWith.blockTransform.forward * gridSizeZ);
+            case ConnectionPoint.PosDir.UpRight:
+                return GetBlockMapCoords(blockConnectedWith.blockPos +
+                                         blockConnectedWith.blockTransform.right * gridSizeX);
+            case ConnectionPoint.PosDir.UpLeft:
+                return GetBlockMapCoords(blockConnectedWith.blockPos +
+                                         -blockConnectedWith.blockTransform.right * gridSizeX);
+            default: return new MapCoords(0, 0);
+        }
+    }
+
+    private void AddBlockToMap(MapBlockData block)
+    {
+        MapCoords mapCoords = GetBlockMapCoords(block.blockPos);
+
+        AddBlockWithCoords(block, mapCoords);
+    }
+
+    private void AddBlockWithCoords(MapBlockData block, MapCoords mapCoords)
+    {
         try
         {
-            Vector2 mapXZCoord = GetMapXZCoord(blockOnTheMap, minXZCoords);
-            _pathFindingMap[(int) mapXZCoord.x, (int) mapXZCoord.y] =
-                new KeyValuePair<Vector2, Block>(new Vector2(mapXZCoord.x, mapXZCoord.y), blockOnTheMap);
-            discardedBlocks.Add(blockOnTheMap);
+            map[mapCoords.x, mapCoords.z] = new KeyValuePair<MapCoords, MapBlockData>(mapCoords, block);
+            _discardedBlockDatas.Add(block);
         }
         catch (Exception e)
         {
-            Debug.Log("Couldn't add block to map. Error: " + e);
-        }
-
-        ConnectionPoint[] conPoints = blockOnTheMap.connectionPoints
-            .Where(conPoint =>
-                conPoint.posDir != ConnectionPoint.PosDir.WIP && conPoint.hasConnection && conPoint.connection)
-            .ToArray();
-
-        foreach (ConnectionPoint conPoint in conPoints)
-        {
-            AddNewBlockFromConnection(conPoint, blockOnTheMap, ref discardedBlocks, minXZCoords);
+            Debug.Log("Couldn't add block to PathFinding map. Error: " + e);
         }
     }
 
-    private Vector2 GetMapXZCoord(Block block, Vector2 minXZCoords)
+    private MapCoords GetBlockMapCoords(Vector3 blockPos) => new MapCoords(
+        (int) ((blockPos.x - minCoordX) / gridSizeX),
+        (int) ((blockPos.z - minCoordZ) / gridSizeZ)
+    );
+
+    private MapBlockData GetViableBlockInColumn(MapBlockData blockDataToCheck, MapBlockData[] blockDatas)
     {
-        Vector3 blockPos = block.transform.position;
-        return new Vector2((int) ((blockPos.x - minXZCoords.x) / _defaultGameSettings.defaultBlockSize.xSize),
-            (int) ((blockPos.z - minXZCoords.y) / _defaultGameSettings.defaultBlockSize.zSize));
+        if (CheckBlockForViableConnections(blockDataToCheck)) return blockDataToCheck;
+        _discardedBlockDatas.Add(blockDataToCheck);
+
+        MapBlockData[] blocksToCheck = blockDatas.Where(blockData =>
+            !_discardedBlockDatas.Contains(blockData) && blockData.Equals(blockDataToCheck)).ToArray();
+
+        foreach (MapBlockData blockData in blocksToCheck)
+        {
+            if (CheckBlockForViableConnections(blockData)) return blockData;
+            _discardedBlockDatas.Add(blockData);
+        }
+
+        return null;
     }
 
-    private void AddNewBlockFromConnection(ConnectionPoint conPoint, Block block, ref List<Block> discardedBlocks, Vector2 minXZCoords)
+    private bool CheckBlockForViableConnections(MapBlockData mapBlockData) =>
+        GetViableConnections(mapBlockData).Length > 0;
+
+    private ConnectionPoint[] GetViableConnections(MapBlockData mapBlockData) => mapBlockData.block.connectionPoints
+        .Where(conPoint =>
+            conPoint.posDir != ConnectionPoint.PosDir.WIP && conPoint.hasConnection && conPoint.connection).ToArray();
+}
+
+public class MapBuilder : MonoBehaviour
+{
+    private GameDefaultSettings _defaultGameSettings;
+    private BlockSize _defaultBlockSize;
+
+    private MapData _pathFindingMap;
+
+    private MapBlockData[] _blockDatas;
+
+    private GameObject _mapShow;
+
+    public bool dataExists
     {
-        Transform targetConParent = conPoint.connection.transform.parent;
-        if (targetConParent)
+        get { return _blockDatas != null; }
+    }
+
+    void Awake()
+    {
+        GetNeededData();
+    }
+
+    public void GetNeededData()
+    {
+        _defaultGameSettings = Resources.Load<GameDefaultSettings>("ScriptableObjects/DefaultGameSettings");
+        _defaultBlockSize = _defaultGameSettings.defaultBlockSize;
+        _blockDatas = FindObjectsOfType<Block>().Select(block => new MapBlockData(block)).ToArray();
+    }
+
+    void Start()
+    {
+        if (Application.isPlaying)
         {
-            Block targetConBlock = targetConParent.GetComponent<Block>();
-            if (targetConBlock && !discardedBlocks.Contains(targetConBlock))
+            GenerateMap();
+        }
+    }
+
+    private Vector2 GetMinBlockXZ(int[] xCoords, int[] zCoords) => new Vector2(
+        Mathf.Min(xCoords),
+        Mathf.Min(zCoords)
+    );
+
+    private Vector2 GetMaxBlockXZ(int[] xCoords, int[] zCoords) => new Vector2(
+        Mathf.Max(xCoords),
+        Mathf.Max(zCoords)
+    );
+
+    public void GenerateAndShow()
+    {
+        GenerateMap();
+        ShowMap();
+    }
+
+    public void GenerateMap()
+    {
+        if (_mapShow)
+        {
+            foreach (Transform block in _mapShow.transform)
             {
-                AddBlockToMap(targetConBlock, ref discardedBlocks, minXZCoords);
+                Destroy(block.gameObject);
+            }
+        }
+        
+        if (_blockDatas != null)
+        {
+            int[] xCoords = _blockDatas.Select(blockData => (int) blockData.blockPos.x).ToArray();
+            int[] zCoords = _blockDatas.Select(blockData => (int) blockData.blockPos.z).ToArray();
+
+            Vector2 minXZCoords = GetMinBlockXZ(xCoords, zCoords);
+            Vector2 maxXZCoords = GetMaxBlockXZ(xCoords, zCoords);
+
+            Debug.Log("Creating map");
+            _pathFindingMap = new MapData((int) minXZCoords.x, (int) maxXZCoords.x, (int) minXZCoords.y,
+                (int) maxXZCoords.y, _defaultBlockSize);
+
+            _pathFindingMap.AddBlocksToMap(_blockDatas);   
+        }
+    }
+
+    public void ShowMap()
+    {
+        if (_pathFindingMap?.map != null && _pathFindingMap.map.Length > 0)
+        {
+            if (_mapShow)
+            {
+                if (_mapShow.transform.childCount == 0) AddBlocksToMapRepresentation(_mapShow.transform.position);
+                _mapShow.SetActive(true);
+            }
+            else CreateMapRepresentation();   
+        }
+    }
+
+    private void CreateMapRepresentation()
+    {
+        _mapShow = new GameObject("MapToShow");
+        _mapShow.transform.position = Vector3.up * 20;
+
+        AddBlocksToMapRepresentation(_mapShow.transform.position);
+    }
+
+    private void AddBlocksToMapRepresentation(Vector3 mapShowPos)
+    {
+        KeyValuePair<MapCoords, MapBlockData>[,] map = _pathFindingMap.map;
+        int gridSizeX = _pathFindingMap.gridSizeX;
+        int gridSizeZ = _pathFindingMap.gridSizeZ;
+
+        for (int i = 0; i < map.GetLength(0); i++)
+        {
+            for (int j = 0; j < map.GetLength(1); j++)
+            {
+                MapCoords blockCoords = map[i, j].Key;
+                MapBlockData blockData = map[i, j].Value;
+
+                if (blockData != null)
+                {
+                    Debug.Log("create");
+                    Instantiate(blockData.block.gameObject,
+                        new Vector3(blockCoords.x * gridSizeX, mapShowPos.y, blockCoords.z * gridSizeZ), blockData.blockRot,
+                        _mapShow.transform);   
+                }
             }
         }
     }
-
-    private Block DiscardBlocksBelow(Block block, ref List<Block> discardedBlocks)
+    
+    public void HideMap()
     {
-        Vector3 blockPos = block.transform.position;
-        Vector2 blockXZPos = new Vector2(blockPos.x, blockPos.z);
-
-        Block[] blocksSameXZ = _blocks.Where(bl =>
-                new Vector2(bl.transform.position.x, bl.transform.position.z) == blockXZPos)
-            .OrderByDescending(bl => bl.transform.position.y).ToArray();
-
-        for (int i = 1; i < blocksSameXZ.Length; i++) discardedBlocks.Add(blocksSameXZ[i]);
-
-        return blocksSameXZ[0];
-    }
-
-    private Vector2 GetMinVec2Pos(int[] coords1, int[] coords2)
-    {
-        return new Vector2(
-            Mathf.Min(coords1),
-            Mathf.Min(coords2)
-        );
-    }
-
-    private Vector2 GetMaxVec2Pos(int[] coords1, int[] coords2)
-    {
-        return new Vector2(
-            Mathf.Max(coords1),
-            Mathf.Max(coords2)
-        );
-    }
-
-    public MapPartBuilder AddMapPartBuilder()
-    {
-        GameObject newMapPartBuilder = new GameObject("MapPartBuilder");
-        MapPartBuilder newMapPartBuilderComponent = newMapPartBuilder.AddComponent<MapPartBuilder>();
-        newMapPartBuilder.transform.parent = transform;
-
-        return newMapPartBuilderComponent;
+        if (_mapShow) _mapShow.SetActive(false);
     }
 }

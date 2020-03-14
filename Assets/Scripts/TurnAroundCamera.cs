@@ -9,7 +9,7 @@ public class TurnAroundCamera : MonoBehaviour
     
     [SerializeField] private float accelerometerThreshold = 0.3f;
     [SerializeField] private float rotationSpeed = 1.5f;
-    [SerializeField] private GameObject targetToLookAt;
+    public GameObject targetToLookAt;
 
     private Vector3 _offsetFromTarget = Vector3.zero;
 

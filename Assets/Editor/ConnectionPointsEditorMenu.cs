@@ -8,6 +8,16 @@ using UnityEditor;
 
 public class ConnectionPointsEditorMenu
 {
+    [MenuItem("MapBuilder/All Points Find Nearby Connection")]
+    private static void AllPointsFindNearbyConnection()
+    {
+        ConnectionPoint[] conPoints = GameObject.FindObjectsOfType<ConnectionPoint>();
+        foreach (ConnectionPoint conPoint in conPoints)
+        {
+            conPoint.CheckForNearbyConnectionPoint();
+        }
+    }
+    
     [MenuItem("MapBuilder/Connect TWO Selected Points")]
     private static void ConnectTwoSelectedPoints()
     {
@@ -17,6 +27,7 @@ public class ConnectionPointsEditorMenu
             connectionPoints[0].transform.parent != connectionPoints[1].transform.parent)
         {
             connectionPoints[0].PointConnect(connectionPoints[1]);
+            connectionPoints[1].PointConnect(connectionPoints[0]);
 
             UpdateCustomConnection(connectionPoints[0]);
             UpdateCustomConnection(connectionPoints[1]);
@@ -26,8 +37,8 @@ public class ConnectionPointsEditorMenu
     private static void UpdateCustomConnection(ConnectionPoint conPoint)
     {
         conPoint.hasConnection = true;
+        conPoint.isConnectedNearby = false;
         conPoint.hasCustomConnection = true;
-        conPoint.UpdateConnectionsSettings();
     }
 
     [MenuItem("MapBuilder/Disconnect Selected Points")]

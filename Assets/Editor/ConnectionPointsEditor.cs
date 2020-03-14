@@ -13,21 +13,29 @@ public class ConnectionPointsEditor : Editor
 
     private void OnEnable()
     {
-        _conPoint = Selection.activeGameObject.GetComponent<ConnectionPoint>();
+        _conPoint = (ConnectionPoint) target;
     }
 
     public override void OnInspectorGUI()
     {
-        if (GUILayout.Button("Set Custom Camera Position"))
+        if (_conPoint)
         {
-            TurnAroundCamera camera = FindObjectOfType<TurnAroundCamera>();
-            if (_conPoint && camera)
+            if (GUILayout.Button("Set No Connections"))
             {
-                _conPoint.customCameraPosition = camera.transform.position;
-            }    
-        }
+                _conPoint.SetNoConnections();
+            }
         
-        base.OnInspectorGUI();
+            if (GUILayout.Button("Set Custom Camera Position"))
+            {
+                TurnAroundCamera camera = FindObjectOfType<TurnAroundCamera>();
+                if (_conPoint && camera)
+                {
+                    _conPoint.customCameraPosition = camera.transform.position;
+                }    
+            }   
+        }
+
+        DrawDefaultInspector();
     }
 }
 #endif

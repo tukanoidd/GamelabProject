@@ -19,11 +19,13 @@ public class Block : MonoBehaviour
     private List<Edge> _blockEdges = new List<Edge>();
 
     [NonSerialized] public List<ConnectionPoint> connectionPoints = new List<ConnectionPoint>();
+    [NonSerialized] public MapBlockData thisBlocksMapData;
 
     public bool isTesting = true;
 
     public bool isWalkable = true;
     public float isWalkablePointScale = 0.25f;
+    
     private GameObject isWalkablePoint;
 
     private void Awake()
@@ -101,9 +103,12 @@ public class Block : MonoBehaviour
                 }
 
                 ConnectionPoint connectionPointComponent = newConnectionPoint.AddComponent<ConnectionPoint>();
-
-
-                if (connectionPointComponent) connectionPoints.Add(connectionPointComponent);
+                
+                if (connectionPointComponent)
+                {
+                    connectionPointComponent.parentBlock = this;
+                    connectionPoints.Add(connectionPointComponent);
+                }
             }
         }
     }

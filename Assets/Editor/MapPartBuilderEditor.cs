@@ -5,6 +5,7 @@ using UnityEngine;
 using Helpers;
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEditor.iOS;
 
 [CustomEditor(typeof(MapPartBuilder))]
 public class MapPartBuilderEditor : Editor
@@ -16,6 +17,14 @@ public class MapPartBuilderEditor : Editor
     {
         _mapPartBuilder = (MapPartBuilder) target;
         _defaultGameSettings = Resources.Load<GameDefaultSettings>("ScriptableObjects/DefaultGameSettings");
+
+        if (_mapPartBuilder)
+        {
+            if (!_mapPartBuilder.blockPrefab)
+            {
+                _mapPartBuilder.blockPrefab = Resources.Load<GameObject>("Prefabs/BuildingBlockPrefab");
+            }
+        } 
     }
 
     public override void OnInspectorGUI()

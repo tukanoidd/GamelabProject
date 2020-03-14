@@ -27,7 +27,7 @@ public class ConnectionPoint : MonoBehaviour
     private Material _connectedMaterial;
     private GameDefaultSettings _defaultGameSettings;
     
-    public static float scale = 0.05f;
+    public static float scale = 0.1f;
 
     public bool drawDebugConnectionLines = true;
 
@@ -42,9 +42,21 @@ public class ConnectionPoint : MonoBehaviour
     public Vector3 customCameraPosition = Vector3.zero;
     public float customMaxOffset = 0.5f;
 
+    [NonSerialized] public Block parentBlock;
     [NonSerialized] public PosDir posDir;
 
     private void Awake()
+    {
+        SetPrivateVars();
+        GetPosDir();
+
+        if (Application.isPlaying)
+        {
+            if (!connection) CheckForNearbyConnectionPoint();   
+        }
+    }
+
+    private void SetPrivateVars()
     {
         _defaultGameSettings = Resources.Load<GameDefaultSettings>("ScriptableObjects/DefaultGameSettings");
         if (_defaultGameSettings) nearbyRadius = BlockHelpers.Min(_defaultGameSettings.defaultBlockSize) / 2;
@@ -57,9 +69,6 @@ public class ConnectionPoint : MonoBehaviour
         _connectedMaterial = Resources.Load<Material>("Materials/ConnectedConnectionPoint");
 
         _meshRenderer.sharedMaterial = _standardMaterial;
-
-        GetPosDir();
-        UpdateConnectionsSettings();
     }
 
     private void GetPosDir()
@@ -89,80 +98,25 @@ public class ConnectionPoint : MonoBehaviour
         }
     }
 
-    public void UpdateConnectionsSettings()
-    {
-        if (!hasConnection)
-        {
-            if (isConnectedNearby) isConnectedNearby = false;
-            if (hasCustomConnection) hasCustomConnection = false;
-            if (connection) connection = null;
-        }
-        else
-        {
-            if (hasCustomConnection)
-            {
-                if (isConnectedNearby) isConnectedNearby = false;
-            }
-            else
-            {
-                if (!isConnectedNearby) isConnectedNearby = true;
-                if (connection) connection = null;
-            }
-        }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
+        #if UNITY_EDITOR
         CheckLoadedMaterials();
-        
-        if (connection)
-        {
-            if (_meshRenderer && _meshRenderer.sharedMaterial != _connectedMaterial) _meshRenderer.sharedMaterial = _connectedMaterial;
-            if (!connection.connection) connection.connection = this;
-        }
-        else
-        {
-            if (_meshRenderer && _meshRenderer.sharedMaterial != _standardMaterial) _meshRenderer.sharedMaterial = _standardMaterial;
-            if (isConnectedNearby)
-            {
-                CheckForNearbyConnectionPoint();
-            }
-        }
-
+        #endif
     }
-
-    private float DistBtwPoints(ConnectionPoint pt1, ConnectionPoint pt2)
-    {
-        return Vector3.Distance(pt1.transform.position, pt2.transform.position);
-    }
-
-    public void CheckForNearbyConnectionPoint()
-    {
-        List<ConnectionPoint> connectionPoints = FindObjectsOfType<ConnectionPoint>()
-            .Where(conPoint => conPoint != this && transform.parent != conPoint.transform.parent).Where(conPoint =>
-                DistBtwPoints(this, conPoint) <= nearbyRadius).OrderBy((conPoint) => DistBtwPoints(this, conPoint)).ToList();
-        
-        if (connectionPoints.Count > 0)
-        {
-            PointConnect(connectionPoints[0]);
-            return;
-        }
-        
-        hasConnection = false;
-        UpdateConnectionsSettings();
-    }
-
+    
     private void CheckLoadedMaterials()
     {
         if (!_standardMaterial) _standardMaterial = Resources.Load<Material>("Materials/ConnectionPointMat");
         if (!_connectedMaterial) _connectedMaterial = Resources.Load<Material>("Materials/ConnectedConnectionPoint");
+        
+        UpdateDebugMaterials();
+    }
+    
+    private float DistBtwPoints(ConnectionPoint pt1, ConnectionPoint pt2)
+    {
+        return Vector3.Distance(pt1.transform.position, pt2.transform.position);
     }
 
     private void OnDrawGizmos()
@@ -174,12 +128,45 @@ public class ConnectionPoint : MonoBehaviour
 #endif
         }
     }
+    
+    private void UpdateDebugMaterials()
+    {
+        if (connection) _meshRenderer.sharedMaterial = _connectedMaterial;
+        else _meshRenderer.sharedMaterial = _standardMaterial;
+    }
+    
+    public void CheckForNearbyConnectionPoint()
+    {
+        List<ConnectionPoint> connectionPoints = FindObjectsOfType<ConnectionPoint>()
+            .Where(conPoint => conPoint != this && transform.parent != conPoint.transform.parent).Where(conPoint =>
+                DistBtwPoints(this, conPoint) <= nearbyRadius).OrderBy((conPoint) => DistBtwPoints(this, conPoint)).ToList();
+        
+        if (connectionPoints.Count > 0)
+        {
+            isConnectedNearby = true;
+            hasCustomConnection = false;
+            PointConnect(connectionPoints[0]);
+            return;
+        }
+        
+        SetNoConnections();
+    }
 
     public void PointConnect(ConnectionPoint customConnectionPoint)
     {
         connection = customConnectionPoint;
-        customConnectionPoint.connection = this;
-
         hasConnection = true;
+        
+        UpdateDebugMaterials();
     }
+
+    public void SetNoConnections()
+    {
+        hasConnection = false;
+        hasCustomConnection = false;
+        isConnectedNearby = false;
+        connection = null;
+        
+        UpdateDebugMaterials();
+    }    
 }

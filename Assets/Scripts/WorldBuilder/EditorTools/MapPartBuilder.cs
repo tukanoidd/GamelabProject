@@ -11,7 +11,7 @@ public class MapPartBuilder : MonoBehaviour
 {
     public GameObject blockPrefab;
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     public void CreateStartingBlock()
     {
         if (blockPrefab && !CheckIfStartingBlockExists())
