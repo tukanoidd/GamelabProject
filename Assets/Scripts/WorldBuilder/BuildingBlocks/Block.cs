@@ -14,6 +14,7 @@ public class Block : MonoBehaviour
     private MeshRenderer _meshRenderer;
     private Material _testBlockMat;
     private Material _isWalkablePointMat;
+    private Material _isNotWalkablePointMat;
     private GameDefaultSettings _defaultGameSettings;
 
     private List<Edge> _blockEdges = new List<Edge>();
@@ -24,9 +25,10 @@ public class Block : MonoBehaviour
     public bool isTesting = true;
 
     public bool isWalkable = true;
-    public float isWalkablePointScale = 0.25f;
     
-    private GameObject isWalkablePoint;
+    private GameObject _isWalkablePoint;
+    private MeshRenderer _isWalkablePointMeshRenderer;
+    private float _isWalkablePointScale = 0.25f;
 
     private void Awake()
     {
@@ -49,6 +51,7 @@ public class Block : MonoBehaviour
 
         _testBlockMat = Resources.Load<Material>("Materials/TestBlockMat");
         _isWalkablePointMat = Resources.Load<Material>("Materials/WalkableBlockPointMat");
+        _isNotWalkablePointMat = Resources.Load<Material>("Materials/NotWalkableBlockPointMat");
 
         _blockEdges = EdgeHelpers.GetEdges(_mesh.triangles).FindBoundary().SortEdges();
 
@@ -65,7 +68,7 @@ public class Block : MonoBehaviour
         {
             Transform checkWalkablePoint = transform.Find("IsWalkablePoint");
             if (!checkWalkablePoint) CreateIsWalkablePoint();
-            else isWalkablePoint = checkWalkablePoint.gameObject;
+            else _isWalkablePoint = checkWalkablePoint.gameObject;
         }
     }
 
@@ -90,7 +93,7 @@ public class Block : MonoBehaviour
             {
                 newConnectionPoint.transform.SetParent(transform);
 
-                newConnectionPoint.name = "ConnectionPoint" + (i + 1);
+                newConnectionPoint.name = "ConnectionPoint " + (i + 1);
                 newConnectionPoint.transform.localScale = Vector3.one * ConnectionPoint.scale;
                 newConnectionPoint.transform.localPosition = connectionPointsPositionsList[i];
                 newConnectionPoint.tag = "ConnectionPoint";
@@ -115,31 +118,60 @@ public class Block : MonoBehaviour
 
     void CreateIsWalkablePoint()
     {
-        isWalkablePoint = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        _isWalkablePoint = GameObject.CreatePrimitive(PrimitiveType.Sphere);
 
-        if (isWalkablePoint)
+        if (_isWalkablePoint)
         {
-            MeshRenderer isWalkablePointMeshRenderer = isWalkablePoint.GetComponent<MeshRenderer>();
-            isWalkablePointMeshRenderer.sharedMaterial = _isWalkablePointMat;
+            _isWalkablePointMeshRenderer = _isWalkablePoint.GetComponent<MeshRenderer>();
+            _isWalkablePointMeshRenderer.sharedMaterial = _isWalkablePointMat;
 
-            isWalkablePoint.name = "IsWalkablePoint";
-            isWalkablePoint.transform.localScale = Vector3.one * isWalkablePointScale;
+            _isWalkablePoint.name = "IsWalkablePoint";
+            _isWalkablePoint.transform.localScale = Vector3.one * _isWalkablePointScale;
 
             Bounds meshRendererBounds = _meshRenderer.bounds;
-            isWalkablePoint.transform.position = meshRendererBounds.center + Vector3.up * meshRendererBounds.size.y / 2;
-            isWalkablePoint.layer = LayerMask.NameToLayer("Debug");
+            _isWalkablePoint.transform.position = meshRendererBounds.center + Vector3.up * meshRendererBounds.size.y / 2;
+            _isWalkablePoint.layer = LayerMask.NameToLayer("Debug");
 
-            isWalkablePoint.transform.SetParent(transform);
+            _isWalkablePoint.transform.SetParent(transform);
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Update()
     {
+        if (connectionPoints.Count == 0) UpdateConnectionPoints();
+
+        if (_isWalkablePoint)
+        {
+            if (!_isWalkablePointMeshRenderer) _isWalkablePointMeshRenderer = _isWalkablePoint.GetComponent<MeshRenderer>();
+
+            if (_isWalkablePointMeshRenderer)
+            {
+                if (!isWalkable && _isWalkablePointMeshRenderer.sharedMaterial == _isWalkablePointMat)
+                    _isWalkablePointMeshRenderer.sharedMaterial = _isNotWalkablePointMat;
+                if (isWalkable && _isWalkablePointMeshRenderer.sharedMaterial == _isNotWalkablePointMat)
+                    _isWalkablePointMeshRenderer.sharedMaterial = _isWalkablePointMat;
+            }   
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateConnectionPoints()
     {
+        connectionPoints = GetComponentsInChildren<ConnectionPoint>().ToList();
+        foreach (ConnectionPoint conPoint in connectionPoints)
+        {
+            conPoint.parentBlock = this;
+        }
+        if (connectionPoints.Count == 0) CreateConnectionPoints();
+    }
+
+    private void OnDrawGizmos()
+    {
+        #if UNITY_EDITOR
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, transform.position + transform.forward * 3);
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(transform.position, transform.position + transform.right * 3);
+        #endif
     }
 }

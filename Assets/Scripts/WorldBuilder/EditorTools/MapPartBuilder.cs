@@ -17,6 +17,7 @@ public class MapPartBuilder : MonoBehaviour
         if (blockPrefab && !CheckIfStartingBlockExists())
         {
             GameObject firstBlock = Instantiate(blockPrefab, transform);
+            firstBlock.name = "BuildingBlock " + (FindObjectsOfType<Block>().Length);
             firstBlock.transform.localPosition = Vector3.zero;
 
             Selection.activeGameObject = firstBlock;

@@ -5,6 +5,7 @@ using HandleUtility = UnityEngine.ProBuilder.HandleUtility;
 #if UNITY_EDITOR
 using UnityEditor;
 
+[CanEditMultipleObjects]
 [CustomEditor(typeof(Block))]
 public class BuildingBlockEditor : Editor
 {
@@ -52,12 +53,8 @@ public class BuildingBlockEditor : Editor
                     {
                         GameObject newBlock = Instantiate(_targetBlock.gameObject, snap, _blockTransform.rotation,
                             _blockTransform.parent);
-
-                        ConnectionPoint[] conPoints = newBlock.GetComponentsInChildren<ConnectionPoint>();
-                        foreach (ConnectionPoint conPoint in conPoints)
-                        {
-                            conPoint.CheckForNearbyConnectionPoint();
-                        }
+                        String[] newName = _targetBlock.name.Split(' ');
+                        newBlock.name = newName[0] + " " + (FindObjectsOfType<Block>().Length);
 
                         Selection.activeGameObject = newBlock;
                     }

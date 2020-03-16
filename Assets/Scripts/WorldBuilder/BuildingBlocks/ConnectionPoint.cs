@@ -44,6 +44,7 @@ public class ConnectionPoint : MonoBehaviour
 
     [NonSerialized] public Block parentBlock;
     [NonSerialized] public PosDir posDir;
+    [NonSerialized] public Vector3 offsetFromParentBlock;
 
     private void Awake()
     {
@@ -81,7 +82,7 @@ public class ConnectionPoint : MonoBehaviour
                 Vector3 parentCenter = parentRenderer.bounds.center;
                 Vector3 pointPos = transform.position;
 
-                Vector3 offset = pointPos - parentCenter;
+                Vector3 offset = (pointPos - parentCenter).normalized;
 
                 String up = offset.y >= 0 ? (offset.y == 0 ? "Center" : "Up") : "Down";
                 String right = offset.x >= 0 ? (offset.x == 0 ? "Center" : "Right") : "Left";
@@ -94,6 +95,12 @@ public class ConnectionPoint : MonoBehaviour
                 else if (strPosDir == "UpRightCenter") posDir = PosDir.UpRight;
                 else if (strPosDir == "UpLeftCenter") posDir = PosDir.UpLeft;
                 else posDir = PosDir.WIP;
+
+                if (posDir == PosDir.UpBackward || posDir == PosDir.UpForward || posDir == PosDir.UpLeft ||
+                    posDir == PosDir.UpRight)
+                {
+                    offsetFromParentBlock = new Vector3(offset.x, 0, offset.z).normalized;
+                }
             } 
         }
     }
@@ -103,7 +110,13 @@ public class ConnectionPoint : MonoBehaviour
     {
         #if UNITY_EDITOR
         CheckLoadedMaterials();
-        #endif
+        CheckParentBlock();
+#endif
+    }
+
+    private void CheckParentBlock()
+    {
+        if (!parentBlock && transform.parent) parentBlock = transform.parent.GetComponent<Block>();
     }
     
     private void CheckLoadedMaterials()
@@ -124,6 +137,7 @@ public class ConnectionPoint : MonoBehaviour
         if (hasConnection && connection && drawDebugConnectionLines)
         {
 #if UNITY_EDITOR
+            Gizmos.color = Color.green;
             Gizmos.DrawLine(transform.position, connection.transform.position);
 #endif
         }
@@ -137,6 +151,8 @@ public class ConnectionPoint : MonoBehaviour
     
     public void CheckForNearbyConnectionPoint()
     {
+        if (connection) return;
+        
         List<ConnectionPoint> connectionPoints = FindObjectsOfType<ConnectionPoint>()
             .Where(conPoint => conPoint != this && transform.parent != conPoint.transform.parent).Where(conPoint =>
                 DistBtwPoints(this, conPoint) <= nearbyRadius).OrderBy((conPoint) => DistBtwPoints(this, conPoint)).ToList();

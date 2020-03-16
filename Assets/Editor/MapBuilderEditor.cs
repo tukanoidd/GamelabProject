@@ -44,18 +44,33 @@ public class MapBuilderEditor : Editor
             }   
         }
 
-        bool newVal = GUILayout.Toggle(_showMap, "Show Map");
+        GameObject mapToShow = GameObject.FindGameObjectWithTag("MapRepresentation");
+        bool newVal = GUILayout.Toggle(mapToShow ? _showMap : false, "Show Map");
         if (newVal != _showMap)
         {
             _showMap = newVal;
             if (_showMap) _mapBuilder.ShowMap();
             else _mapBuilder.HideMap();
         }
+        else
+        {
+            if (mapToShow)
+            {
+                if (newVal && !mapToShow.activeSelf) _mapBuilder.ShowMap();
+                else if (!newVal && mapToShow.activeSelf) _mapBuilder.HideMap();   
+            }
+        }
+
+        if (GUI.changed)
+        {
+            EditorUtility.SetDirty(_mapBuilder);
+        }
     }
 
     private MapPartBuilder AddMapPartBuilder(MapBuilder mapBuilder)
     {
         GameObject newMapPartBuilder = new GameObject("MapPartBuilder");
+        newMapPartBuilder.tag = "MapBuild";
         MapPartBuilder newMapPartBuilderComponent = newMapPartBuilder.AddComponent<MapPartBuilder>();
         newMapPartBuilder.transform.parent = mapBuilder.transform;
 
