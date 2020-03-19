@@ -12,7 +12,7 @@ public class Block : MonoBehaviour
 {
     private Mesh _mesh;
     private MeshRenderer _meshRenderer;
-    private Material _testBlockMat;
+    public Material _testBlockMat;
     private Material _isWalkablePointMat;
     private GameDefaultSettings _defaultGameSettings;
 
@@ -45,7 +45,7 @@ public class Block : MonoBehaviour
         _mesh = GetComponent<MeshFilter>().sharedMesh;
         _meshRenderer = GetComponent<MeshRenderer>();
 
-        _testBlockMat = Resources.Load<Material>("Materials/TestBlockMat");
+       // _testBlockMat = Resources.Load<Material>("Materials/TestBlockMat");
         _isWalkablePointMat = Resources.Load<Material>("Materials/WalkableBlockPointMat");
 
         _blockEdges = EdgeHelpers.GetEdges(_mesh.triangles).FindBoundary().SortEdges();

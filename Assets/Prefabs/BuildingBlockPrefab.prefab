@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: c2c5c2e931bca2c419efab02dc9751b1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,3 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9f8cc062bb14ec4e9ca8a331cec644a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _testBlockMat: {fileID: 2100000, guid: c2c5c2e931bca2c419efab02dc9751b1, type: 2}
+  isTesting: 1
+  isWalkable: 1
+  isWalkablePointScale: 0.25
