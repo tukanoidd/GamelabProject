@@ -14,9 +14,11 @@ public class BuildingBlockEditor : Editor
     private GameDefaultSettings _defaultGameSettings;
     private int[] _sizes;
 
+    private Tool _lastTool = Tool.None;
+
     private void OnEnable()
     {
-        EditorHelpers.ToolsHidden = true;
+        _lastTool = Tools.current;
 
         GameObject selectedGameObject = Selection.activeGameObject;
         if (selectedGameObject)
@@ -42,6 +44,8 @@ public class BuildingBlockEditor : Editor
 
         if (_blockTransform.parent.name.Contains("MapPartBuilder"))
         {
+            if (Tools.current == Tool.Move) Tools.current = Tool.None;
+            
             Vector3 newPos = Handles.PositionHandle(_blockTransform.position, _blockTransform.rotation);
             Vector3 snap = Handles.SnapValue(newPos, _defaultGameSettings.defaultBlockSize.ToVector());
 
@@ -83,7 +87,7 @@ public class BuildingBlockEditor : Editor
 
     private void OnDisable()
     {
-        EditorHelpers.ToolsHidden = false;
+        Tools.current = _lastTool;
     }
 }
 #endif

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Camera))]
 public class TurnAroundCamera : MonoBehaviour
 {
     private DeviceType _deviceType;
@@ -11,12 +12,19 @@ public class TurnAroundCamera : MonoBehaviour
     [SerializeField] private float rotationSpeed = 1.5f;
     public GameObject targetToLookAt;
 
+    [NonSerialized] public Camera cam; 
+
     private Vector3 _offsetFromTarget = Vector3.zero;
 
-    void Start()
+    public void Awake()
     {
         _deviceType = SystemInfo.deviceType;
 
+        cam = GetComponent<Camera>();
+    }
+
+    void Start()
+    {
         CreateTargetToLookAt();
 
         _offsetFromTarget = targetToLookAt.transform.position - transform.position;

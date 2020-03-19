@@ -9,6 +9,7 @@ TagManager:
   - TargetToLookAt
   - MapBuild
   - MapRepresentation
+  - Map
   layers:
   - Default
   - TransparentFX

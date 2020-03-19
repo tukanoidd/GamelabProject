@@ -12,7 +12,6 @@ public class Block : MonoBehaviour
 {
     private Mesh _mesh;
     private MeshRenderer _meshRenderer;
-    private Material _testBlockMat;
     private Material _isWalkablePointMat;
     private Material _isNotWalkablePointMat;
     private GameDefaultSettings _defaultGameSettings;
@@ -34,8 +33,6 @@ public class Block : MonoBehaviour
     {
         InitPrivateVars();
 
-        if (isTesting) _meshRenderer.sharedMaterial = _testBlockMat;
-
         Vector3 meshRendererblockSize = _meshRenderer.bounds.size;
         transform.localScale = BlockHelpers.ScaleToDefaultSize(new BlockSize(Mathf.RoundToInt(meshRendererblockSize.x),
             Mathf.RoundToInt(meshRendererblockSize.y),
@@ -48,8 +45,7 @@ public class Block : MonoBehaviour
     {
         _mesh = GetComponent<MeshFilter>().sharedMesh;
         _meshRenderer = GetComponent<MeshRenderer>();
-
-        _testBlockMat = Resources.Load<Material>("Materials/TestBlockMat");
+        
         _isWalkablePointMat = Resources.Load<Material>("Materials/WalkableBlockPointMat");
         _isNotWalkablePointMat = Resources.Load<Material>("Materials/NotWalkableBlockPointMat");
 
@@ -131,6 +127,9 @@ public class Block : MonoBehaviour
             Bounds meshRendererBounds = _meshRenderer.bounds;
             _isWalkablePoint.transform.position = meshRendererBounds.center + Vector3.up * meshRendererBounds.size.y / 2;
             _isWalkablePoint.layer = LayerMask.NameToLayer("Debug");
+
+            Collider isWalkablePointCollider = _isWalkablePoint.GetComponent<Collider>();
+            if (isWalkablePointCollider) Destroy(isWalkablePointCollider);
 
             _isWalkablePoint.transform.SetParent(transform);
         }

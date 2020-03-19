@@ -68,8 +68,8 @@ public class MapData
         gridSizeX = (int) size.xSize;
         gridSizeZ = (int) size.zSize;
 
-        length = ((maxCoordX - minCoordX) / gridSizeX) * 3;
-        height = ((maxCoordZ - minCoordZ) / gridSizeZ) * 3;
+        length = ((maxCoordX - minCoordX) / gridSizeX) * 5;
+        height = ((maxCoordZ - minCoordZ) / gridSizeZ) * 5;
 
         map = new MapBlockData[height, length];
 
@@ -265,6 +265,8 @@ public class MapData
 
 public class MapBuilder : MonoBehaviour
 {
+    public bool showOnPlay = false;
+
     private GameDefaultSettings _defaultGameSettings;
     private BlockSize _defaultBlockSize;
 
@@ -291,7 +293,9 @@ public class MapBuilder : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            GenerateAndShow();
+            GenerateMap();
+
+            if (showOnPlay) ShowMap();
         }
     }
 
@@ -304,12 +308,6 @@ public class MapBuilder : MonoBehaviour
         Mathf.Max(xCoords),
         Mathf.Max(zCoords)
     );
-
-    public void GenerateAndShow()
-    {
-        GenerateMap();
-        ShowMap();
-    }
 
     public void GenerateMap()
     {
@@ -345,6 +343,8 @@ public class MapBuilder : MonoBehaviour
 
             // Reverse map rows (because somehow my algorithm makes it reversed from what it's supposed to be)
             _pathFindingMap.ReverseMap();
+
+            if (FindObjectOfType<PathFinder>()) FindObjectOfType<PathFinder>().mapData = _pathFindingMap;
         }
     }
 

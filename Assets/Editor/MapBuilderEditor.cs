@@ -61,10 +61,7 @@ public class MapBuilderEditor : Editor
             }
         }
 
-        if (GUI.changed)
-        {
-            EditorUtility.SetDirty(_mapBuilder);
-        }
+        DrawDefaultInspector();
     }
 
     private MapPartBuilder AddMapPartBuilder(MapBuilder mapBuilder)

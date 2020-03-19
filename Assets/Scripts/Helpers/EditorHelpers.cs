@@ -32,19 +32,15 @@ namespace Helpers
             return newPos;
         }
         
-        #if UNITY_EDITOR
-        public static bool ToolsHidden {
-            get {
-                Type type = typeof (Tools);
-                FieldInfo field = type.GetField ("s_Hidden", BindingFlags.NonPublic | BindingFlags.Static);
-                return ((bool) field.GetValue (null));
-            }
-            set {
-                Type type = typeof (Tools);
-                FieldInfo field = type.GetField ("s_Hidden", BindingFlags.NonPublic | BindingFlags.Static);
-                field.SetValue (null, value);
-            }
+        public static Vector3 SnapToBlockGridXZPlane(Vector3 pos, Vector3 size)
+        {
+            Vector3 newPos = Vector3.zero;
+            
+            newPos.x = Mathf.RoundToInt(pos.x / size.x) * size.x;
+            newPos.y = pos.y;
+            newPos.z = Mathf.RoundToInt(pos.z / size.x) * size.x;
+
+            return newPos;
         }
-        #endif
     }   
 }
