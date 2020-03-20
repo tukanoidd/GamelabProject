@@ -5,7 +5,6 @@ using UnityEngine;
 using Helpers;
 #if UNITY_EDITOR
 using UnityEditor;
-using UnityEditor.iOS;
 
 [CustomEditor(typeof(MapPartBuilder))]
 public class MapPartBuilderEditor : Editor
