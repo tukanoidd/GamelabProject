@@ -2,156 +2,160 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
+using AStarPathFinding;
 using UnityEngine;
 
-// General logic for pathfinding was made thanks to this
-// https://blog.nobel-joergensen.com/2011/02/26/a-path-finding-algorithm-in-unity/ blog post
-
-// Interface for a shortest path problem
-public interface IShortestPath<TState, TAction>
+public struct Coords
 {
-    /**
-     * Should return an estimate of a shortest distance.
-     * The estimate must be admissible (never overestimate)
-     */
-    float Heuristic(TState fromLocation, TState toLocation);
+    public MapCoords mapCoords;
+    public Vector3? blockCoords;
 
-    // Return the legal moves from a state
-    List<TAction> Expand(TState position);
-
-    // Return the actual cost between two adjacent locations
-    float ActualCost(TState fromLocation, TAction action);
-
-    // Returns the new state after an action has been applied
-    TState ApplyAction(TState location, Action action);
+    public Coords(MapCoords mapCoords, Vector3? blockCoords)
+    {
+        this.mapCoords = mapCoords;
+        this.blockCoords = blockCoords;
+    }
 }
 
-public class ShortestPathGraphSearch<TState, TAction>
+namespace AStarPathFinding
 {
-    class SearchNode<TState, TAction> : IComparable<SearchNode<TState, TAction>>
+    public class Location
     {
-        public SearchNode<TState, TAction> parent;
-        public TState state;
-        public TAction action;
-        public float g; // cost
-        public float f; // estimate
+        public Coords coords;
+        public int f = 0;
+        public int g = 0;
+        public int h = 0;
+        public Location parent = null;
 
-        public SearchNode(SearchNode<TState, TAction> parent, float g, float f, TState state, TAction action)
+        public Location(Coords coords)
         {
-            this.parent = parent;
-            this.g = g;
-            this.f = f;
-            this.state = state;
-            this.action = action;
-        }
-
-        // Reverse sort order (smallest numbers first)
-        public int CompareTo(SearchNode<TState, TAction> other)
-        {
-            return other.f.CompareTo(f);
-        }
-
-        public override string ToString()
-        {
-            return "SN {f:" + f + ", state: " + state + " action: " + action + "}";
+            this.coords = coords;
         }
     }
 
-    private IShortestPath<TState, TAction> info;
-
-    public ShortestPathGraphSearch(IShortestPath<TState, TAction> info)
+    public class PahtfindAlgo
     {
-        this.info = info;
-    }
-
-    /*public List<TAction> GetShortestPath(TState fromState, TState toState)
-    {
-        PriorityQueue<float, SearchNode<TState, TAction>>
-            frontier = new PriorityQueue<float, SearchNode<TState, TAction>>();
-        
-        HashSet<TState> exploredSet = new HashSet<TState>();
-        
-        Dictionary<TState, SearchNode<TState, TAction>> frontierMap = new Dictionary<TState, SearchNode<TState, TAction>>();
-        
-        SearchNode<TState, TAction> startNode = new SearchNode<TState, TAction>(null, 0, 0, fromState, default(TAction));
-        
-        frontier.Enqueue(startNode, 0);
-        frontierMap.Add(fromState, startNode);
-        
-        while (true)
+        public static void FindShortestPath(Coords startBlock, Coords targetBlock, MapBlockData[,] map)
         {
-            if (frontier.IsEmpty) return null;
+            Material testBlockMat = Resources.Load<Material>("Materials/PathFindingBlockTest");
             
-            SearchNode<TState, TAction> node = frontier.Dequeue();
-            
-            if (node.state.Equals(toState)) return BuildSolution(node);
-            
-            exploredSet.Add(node.state);
-            
-            // expand node and add to frontier
-            foreach (TAction action in info.Expand(node.state))
+            Location current = null;
+
+            if (startBlock.blockCoords.HasValue && targetBlock.blockCoords.HasValue)
             {
-                TState child = info.ApplyAction(node.state, action);
-                
-                SearchNode<TState, TAction> frontierNode = null;
-                
-                bool isNodeInFrontier = frontierMap.TryGetValue(child, out frontierNode);
-                
-                if (!exploredSet.Contains(child) && !isNodeInFrontier)
+                Location start = new Location(new Coords(startBlock.mapCoords, startBlock.blockCoords.Value));
+                Location target = new Location(new Coords(targetBlock.mapCoords, targetBlock.blockCoords.Value));
+
+                List<Location> openList = new List<Location>();
+                List<Location> closedList = new List<Location>();
+
+                int g = 0;
+
+                openList.Add(start);
+
+                while (openList.Any())
                 {
-                    SearchNode<TState, TAction> searchNode = CreateSearchNode(node, action, child, toState);
-                    frontier.Enqueue(searchNode, searchNode.f);
-                    exploredSet.Add(child);
-                }
-                else if (isNodeInFrontier)
-                {
-                    SearchNode<TState, TAction> searchNode = CreateSearchNode(node, action, child, toState);
-                    
-                    if (frontierNode.f > searchNode.f) frontier.Replace(frontierNode, frontierNode.f, searchNode.f);
+                    // Get the location with the lowest F score
+                    int lowest = openList.Min(l => l.f);
+                    current = openList.First(l => l.f == lowest);
+
+                    // Add the current location to the closed list
+                    closedList.Add(current);
+
+                    // Remove it from the open list
+                    openList.Remove(current);
+
+                    // If we added the destination to the closed list, we've found a path
+                    if (closedList.FirstOrDefault(l => l.coords.Equals(target.coords)) != null) break;
+
+                    List<Location> adjBlocks = GetWalkableAdjacentBlocks(current.coords, map);
+                    g++;
+
+                    foreach (Location adjBlock in adjBlocks)
+                    {
+                        // If this adjacent block is already in the closed list, ignore
+                        if (closedList.FirstOrDefault(l => l.coords.Equals(adjBlock.coords)) != null)
+                            continue;
+
+                        // If it's not in the open lsit...
+                        if (openList.FirstOrDefault(l => l.coords.Equals(adjBlock.coords)) == null)
+                        {
+                            // Compute its score, set the parent
+                            adjBlock.g = g;
+                            adjBlock.h = ComputeHScore(adjBlock.coords, target.coords);
+                            adjBlock.f = adjBlock.g + adjBlock.h;
+                            adjBlock.parent = current;
+
+                            // And add it to the open list
+                            openList.Insert(0, adjBlock);
+                        }
+                        else
+                        {
+                            // Test if using the current G score makes the adjacent block's F
+                            // score lower, if yes, update the parent because it means it's a better path
+                            if (g + adjBlock.h < adjBlock.f)
+                            {
+                                adjBlock.g = g;
+                                adjBlock.f = adjBlock.g + adjBlock.h;
+                                adjBlock.parent = current;
+                            }
+                        }
+                    }
                 }
             }
-        }
-    }*/
 
-    private SearchNode<TState, TAction> CreateSearchNode(SearchNode<TState, TAction> node, TAction action, TState child,
-        TState toState)
-    {
-        float cost = info.ActualCost(node.state, action);
-        float heuristic = info.Heuristic(child, toState);
-        return new SearchNode<TState, TAction>(node, node.g + cost, node.g + cost + heuristic, child, action);
-    }
-
-    private List<TAction> BuildSolution(SearchNode<TState, TAction> seachNode)
-    {
-        List<TAction> list = new List<TAction>();
-        while (seachNode != null)
-        {
-            if ((seachNode.action != null) && (!seachNode.action.Equals(default(TAction))))
+            while (current != null)
             {
-                list.Insert(0, seachNode.action);
+                Block block = map[current.coords.mapCoords.x, current.coords.mapCoords.z].block;
+                MeshRenderer blockMeshRenderer = block.GetComponent<MeshRenderer>();
+                Material ogMat = blockMeshRenderer.material;
+                blockMeshRenderer.material = testBlockMat;
+                //blockMeshRenderer.material = ogMat;
+                current = current.parent;
             }
-
-            seachNode = seachNode.parent;
         }
 
-        return list;
+        static List<Location> GetWalkableAdjacentBlocks(Coords coords, MapBlockData[,] map)
+        {
+            if (coords.blockCoords != null)
+            {
+                int x = coords.mapCoords.x;
+                int z = coords.mapCoords.z;
+                Vector3 blockPos = coords.blockCoords.Value;
+
+                List<Location> proposedLocations = new List<Location>()
+                {
+                    new Location(new Coords(new MapCoords(x, z - 1), blockPos)),
+                    new Location(new Coords(new MapCoords(x, z + 1), blockPos)),
+                    new Location(new Coords(new MapCoords(x - 1, z), blockPos)),
+                    new Location(new Coords(new MapCoords(x + 1, z), blockPos))
+                };
+
+                return proposedLocations.Where(l =>
+                    map[l.coords.mapCoords.x, l.coords.mapCoords.z] != null &&
+                    map[l.coords.mapCoords.x, l.coords.mapCoords.z].block != null &&
+                    map[l.coords.mapCoords.x, l.coords.mapCoords.z].block.isWalkable
+                ).ToList();
+            }
+            else return new List<Location>();
+        }
+
+        static int ComputeHScore(Coords coords, Coords targetCoords)
+        {
+            int x = coords.mapCoords.x;
+            int z = coords.mapCoords.z;
+
+            int targetX = targetCoords.mapCoords.x;
+            int targetZ = targetCoords.mapCoords.z;
+
+            return Math.Abs(targetX - x) + Math.Abs(targetZ - z);
+        }
     }
 }
 
 public class PathFinder : MonoBehaviour
 {
-    struct Coords
-    {
-        public MapCoords mapCoords;
-        public Vector3? blockCoords;
-
-        public Coords(MapCoords mapCoords, Vector3? blockCoords)
-        {
-            this.mapCoords = mapCoords;
-            this.blockCoords = blockCoords;
-        }
-    }
-
     [SerializeField] private float checkBlockUnderMaxDistance = 3f;
 
     [NonSerialized] public MapData mapData;
@@ -188,5 +192,21 @@ public class PathFinder : MonoBehaviour
             else _coords = null;
         }
         else _coords = null;
+    }
+
+    public void MoveToward(MapBlockData blockData)
+    {
+        if (_isCalc) return;
+
+        _isCalc = true;
+        
+        if (_coords.HasValue && blockData.mapCoords.HasValue && blockData.block != null &&
+            mapData != null && mapData.map != null)
+        {
+            PahtfindAlgo.FindShortestPath(_coords.Value, new Coords(blockData.mapCoords.Value, blockData.blockPos),
+                mapData.map);
+        }
+
+        _isCalc = false;
     }
 }

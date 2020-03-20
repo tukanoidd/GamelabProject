@@ -87,9 +87,9 @@ public class Player : MonoBehaviour
             Block block = hit.transform.GetComponent<Block>();
             if (block)
             {
-                Debug.Log("clicked block");
+                Debug.Log("Target block: " + block.name);
                 MapBlockData blockData = block.thisBlocksMapData;
-                //if (blockData != null) _pathFinder.MoveToward(blockData);
+                if (blockData != null) _pathFinder.MoveToward(blockData);
             }
         }
     }
