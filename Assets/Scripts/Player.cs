@@ -89,7 +89,7 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("clicked block");
                 MapBlockData blockData = block.thisBlocksMapData;
-                if (blockData != null) _pathFinder.MoveToward(blockData);
+                //if (blockData != null) _pathFinder.MoveToward(blockData);
             }
         }
     }
