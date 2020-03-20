@@ -7,12 +7,12 @@ using UnityEngine;
 public class TurnAroundCamera : MonoBehaviour
 {
     private DeviceType _deviceType;
-    
+
     [SerializeField] private float accelerometerThreshold = 0.3f;
     [SerializeField] private float rotationSpeed = 1.5f;
     public GameObject targetToLookAt;
 
-    [NonSerialized] public Camera cam; 
+    [NonSerialized] public Camera cam;
 
     private Vector3 _offsetFromTarget = Vector3.zero;
 
@@ -48,7 +48,7 @@ public class TurnAroundCamera : MonoBehaviour
 
         // Rotate with value that got from in[ut
         targetToLookAt.transform.Rotate(0, horizontal, 0);
-        
+
         // Find desired position of the camera based on objects position and rotation
         float desiredAngle = targetToLookAt
             .transform.eulerAngles.y;

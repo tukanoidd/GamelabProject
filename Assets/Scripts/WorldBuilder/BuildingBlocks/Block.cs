@@ -24,7 +24,7 @@ public class Block : MonoBehaviour
     public bool isTesting = true;
 
     public bool isWalkable = true;
-    
+
     private GameObject _isWalkablePoint;
     private MeshRenderer _isWalkablePointMeshRenderer;
     private float _isWalkablePointScale = 0.25f;
@@ -45,7 +45,7 @@ public class Block : MonoBehaviour
     {
         _mesh = GetComponent<MeshFilter>().sharedMesh;
         _meshRenderer = GetComponent<MeshRenderer>();
-        
+
         _isWalkablePointMat = Resources.Load<Material>("Materials/WalkableBlockPointMat");
         _isNotWalkablePointMat = Resources.Load<Material>("Materials/NotWalkableBlockPointMat");
 
@@ -102,7 +102,7 @@ public class Block : MonoBehaviour
                 }
 
                 ConnectionPoint connectionPointComponent = newConnectionPoint.AddComponent<ConnectionPoint>();
-                
+
                 if (connectionPointComponent)
                 {
                     connectionPointComponent.parentBlock = this;
@@ -149,7 +149,7 @@ public class Block : MonoBehaviour
                     _isWalkablePointMeshRenderer.sharedMaterial = _isNotWalkablePointMat;
                 if (isWalkable && _isWalkablePointMeshRenderer.sharedMaterial == _isNotWalkablePointMat)
                     _isWalkablePointMeshRenderer.sharedMaterial = _isWalkablePointMat;
-            }   
+            }
         }
     }
 
@@ -168,7 +168,7 @@ public class Block : MonoBehaviour
         #if UNITY_EDITOR
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, transform.position + transform.forward * 3);
-        
+
         Gizmos.color = Color.red;
         Gizmos.DrawLine(transform.position, transform.position + transform.right * 3);
         #endif
