@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -5376,7 +5376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTesting: 1
-  isWalkable: 1
+  isWalkable: 0
 --- !u!65 &156816795
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5601,7 +5601,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13877,7 +13877,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTesting: 1
-  isWalkable: 1
+  isWalkable: 0
 --- !u!65 &444932773
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14558,7 +14558,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20891,7 +20891,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTesting: 1
-  isWalkable: 1
+  isWalkable: 0
 --- !u!65 &647446759
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22501,7 +22501,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28712,7 +28712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTesting: 1
-  isWalkable: 1
+  isWalkable: 0
 --- !u!65 &900404650
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -35598,7 +35598,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTesting: 1
-  isWalkable: 1
+  isWalkable: 0
 --- !u!65 &1160380197
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -36303,7 +36303,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTesting: 1
-  isWalkable: 1
+  isWalkable: 0
 --- !u!65 &1166093992
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -38587,7 +38587,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -39642,7 +39642,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -41469,7 +41469,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTesting: 1
-  isWalkable: 1
+  isWalkable: 0
 --- !u!65 &1390509133
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -42343,7 +42343,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -53921,7 +53921,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -56587,7 +56587,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -57788,7 +57788,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTesting: 1
-  isWalkable: 1
+  isWalkable: 0
 --- !u!65 &2002989367
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -61805,6 +61805,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MapBuilder
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229593831255854398, guid: 549aec10993dbb24eb92cd61b877fab1,
+        type: 3}
+      propertyPath: showOnPlay
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 549aec10993dbb24eb92cd61b877fab1, type: 3}
