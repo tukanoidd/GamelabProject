@@ -8,15 +8,26 @@ using UnityEditor;
 
 public class ConnectionPointsEditorMenu
 {
+    [MenuItem("MapBuilder/All Points Find Nearby Connection")]
+    private static void AllPointsFindNearbyConnection()
+    {
+        ConnectionPoint[] conPoints = GameObject.FindObjectsOfType<ConnectionPoint>();
+        foreach (ConnectionPoint conPoint in conPoints)
+        {
+            conPoint.CheckForNearbyConnectionPoint();
+        }
+    }
+    
     [MenuItem("MapBuilder/Connect TWO Selected Points")]
     private static void ConnectTwoSelectedPoints()
     {
-        List<ConnectionPoint> connectionPoints = GetSelectedConnectionPoints();
+        ConnectionPoint[] connectionPoints = GetSelectedConnectionPoints();
         
-        if (connectionPoints.Count == 2 &&
+        if (connectionPoints.Length == 2 &&
             connectionPoints[0].transform.parent != connectionPoints[1].transform.parent)
         {
             connectionPoints[0].PointConnect(connectionPoints[1]);
+            connectionPoints[1].PointConnect(connectionPoints[0]);
 
             UpdateCustomConnection(connectionPoints[0]);
             UpdateCustomConnection(connectionPoints[1]);
@@ -26,27 +37,45 @@ public class ConnectionPointsEditorMenu
     private static void UpdateCustomConnection(ConnectionPoint conPoint)
     {
         conPoint.hasConnection = true;
+        conPoint.isConnectedNearby = false;
         conPoint.hasCustomConnection = true;
-        conPoint.UpdateConnectionsSettings();
     }
 
-    [MenuItem("MapBuilder/Disconnect Selected Points")]
-    private static void DisconnectSelectedPoints()
+    [MenuItem("MapBuilder/Disconnect/All Points")]
+    private static void DisconnectAllPoints()
     {
-        List<ConnectionPoint> connectionPoints = GetSelectedConnectionPoints();
-
-        foreach (ConnectionPoint connectionPoint in connectionPoints)
-        {
-            if (connectionPoint.connection) connectionPoint.connection = null;
-            connectionPoint.connection = null;
-        }
+        ConnectionPoint[] conPoints = GameObject.FindObjectsOfType<ConnectionPoint>();
+        DisconnectPoints(conPoints);
     }
     
-    private static List<ConnectionPoint> GetSelectedConnectionPoints()
+    [MenuItem("MapBuilder/Disconnect/All Points Except With Custom Connection")]
+    private static void DisconnectAllPointsExceptCustomConnection()
+    {
+        ConnectionPoint[] conPoints = GameObject.FindObjectsOfType<ConnectionPoint>().Where(conPoint => !conPoint.hasCustomConnection).ToArray();
+        DisconnectPoints(conPoints);
+    }
+
+    private static void DisconnectPoints(ConnectionPoint[] conPoints)
+    {
+        foreach (ConnectionPoint conPoint in conPoints)
+        {
+            if (conPoint.connection) conPoint.connection.SetNoConnections();
+            conPoint.SetNoConnections();
+        }
+    }
+
+    [MenuItem("MapBuilder/Disconnect/Selected Points")]
+    private static void DisconnectSelectedPoints()
+    {
+        ConnectionPoint[] connectionPoints = GetSelectedConnectionPoints();
+        DisconnectPoints(connectionPoints);
+    }
+    
+    private static ConnectionPoint[] GetSelectedConnectionPoints()
     {
         return Selection.gameObjects
             .Where(obj => obj.GetComponent<ConnectionPoint>() != null)
-            .Select(obj => obj.GetComponent<ConnectionPoint>()).ToList();
+            .Select(obj => obj.GetComponent<ConnectionPoint>()).ToArray();
     }
 }
 #endif

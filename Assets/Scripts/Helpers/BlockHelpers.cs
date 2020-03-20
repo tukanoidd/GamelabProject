@@ -24,6 +24,7 @@ namespace Helpers
             IsDivisibleByNum((int) vec.z, (int) nums.z);
 
         public static float Min(BlockSize size) => Mathf.Min(size.xSize, size.ySize, size.zSize);
+        public static float Max(BlockSize size) => Mathf.Max(size.xSize, size.ySize, size.zSize);
 
         public static bool CheckIfPosInBlockGrid(Vector3 pos, BlockSize size)
         {

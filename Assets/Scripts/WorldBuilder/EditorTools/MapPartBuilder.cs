@@ -11,12 +11,13 @@ public class MapPartBuilder : MonoBehaviour
 {
     public GameObject blockPrefab;
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     public void CreateStartingBlock()
     {
         if (blockPrefab && !CheckIfStartingBlockExists())
         {
             GameObject firstBlock = Instantiate(blockPrefab, transform);
+            firstBlock.name = "BuildingBlock " + (FindObjectsOfType<Block>().Length);
             firstBlock.transform.localPosition = Vector3.zero;
 
             Selection.activeGameObject = firstBlock;
