@@ -236,30 +236,71 @@ public class MapData
             ).ToArray();
     }
 
-    public void ReverseMap()
+    public void ShrinkMap()
     {
-        for (int rowIndex = 0;
-            rowIndex <= (map.GetUpperBound(0));
-            rowIndex++)
+        MapCoords minCoords = new MapCoords(), maxCoords = new MapCoords();
+
+        int? minI = null;
+        int minJ = map.GetLength(1);
+        // Getting coordinates of the minBounds of the map
+        for (int i = 0; i < map.GetLength(0); i++)
         {
-            for (int colIndex = 0;
-                colIndex <= (map.GetUpperBound(1) / 2);
-                colIndex++)
+            for (int j = 0; j < map.GetLength(1); j++)
             {
-                MapBlockData tempHolder = map[rowIndex, colIndex];
-
-                int newColIndex = map.GetUpperBound(1) - colIndex;
-
-                map[rowIndex, colIndex] = map[rowIndex, newColIndex];
-                map[rowIndex, newColIndex] = tempHolder;
-
-                if (map[rowIndex, colIndex] != null)
-                    map[rowIndex, colIndex].mapCoords = new MapCoords(rowIndex, colIndex);
-
-                if (map[rowIndex, newColIndex] != null)
-                    map[rowIndex, newColIndex].mapCoords = new MapCoords(rowIndex, newColIndex);
+                if (map[i, j] != null)
+                {
+                    if (map[i, j].block)
+                    {
+                        if (!minI.HasValue) minI = i;
+                        if (j < minJ) minJ = j;
+                        break;
+                    }
+                }
             }
         }
+        
+        minCoords = new MapCoords(minI ?? 0, minJ);
+
+        int? maxI = null;
+        int maxJ = 0;
+        
+        // Getting coordinates of the mapBounds of the map
+        for (int i = map.GetLength(0) - 1; i >= 0; i--)
+        {
+            for (int j = map.GetLength(1) - 1; j >= 0; j--)
+            {
+                if (map[i, j] != null)
+                {
+                    if (map[i, j].block)
+                    {
+                        if (!maxI.HasValue) maxI = i;
+                        if (j > maxJ) maxJ = j;
+                        break;
+                    }
+                }
+            }
+        }
+        
+        maxCoords = new MapCoords(maxI ?? map.GetLength(0), maxJ);
+
+        int fDimL = Mathf.Abs(maxCoords.x - minCoords.x);
+        int sDimL = Mathf.Abs(maxCoords.z - minCoords.z);
+
+        MapBlockData[,] newMap = new MapBlockData[fDimL + 1, sDimL + 1];
+
+        for (int i = 0; i < newMap.GetLength(0); i++)
+        {
+            for (int j = 0; j < newMap.GetLength(1); j++)
+            {
+                newMap[i, j] = map[i + minCoords.x, j + minCoords.z];
+                if (newMap[i, j] != null)
+                {
+                    if (newMap[i, j].block) newMap[i, j].mapCoords = new MapCoords(i, j);
+                }
+            }
+        }
+
+        map = newMap;
     }
 }
 
@@ -340,9 +381,9 @@ public class MapBuilder : MonoBehaviour
                 (int) maxXZCoords.y, _defaultBlockSize);
 
             _pathFindingMap.AddBlocksToMap(_blockDatas);
-
-            // Reverse map rows (because somehow my algorithm makes it reversed from what it's supposed to be)
-            _pathFindingMap.ReverseMap();
+            
+            // Shrink map to proper size
+            _pathFindingMap.ShrinkMap();
 
             if (FindObjectOfType<PathFinder>()) FindObjectOfType<PathFinder>().mapData = _pathFindingMap;
         }
@@ -382,19 +423,19 @@ public class MapBuilder : MonoBehaviour
             {
                 MapBlockData blockData = map[i, j];
 
-                if (blockData != null)
+                if (blockData?.mapCoords != null)
                 {
-                    if (blockData.mapCoords.HasValue)
-                    {
-                        MapCoords blockCoords = blockData.mapCoords.Value;
+                    MapCoords blockCoords = blockData.mapCoords.Value;
+                    
+                    Debug.Log(blockCoords.ToVector2() + " " + new MapCoords(i, j).ToVector2());
+                    Debug.Log(blockCoords.Equals(new MapCoords(i, j)));
 
-                        Instantiate(
-                            blockData.block.gameObject,
-                            new Vector3(blockCoords.x * gridSizeX, mapShowPos.y, blockCoords.z * gridSizeZ),
-                            blockData.blockRot,
-                            _mapShow.transform
-                        );
-                    }
+                    Instantiate(
+                        blockData.block.gameObject,
+                        new Vector3(blockCoords.x * gridSizeX, mapShowPos.y, blockCoords.z * gridSizeZ),
+                        blockData.blockRot,
+                        _mapShow.transform
+                    );
                 }
             }
         }

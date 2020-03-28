@@ -39,7 +39,7 @@ namespace AStarPathFinding
         public static void FindShortestPath(Coords startBlock, Coords targetBlock, MapBlockData[,] map)
         {
             Material testBlockMat = Resources.Load<Material>("Materials/PathFindingBlockTest");
-            
+
             Location current = null;
 
             if (startBlock.blockCoords.HasValue && targetBlock.blockCoords.HasValue)
@@ -67,19 +67,21 @@ namespace AStarPathFinding
                     openList.Remove(current);
 
                     // If we added the destination to the closed list, we've found a path
-                    if (closedList.FirstOrDefault(l => l.coords.Equals(target.coords)) != null) break;
+                    if (closedList.FirstOrDefault(l => l.coords.mapCoords.Equals(target.coords.mapCoords)) !=
+                        null) break;
 
                     List<Location> adjBlocks = GetWalkableAdjacentBlocks(current.coords, map);
-                    g++;
+                    g = current.g + 1;
 
                     foreach (Location adjBlock in adjBlocks)
                     {
                         // If this adjacent block is already in the closed list, ignore
-                        if (closedList.FirstOrDefault(l => l.coords.Equals(adjBlock.coords)) != null)
+                        if (closedList.FirstOrDefault(l =>
+                            l.coords.mapCoords.Equals(adjBlock.coords.mapCoords)) != null)
                             continue;
 
-                        // If it's not in the open lsit...
-                        if (openList.FirstOrDefault(l => l.coords.Equals(adjBlock.coords)) == null)
+                        // If it's not in the open list...
+                        if (openList.FirstOrDefault(l => l.coords.mapCoords.Equals(adjBlock.coords.mapCoords)) == null)
                         {
                             // Compute its score, set the parent
                             adjBlock.g = g;
@@ -103,16 +105,16 @@ namespace AStarPathFinding
                         }
                     }
                 }
-            }
 
-            while (current != null)
-            {
-                Block block = map[current.coords.mapCoords.x, current.coords.mapCoords.z].block;
-                MeshRenderer blockMeshRenderer = block.GetComponent<MeshRenderer>();
-                Material ogMat = blockMeshRenderer.material;
-                blockMeshRenderer.material = testBlockMat;
-                //blockMeshRenderer.material = ogMat;
-                current = current.parent;
+                while (current != null)
+                {
+                    Block block = map[current.coords.mapCoords.x, current.coords.mapCoords.z].block;
+                    MeshRenderer blockMeshRenderer = block.GetComponent<MeshRenderer>();
+                    Material ogMat = blockMeshRenderer.material;
+                    blockMeshRenderer.material = testBlockMat;
+                    //blockMeshRenderer.material = ogMat;
+                    current = current.parent;
+                }
             }
         }
 
@@ -133,6 +135,9 @@ namespace AStarPathFinding
                 };
 
                 return proposedLocations.Where(l =>
+                    l.coords.mapCoords.x >= 0 && l.coords.mapCoords.z >= 0 &&
+                    l.coords.mapCoords.x < map.GetLength(0) &&
+                    l.coords.mapCoords.z < map.GetLength(1) &&
                     map[l.coords.mapCoords.x, l.coords.mapCoords.z] != null &&
                     map[l.coords.mapCoords.x, l.coords.mapCoords.z].block != null &&
                     map[l.coords.mapCoords.x, l.coords.mapCoords.z].block.isWalkable
@@ -199,7 +204,7 @@ public class PathFinder : MonoBehaviour
         if (_isCalc) return;
 
         _isCalc = true;
-        
+
         if (_coords.HasValue && blockData.mapCoords.HasValue && blockData.block != null &&
             mapData != null && mapData.map != null)
         {
