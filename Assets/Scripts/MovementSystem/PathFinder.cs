@@ -36,10 +36,8 @@ namespace AStarPathFinding
 
     public class PahtfindAlgo
     {
-        public static void FindShortestPath(Coords startBlock, Coords targetBlock, MapBlockData[,] map)
+        public static Location FindShortestPath(Coords startBlock, Coords targetBlock, MapBlockData[,] map)
         {
-            Material testBlockMat = Resources.Load<Material>("Materials/PathFindingBlockTest");
-
             Location current = null;
 
             if (startBlock.blockCoords.HasValue && targetBlock.blockCoords.HasValue)
@@ -105,17 +103,9 @@ namespace AStarPathFinding
                         }
                     }
                 }
-
-                while (current != null)
-                {
-                    Block block = map[current.coords.mapCoords.x, current.coords.mapCoords.z].block;
-                    MeshRenderer blockMeshRenderer = block.GetComponent<MeshRenderer>();
-                    Material ogMat = blockMeshRenderer.material;
-                    blockMeshRenderer.material = testBlockMat;
-                    //blockMeshRenderer.material = ogMat;
-                    current = current.parent;
-                }
             }
+
+            return current;
         }
 
         static List<Location> GetWalkableAdjacentBlocks(Coords coords, MapBlockData[,] map)
@@ -126,24 +116,52 @@ namespace AStarPathFinding
                 int z = coords.mapCoords.z;
                 Vector3 blockPos = coords.blockCoords.Value;
 
-                List<Location> proposedLocations = new List<Location>()
-                {
-                    new Location(new Coords(new MapCoords(x, z - 1), blockPos)),
-                    new Location(new Coords(new MapCoords(x, z + 1), blockPos)),
-                    new Location(new Coords(new MapCoords(x - 1, z), blockPos)),
-                    new Location(new Coords(new MapCoords(x + 1, z), blockPos))
-                };
+                int fDimL = map.GetLength(0);
+                int sDimL = map.GetLength(1);
 
-                return proposedLocations.Where(l =>
-                    l.coords.mapCoords.x >= 0 && l.coords.mapCoords.z >= 0 &&
-                    l.coords.mapCoords.x < map.GetLength(0) &&
-                    l.coords.mapCoords.z < map.GetLength(1) &&
-                    map[l.coords.mapCoords.x, l.coords.mapCoords.z] != null &&
-                    map[l.coords.mapCoords.x, l.coords.mapCoords.z].block != null &&
-                    map[l.coords.mapCoords.x, l.coords.mapCoords.z].block.isWalkable
-                ).ToList();
+                int checkX = x;
+                int checkZ = z - 1;
+                
+                List<Location> proposedLocations = new List<Location>();
+                
+                if (CheckIfViableAdj(checkX, checkZ, map, fDimL, sDimL))
+                {
+                    proposedLocations.Add(new Location(new Coords(new MapCoords(checkX, checkZ), map[checkX, checkZ].blockPos)));  
+                }
+
+                checkZ = z + 1;
+                
+                if (CheckIfViableAdj(checkX, checkZ, map, fDimL, sDimL))
+                {
+                    proposedLocations.Add(new Location(new Coords(new MapCoords(checkX, checkZ), map[checkX, checkZ].blockPos)));
+                }
+
+                checkX = x - 1;
+                checkZ = z;
+                
+                if (CheckIfViableAdj(checkX, checkZ, map, fDimL, sDimL))
+                {
+                    proposedLocations.Add(new Location(new Coords(new MapCoords(checkX, checkZ), map[checkX, checkZ].blockPos)));
+                }
+
+                checkX = x + 1;
+                
+                if (CheckIfViableAdj(checkX, checkZ, map, fDimL, sDimL))
+                {
+                    proposedLocations.Add(new Location(new Coords(new MapCoords(checkX, checkZ), map[checkX, checkZ].blockPos)));
+                }
+
+                return proposedLocations;
             }
             else return new List<Location>();
+        }
+
+        static bool CheckIfViableAdj(int x, int z, MapBlockData[,] map, int fDimL, int sDimL)
+        {
+            return x >= 0 && z >= 0 && x < fDimL && 
+                   z < sDimL && map[x, z] != null && 
+                   map[x, z].block != null &&
+                   map[x, z].block.isWalkable;
         }
 
         static int ComputeHScore(Coords coords, Coords targetCoords)
@@ -199,17 +217,22 @@ public class PathFinder : MonoBehaviour
         else _coords = null;
     }
 
-    public void MoveToward(MapBlockData blockData)
+    public void GetMovementInstructions(MapBlockData blockData, Player player)
     {
         if (_isCalc) return;
 
         _isCalc = true;
 
         if (_coords.HasValue && blockData.mapCoords.HasValue && blockData.block != null &&
-            mapData != null && mapData.map != null)
+            mapData != null && mapData.map != null && player)
         {
-            PahtfindAlgo.FindShortestPath(_coords.Value, new Coords(blockData.mapCoords.Value, blockData.blockPos),
-                mapData.map);
+            Location startingBlock = PahtfindAlgo.FindShortestPath(
+                new Coords(blockData.mapCoords.Value, blockData.blockPos),
+                _coords.Value,
+                mapData.map
+            );
+            
+            player.MovePath(startingBlock);
         }
 
         _isCalc = false;

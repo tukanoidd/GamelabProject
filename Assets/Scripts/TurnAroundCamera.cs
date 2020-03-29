@@ -16,11 +16,15 @@ public class TurnAroundCamera : MonoBehaviour
 
     private Vector3 _offsetFromTarget = Vector3.zero;
 
+    private Player _player;
+
     public void Awake()
     {
         _deviceType = SystemInfo.deviceType;
 
         cam = GetComponent<Camera>();
+
+        _player = FindObjectOfType<Player>();
     }
 
     void Start()
@@ -44,19 +48,22 @@ public class TurnAroundCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        float horizontal = -GetHorizontalRotation();
+        if (!_player.isMoving)
+        {
+            float horizontal = -GetHorizontalRotation();
 
-        // Rotate with value that got from in[ut
-        targetToLookAt.transform.Rotate(0, horizontal, 0);
+            // Rotate with value that got from in[ut
+            targetToLookAt.transform.Rotate(0, horizontal, 0);
 
-        // Find desired position of the camera based on objects position and rotation
-        float desiredAngle = targetToLookAt
-            .transform.eulerAngles.y;
-        Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
-        transform.position = targetToLookAt.transform.position - (rotation * _offsetFromTarget);
+            // Find desired position of the camera based on objects position and rotation
+            float desiredAngle = targetToLookAt
+                .transform.eulerAngles.y;
+            Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
+            transform.position = targetToLookAt.transform.position - (rotation * _offsetFromTarget);
 
-        // Look at the object
-        transform.LookAt(targetToLookAt.transform);
+            // Look at the object
+            transform.LookAt(targetToLookAt.transform);   
+        }
     }
 
     private float GetHorizontalRotation()

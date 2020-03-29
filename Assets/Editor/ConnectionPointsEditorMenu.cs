@@ -8,6 +8,21 @@ using UnityEditor;
 
 public class ConnectionPointsEditorMenu
 {
+    [MenuItem("MapBuilder/All Points Destroy Colliders")]
+    private static void AllPointsUpdateColliderRadius()
+    {
+        ConnectionPoint[] conPoints = GameObject.FindObjectsOfType<ConnectionPoint>();
+        foreach (ConnectionPoint conPoint in conPoints)
+        {
+            Collider collider = conPoint.GetComponent<Collider>();
+            if (collider)
+            {
+                if (Application.isPlaying) GameObject.Destroy(collider);
+                else if (Application.isEditor)  GameObject.DestroyImmediate(collider);
+            }
+        }
+    }
+    
     [MenuItem("MapBuilder/All Points Find Nearby Connection")]
     private static void AllPointsFindNearbyConnection()
     {

@@ -426,9 +426,6 @@ public class MapBuilder : MonoBehaviour
                 if (blockData?.mapCoords != null)
                 {
                     MapCoords blockCoords = blockData.mapCoords.Value;
-                    
-                    Debug.Log(blockCoords.ToVector2() + " " + new MapCoords(i, j).ToVector2());
-                    Debug.Log(blockCoords.Equals(new MapCoords(i, j)));
 
                     Instantiate(
                         blockData.block.gameObject,

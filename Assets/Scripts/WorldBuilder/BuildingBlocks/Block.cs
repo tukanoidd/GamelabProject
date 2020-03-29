@@ -95,11 +95,8 @@ public class Block : MonoBehaviour
                 newConnectionPoint.tag = "ConnectionPoint";
                 newConnectionPoint.layer = LayerMask.NameToLayer("Debug");
 
-                Collider conPointCollider = newConnectionPoint.GetComponent<Collider>();
-                if (conPointCollider)
-                {
-                    conPointCollider.isTrigger = true;
-                }
+                SphereCollider conPointCollider = newConnectionPoint.GetComponent<SphereCollider>();
+                if (conPointCollider) Destroy(conPointCollider);
 
                 ConnectionPoint connectionPointComponent = newConnectionPoint.AddComponent<ConnectionPoint>();
 

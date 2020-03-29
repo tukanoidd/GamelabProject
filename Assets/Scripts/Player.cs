@@ -1,5 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using AStarPathFinding;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -7,6 +10,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [SerializeField] private Vector3 gravity = Vector3.down;
+    [SerializeField] private float walkSpeed = 10;
 
     private DeviceType _deviceType;
 
@@ -14,7 +18,16 @@ public class Player : MonoBehaviour
     private CharacterController _characterController;
     private TurnAroundCamera _mainCamera;
 
-    private Vector3 _speed = Vector3.zero;
+    private Vector3 _gravitySpeed = Vector3.zero;
+    private Vector3? _targetPosition = null;
+    private Location _current = null;
+
+    private float _height = 0;
+    private bool _heightChecked = false;
+
+    private Material _testBlockMat;
+
+    [NonSerialized] public bool isMoving = false;
 
     private void Awake()
     {
@@ -24,22 +37,50 @@ public class Player : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
 
         _mainCamera = FindObjectOfType<TurnAroundCamera>();
+
+        _testBlockMat = Resources.Load<Material>("Materials/PathFindingBlockTest");
     }
 
     private void Update()
     {
+        if (!_heightChecked && _characterController.isGrounded) CheckHeight();
+
         ApplyGravity();
 
-        CheckBlockSelected();
+        if (!isMoving) CheckBlockSelected();
+        else
+        {
+            if (_targetPosition.HasValue)
+            {
+                transform.position =
+                    Vector3.MoveTowards(transform.position, _targetPosition.Value, walkSpeed * Time.deltaTime);
+
+                if (Vector3.Distance(transform.position, _targetPosition.Value) < 0.01f) MovePath(_current.parent);
+            }
+        }
+    }
+
+    private void CheckHeight()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(new Ray(transform.position, -transform.up), out hit, 1000, LayerMask.NameToLayer("Map")))
+        {
+            if (hit.transform.gameObject.GetComponent<Block>())
+            {
+                _height = Vector3.Distance(transform.position, hit.point);
+                _heightChecked = true;
+            }
+        }
     }
 
     private void ApplyGravity()
     {
-        if (_characterController.isGrounded) _speed = Vector3.zero;
+        if (_characterController.isGrounded) _gravitySpeed = Vector3.zero;
 
-        _speed += gravity * Time.deltaTime;
+        _gravitySpeed += gravity * Time.deltaTime;
 
-        _characterController.Move(_speed * Time.deltaTime);
+        _characterController.Move(_gravitySpeed * Time.deltaTime);
     }
 
     private void CheckBlockSelected()
@@ -88,8 +129,78 @@ public class Player : MonoBehaviour
             if (block)
             {
                 MapBlockData blockData = block.thisBlocksMapData;
-                if (blockData != null) _pathFinder.MoveToward(blockData);
+                if (blockData != null) _pathFinder.GetMovementInstructions(blockData, this);
             }
         }
+    }
+
+    public void MovePath(Location currentBlock)
+    {
+        if (currentBlock?.coords.blockCoords != null && _heightChecked)
+        {
+            isMoving = true;
+            Vector3 blockCoords = currentBlock.coords.blockCoords.Value;
+            _targetPosition = new Vector3(blockCoords.x, transform.position.y, blockCoords.z);
+            _current = currentBlock;
+
+            Block block = _pathFinder.mapData.map[_current.coords.mapCoords.x, _current.coords.mapCoords.z].block;
+            if (block)
+            {
+                Location next = _current.parent;
+                if (next != null)
+                {
+                    Block nextBlock = _pathFinder.mapData.map[next.coords.mapCoords.x, next.coords.mapCoords.z].block;
+
+                    ConnectionPoint conPoint = block.connectionPoints.FirstOrDefault(cP =>
+                        cP.hasCustomConnection &&
+                        cP.connection &&
+                        cP.connection.parentBlock ==
+                        nextBlock
+                    );
+
+                    if (conPoint)
+                    {
+                        if (Vector3.Distance(conPoint.customCameraPosition, _mainCamera.transform.position) > 0.2f)
+                        {
+                            isMoving = false;
+                            _targetPosition = null;
+                            _current = null;
+
+                            return;
+                        }   
+                    }
+                }
+
+                if (_testBlockMat)
+                {
+                    MeshRenderer blockMeshRenderer = block.GetComponent<MeshRenderer>();
+                    Material ogMat = blockMeshRenderer.material;
+                    blockMeshRenderer.material = _testBlockMat;
+                }
+            }
+
+            return;
+        }
+
+        isMoving = false;
+        _targetPosition = null;
+        _current = null;
+    }
+
+    public void TeleportToConPoint(ConnectionPoint conPoint)
+    {
+        Debug.Log("teleport");
+        transform.position = conPoint.transform.position + Vector3.up * _height;
+    }
+
+    private void OnDrawGizmos()
+    {
+#if UNITY_EDITOR
+        if (_targetPosition.HasValue)
+        {
+            Gizmos.color = Color.yellow;
+            Gizmos.DrawLine(transform.position, _targetPosition.Value);
+        }
+#endif
     }
 }

@@ -7,7 +7,6 @@ using TMPro;
 using UnityEngine;
 
 [ExecuteAlways]
-[RequireComponent(typeof(SphereCollider))]
 [RequireComponent(typeof(MeshRenderer))]
 public class ConnectionPoint : MonoBehaviour
 {
@@ -17,16 +16,16 @@ public class ConnectionPoint : MonoBehaviour
         UpLeft,
         UpForward,
         UpBackward,
-        
+
         WIP
     }
-    
-    private SphereCollider _collider;
+
     private MeshRenderer _meshRenderer;
     private Material _standardMaterial;
     private Material _connectedMaterial;
     private GameDefaultSettings _defaultGameSettings;
-    
+    private Player _player;
+
     public static float scale = 0.1f;
 
     public bool drawDebugConnectionLines = true;
@@ -34,7 +33,7 @@ public class ConnectionPoint : MonoBehaviour
     public bool hasConnection = true;
     public bool isConnectedNearby = true;
     public bool hasCustomConnection = false;
-    
+
     public float nearbyRadius = 1;
 
     public ConnectionPoint connection;
@@ -46,6 +45,8 @@ public class ConnectionPoint : MonoBehaviour
     [NonSerialized] public PosDir posDir;
     [NonSerialized] public Vector3 offsetFromParentBlock;
 
+    [NonSerialized] public bool justTeleported = false;
+
     private void Awake()
     {
         SetPrivateVars();
@@ -53,7 +54,7 @@ public class ConnectionPoint : MonoBehaviour
 
         if (Application.isPlaying)
         {
-            if (!connection) CheckForNearbyConnectionPoint();   
+            if (!connection) CheckForNearbyConnectionPoint();
         }
     }
 
@@ -61,15 +62,14 @@ public class ConnectionPoint : MonoBehaviour
     {
         _defaultGameSettings = Resources.Load<GameDefaultSettings>("ScriptableObjects/DefaultGameSettings");
         if (_defaultGameSettings) nearbyRadius = BlockHelpers.Min(_defaultGameSettings.defaultBlockSize) / 2;
-        
-        _collider = GetComponent<SphereCollider>();
-        _collider.radius = nearbyRadius;
-        
+
         _meshRenderer = GetComponent<MeshRenderer>();
         _standardMaterial = Resources.Load<Material>("Materials/ConnectionPointMat");
         _connectedMaterial = Resources.Load<Material>("Materials/ConnectedConnectionPoint");
 
         _meshRenderer.sharedMaterial = _standardMaterial;
+        
+        _player = FindObjectOfType<Player>();
     }
 
     private void GetPosDir()
@@ -101,32 +101,68 @@ public class ConnectionPoint : MonoBehaviour
                 {
                     offsetFromParentBlock = new Vector3(offset.x, 0, offset.z).normalized;
                 }
-            } 
+            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         CheckLoadedMaterials();
         CheckParentBlock();
 #endif
+        if (Application.isPlaying) CheckPlayerNearby();
+    }
+
+    void CheckPlayerNearby()
+    {
+        if (_player)
+        {
+            Vector3 playerPos = _player.transform.position;
+            Vector3 conPointPos = transform.position;
+
+            if (
+                hasConnection && hasCustomConnection && connection &&
+                CheckCentersClose(playerPos, conPointPos) &&
+                !justTeleported && _player.isMoving
+            )
+            {
+                Debug.Log("tp");
+                justTeleported = true;
+                connection.justTeleported = true;
+
+                _player.TeleportToConPoint(connection);
+            }
+            else if (CheckCentersClose(playerPos, parentBlock.transform.position))
+            {
+                justTeleported = false;
+                if (connection) connection.justTeleported = false;
+            }
+        }
+    }
+
+    private bool CheckCentersClose(Vector3 pos1, Vector3 pos2)
+    {
+        return Vector2.Distance(
+            new Vector2(pos1.x, pos1.z),
+            new Vector2(pos2.x, pos2.z)
+        ) < 0.1f;
     }
 
     private void CheckParentBlock()
     {
         if (!parentBlock && transform.parent) parentBlock = transform.parent.GetComponent<Block>();
     }
-    
+
     private void CheckLoadedMaterials()
     {
         if (!_standardMaterial) _standardMaterial = Resources.Load<Material>("Materials/ConnectionPointMat");
         if (!_connectedMaterial) _connectedMaterial = Resources.Load<Material>("Materials/ConnectedConnectionPoint");
-        
+
         UpdateDebugMaterials();
     }
-    
+
     private float DistBtwPoints(ConnectionPoint pt1, ConnectionPoint pt2)
     {
         return Vector3.Distance(pt1.transform.position, pt2.transform.position);
@@ -142,21 +178,22 @@ public class ConnectionPoint : MonoBehaviour
 #endif
         }
     }
-    
+
     private void UpdateDebugMaterials()
     {
         if (connection) _meshRenderer.sharedMaterial = _connectedMaterial;
         else _meshRenderer.sharedMaterial = _standardMaterial;
     }
-    
+
     public void CheckForNearbyConnectionPoint()
     {
         if (connection) return;
-        
+
         List<ConnectionPoint> connectionPoints = FindObjectsOfType<ConnectionPoint>()
             .Where(conPoint => conPoint != this && transform.parent != conPoint.transform.parent).Where(conPoint =>
-                DistBtwPoints(this, conPoint) <= nearbyRadius).OrderBy((conPoint) => DistBtwPoints(this, conPoint)).ToList();
-        
+                DistBtwPoints(this, conPoint) <= nearbyRadius).OrderBy((conPoint) => DistBtwPoints(this, conPoint))
+            .ToList();
+
         if (connectionPoints.Count > 0)
         {
             isConnectedNearby = true;
@@ -164,7 +201,7 @@ public class ConnectionPoint : MonoBehaviour
             PointConnect(connectionPoints[0]);
             return;
         }
-        
+
         SetNoConnections();
     }
 
@@ -172,7 +209,7 @@ public class ConnectionPoint : MonoBehaviour
     {
         connection = customConnectionPoint;
         hasConnection = true;
-        
+
         UpdateDebugMaterials();
     }
 
@@ -182,7 +219,7 @@ public class ConnectionPoint : MonoBehaviour
         hasCustomConnection = false;
         isConnectedNearby = false;
         connection = null;
-        
+
         UpdateDebugMaterials();
-    }    
+    }
 }
