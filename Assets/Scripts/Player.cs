@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float walkSpeed = 10;
 
     private DeviceType _deviceType;
+    private GameDefaultSettings _defaultGameSettings;
 
     private PathFinder _pathFinder;
     private CharacterController _characterController;
@@ -29,6 +30,8 @@ public class Player : MonoBehaviour
 
     [NonSerialized] public bool isMoving = false;
 
+    [NonSerialized] public bool teleporting = false;
+
     private void Awake()
     {
         _deviceType = SystemInfo.deviceType;
@@ -39,6 +42,7 @@ public class Player : MonoBehaviour
         _mainCamera = FindObjectOfType<TurnAroundCamera>();
 
         _testBlockMat = Resources.Load<Material>("Materials/PathFindingBlockTest");
+        _defaultGameSettings = Resources.Load<GameDefaultSettings>("ScriptableObjects/DefaultGameSettings");
     }
 
     private void Update()
@@ -60,7 +64,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-
+    
     private void CheckHeight()
     {
         RaycastHit hit;
@@ -141,7 +145,8 @@ public class Player : MonoBehaviour
         {
             isMoving = true;
             Vector3 blockCoords = currentBlock.coords.blockCoords.Value;
-            _targetPosition = new Vector3(blockCoords.x, transform.position.y, blockCoords.z);
+            _targetPosition = new Vector3(blockCoords.x,
+                blockCoords.y + _height + _defaultGameSettings.defaultBlockSize.ySize, blockCoords.z);
             _current = currentBlock;
 
             Block block = _pathFinder.mapData.map[_current.coords.mapCoords.x, _current.coords.mapCoords.z].block;
@@ -161,7 +166,8 @@ public class Player : MonoBehaviour
 
                     if (conPoint)
                     {
-                        if (conPoint.customCameraPositions.Any(camPos => Vector3.Distance(camPos, _mainCamera.transform.position) > 0.3f))
+                        if (conPoint.customCameraPositions.Any(camPos =>
+                            Vector3.Distance(camPos, _mainCamera.transform.position) > 0.3f))
                         {
                             Debug.Log("no move");
                             isMoving = false;
@@ -169,7 +175,7 @@ public class Player : MonoBehaviour
                             _current = null;
 
                             return;
-                        }   
+                        }
                     }
                 }
 
@@ -189,11 +195,12 @@ public class Player : MonoBehaviour
         _current = null;
     }
 
-    public void TeleportToConPoint(ConnectionPoint conPoint)
+    public void TeleportToConPoint(ConnectionPoint conPoint, Vector3 offset)
     {
-        transform.position = conPoint.transform.position + Vector3.up * _height;
-        conPoint.justTeleported = true;
-        if (conPoint.connection) conPoint.connection.justTeleported = true;
+        teleporting = true;
+        
+        transform.position = conPoint.transform.position + offset;
+        teleporting = false;
     }
 
     private void OnDrawGizmos()

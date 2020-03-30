@@ -44,8 +44,9 @@ public class ConnectionPoint : MonoBehaviour
     [NonSerialized] public Block parentBlock;
     [NonSerialized] public PosDir posDir;
     [NonSerialized] public Vector3 offsetFromParentBlock;
-
-    [NonSerialized] public bool justTeleported = false;
+    
+    [NonSerialized] public bool canTeleport = false;
+    [NonSerialized] public float tpWait = 1;
 
     private void Awake()
     {
@@ -68,7 +69,7 @@ public class ConnectionPoint : MonoBehaviour
         _connectedMaterial = Resources.Load<Material>("Materials/ConnectedConnectionPoint");
 
         _meshRenderer.sharedMaterial = _standardMaterial;
-        
+
         _player = FindObjectOfType<Player>();
     }
 
@@ -123,29 +124,50 @@ public class ConnectionPoint : MonoBehaviour
             Vector3 conPointPos = transform.position;
 
             if (
-                hasConnection && hasCustomConnection && connection &&
-                CheckCentersClose(playerPos, conPointPos) &&
-                !justTeleported && _player.isMoving
+                hasConnection && hasCustomConnection && connection
             )
             {
-                Debug.Log("tp");
+                if (CheckCentersClose(playerPos, conPointPos) &&
+                    !_player.teleporting && canTeleport && _player.isMoving)
+                {
+                    canTeleport = false;
+                    connection.canTeleport = false;
+                    
+                    _player.TeleportToConPoint(connection, playerPos - conPointPos);
 
-                _player.TeleportToConPoint(connection);
+                    StartCoroutine(TpWait());
+                    connection.StartCoroutine(connection.TpWait());
+                } else if (Vector3.Distance(playerPos, conPointPos) >= 0.5f && !_player.teleporting && tpWait >= 1f)
+                {
+                    canTeleport = true;
+                }
             }
-            else if (Vector3.Distance(playerPos, conPointPos) >= 0.5f)
-            {
-                justTeleported = false;
-                if (connection) connection.justTeleported = false;
-            }
+        }
+    }
+    
+    private IEnumerator TpWait()
+    {
+        float duration = 0.5f;
+        tpWait = 0;
+        
+        while(tpWait <= 1f)
+        {
+            tpWait += Time.deltaTime / duration;
+            yield return null;
         }
     }
 
     private bool CheckCentersClose(Vector3 pos1, Vector3 pos2)
     {
+        return XZDist(pos1, pos2) < 0.3f;
+    }
+
+    private float XZDist(Vector3 pos1, Vector3 pos2)
+    {
         return Vector2.Distance(
             new Vector2(pos1.x, pos1.z),
             new Vector2(pos2.x, pos2.z)
-        ) < 0.1f;
+        );
     }
 
     private void CheckParentBlock()
