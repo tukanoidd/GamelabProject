@@ -6,6 +6,7 @@ using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
 
+[CanEditMultipleObjects]
 [CustomEditor(typeof(ConnectionPoint))]
 public class ConnectionPointsEditor : Editor
 {
@@ -22,17 +23,34 @@ public class ConnectionPointsEditor : Editor
         {
             if (GUILayout.Button("Set No Connections"))
             {
-                _conPoint.SetNoConnections();
+                ConnectionPoint[] conPoints = Selection.gameObjects
+                    .Where(obj => obj.GetComponent<ConnectionPoint>())
+                    .Select(obj => obj.GetComponent<ConnectionPoint>()).ToArray();
+                    
+                foreach (ConnectionPoint conPoint in conPoints)
+                {
+                    conPoint.SetNoConnections();   
+                }
             }
-        
-            if (GUILayout.Button("Set Custom Camera Position"))
+
+            if (GUILayout.Button("Add Custom Camera Position"))
             {
                 TurnAroundCamera camera = FindObjectOfType<TurnAroundCamera>();
-                if (_conPoint && camera)
+                if (camera)
                 {
-                    _conPoint.customCameraPosition = camera.transform.position;
-                }    
-            }   
+                    ConnectionPoint[] conPoints = Selection.gameObjects
+                        .Where(obj => obj.GetComponent<ConnectionPoint>())
+                        .Select(obj => obj.GetComponent<ConnectionPoint>()).ToArray();
+                    
+                    foreach (ConnectionPoint conPoint in conPoints)
+                    {
+                        if (!conPoint.customCameraPositions.Contains(camera.transform.position))
+                        {
+                            conPoint.customCameraPositions.Add(camera.transform.position);   
+                        }   
+                    }
+                }
+            }
         }
 
         DrawDefaultInspector();
