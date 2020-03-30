@@ -22,6 +22,16 @@ public class ConnectionPointsEditorMenu
             }
         }
     }
+
+    [MenuItem("MapBuilder/All Points Remove Duplicate Camera Positions")]
+    private static void AllPointsRemoveDupCamPos()
+    {
+        ConnectionPoint[] conPoints = GameObject.FindObjectsOfType<ConnectionPoint>();
+        foreach (ConnectionPoint conPoint in conPoints)
+        {
+            conPoint.customCameraPositions = conPoint.customCameraPositions.Distinct().ToList();
+        }
+    }
     
     [MenuItem("MapBuilder/All Points Find Nearby Connection")]
     private static void AllPointsFindNearbyConnection()

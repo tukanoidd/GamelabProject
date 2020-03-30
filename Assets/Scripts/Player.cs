@@ -43,9 +43,10 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (!_heightChecked && _characterController.isGrounded) CheckHeight();
-
-        ApplyGravity();
+        if (_characterController.isGrounded)
+        {
+            if (!_heightChecked) CheckHeight();
+        } else ApplyGravity(); 
 
         if (!isMoving) CheckBlockSelected();
         else
@@ -160,8 +161,9 @@ public class Player : MonoBehaviour
 
                     if (conPoint)
                     {
-                        if (Vector3.Distance(conPoint.customCameraPosition, _mainCamera.transform.position) > 0.2f)
+                        if (conPoint.customCameraPositions.Any(camPos => Vector3.Distance(camPos, _mainCamera.transform.position) > 0.3f))
                         {
+                            Debug.Log("no move");
                             isMoving = false;
                             _targetPosition = null;
                             _current = null;
@@ -189,8 +191,9 @@ public class Player : MonoBehaviour
 
     public void TeleportToConPoint(ConnectionPoint conPoint)
     {
-        Debug.Log("teleport");
         transform.position = conPoint.transform.position + Vector3.up * _height;
+        conPoint.justTeleported = true;
+        if (conPoint.connection) conPoint.connection.justTeleported = true;
     }
 
     private void OnDrawGizmos()

@@ -38,7 +38,7 @@ public class ConnectionPoint : MonoBehaviour
 
     public ConnectionPoint connection;
 
-    public Vector3 customCameraPosition = Vector3.zero;
+    public List<Vector3> customCameraPositions = new List<Vector3>();
     public float customMaxOffset = 0.5f;
 
     [NonSerialized] public Block parentBlock;
@@ -129,12 +129,10 @@ public class ConnectionPoint : MonoBehaviour
             )
             {
                 Debug.Log("tp");
-                justTeleported = true;
-                connection.justTeleported = true;
 
                 _player.TeleportToConPoint(connection);
             }
-            else if (CheckCentersClose(playerPos, parentBlock.transform.position))
+            else if (Vector3.Distance(playerPos, conPointPos) >= 0.5f)
             {
                 justTeleported = false;
                 if (connection) connection.justTeleported = false;
