@@ -13,6 +13,7 @@ public class TurnAroundCamera : MonoBehaviour
     public GameObject targetToLookAt;
 
     [NonSerialized] public Camera cam;
+    [NonSerialized] public bool gamePaused = false;
 
     private Vector3 _offsetFromTarget = Vector3.zero;
 
@@ -48,7 +49,7 @@ public class TurnAroundCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (!_player.isMoving)
+        if (((_player && !_player.isMoving) || (!_player)) && !gamePaused)
         {
             float horizontal = -GetHorizontalRotation();
 
@@ -62,7 +63,7 @@ public class TurnAroundCamera : MonoBehaviour
             transform.position = targetToLookAt.transform.position - (rotation * _offsetFromTarget);
 
             // Look at the object
-            transform.LookAt(targetToLookAt.transform);   
+            transform.LookAt(targetToLookAt.transform);
         }
     }
 
@@ -74,7 +75,7 @@ public class TurnAroundCamera : MonoBehaviour
             case DeviceType.Desktop: return Input.GetAxis("Horizontal");
             case DeviceType.Handheld:
                 float acceleration = Input.acceleration.x;
-                return  Mathf.Abs(acceleration) < accelerometerThreshold ? 0 : Mathf.Sign(acceleration) * rotationSpeed;
+                return Mathf.Abs(acceleration) < accelerometerThreshold ? 0 : Mathf.Sign(acceleration) * rotationSpeed;
             default: return 0;
         }
     }
