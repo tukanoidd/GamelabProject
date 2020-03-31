@@ -10,6 +10,8 @@ TagManager:
   - MapBuild
   - MapRepresentation
   - Map
+  - MainPanel
+  - PauseButton
   layers:
   - Default
   - TransparentFX

@@ -29,8 +29,8 @@ public class Player : MonoBehaviour
     private Material _testBlockMat;
 
     [NonSerialized] public bool isMoving = false;
-
     [NonSerialized] public bool teleporting = false;
+    [NonSerialized] public bool gamePaused = false;
 
     private void Awake()
     {
@@ -47,21 +47,24 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        if (_characterController.isGrounded)
+        if (!gamePaused)
         {
-            if (!_heightChecked) CheckHeight();
-        } else ApplyGravity(); 
-
-        if (!isMoving) CheckBlockSelected();
-        else
-        {
-            if (_targetPosition.HasValue)
+            if (_characterController.isGrounded)
             {
-                transform.position =
-                    Vector3.MoveTowards(transform.position, _targetPosition.Value, walkSpeed * Time.deltaTime);
+                if (!_heightChecked) CheckHeight();
+            } else ApplyGravity(); 
 
-                if (Vector3.Distance(transform.position, _targetPosition.Value) < 0.01f) MovePath(_current.parent);
-            }
+            if (!isMoving) CheckBlockSelected();
+            else
+            {
+                if (_targetPosition.HasValue)
+                {
+                    transform.position =
+                        Vector3.MoveTowards(transform.position, _targetPosition.Value, walkSpeed * Time.deltaTime);
+
+                    if (Vector3.Distance(transform.position, _targetPosition.Value) < 0.01f) MovePath(_current.parent);
+                }
+            }   
         }
     }
     
@@ -169,7 +172,6 @@ public class Player : MonoBehaviour
                         if (conPoint.customCameraPositions.Any(camPos =>
                             Vector3.Distance(camPos, _mainCamera.transform.position) > 0.3f))
                         {
-                            Debug.Log("no move");
                             isMoving = false;
                             _targetPosition = null;
                             _current = null;
