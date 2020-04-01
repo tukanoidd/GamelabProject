@@ -383,7 +383,7 @@ public class MapBuilder : MonoBehaviour
             _pathFindingMap.AddBlocksToMap(_blockDatas);
             
             // Shrink map to proper size
-            _pathFindingMap.ShrinkMap();
+            //_pathFindingMap.ShrinkMap();
 
             if (FindObjectOfType<PathFinder>()) FindObjectOfType<PathFinder>().mapData = _pathFindingMap;
         }
