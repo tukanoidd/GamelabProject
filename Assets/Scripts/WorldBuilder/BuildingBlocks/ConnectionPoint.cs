@@ -39,7 +39,7 @@ public class ConnectionPoint : MonoBehaviour
     public ConnectionPoint connection;
 
     public List<Vector3> customCameraPositions = new List<Vector3>();
-    public float customMaxOffset = 0.5f;
+    public float customMaxCamOffset = 0.5f;
 
     [NonSerialized] public Block parentBlock;
     [NonSerialized] public PosDir posDir;

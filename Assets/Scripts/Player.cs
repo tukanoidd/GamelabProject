@@ -184,7 +184,7 @@ public class Player : MonoBehaviour
                     if (conPoint != null)
                     {
                         if (conPoint.customCameraPositions.Any(camPos =>
-                            Vector3.Distance(camPos, _mainCamera.transform.position) > 0.3f))
+                            Vector3.Distance(camPos, _mainCamera.transform.position) > conPoint.customMaxCamOffset))
                         {
                             StopMovement();
                             return;
