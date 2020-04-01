@@ -8,7 +8,7 @@ using UnityEditor;
 
 public class ConnectionPointsEditorMenu
 {
-    [MenuItem("MapBuilder/All Points Destroy Colliders")]
+    [MenuItem("MapBuilder/All Points/Destroy Colliders")]
     private static void AllPointsUpdateColliderRadius()
     {
         ConnectionPoint[] conPoints = GameObject.FindObjectsOfType<ConnectionPoint>();
@@ -23,17 +23,19 @@ public class ConnectionPointsEditorMenu
         }
     }
 
-    [MenuItem("MapBuilder/All Points Remove Duplicate Camera Positions")]
+    [MenuItem("MapBuilder/All Points/Remove Camera Positions/Duplicates")]
     private static void AllPointsRemoveDupCamPos()
     {
-        ConnectionPoint[] conPoints = GameObject.FindObjectsOfType<ConnectionPoint>();
-        foreach (ConnectionPoint conPoint in conPoints)
-        {
-            conPoint.customCameraPositions = conPoint.customCameraPositions.Distinct().ToList();
-        }
+        RemoveDupCamPos(GameObject.FindObjectsOfType<ConnectionPoint>());
+    }
+
+    [MenuItem("MapBuilder/All Points/Remove Camera Positions/All")]
+    private static void AllPointsRemoveCameraPositions()
+    {
+        RemoveAllCameraPositions(GameObject.FindObjectsOfType<ConnectionPoint>());
     }
     
-    [MenuItem("MapBuilder/All Points Find Nearby Connection")]
+    [MenuItem("MapBuilder/Connect/All Points Connect To Nearby")]
     private static void AllPointsFindNearbyConnection()
     {
         ConnectionPoint[] conPoints = GameObject.FindObjectsOfType<ConnectionPoint>();
@@ -43,7 +45,7 @@ public class ConnectionPointsEditorMenu
         }
     }
     
-    [MenuItem("MapBuilder/Connect TWO Selected Points")]
+    [MenuItem("MapBuilder/Connect/TWO Selected Points")]
     private static void ConnectTwoSelectedPoints()
     {
         ConnectionPoint[] connectionPoints = GetSelectedConnectionPoints();
@@ -95,12 +97,40 @@ public class ConnectionPointsEditorMenu
         ConnectionPoint[] connectionPoints = GetSelectedConnectionPoints();
         DisconnectPoints(connectionPoints);
     }
+
+    [MenuItem("MapBuilder/Selected Points/Remove Camera Positions/All")]
+    private static void SelectedPointsRemoveAllCameraPositions()
+    {
+        RemoveAllCameraPositions(GetSelectedConnectionPoints());
+    }
+    
+    [MenuItem("MapBuilder/Selected Points/Remove Camera Positions/Duplicates")]
+    private static void SelectedPointsRemoveDupCamPos()
+    {
+        RemoveDupCamPos(GetSelectedConnectionPoints());
+    }
     
     private static ConnectionPoint[] GetSelectedConnectionPoints()
     {
         return Selection.gameObjects
             .Where(obj => obj.GetComponent<ConnectionPoint>() != null)
             .Select(obj => obj.GetComponent<ConnectionPoint>()).ToArray();
+    }
+    
+    private static void RemoveAllCameraPositions(ConnectionPoint[] connectionPoints)
+    {
+        foreach (ConnectionPoint conPoint in connectionPoints)
+        {
+            conPoint.customCameraPositions = new List<Vector3>();
+        }
+    }
+    
+    private static void RemoveDupCamPos(ConnectionPoint[] connectionPoints)
+    {
+        foreach (ConnectionPoint conPoint in connectionPoints)
+        {
+            conPoint.customCameraPositions = conPoint.customCameraPositions.Distinct().ToList();
+        }
     }
 }
 #endif
