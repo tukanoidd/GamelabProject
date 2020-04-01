@@ -3264,7 +3264,7 @@ GameObject:
   - component: {fileID: 132992854}
   - component: {fileID: 132992853}
   m_Layer: 0
-  m_Name: BuildingBlock 25
+  m_Name: BuildingBlock 20
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3385,7 +3385,7 @@ GameObject:
   - component: {fileID: 139470850}
   - component: {fileID: 139470849}
   m_Layer: 0
-  m_Name: BuildingBlock 22
+  m_Name: BuildingBlock 17
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4691,7 +4691,7 @@ GameObject:
   - component: {fileID: 228869514}
   - component: {fileID: 228869513}
   m_Layer: 0
-  m_Name: BuildingBlock 23
+  m_Name: BuildingBlock 13
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6574,7 +6574,7 @@ GameObject:
   - component: {fileID: 346623666}
   - component: {fileID: 346623665}
   m_Layer: 0
-  m_Name: BuildingBlock 1
+  m_Name: BuildingBlock 6
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6923,7 +6923,7 @@ GameObject:
   - component: {fileID: 362992270}
   - component: {fileID: 362992269}
   m_Layer: 0
-  m_Name: BuildingBlock 23
+  m_Name: BuildingBlock 3
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10237,7 +10237,7 @@ GameObject:
   - component: {fileID: 533069637}
   - component: {fileID: 533069636}
   m_Layer: 0
-  m_Name: BuildingBlock 24
+  m_Name: BuildingBlock 10
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13558,7 +13558,7 @@ GameObject:
   - component: {fileID: 687868071}
   - component: {fileID: 687868070}
   m_Layer: 0
-  m_Name: BuildingBlock 25
+  m_Name: BuildingBlock 5
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13907,7 +13907,7 @@ GameObject:
   - component: {fileID: 720518482}
   - component: {fileID: 720518481}
   m_Layer: 0
-  m_Name: BuildingBlock 25
+  m_Name: BuildingBlock 15
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14599,7 +14599,7 @@ GameObject:
   - component: {fileID: 763921963}
   - component: {fileID: 763921962}
   m_Layer: 0
-  m_Name: BuildingBlock 24
+  m_Name: BuildingBlock 7
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15178,7 +15178,7 @@ GameObject:
   - component: {fileID: 785780205}
   - component: {fileID: 785780204}
   m_Layer: 0
-  m_Name: BuildingBlock 1
+  m_Name: BuildingBlock 9
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20544,7 +20544,7 @@ GameObject:
   - component: {fileID: 1093025982}
   - component: {fileID: 1093025981}
   m_Layer: 0
-  m_Name: BuildingBlock 23
+  m_Name: BuildingBlock 18
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21579,7 +21579,7 @@ GameObject:
   - component: {fileID: 1154834023}
   - component: {fileID: 1154834022}
   m_Layer: 0
-  m_Name: BuildingBlock 24
+  m_Name: BuildingBlock 19
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23390,7 +23390,7 @@ GameObject:
   - component: {fileID: 1243609344}
   - component: {fileID: 1243609343}
   m_Layer: 0
-  m_Name: BuildingBlock 24
+  m_Name: BuildingBlock 1
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24309,7 +24309,7 @@ GameObject:
   - component: {fileID: 1296989363}
   - component: {fileID: 1296989362}
   m_Layer: 0
-  m_Name: BuildingBlock 24
+  m_Name: BuildingBlock 14
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24973,7 +24973,7 @@ GameObject:
   - component: {fileID: 1315115641}
   - component: {fileID: 1315115640}
   m_Layer: 0
-  m_Name: BuildingBlock 24
+  m_Name: BuildingBlock 4
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33302,7 +33302,7 @@ GameObject:
   - component: {fileID: 1792621279}
   - component: {fileID: 1792621278}
   m_Layer: 0
-  m_Name: BuildingBlock 1
+  m_Name: BuildingBlock 21
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35797,7 +35797,7 @@ GameObject:
   - component: {fileID: 1922321787}
   - component: {fileID: 1922321786}
   m_Layer: 0
-  m_Name: BuildingBlock 1
+  m_Name: BuildingBlock 12
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36717,7 +36717,7 @@ GameObject:
   - component: {fileID: 1959278682}
   - component: {fileID: 1959278681}
   m_Layer: 0
-  m_Name: BuildingBlock 25
+  m_Name: BuildingBlock 11
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36838,7 +36838,7 @@ GameObject:
   - component: {fileID: 1964036923}
   - component: {fileID: 1964036922}
   m_Layer: 0
-  m_Name: BuildingBlock 25
+  m_Name: BuildingBlock 8
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -37530,7 +37530,7 @@ GameObject:
   - component: {fileID: 1981378365}
   - component: {fileID: 1981378364}
   m_Layer: 0
-  m_Name: BuildingBlock 1
+  m_Name: BuildingBlock 16
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38450,7 +38450,7 @@ GameObject:
   - component: {fileID: 2044716648}
   - component: {fileID: 2044716647}
   m_Layer: 0
-  m_Name: BuildingBlock 22
+  m_Name: BuildingBlock 2
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

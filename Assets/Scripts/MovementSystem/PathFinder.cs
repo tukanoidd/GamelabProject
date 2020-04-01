@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using AStarPathFinding;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 public struct Coords
 {
@@ -68,7 +69,12 @@ namespace AStarPathFinding
                     if (closedList.FirstOrDefault(l => l.coords.mapCoords.Equals(target.coords.mapCoords)) !=
                         null) break;
 
-                    List<Location> adjBlocks = GetWalkableAdjacentBlocks(current.coords, map);
+                    List<Location> adjBlocks =
+                        CheckIfActuallyConnected(GetWalkableAdjacentBlocks(current.coords, map), current, map);
+
+                    MapCoords currMapCoords = current.coords.mapCoords;
+                    Block currBlock = map[currMapCoords.x, currMapCoords.z].block;
+
                     g = current.g + 1;
 
                     foreach (Location adjBlock in adjBlocks)
@@ -108,6 +114,21 @@ namespace AStarPathFinding
             return current;
         }
 
+        static List<Location> CheckIfActuallyConnected(List<Location> blocks, Location currentBlock,
+            MapBlockData[,] map)
+        {
+            MapCoords curMapCoords = currentBlock.coords.mapCoords;
+            Block block = map[curMapCoords.x, curMapCoords.z].block;
+            if (block)
+            {
+                return blocks.Where(adjBlock => block.connectionPoints.Any(conPoint =>
+                    conPoint.connection && conPoint.connection.parentBlock ==
+                    map[adjBlock.coords.mapCoords.x, adjBlock.coords.mapCoords.z].block)).ToList();
+            }
+
+            return new List<Location>();
+        }
+
         static List<Location> GetWalkableAdjacentBlocks(Coords coords, MapBlockData[,] map)
         {
             if (coords.blockCoords != null)
@@ -121,34 +142,38 @@ namespace AStarPathFinding
 
                 int checkX = x;
                 int checkZ = z - 1;
-                
+
                 List<Location> proposedLocations = new List<Location>();
-                
+
                 if (CheckIfViableAdj(checkX, checkZ, map, fDimL, sDimL))
                 {
-                    proposedLocations.Add(new Location(new Coords(new MapCoords(checkX, checkZ), map[checkX, checkZ].blockPos)));  
+                    proposedLocations.Add(new Location(new Coords(new MapCoords(checkX, checkZ),
+                        map[checkX, checkZ].blockPos)));
                 }
 
                 checkZ = z + 1;
-                
+
                 if (CheckIfViableAdj(checkX, checkZ, map, fDimL, sDimL))
                 {
-                    proposedLocations.Add(new Location(new Coords(new MapCoords(checkX, checkZ), map[checkX, checkZ].blockPos)));
+                    proposedLocations.Add(new Location(new Coords(new MapCoords(checkX, checkZ),
+                        map[checkX, checkZ].blockPos)));
                 }
 
                 checkX = x - 1;
                 checkZ = z;
-                
+
                 if (CheckIfViableAdj(checkX, checkZ, map, fDimL, sDimL))
                 {
-                    proposedLocations.Add(new Location(new Coords(new MapCoords(checkX, checkZ), map[checkX, checkZ].blockPos)));
+                    proposedLocations.Add(new Location(new Coords(new MapCoords(checkX, checkZ),
+                        map[checkX, checkZ].blockPos)));
                 }
 
                 checkX = x + 1;
-                
+
                 if (CheckIfViableAdj(checkX, checkZ, map, fDimL, sDimL))
                 {
-                    proposedLocations.Add(new Location(new Coords(new MapCoords(checkX, checkZ), map[checkX, checkZ].blockPos)));
+                    proposedLocations.Add(new Location(new Coords(new MapCoords(checkX, checkZ),
+                        map[checkX, checkZ].blockPos)));
                 }
 
                 return proposedLocations;
@@ -158,8 +183,8 @@ namespace AStarPathFinding
 
         static bool CheckIfViableAdj(int x, int z, MapBlockData[,] map, int fDimL, int sDimL)
         {
-            return x >= 0 && z >= 0 && x < fDimL && 
-                   z < sDimL && map[x, z] != null && 
+            return x >= 0 && z >= 0 && x < fDimL &&
+                   z < sDimL && map[x, z] != null &&
                    map[x, z].block != null &&
                    map[x, z].block.isWalkable;
         }
@@ -183,7 +208,7 @@ public class PathFinder : MonoBehaviour
 
     [NonSerialized] public MapData mapData;
 
-    private Coords? _coords;
+    [NonSerialized] public Coords? currBlockCoords;
 
     private const int CostToMove = 1;
 
@@ -207,14 +232,14 @@ public class PathFinder : MonoBehaviour
                 if (mapBlockData != null)
                 {
                     if (mapBlockData.mapCoords.HasValue)
-                        _coords = new Coords(mapBlockData.mapCoords.Value, mapBlockData.blockPos);
-                    else _coords = null;
+                        currBlockCoords = new Coords(mapBlockData.mapCoords.Value, mapBlockData.blockPos);
+                    else currBlockCoords = null;
                 }
-                else _coords = null;
+                else currBlockCoords = null;
             }
-            else _coords = null;
+            else currBlockCoords = null;
         }
-        else _coords = null;
+        else currBlockCoords = null;
     }
 
     public void GetMovementInstructions(MapBlockData blockData, Player player)
@@ -223,17 +248,39 @@ public class PathFinder : MonoBehaviour
 
         _isCalc = true;
 
-        if (_coords.HasValue && blockData.mapCoords.HasValue && blockData.block != null &&
+        if (currBlockCoords.HasValue && blockData.mapCoords.HasValue && blockData.block != null &&
             mapData != null && mapData.map != null && player)
         {
+            if (currBlockCoords.Value.mapCoords.Equals(blockData.mapCoords)) goto SkipMove;
+            
+            Block startBlock = null;
+            
+            MapBlockData startBlockData =
+                mapData.map[currBlockCoords.Value.mapCoords.x, currBlockCoords.Value.mapCoords.z];
+            if (startBlockData != null) startBlock = startBlockData.block;
+
             Location startingBlock = PahtfindAlgo.FindShortestPath(
                 new Coords(blockData.mapCoords.Value, blockData.blockPos),
-                _coords.Value,
+                currBlockCoords.Value,
                 mapData.map
             );
+
+            Block startBlockAlgo = null;
             
-            player.MovePath(startingBlock);
+            if (startingBlock != null)
+            {
+                MapBlockData start2BlockData =
+                    mapData.map[startingBlock.coords.mapCoords.x, startingBlock.coords.mapCoords.z];
+                if (startBlockData != null) startBlockAlgo = start2BlockData.block;
+            }
+
+            if (startBlock && startBlockAlgo)
+            {
+                if (startBlock == startBlockAlgo) player.MovePath(startingBlock);
+            }
         }
+        
+        SkipMove:
 
         _isCalc = false;
     }
