@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private Vector3 gravity = Vector3.down;
     [SerializeField] private float walkSpeed = 10;
+    [SerializeField] private bool drawPathWhenMoving = true;
 
     private DeviceType _deviceType;
     private GameDefaultSettings _defaultGameSettings;
@@ -208,7 +209,7 @@ public class Player : MonoBehaviour
 
                 ContinueMoving:
 
-                if (_testBlockMat)
+                if (_testBlockMat && drawPathWhenMoving)
                 {
                     MeshRenderer blockMeshRenderer = block.GetComponent<MeshRenderer>();
                     Material ogMat = blockMeshRenderer.material;
