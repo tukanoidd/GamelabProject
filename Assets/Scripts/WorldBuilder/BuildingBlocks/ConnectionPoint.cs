@@ -39,7 +39,7 @@ public class ConnectionPoint : MonoBehaviour
     public ConnectionPoint connection;
 
     public List<Vector3> customCameraPositions = new List<Vector3>();
-    public float customMaxOffset = 0.5f;
+    public float customMaxCamOffset = 0.5f;
 
     [NonSerialized] public Block parentBlock;
     [NonSerialized] public PosDir posDir;
@@ -147,7 +147,7 @@ public class ConnectionPoint : MonoBehaviour
     
     private IEnumerator TpWait()
     {
-        float duration = 0.5f;
+        float duration = 1f;
         tpWait = 0;
         
         while(tpWait <= 1f)
@@ -159,7 +159,7 @@ public class ConnectionPoint : MonoBehaviour
 
     private bool CheckCentersClose(Vector3 pos1, Vector3 pos2)
     {
-        return XZDist(pos1, pos2) < 0.3f;
+        return XZDist(pos1, pos2) <= 0.5f;
     }
 
     private float XZDist(Vector3 pos1, Vector3 pos2)

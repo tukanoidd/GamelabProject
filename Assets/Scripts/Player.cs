@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using AStarPathFinding;
+using Helpers;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
 
     private Vector3 _gravitySpeed = Vector3.zero;
     private Vector3? _targetPosition = null;
+    private Block _targetBlock = null;
     private Location _current = null;
 
     private float _height = 0;
@@ -52,22 +54,35 @@ public class Player : MonoBehaviour
             if (_characterController.isGrounded)
             {
                 if (!_heightChecked) CheckHeight();
-            } else ApplyGravity(); 
+            }
+            else ApplyGravity();
 
             if (!isMoving) CheckBlockSelected();
             else
             {
-                if (_targetPosition.HasValue)
+                if (_targetPosition.HasValue && !teleporting)
                 {
-                    transform.position =
-                        Vector3.MoveTowards(transform.position, _targetPosition.Value, walkSpeed * Time.deltaTime);
+                    transform.LookAt(_targetPosition.Value);
+                    transform.position = Vector3.MoveTowards(transform.position, _targetPosition.Value,
+                        walkSpeed * Time.deltaTime);
 
                     if (Vector3.Distance(transform.position, _targetPosition.Value) < 0.01f) MovePath(_current.parent);
                 }
-            }   
+            }
+
+            LockRotation();
         }
     }
-    
+
+    private void LockRotation()
+    {
+        Vector3 newRot = transform.rotation.eulerAngles;
+        newRot.x = 0;
+        newRot.z = 0;
+
+        transform.rotation = Quaternion.Euler(newRot);
+    }
+
     private void CheckHeight()
     {
         RaycastHit hit;
@@ -144,42 +159,54 @@ public class Player : MonoBehaviour
 
     public void MovePath(Location currentBlock)
     {
-        if (currentBlock?.coords.blockCoords != null && _heightChecked)
+        if (currentBlock?.coords.blockCoords != null && _heightChecked && _pathFinder.currBlockCoords.HasValue)
         {
             isMoving = true;
             Vector3 blockCoords = currentBlock.coords.blockCoords.Value;
             _targetPosition = new Vector3(blockCoords.x,
-                blockCoords.y + _height + _defaultGameSettings.defaultBlockSize.ySize, blockCoords.z);
-            _current = currentBlock;
+                blockCoords.y + _height + _defaultGameSettings.defaultBlockSize.ySize / 2, blockCoords.z);
 
-            Block block = _pathFinder.mapData.map[_current.coords.mapCoords.x, _current.coords.mapCoords.z].block;
+            Block block = _pathFinder.mapData.map[currentBlock.coords.mapCoords.x, currentBlock.coords.mapCoords.z]
+                .block;
+
             if (block)
             {
-                Location next = _current.parent;
+                _targetBlock = block;
+                Location next = currentBlock.parent;
+
                 if (next != null)
                 {
                     Block nextBlock = _pathFinder.mapData.map[next.coords.mapCoords.x, next.coords.mapCoords.z].block;
 
                     ConnectionPoint conPoint = block.connectionPoints.FirstOrDefault(cP =>
-                        cP.hasCustomConnection &&
-                        cP.connection &&
-                        cP.connection.parentBlock ==
-                        nextBlock
+                        cP.hasCustomConnection && cP.connection &&
+                        cP.connection.parentBlock == nextBlock
                     );
 
-                    if (conPoint)
+                    if (conPoint != null)
                     {
                         if (conPoint.customCameraPositions.Any(camPos =>
-                            Vector3.Distance(camPos, _mainCamera.transform.position) > 0.3f))
+                            Vector3.Distance(camPos, _mainCamera.transform.position) > conPoint.customMaxCamOffset))
                         {
-                            isMoving = false;
-                            _targetPosition = null;
-                            _current = null;
-
+                            StopMovement();
                             return;
                         }
+                        else goto ContinueMoving;
+                    }
+
+                    conPoint = block.connectionPoints.FirstOrDefault(cP =>
+                        cP.isConnectedNearby && cP.connection &&
+                        cP.connection.parentBlock == nextBlock
+                    );
+
+                    if (conPoint == null)
+                    {
+                        StopMovement();
+                        return;
                     }
                 }
+
+                ContinueMoving:
 
                 if (_testBlockMat)
                 {
@@ -187,11 +214,17 @@ public class Player : MonoBehaviour
                     Material ogMat = blockMeshRenderer.material;
                     blockMeshRenderer.material = _testBlockMat;
                 }
-            }
 
-            return;
+                _current = currentBlock;
+                return;
+            }
         }
 
+        StopMovement();
+    }
+
+    void StopMovement()
+    {
         isMoving = false;
         _targetPosition = null;
         _current = null;
@@ -199,10 +232,18 @@ public class Player : MonoBehaviour
 
     public void TeleportToConPoint(ConnectionPoint conPoint, Vector3 offset)
     {
-        teleporting = true;
-        
-        transform.position = conPoint.transform.position + offset;
-        teleporting = false;
+        if (_targetPosition.HasValue && _targetBlock)
+        {
+            if (_targetBlock == conPoint.parentBlock)
+            {
+                Debug.Log(_targetBlock.name);
+                Debug.Log(conPoint.parentBlock.name);
+                teleporting = true;
+
+                transform.position = conPoint.transform.position + offset;
+                teleporting = false;   
+            }
+        }
     }
 
     private void OnDrawGizmos()
@@ -213,6 +254,10 @@ public class Player : MonoBehaviour
             Gizmos.color = Color.yellow;
             Gizmos.DrawLine(transform.position, _targetPosition.Value);
         }
+
+        Gizmos.color = Color.green;
+        Vector3 lineStart = transform.position + Vector3.up * _height / 2;
+        Gizmos.DrawLine(lineStart, lineStart + transform.forward * 2);
 #endif
     }
 }

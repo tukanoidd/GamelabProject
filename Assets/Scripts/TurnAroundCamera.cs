@@ -14,6 +14,12 @@ public class TurnAroundCamera : MonoBehaviour
 
     [NonSerialized] public Camera cam;
     [NonSerialized] public bool gamePaused = false;
+    
+    [NonSerialized] public Dictionary<Vector3, int> snappingPoints;
+    [NonSerialized] public int selDeg = 0;
+    [NonSerialized] public string[] degOptions = new string[8] {"0", "45", "90", "135", "180", "225", "270", "315"};
+    [NonSerialized] public int degToSnap = 0;
+    [NonSerialized] public bool circleCalc = false;
 
     private Vector3 _offsetFromTarget = Vector3.zero;
 
