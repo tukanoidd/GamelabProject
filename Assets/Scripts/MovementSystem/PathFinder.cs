@@ -118,12 +118,17 @@ namespace AStarPathFinding
             MapBlockData[,] map)
         {
             MapCoords curMapCoords = currentBlock.coords.mapCoords;
-            Block block = map[curMapCoords.x, curMapCoords.z].block;
-            if (block)
+            MapBlockData blockData = map[curMapCoords.x, curMapCoords.z];
+
+            if (blockData != null)
             {
-                return blocks.Where(adjBlock => block.connectionPoints.Any(conPoint =>
-                    conPoint.connection && conPoint.connection.parentBlock ==
-                    map[adjBlock.coords.mapCoords.x, adjBlock.coords.mapCoords.z].block)).ToList();
+                Block block = blockData.block;
+                if (block)
+                {
+                    return blocks.Where(adjBlock => block.connectionPoints.Any(conPoint =>
+                        conPoint.connection && conPoint.connection.parentBlock ==
+                        map[adjBlock.coords.mapCoords.x, adjBlock.coords.mapCoords.z].block)).ToList();
+                }   
             }
 
             return new List<Location>();

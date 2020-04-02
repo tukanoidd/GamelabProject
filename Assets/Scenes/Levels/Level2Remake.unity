@@ -174,7 +174,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &6167253
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -367,7 +367,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &9741543
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -467,7 +467,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1752921406}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &18256149
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -595,7 +595,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &31319502
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -788,7 +788,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &38910161
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -888,7 +888,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1141357765}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &52271307
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1016,7 +1016,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &55690889
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1130,7 +1130,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &59912423
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1244,7 +1244,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &61180038
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1358,7 +1358,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 2053532766}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &61453918
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1472,7 +1472,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &74847444
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1693,7 +1693,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1347417929}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &98285137
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1821,7 +1821,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &104270768
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1935,7 +1935,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1739525341}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &105508430
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2049,7 +2049,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &109490375
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2163,7 +2163,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1180915707}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &110628380
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2263,7 +2263,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1184277300}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &114749530
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2391,7 +2391,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &118871275
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2505,7 +2505,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 693793640}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &121802972
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2619,7 +2619,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &122266444
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2733,7 +2733,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1703925048}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &122298466
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2847,7 +2847,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &123067318
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2961,7 +2961,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 143851486}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &129376885
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3075,7 +3075,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &130420372
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3189,7 +3189,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1166449165}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &132104043
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3531,7 +3531,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 129376884}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &143851487
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3659,7 +3659,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 2086043671}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &151209837
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3773,7 +3773,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &165306573
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3887,7 +3887,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1785715110}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &175888973
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4001,7 +4001,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &177741365
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4194,7 +4194,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &181087862
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4309,7 +4309,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &187725420
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4423,7 +4423,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1977315290}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &193572823
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4537,7 +4537,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 390413928}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &194685468
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4930,7 +4930,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1889167450}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &250273276
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5044,7 +5044,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &259778038
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5159,7 +5159,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &269233594
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5273,7 +5273,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 427587016}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &280402751
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5387,7 +5387,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &285437267
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5608,7 +5608,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 604960515}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &296204742
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5736,7 +5736,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1219961957}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &296997842
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5836,7 +5836,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 669266206}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &299671824
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5964,7 +5964,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &303476099
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6157,7 +6157,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &310500796
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6271,7 +6271,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1091670912}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &313728826
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6371,7 +6371,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1022169351}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &317359325
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6485,7 +6485,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 975239725}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &323578537
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6734,7 +6734,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &347661562
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6848,7 +6848,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &360987367
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7083,7 +7083,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &364660783
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7247,7 +7247,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &382478410
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7361,7 +7361,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1330964359}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &383129055
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7475,7 +7475,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &389203692
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7589,7 +7589,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 194685467}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &390413929
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7703,7 +7703,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 896663841}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &396825607
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7817,7 +7817,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1577006440}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &398045444
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7931,7 +7931,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &408386541
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8045,7 +8045,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &408397889
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8159,7 +8159,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1910380125}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &418169335
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8338,7 +8338,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 280402750}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &427587017
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8466,7 +8466,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &430174429
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8580,7 +8580,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &442583933
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8694,7 +8694,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 685390881}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &451740556
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8794,7 +8794,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1834023131}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &458154742
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8922,7 +8922,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &463727155
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9037,7 +9037,7 @@ MonoBehaviour:
   connection: {fileID: 1674243760}
   customCameraPositions:
   - {x: 13.409998, y: 10.41, z: -13.910002}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &464981761
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9229,7 +9229,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1918337939}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &483766544
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9357,7 +9357,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 546890543}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &490343043
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9471,7 +9471,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 625213015}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &502322266
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9571,7 +9571,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1986526984}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &509217325
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9699,7 +9699,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &511187603
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9934,7 +9934,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &518152505
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10048,7 +10048,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1408167526}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &519938715
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10148,7 +10148,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1209415619}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &521077226
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10398,7 +10398,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   customCameraPositions:
   - {x: -11.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &536420181
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10512,7 +10512,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &537681427
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10612,7 +10612,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 2120150057}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &542036252
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10726,7 +10726,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 490343042}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &546890544
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10840,7 +10840,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 646844647}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &554066105
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10968,7 +10968,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &556060693
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11082,7 +11082,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1914203061}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &561406533
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11196,7 +11196,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &563046732
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11310,7 +11310,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &568776961
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11424,7 +11424,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &569692445
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11538,7 +11538,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &580312257
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11653,7 +11653,7 @@ MonoBehaviour:
   connection: {fileID: 1490310772}
   customCameraPositions:
   - {x: 13.409998, y: 10.41, z: -13.910002}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &590043002
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11767,7 +11767,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 2070196747}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &599787148
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11881,7 +11881,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 296204741}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &604960516
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11995,7 +11995,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &611545237
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12188,7 +12188,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 2105809986}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &623538414
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12302,7 +12302,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 502322265}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &625213016
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12495,7 +12495,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1105194001}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &632289319
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12610,7 +12610,7 @@ MonoBehaviour:
   connection: {fileID: 1431608201}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &634315867
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12724,7 +12724,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 554066104}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &646844648
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12839,7 +12839,7 @@ MonoBehaviour:
   connection: {fileID: 1589604930}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &663215788
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12953,7 +12953,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 299671823}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &669266207
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13141,7 +13141,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1306655371}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &675674262
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13255,7 +13255,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &676241463
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13369,7 +13369,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &682274790
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13469,7 +13469,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 451740555}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &685390882
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13704,7 +13704,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 121802971}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &693793641
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13832,7 +13832,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &699677331
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14068,7 +14068,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   customCameraPositions:
   - {x: -11.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &724026032
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14182,7 +14182,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &726379377
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14296,7 +14296,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1729197516}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &734748524
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14410,7 +14410,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1445080740}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &750825629
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14524,7 +14524,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &757951546
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14760,7 +14760,7 @@ MonoBehaviour:
   connection: {fileID: 2075240140}
   customCameraPositions:
   - {x: -11.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &767667989
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14875,7 +14875,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &770395234
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14989,7 +14989,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1573800022}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &774722427
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15103,7 +15103,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &777511900
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15575,7 +15575,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &802354758
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15689,7 +15689,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1230531217}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &803204191
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15804,7 +15804,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &806023011
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15918,7 +15918,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &812013998
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16032,7 +16032,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &812170171
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16146,7 +16146,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &833284753
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16260,7 +16260,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &844025291
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16374,7 +16374,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1929552031}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &850271717
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16488,7 +16488,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1241195956}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &864057036
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16602,7 +16602,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &868644653
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16795,7 +16795,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &881180454
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16988,7 +16988,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 396825606}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &896663842
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17102,7 +17102,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 944307130}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &906281042
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17202,7 +17202,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1294105061}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &917188811
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17317,7 +17317,7 @@ MonoBehaviour:
   connection: {fileID: 1609079472}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &918673784
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17445,7 +17445,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &924306671
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17559,7 +17559,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &927017918
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17673,7 +17673,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &934790963
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17787,7 +17787,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &937782287
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17901,7 +17901,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 521077225}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &938003735
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18015,7 +18015,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 2002630417}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &943291939
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18115,7 +18115,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 906281041}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &944307131
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18244,7 +18244,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &946325431
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18358,7 +18358,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &947668229
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18472,7 +18472,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1242651064}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &953683133
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18713,7 +18713,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1588049192}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &960266690
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18827,7 +18827,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &963218576
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18941,7 +18941,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 323578536}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &975239726
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19055,7 +19055,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &976097570
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19155,7 +19155,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1117406960}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &994914719
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19283,7 +19283,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1003873675
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19445,7 +19445,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1013366483
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19575,7 +19575,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1360710091}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1021733506
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19704,7 +19704,7 @@ MonoBehaviour:
   connection: {fileID: 317359324}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1022169352
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19818,7 +19818,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1035228925
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20012,7 +20012,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1058721265
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20126,7 +20126,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1148160694}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1063071992
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20241,7 +20241,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1065559414
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20355,7 +20355,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1066822755
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20455,7 +20455,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 313728825}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1091670913
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20705,7 +20705,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1099851270
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20819,7 +20819,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 632289318}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1105194002
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20933,7 +20933,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1105654294
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21048,7 +21048,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   customCameraPositions:
   - {x: -11.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1108320835
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21162,7 +21162,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 994914718}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1117406961
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21276,7 +21276,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 52271306}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1141357766
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21390,7 +21390,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1063071991}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1148160695
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21504,7 +21504,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1152753970
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21739,7 +21739,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1165784356
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21839,7 +21839,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 132104042}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1166449166
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21953,7 +21953,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 110628379}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1180915708
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22081,7 +22081,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 114749529}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1184277301
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22260,7 +22260,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 521077225}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1209415620
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22388,7 +22388,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1364613618}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1211543797
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22502,7 +22502,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 296997841}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1219961958
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22666,7 +22666,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1223902038
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22780,7 +22780,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1225253505
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22880,7 +22880,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 803204190}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1230531218
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22994,7 +22994,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1509306728}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1239898011
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23122,7 +23122,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1682621783}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1241195957
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23315,7 +23315,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 953683132}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1242651065
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23550,7 +23550,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1986526984}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1248333675
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23664,7 +23664,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1249900011
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23778,7 +23778,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1251598573
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23892,7 +23892,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1254452048
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24006,7 +24006,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1711286151}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1257959416
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24120,7 +24120,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1278210397
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24234,7 +24234,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 917188810}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1294105062
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24469,7 +24469,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1730070511}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1304040334
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24583,7 +24583,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 675674261}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1306655372
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24898,7 +24898,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1314715557
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25119,7 +25119,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1805463757}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1323756593
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25247,7 +25247,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1324879086
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25361,7 +25361,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1325223023
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25540,7 +25540,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 383129054}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1330964360
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25668,7 +25668,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1331342312
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25782,7 +25782,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1332637637
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -25896,7 +25896,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1340051145
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26010,7 +26010,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 98285136}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1347417930
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26124,7 +26124,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1351949543
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26238,7 +26238,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1021733505}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1360710092
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26338,7 +26338,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1211543796}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1364613619
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26466,7 +26466,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1638668247}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1371242830
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26597,7 +26597,7 @@ PrefabInstance:
     - target: {fileID: 8229593831255854398, guid: 549aec10993dbb24eb92cd61b877fab1,
         type: 3}
       propertyPath: showOnPlay
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 549aec10993dbb24eb92cd61b877fab1, type: 3}
@@ -26660,7 +26660,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1381411469
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26774,7 +26774,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1871418822}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1392883626
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26888,7 +26888,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1402375701
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27002,7 +27002,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 519938714}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1408167527
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27116,7 +27116,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1871195106}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1422549099
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27230,7 +27230,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1426141788
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27344,7 +27344,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1807835432}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1427214232
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27459,7 +27459,7 @@ MonoBehaviour:
   connection: {fileID: 634315866}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1431608202
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27573,7 +27573,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1432822600
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27673,7 +27673,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 750825628}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1445080741
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27880,7 +27880,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1940165056}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1456826433
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27994,7 +27994,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1468865860
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28272,7 +28272,7 @@ MonoBehaviour:
   connection: {fileID: 590043001}
   customCameraPositions:
   - {x: 13.409998, y: 10.41, z: -13.910002}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1490310773
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28386,7 +28386,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1501409259
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28501,7 +28501,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1502673416
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28615,7 +28615,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1507097759
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28729,7 +28729,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1239898010}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1509306729
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28843,7 +28843,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1517711351
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28957,7 +28957,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1532453321
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29071,7 +29071,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1548118261
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29185,7 +29185,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1928625734}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1570567883
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29299,7 +29299,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1571734208
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29413,7 +29413,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 774722426}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1573800023
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29527,7 +29527,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 398045443}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1577006441
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29641,7 +29641,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1577158234
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29755,7 +29755,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1586270512
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29855,7 +29855,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 960266689}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1588049193
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29970,7 +29970,7 @@ MonoBehaviour:
   connection: {fileID: 663215787}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1589604931
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30098,7 +30098,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1599688086
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30212,7 +30212,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 918673783}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1609079473
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30326,7 +30326,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1621978572
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30440,7 +30440,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1636040154
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30540,7 +30540,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1371242829}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1638668248
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30668,7 +30668,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1651996435
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30782,7 +30782,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 2142141578}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1663495509
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30896,7 +30896,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1668055880
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31011,7 +31011,7 @@ MonoBehaviour:
   connection: {fileID: 464981760}
   customCameraPositions:
   - {x: 13.409998, y: 10.41, z: -13.910002}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1674243761
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31111,7 +31111,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1241195956}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1682621784
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31239,7 +31239,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 122298465}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1703925049
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31339,7 +31339,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1257959415}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1711286152
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31467,7 +31467,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 2109123495}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1716836785
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31581,7 +31581,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1725307484
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31695,7 +31695,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1725686800
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31809,7 +31809,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1728044243
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31909,7 +31909,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 734748523}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1729197517
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32023,7 +32023,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1304040333}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1730070512
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32151,7 +32151,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1733519538
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32251,7 +32251,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1919195278}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1737976316
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32365,7 +32365,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 105508429}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1739525342
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32493,7 +32493,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1752648381
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32607,7 +32607,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 18256148}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1752921407
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32721,7 +32721,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1764006224
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32835,7 +32835,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1764873956
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32949,7 +32949,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1769278406
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33063,7 +33063,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1777658483
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33177,7 +33177,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 175888972}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1785715111
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33541,7 +33541,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1323756592}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1805463758
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33655,7 +33655,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1807758493
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33755,7 +33755,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1427214231}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1807835433
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -33932,7 +33932,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1822721659
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34047,7 +34047,7 @@ MonoBehaviour:
   connection: {fileID: 1973077301}
   customCameraPositions:
   - {x: -11.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1827478685
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34161,7 +34161,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 458154741}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1834023132
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34340,7 +34340,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1909283602}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1863716491
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34454,7 +34454,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1422549098}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1871195107
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34568,7 +34568,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1392883625}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1871418823
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34696,7 +34696,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1879029816
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34796,7 +34796,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 250273275}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1889167451
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34924,7 +34924,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1893853597
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35038,7 +35038,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1894126067
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35152,7 +35152,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1905212622
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35266,7 +35266,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1863716490}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1909283603
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35380,7 +35380,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 418169334}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1910380126
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35480,7 +35480,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 561406532}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1914203062
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35608,7 +35608,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 483766543}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1918337940
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35722,7 +35722,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1737976315}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1919195279
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -35957,7 +35957,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1928312197
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36071,7 +36071,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1570567882}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1928625735
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36185,7 +36185,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 850271716}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1929552032
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36285,7 +36285,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1456826432}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1940165057
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36413,7 +36413,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1942419545
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36527,7 +36527,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1946854756
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36642,7 +36642,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1949641702
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -36998,7 +36998,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1966311880
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37112,7 +37112,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1969864189
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37227,7 +37227,7 @@ MonoBehaviour:
   connection: {fileID: 1827478684}
   customCameraPositions:
   - {x: -11.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1973077302
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37341,7 +37341,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1975965762
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37455,7 +37455,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 193572822}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1977315291
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37690,7 +37690,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 2089542141}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1981456004
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37804,7 +37804,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1986410417
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -37918,7 +37918,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 509217324}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1986526985
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38032,7 +38032,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1995460598
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38147,7 +38147,7 @@ MonoBehaviour:
   connection: {fileID: 0}
   customCameraPositions:
   - {x: 13.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &1997107380
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38261,7 +38261,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 943291938}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &2002630418
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38375,7 +38375,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &2021663711
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38610,7 +38610,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 61453917}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &2053532767
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38724,7 +38724,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &2058441136
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38917,7 +38917,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 599787147}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &2070196748
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39032,7 +39032,7 @@ MonoBehaviour:
   connection: {fileID: 767667988}
   customCameraPositions:
   - {x: -11.41, y: 10.41, z: 10.91}
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &2075240141
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39146,7 +39146,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &2078543604
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39246,7 +39246,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 151209836}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &2086043672
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39374,7 +39374,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 0}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &2086647037
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39488,7 +39488,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1981456003}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &2089542142
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39602,7 +39602,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 623538413}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &2105809987
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39781,7 +39781,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1716836784}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &2109123496
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -39909,7 +39909,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 542036251}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &2120150058
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -40009,7 +40009,7 @@ MonoBehaviour:
   nearbyRadius: 0.5
   connection: {fileID: 1663495508}
   customCameraPositions: []
-  customMaxOffset: 0.5
+  customMaxCamOffset: 0.5
 --- !u!23 &2142141579
 MeshRenderer:
   m_ObjectHideFlags: 0

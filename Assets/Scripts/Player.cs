@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
 
     private Vector3 _gravitySpeed = Vector3.zero;
     private Vector3? _targetPosition = null;
+    private Block _targetBlock = null;
     private Location _current = null;
 
     private float _height = 0;
@@ -170,6 +171,7 @@ public class Player : MonoBehaviour
 
             if (block)
             {
+                _targetBlock = block;
                 Location next = currentBlock.parent;
 
                 if (next != null)
@@ -230,12 +232,17 @@ public class Player : MonoBehaviour
 
     public void TeleportToConPoint(ConnectionPoint conPoint, Vector3 offset)
     {
-        if (_targetPosition.HasValue)
+        if (_targetPosition.HasValue && _targetBlock)
         {
-            teleporting = true;
+            if (_targetBlock == conPoint.parentBlock)
+            {
+                Debug.Log(_targetBlock.name);
+                Debug.Log(conPoint.parentBlock.name);
+                teleporting = true;
 
-            transform.position = conPoint.transform.position + offset;
-            teleporting = false;
+                transform.position = conPoint.transform.position + offset;
+                teleporting = false;   
+            }
         }
     }
 
