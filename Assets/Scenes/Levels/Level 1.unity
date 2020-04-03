@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -22226,7 +22226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fccbfc03a6f618428b81ea7543791a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockPrefab: {fileID: 8485869265477385649, guid: 622d14ff8e9172a4694e338342b67478,
+  blockPrefab: {fileID: 8485869265477385649, guid: 1e16f8e7fbb642343b48ac88dc8836e2,
     type: 3}
 --- !u!1 &518201700
 GameObject:
@@ -33538,7 +33538,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 12
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -33561,8 +33561,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 773402464}
-  m_LocalRotation: {x: 0.27984816, y: -0.3647052, z: 0.1159169, w: 0.8804763}
-  m_LocalPosition: {x: 9, y: 13, z: -8}
+  m_LocalRotation: {x: 0.2141865, y: 0.6738873, z: -0.21418647, w: 0.6738874}
+  m_LocalPosition: {x: -22.384777, y: 13, z: 4.9999986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
