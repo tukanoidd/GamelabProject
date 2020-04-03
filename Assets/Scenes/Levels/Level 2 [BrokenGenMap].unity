@@ -9569,7 +9569,7 @@ MonoBehaviour:
   isConnectedNearby: 1
   hasCustomConnection: 0
   nearbyRadius: 0.5
-  connection: {fileID: 1986526984}
+  connection: {fileID: 1248333674}
   customCameraPositions: []
   customMaxCamOffset: 0.5
 --- !u!23 &509217325
@@ -10146,7 +10146,7 @@ MonoBehaviour:
   isConnectedNearby: 1
   hasCustomConnection: 0
   nearbyRadius: 0.5
-  connection: {fileID: 1209415619}
+  connection: {fileID: 938003734}
   customCameraPositions: []
   customMaxCamOffset: 0.5
 --- !u!23 &521077226
@@ -13029,7 +13029,7 @@ PrefabInstance:
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.41
+      value: 13.409998
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
@@ -13039,27 +13039,27 @@ PrefabInstance:
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.91
+      value: -13.910002
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.1159169
+      value: 0.27984816
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8804763
+      value: -0.36470515
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.27984816
+      value: 0.11591688
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.3647052
+      value: 0.8804763
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
@@ -23120,7 +23120,7 @@ MonoBehaviour:
   isConnectedNearby: 1
   hasCustomConnection: 0
   nearbyRadius: 0.5
-  connection: {fileID: 1682621783}
+  connection: {fileID: 864057035}
   customCameraPositions: []
   customMaxCamOffset: 0.5
 --- !u!23 &1241195957
@@ -23548,7 +23548,7 @@ MonoBehaviour:
   isConnectedNearby: 1
   hasCustomConnection: 0
   nearbyRadius: 0.5
-  connection: {fileID: 1986526984}
+  connection: {fileID: 509217324}
   customCameraPositions: []
   customMaxCamOffset: 0.5
 --- !u!23 &1248333675
@@ -26537,17 +26537,17 @@ PrefabInstance:
     - target: {fileID: 2371048307316154356, guid: 549aec10993dbb24eb92cd61b877fab1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2371048307316154356, guid: 549aec10993dbb24eb92cd61b877fab1,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2371048307316154356, guid: 549aec10993dbb24eb92cd61b877fab1,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2371048307316154356, guid: 549aec10993dbb24eb92cd61b877fab1,
         type: 3}
@@ -28065,17 +28065,17 @@ PrefabInstance:
     - target: {fileID: 8806809759503676259, guid: 2ae68ed81612022469268b9b833a7142,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 8806809759503676259, guid: 2ae68ed81612022469268b9b833a7142,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 8806809759503676259, guid: 2ae68ed81612022469268b9b833a7142,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 8806809759503676259, guid: 2ae68ed81612022469268b9b833a7142,
         type: 3}
@@ -31109,7 +31109,7 @@ MonoBehaviour:
   isConnectedNearby: 1
   hasCustomConnection: 0
   nearbyRadius: 0.5
-  connection: {fileID: 1241195956}
+  connection: {fileID: 864057035}
   customCameraPositions: []
   customMaxCamOffset: 0.5
 --- !u!23 &1682621784
@@ -39678,17 +39678,17 @@ PrefabInstance:
     - target: {fileID: 3470389497488073219, guid: c38b8b4901e1b0841b97ffbe8bbf37b9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3470389497488073219, guid: c38b8b4901e1b0841b97ffbe8bbf37b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3470389497488073219, guid: c38b8b4901e1b0841b97ffbe8bbf37b9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3470389497488073219, guid: c38b8b4901e1b0841b97ffbe8bbf37b9,
         type: 3}
