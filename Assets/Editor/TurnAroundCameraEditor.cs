@@ -94,7 +94,7 @@ public class TurnAroundCameraEditor : Editor
             {
                 if (GUILayout.Button("Set New Circle"))
                 {
-                    _targetCamera.circleCalc = true;
+                    _targetCamera.circleCalc = false;
                     CalcCircle();
                 }
             }
