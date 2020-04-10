@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,6 @@ public class LoadLevelButtonEditor : Editor
 {
     private List<string> _levels;
     private int _scenesNum = 0;
-    private int _selectedLevelIndex = 0;
 
     private LoadLevelButton _button;
 
@@ -45,10 +45,10 @@ public class LoadLevelButtonEditor : Editor
 
         if (_scenesNum > 0 && _button)
         {
-            _selectedLevelIndex = EditorGUILayout.Popup("Select A Level", _selectedLevelIndex, _levels.ToArray());
-            _button.levelName = _levels[_selectedLevelIndex];
+            _button.selectedLevelIndex = EditorGUILayout.Popup("Select A Level", _button.selectedLevelIndex, _levels.ToArray());
+            _button.levelName = _levels[_button.selectedLevelIndex];
         }
 
-        if (GUI.changed) EditorUtility.SetDirty(_button);
+        DrawDefaultInspector();
     }
 }

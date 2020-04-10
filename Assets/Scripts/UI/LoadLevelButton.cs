@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class LoadLevelButton : MonoBehaviour
 {
-    public string levelName = "";
+    [HideInInspector] public int selectedLevelIndex = 0;
+    
+    [HideInInspector] public string levelName = "";
 
     public void LoadLevel()
     {
