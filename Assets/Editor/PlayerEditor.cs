@@ -1,4 +1,5 @@
-﻿using System;
+﻿/*
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Helpers;
@@ -31,3 +32,4 @@ public class PlayerEditor : Editor
         DrawDefaultInspector();
     }
 }
+*/
