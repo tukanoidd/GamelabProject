@@ -197,4 +197,12 @@ public class Block : MonoBehaviour
             Debug.Log(name + " clicked");
         }
     }
+
+    private void OnDestroy()
+    {
+        if (Application.isPlaying)
+        {
+            LevelEventSystem.current.onBlockClicked -= BlockClickedTapped;
+        } 
+    }
 }
