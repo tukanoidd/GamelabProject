@@ -17,6 +17,18 @@ public class BlockEditorMenu
     {
         BlocksCreatePoints(GetSelectedBlocks()); 
     }
+    
+    [MenuItem("MapBuilder/Blocks/All/Reset Points")]
+    private static void AllBlocksResetPoints()
+    {
+        BlocksCreatePoints(GameObject.FindObjectsOfType<Block>());
+    }
+    
+    [MenuItem("MapBuilder/Blocks/Selected/Reset Points")]
+    private static void SelectedBlocksResetPoints()
+    {
+        BlocksCreatePoints(GetSelectedBlocks()); 
+    }
 
     private static Block[] GetSelectedBlocks() => Selection.gameObjects.Where(obj => obj.GetComponent<Block>() != null)
             .Select(obj => obj.GetComponent<Block>()).ToArray();
@@ -25,6 +37,7 @@ public class BlockEditorMenu
     {
         foreach (Block block in blocks)
         {
+            block.pointsReset = true;
             block.CreatePoints();
         }
     }

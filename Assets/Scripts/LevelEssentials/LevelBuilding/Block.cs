@@ -40,31 +40,31 @@ public class Block : MonoBehaviour
 
     private PathFinder _pathFinder;
 
-    [NonSerialized] public bool meshReset = false;
+    [NonSerialized] public int id;
+
+    [NonSerialized] public bool pointsReset = false;
+    [NonSerialized] public bool initPoints = true;
 
     [NonSerialized] public List<ConnectionPoint> connectionPoints = new List<ConnectionPoint>();
 
     [NonSerialized] public MapBlockData mapData;
     //--------Private and Public Invisible In Inspector--------\\
 
-    //--------Static Behavior--------\\
-    static void ScaleToSetSize(Block block, Vector3 blockSize)
-    {
-        block.transform.localScale = new Vector3(
-            blockSize.x / Block.size.x,
-            blockSize.y / Block.size.y,
-            blockSize.z / Block.size.z
-        );
-    }
-    //--------Static Behavior--------\\
-
     private void Awake()
     {
-#if UNITY_EDITOR
+        id = GetInstanceID();
+        
         InitPrivateVars();
-        ScaleToSetSize(this, _meshRenderer.bounds.size);
+        ScaleToSetSize();
         CreatePoints();
-#endif
+    }
+
+    private void Start()
+    {
+        if (Application.isPlaying)
+        {
+            LevelEventSystem.current.onBlockClicked += BlockClickedTapped;   
+        }
     }
 
     private void InitPrivateVars()
@@ -83,6 +83,17 @@ public class Block : MonoBehaviour
     {
         _pathFinder = FindObjectOfType<PathFinder>();
     }
+    
+    void ScaleToSetSize()
+    {
+        Vector3 blockSize = _meshRenderer.bounds.size;
+        
+        transform.localScale = new Vector3(
+            blockSize.x / size.x,
+            blockSize.y / size.y,
+            blockSize.z / size.z
+        );
+    }
 
     public void CreatePoints()
     {
@@ -94,7 +105,11 @@ public class Block : MonoBehaviour
         ConnectionPoint[] checkConnectionPoints = GetComponentsInChildren<ConnectionPoint>();
         if (checkConnectionPoints.Length > 0)
         {
-            if (meshReset) ObjectsHelpers.DestroyObjects(checkConnectionPoints);
+            if (pointsReset || initPoints)
+            {
+                ObjectsHelpers.DestroyObjects(checkConnectionPoints);
+                CreateConnectionPoints();
+            }
             else connectionPoints = checkConnectionPoints.ToList();
         }
         else CreateConnectionPoints();
@@ -103,13 +118,22 @@ public class Block : MonoBehaviour
         Transform checkIsWalkablePoint = transform.Find("IsWalkablePoint");
         if (checkIsWalkablePoint)
         {
-            if (meshReset) DestroyImmediate(checkIsWalkablePoint.gameObject);
+            if (pointsReset || initPoints)
+            {
+                DestroyImmediate(checkIsWalkablePoint.gameObject);
+                CreateIsWalkablePoint();
+            }
             else _isWalkablePoint = checkIsWalkablePoint.gameObject;
         } else CreateIsWalkablePoint();
+
+        pointsReset = false;
+        initPoints = true;
     }
 
     private void CreateConnectionPoints()
     {
+        connectionPoints = new List<ConnectionPoint>();
+        
         Vector3[] vertices = _mesh.vertices;
         List<Vector3> connectionPointsPositions = new List<Vector3>();
 
@@ -138,11 +162,9 @@ public class Block : MonoBehaviour
             SphereCollider conPointCollider = newConnectionPointObject.GetComponent<SphereCollider>();
             if (conPointCollider) DestroyImmediate(conPointCollider);
 
-            //todo add box collider on the edge of the block
-
             ConnectionPoint newConnectionPointComponent = newConnectionPointObject.AddComponent<ConnectionPoint>();
             newConnectionPointComponent.parentBlock = this;
-            //todo find posDirs of connectionPoint
+            
             connectionPoints.Add(newConnectionPointComponent);
         }
     }
@@ -167,5 +189,12 @@ public class Block : MonoBehaviour
         _isWalkablePoint.transform.SetParent(transform);
     }
     
-    //todo onClick/onTap event
+    private void BlockClickedTapped(int id)
+    {
+        if (this.id == id)
+        {
+            //todo logic for player movement on click   
+            Debug.Log(name + " clicked");
+        }
+    }
 }

@@ -12,6 +12,7 @@ TagManager:
   - Map
   - MainPanel
   - PauseButton
+  - TpTrigger
   layers:
   - Default
   - TransparentFX

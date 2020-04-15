@@ -21,7 +21,8 @@ namespace DataTypes
     public enum PlaneSide
     {
         PlaneNormalPositive,
-        PlaneNormalNegative
+        PlaneNormalNegative,
+        PlaneNormalZero
     }
 
     /// <summary>
@@ -130,6 +131,13 @@ namespace DataTypes
             this.plane = plane;
             this.planeSide = planeSide;
         }
+
+        public static PlaneSide GetPlaneSide(AxisDirection normal)
+        {
+            if (normal == AxisDirection.Positive) return PlaneSide.PlaneNormalPositive;
+            if (normal == AxisDirection.Negative) return PlaneSide.PlaneNormalNegative;
+            return PlaneSide.PlaneNormalZero;
+        }
     }
 
     /// <summary>
@@ -147,7 +155,8 @@ namespace DataTypes
         /// <param name="xAxisDirection">Direction along x axis</param>
         /// <param name="yAxisDirection">Direction along y axis</param>
         /// <param name="zAxisDirection">Direction along z axis</param>
-        public MovementDirection(AxisDirection xAxisDirection, AxisDirection yAxisDirection, AxisDirection zAxisDirection)
+        public MovementDirection(AxisDirection xAxisDirection, AxisDirection yAxisDirection,
+            AxisDirection zAxisDirection)
         {
             xAxis = xAxisDirection;
             yAxis = yAxisDirection;
@@ -200,8 +209,31 @@ namespace DataTypes
             y = ySize;
             z = zSize;
         }
+
+        public Vector3 ToVector()
+        {
+            return new Vector3(x, y, z);
+        }
+
+        public static BlockSize operator /(Vector3 v1, BlockSize v2) => new BlockSize(
+            (int) (v1.x / v2.x),
+            (int) (v1.y / v2.y),
+            (int) (v1.z / v2.z)
+        );
+
+        public static BlockSize operator /(BlockSize v1, Vector3 v2) => new BlockSize(
+            (int) (v1.x / v2.x),
+            (int) (v1.y / v2.y),
+            (int) (v1.z / v2.z)
+        );
+
+        public static BlockSize operator /(BlockSize v1, BlockSize v2) => new BlockSize(
+            (int) (v1.x / v2.x),
+            (int) (v1.y / v2.y),
+            (int) (v1.z / v2.z)
+        );
     }
-    
+
     /// <summary>
     /// Struct for showing position and direction of the object on another object's axis
     /// </summary>
@@ -220,6 +252,13 @@ namespace DataTypes
             this.axis = axis;
             dir = axisDirection;
         }
+
+        public static AxisDirection GetDirection(float val)
+        {
+            if (val > 0) return AxisDirection.Positive;
+            if (Math.Abs(val) < 0.05f) return AxisDirection.Zero;
+            return AxisDirection.Negative;
+        }
     }
     //----------------Structs----------------\\
 
@@ -231,7 +270,7 @@ namespace DataTypes
     {
         public List<MapBlockData> mapBlockDatas;
         public PathFindingLocation parent;
-        
+
         /// <summary>
         /// Constructor for PathFindingLocation class
         /// </summary>
@@ -242,5 +281,6 @@ namespace DataTypes
             parent = null;
         }
     }
+
     //----------------Classes----------------\\
 }
