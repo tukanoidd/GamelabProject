@@ -18,26 +18,21 @@ public class ConnectionPoint : MonoBehaviour
     public static float tpTriggerLengthDivider = 1.25f;
     public static float tpTriggerDepthDivider = 5;
 
-    public bool drawDebugConnectionLines = true;
-
-    public float nearbyRadius = 1;
-
-    public List<Vector3> customCameraPositions = new List<Vector3>();
     public float customMaxCamOffset = 0.5f;
-
-    public bool HasConnections => connections.Count > 0;
     //---------Public and Private Visible In Inspector---------\\
 
     //--------Private and Public Invisible In Inspector--------\\
+#if UNITY_EDITOR
     private MeshRenderer _meshRenderer;
-    private Material _standardMaterial;
-    private Material _connectedMaterial;
-    private Player _player;
+    private Material _standardMat;
+    private Material _connectedMat;
+#endif
 
     private List<BoxCollider> _tpTriggers;
 
     [NonSerialized] public Block parentBlock;
-    [NonSerialized] public List<ConnectionPoint> connections;
+    [NonSerialized] public bool isConnected;
+    [NonSerialized] public bool isConnectedNearby;
 
     [NonSerialized] public KeyValuePair<List<Plane>, List<AxisPositionDirection>> posDirs;
     //--------Private and Public Invisible In Inspector--------\\
@@ -49,10 +44,20 @@ public class ConnectionPoint : MonoBehaviour
         AddTpTriggers();
     }
 
+    private void Update()
+    {
+#if UNITY_EDITOR
+        UpdateDebugMaterials();
+#endif
+    }
+
     void InitPrivateVars()
     {
+#if UNITY_EDITOR
         _meshRenderer = GetComponent<MeshRenderer>();
-        //todo add all other vars
+        _standardMat = Resources.Load<Material>("Materials/ConnectionPointMat");
+        _connectedMat = Resources.Load<Material>("Materials/ConnectedConnectionPoint");
+#endif
     }
 
     public void FindPosDirs()
@@ -88,7 +93,7 @@ public class ConnectionPoint : MonoBehaviour
     public void AddTpTriggers()
     {
         ObjectsHelpers.DestroyObjects(GetComponents<Collider>());
-            
+
         _tpTriggers = new List<BoxCollider>();
 
         foreach (Plane plane in posDirs.Key)
@@ -180,11 +185,11 @@ public class ConnectionPoint : MonoBehaviour
                 tpTriggerSize.y = relativeBlockSize.y / tpTriggerDepthDivider;
                 tpTriggerSize.z = relativeBlockSize.z / tpTriggerLengthDivider;
             }
-            
+
             if (planeSide == PlaneSide.PlaneNormalNegative) tpTriggerCenter.x -= tpTriggerSize.x / 2;
             else if (planeSide == PlaneSide.PlaneNormalPositive) tpTriggerCenter.x += tpTriggerSize.x / 2;
         }
-        
+
         SetTpTriggerSizeCenter(tpTrigger, tpTriggerSize, tpTriggerCenter);
     }
 
@@ -192,5 +197,36 @@ public class ConnectionPoint : MonoBehaviour
     {
         tpTrigger.size = size;
         tpTrigger.center = center;
+    }
+
+#if UNITY_EDITOR
+    private void UpdateDebugMaterials()
+    {
+        if (isConnected && _meshRenderer.sharedMaterial != _connectedMat) _meshRenderer.sharedMaterial = _connectedMat;
+        else if (isConnected && _meshRenderer.sharedMaterial != _standardMat)
+            _meshRenderer.sharedMaterial = _standardMat;
+    }
+#endif
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!isConnectedNearby)
+        {
+            Player player = other.GetComponent<Player>();
+            if (!player) return;
+
+            if (player.canTeleport && !player.isTeleporting) parentBlock.TeleportPlayerFrom(player, this);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!isConnectedNearby)
+        {
+            Player player = other.GetComponent<Player>();
+            if (!player) return;
+            
+            if (!player.canTeleport && !player.isTeleporting) player.canTeleport = true;
+        }
     }
 }

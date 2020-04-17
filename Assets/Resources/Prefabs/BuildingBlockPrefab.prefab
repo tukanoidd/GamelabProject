@@ -106,5 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTesting: 1
-  isWalkable: 1
+  drawDebugConnectionLines: 1
+  drawDebugAxisLines: 1
+  debugAxisLinesLength: 3
+  drawDebugAxisLinesTitles: 0
+  drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}

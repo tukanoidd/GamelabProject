@@ -21,6 +21,14 @@ public static class ObjectsHelpers
         }
     }
     
+    public static void DestroyObjects(IsWalkablePoint[] isWalkablePoints)
+    {
+        foreach (IsWalkablePoint isWalkablePoint in isWalkablePoints)
+        {
+            GameObject.DestroyImmediate(isWalkablePoint.gameObject);
+        }
+    }
+    
     public static Vector3 Multiply(Vector3 v1, Vector3 v2) => new Vector3(
         v1.x * v2.x,
         v1.y * v2.y,

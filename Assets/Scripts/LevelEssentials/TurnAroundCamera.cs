@@ -1,44 +1,47 @@
-﻿/*using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Camera))]
 public class TurnAroundCamera : MonoBehaviour
 {
-    private DeviceType _deviceType;
-
+    //---------Public and Private Visible In Inspector---------\\
     [SerializeField] private float accelerometerThreshold = 0.3f;
     [SerializeField] private float rotationSpeed = 1.5f;
-    public GameObject targetToLookAt;
-
-    [NonSerialized] public Camera cam;
-    [NonSerialized] public bool gamePaused = false;
     
+    public GameObject targetToLookAt;
+    //---------Public and Private Visible In Inspector---------\\
+    
+    //--------Private and Public Invisible In Inspector--------\\
+    private Vector3 _offsetFromTarget = Vector3.zero;
+
+    private Player _player;
+    
+    [NonSerialized] public Camera cam;
+
     [NonSerialized] public Dictionary<Vector3, int> snappingPoints;
     [NonSerialized] public int selDeg = 0;
     [NonSerialized] public string[] degOptions = new string[8] {"0", "45", "90", "135", "180", "225", "270", "315"};
     [NonSerialized] public int degToSnap = 0;
     [NonSerialized] public bool circleCalc = false;
+    //--------Private and Public Invisible In Inspector--------\\
 
-    private Vector3 _offsetFromTarget = Vector3.zero;
-
-    private Player _player;
-
-    public void Awake()
+    private void Awake()
     {
-        _deviceType = SystemInfo.deviceType;
-
         cam = GetComponent<Camera>();
-
         _player = FindObjectOfType<Player>();
     }
-
-    void Start()
+    
+    private void Start()
     {
         CreateTargetToLookAt();
-
+        
         _offsetFromTarget = targetToLookAt.transform.position - transform.position;
+    }
+
+    private void LateUpdate()
+    {
+        TurnCamera();
     }
 
     public void CreateTargetToLookAt()
@@ -53,9 +56,9 @@ public class TurnAroundCamera : MonoBehaviour
         else targetToLookAt = target;
     }
 
-    private void LateUpdate()
+    private void TurnCamera()
     {
-        if (((_player && !_player.isMoving) || (!_player)) && !gamePaused)
+        if (!_player.isMoving && !GameManager.current.gamePaused)
         {
             float horizontal = -GetHorizontalRotation();
 
@@ -76,7 +79,7 @@ public class TurnAroundCamera : MonoBehaviour
     private float GetHorizontalRotation()
     {
         // Based on device type get different input
-        switch (_deviceType)
+        switch (GameManager.current.deviceType)
         {
             case DeviceType.Desktop: return Input.GetAxis("Horizontal");
             case DeviceType.Handheld:
@@ -85,4 +88,4 @@ public class TurnAroundCamera : MonoBehaviour
             default: return 0;
         }
     }
-}*/
+}

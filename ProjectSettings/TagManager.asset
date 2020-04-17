@@ -13,6 +13,7 @@ TagManager:
   - MainPanel
   - PauseButton
   - TpTrigger
+  - IsWalkablePoint
   layers:
   - Default
   - TransparentFX

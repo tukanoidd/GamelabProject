@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class LevelInputManager : MonoBehaviour
 {
-    private DeviceType _deviceType;
+    //---------Public and Private Visible In Inspector---------\\
+    //---------Public and Private Visible In Inspector---------\\
 
-    private Camera _mainCamera; //todo set to turnAroundCamera
+    //--------Private and Public Invisible In Inspector--------\\
+    private TurnAroundCamera _mainCamera;
+    //--------Private and Public Invisible In Inspector--------\\
 
     private void Awake()
     {
-        _deviceType = SystemInfo.deviceType;
-        _mainCamera = FindObjectOfType<Camera>();
+        _mainCamera = FindObjectOfType<TurnAroundCamera>();
     }
 
     // Update is called once per frame
@@ -23,7 +25,7 @@ public class LevelInputManager : MonoBehaviour
 
     void CheckBlockSelected()
     {
-        switch (_deviceType)
+        switch (GameManager.current.deviceType)
         {
             case DeviceType.Desktop:
                 CheckMouseBlockClick();
@@ -33,12 +35,12 @@ public class LevelInputManager : MonoBehaviour
                 break;
         }
     }
-    
+
     private void CheckMouseBlockClick()
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = _mainCamera.cam.ScreenPointToRay(Input.mousePosition);
 
             CheckIfGotBlock(ray);
         }
@@ -48,12 +50,12 @@ public class LevelInputManager : MonoBehaviour
     {
         if (Input.touchCount == 1 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            Ray ray = _mainCamera.ScreenPointToRay(Input.GetTouch(0).position);
+            Ray ray = _mainCamera.cam.ScreenPointToRay(Input.GetTouch(0).position);
 
             CheckIfGotBlock(ray);
         }
     }
-    
+
     private void CheckIfGotBlock(Ray ray)
     {
         RaycastHit hit;

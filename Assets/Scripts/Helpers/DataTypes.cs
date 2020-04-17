@@ -72,21 +72,27 @@ namespace DataTypes
     /// </summary>
     public struct BlockConnection
     {
-        public Block connectedBlock;
+        public KeyValuePair<Block, Block> connectedBlocks;
         public Plane plane;
-        public List<ConnectionPoint> connectionPoints;
+        public Dictionary<ConnectionPoint, ConnectionPoint> connectionPoints;
+        public List<Vector3> customCameraPositions;
+        public bool isNear;
 
         /// <summary>
         /// Constructor for BlockConnection struct
         /// </summary>
-        /// <param name="connectedBlock">Connected block</param>
+        /// <param name="connectedBlocks">Blocks that are connected</param>
         /// <param name="plane">Plane of their connection</param>
-        /// <param name="connectionPoints">Connection points block connected with</param>
-        public BlockConnection(Block connectedBlock, Plane plane, List<ConnectionPoint> connectionPoints)
+        /// <param name="connectionPoints">Connection points blocks are connected with</param>
+        /// <param name="customCameraPositions">Camera positions that allow this connection to be viable</param>>
+        /// <param name="isNear">If the connection is between near blocks</param>
+        public BlockConnection(KeyValuePair<Block, Block> connectedBlocks, Plane plane, Dictionary<ConnectionPoint, ConnectionPoint> connectionPoints, List<Vector3> customCameraPositions, bool isNear)
         {
-            this.connectedBlock = connectedBlock;
+            this.connectedBlocks = connectedBlocks;
             this.plane = plane;
             this.connectionPoints = connectionPoints;
+            this.customCameraPositions = customCameraPositions;
+            this.isNear = isNear;
         }
     }
 
@@ -97,19 +103,19 @@ namespace DataTypes
     {
         public MapLocation mapLoc;
         public Vector3 worldLoc;
-        public List<BlockConnection> blockConnections;
+        public Block block;
 
         /// <summary>
         /// Constructor for MapBlockData struct
         /// </summary>
         /// <param name="mapLocation">Location on the map</param>
         /// <param name="worldLocation">Location in the scene</param>
-        /// <param name="blockConnections">Connections to other blocks</param>
-        public MapBlockData(MapLocation mapLocation, Vector3 worldLocation, List<BlockConnection> blockConnections)
+        /// <param name="block">Block that is stored in this map cell</param>
+        public MapBlockData(MapLocation mapLocation, Vector3 worldLocation, List<BlockConnection> blockConnections, Block block)
         {
             mapLoc = mapLocation;
             worldLoc = worldLocation;
-            this.blockConnections = blockConnections;
+            this.block = block;
         }
     }
 
@@ -167,7 +173,7 @@ namespace DataTypes
     /// <summary>
     /// Struct for indication of a constraint along different axis for player movement
     /// </summary>
-    public struct MovementAxisConstraint
+    public struct MovementAxisConstraints
     {
         public bool x;
         public bool y;
@@ -179,7 +185,7 @@ namespace DataTypes
         /// <param name="xAxisConstrained">Is movement constrained on x Axis</param>
         /// <param name="yAxisConstrained">Is movement constrained on y Axis</param>
         /// <param name="zAxisConstrained">Is movement constrained on z Axis</param>
-        public MovementAxisConstraint(bool xAxisConstrained, bool yAxisConstrained, bool zAxisConstrained)
+        public MovementAxisConstraints(bool xAxisConstrained, bool yAxisConstrained, bool zAxisConstrained)
         {
             x = xAxisConstrained;
             y = yAxisConstrained;
