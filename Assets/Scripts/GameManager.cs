@@ -1,23 +1,38 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     //---------Public and Private Visible In Inspector---------\\
     public static GameManager current;
-
-    public DeviceType deviceType;
-    public bool gamePaused = false;
     //---------Public and Private Visible In Inspector---------\\
 
     //--------Private and Public Invisible In Inspector--------\\
-    private Player _player;
+    [NonSerialized] public DeviceType deviceType;
+    [NonSerialized] public bool gamePaused = false;
+    
+    [NonSerialized] public Player player;
+    [NonSerialized] public TurnAroundCamera mainCamera;
+    [NonSerialized] public PathFinder pathFinder;
 
     [NonSerialized] public bool playerLockedMovement = false;
     [NonSerialized] public bool cameraLockedMovement = false;
     //--------Private and Public Invisible In Inspector--------\\
+    
+    //--------Static Behavior--------\\
+    public static IEnumerator Countdown(float duration, Action funcToExecute)
+    {
+        float normalizedTime = 0;
+        while(normalizedTime <= 1f)
+        {
+            normalizedTime += Time.deltaTime / duration;
+            yield return null;
+        }
+
+        funcToExecute();
+    }
+    //--------Static Behavior--------\\
     
     private void Awake()
     {
@@ -25,6 +40,8 @@ public class GameManager : MonoBehaviour
 
         deviceType = SystemInfo.deviceType;
 
-        _player = FindObjectOfType<Player>();
+        player = FindObjectOfType<Player>();
+        mainCamera = FindObjectOfType<TurnAroundCamera>();
+        pathFinder = FindObjectOfType<PathFinder>();
     }
 }

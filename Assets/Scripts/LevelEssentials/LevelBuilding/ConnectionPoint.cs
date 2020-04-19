@@ -92,7 +92,7 @@ public class ConnectionPoint : MonoBehaviour
 
     public void AddTpTriggers()
     {
-        ObjectsHelpers.DestroyObjects(GetComponents<Collider>());
+        HelperMethods.DestroyObjects(GetComponents<Collider>());
 
         _tpTriggers = new List<BoxCollider>();
 
@@ -122,9 +122,9 @@ public class ConnectionPoint : MonoBehaviour
         PlaneSide planeSide;
 
         Vector3 localScale = transform.localScale;
-        Vector3 meshSize = ObjectsHelpers.Divide(_meshRenderer.bounds.size, localScale);
+        Vector3 meshSize = HelperMethods.Divide(_meshRenderer.bounds.size, localScale);
         Vector3 relativeBlockSize =
-            ObjectsHelpers.Divide(meshSize, ObjectsHelpers.Divide(_meshRenderer.bounds.size, Block.size));
+            HelperMethods.Divide(meshSize, HelperMethods.Divide(_meshRenderer.bounds.size, Block.size));
 
         if (plane == Plane.XY)
         {

@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using DataTypes;
 using MeshEdge;
 using UnityEditor;
-using Object = UnityEngine.Object;
 using Plane = DataTypes.Plane;
 
 /// <summary>
@@ -54,8 +52,6 @@ public class Block : MonoBehaviour
     private MeshRenderer _meshRenderer;
     private List<Edge> _meshEdges = new List<Edge>();
 
-    private PathFinder _pathFinder;
-
     [NonSerialized] public int id;
 
     [NonSerialized] public bool pointsReset = false;
@@ -84,7 +80,7 @@ public class Block : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            LevelEventSystem.current.onBlockClicked += BlockClickedTapped;
+            LevelEventSystem.current.onBlockClicked += BlockClickedTapped;    
         }
     }
 
@@ -97,11 +93,6 @@ public class Block : MonoBehaviour
         _mesh = GetComponent<MeshFilter>().sharedMesh;
         _meshRenderer = GetComponent<MeshRenderer>();
         _meshEdges = MeshEdgeTools.GetEdges(_mesh.triangles).FindBoundary().SortEdges();
-    }
-
-    public void FindPathFinder()
-    {
-        _pathFinder = FindObjectOfType<PathFinder>();
     }
 
     void ScaleToSetSize()
@@ -127,7 +118,7 @@ public class Block : MonoBehaviour
         {
             if (pointsReset || initPoints)
             {
-                ObjectsHelpers.DestroyObjects(checkConnectionPoints);
+                HelperMethods.DestroyObjects(checkConnectionPoints);
                 CreateConnectionPoints();
             }
             else connectionPoints = checkConnectionPoints.ToList();
@@ -140,7 +131,7 @@ public class Block : MonoBehaviour
         {
             if (pointsReset || initPoints)
             {
-                ObjectsHelpers.DestroyObjects(checkIsWalkablePoints);
+                HelperMethods.DestroyObjects(checkIsWalkablePoints);
                 CreateIsWalkablePoints();
             }
             else

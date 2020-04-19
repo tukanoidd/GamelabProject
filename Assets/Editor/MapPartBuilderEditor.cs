@@ -1,53 +1,48 @@
-﻿/*using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using Helpers;
-#if UNITY_EDITOR
+﻿using System;
 using UnityEditor;
+using UnityEngine;
 
 [CustomEditor(typeof(MapPartBuilder))]
-public class MapPartBuilderEditor : Editor
-{
-    private MapPartBuilder _mapPartBuilder;
-    private GameDefaultSettings _defaultGameSettings;
-
-    private void OnEnable()
+    public class MapPartBuilderEditor : Editor
     {
-        _mapPartBuilder = (MapPartBuilder) target;
-        _defaultGameSettings = Resources.Load<GameDefaultSettings>("ScriptableObjects/DefaultGameSettings");
+        private MapPartBuilder _mapPartBuilder;
 
-        if (_mapPartBuilder)
+        private void OnEnable()
         {
-            if (!_mapPartBuilder.blockPrefab)
-            {
-                _mapPartBuilder.blockPrefab = Resources.Load<GameObject>("Prefabs/BuildingBlockPrefab");
-            }
-        } 
-    }
+            _mapPartBuilder = (MapPartBuilder) target;
 
-    public override void OnInspectorGUI()
-    {
-        if (_mapPartBuilder)
-        {
-            if (GUILayout.Button("Snap To 1x1 Grid"))
+            if (_mapPartBuilder)
             {
-                EditorHelpers.SnapToGrid(_mapPartBuilder.transform);
-            }
-
-            if (GUILayout.Button("Snap To Block Sized Grid"))
-            {
-                _mapPartBuilder.transform.position = EditorHelpers.SnapToBlockGrid(_mapPartBuilder.transform.position,
-                    _defaultGameSettings.defaultBlockSize.ToVector());
-            }
-
-            if (GUILayout.Button("CreateStartingBlock"))
-            {
-                _mapPartBuilder.CreateStartingBlock();
+                if (!_mapPartBuilder.blockPrefab)
+                {
+                    _mapPartBuilder.blockPrefab = Resources.Load<GameObject>("Prefabs/BuildingBlockPrefab");
+                }
             }
         }
 
-        DrawDefaultInspector();
+        public override void OnInspectorGUI()
+        {
+            if (_mapPartBuilder)
+            {
+                Transform mapPartBuilderTransform = _mapPartBuilder.transform;
+                Vector3 mapPartBuilderPosition = mapPartBuilderTransform.position;
+                
+                if (GUILayout.Button("Snap To 1x1x1 Grid"))
+                {
+                    HelperMethods.SnapToGrid(mapPartBuilderTransform);
+                }
+
+                if (GUILayout.Button("Snap To Block Sized Grid"))
+                {
+                    mapPartBuilderTransform.position = HelperMethods.SnapToBlockGrid(mapPartBuilderPosition);
+                }
+
+                if (GUILayout.Button("Create Starting Block"))
+                {
+                    _mapPartBuilder.CreateStartingBlock();
+                }
+            }
+
+            DrawDefaultInspector();
+        }
     }
-}
-#endif*/

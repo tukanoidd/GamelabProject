@@ -1,13 +1,9 @@
-﻿/*using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
-using UnityEditor.Experimental.TerrainAPI;
 using UnityEngine;
-using UnityEngine.UI;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(TurnAroundCamera))]
 public class TurnAroundCameraEditor : Editor
 {
@@ -16,6 +12,8 @@ public class TurnAroundCameraEditor : Editor
     private Vector3 _circleCenterPos;
 
     private bool _circleLock = true;
+    
+    private GUIStyle _labelStyle = new GUIStyle();
 
     private void OnEnable()
     {
@@ -25,6 +23,8 @@ public class TurnAroundCameraEditor : Editor
             _targetCamera.CreateTargetToLookAt();
             CalcCircle();
         }
+        
+        _labelStyle.alignment = TextAnchor.MiddleCenter;
     }
 
     private void CalcCircle()
@@ -50,6 +50,8 @@ public class TurnAroundCameraEditor : Editor
 
             _targetCamera.circleCalc = true;
         }
+        
+        Repaint();
     }
 
     private void OnSceneGUI()
@@ -60,15 +62,22 @@ public class TurnAroundCameraEditor : Editor
             Handles.DrawWireDisc(_circleCenterPos, Vector3.up, _circleRadius);
             _targetCamera.transform.LookAt(_targetCamera.targetToLookAt.transform);
 
+            Handles.color = Color.magenta;
+            Handles.SphereHandleCap(
+                0,
+                _targetCamera.targetToLookAt.transform.position,
+                Quaternion.identity,
+                0.5f,
+                EventType.Repaint
+            );
+
             Handles.color = Color.red;
             foreach (KeyValuePair<Vector3, int> snapPt in _targetCamera.snappingPoints)
             {
                 Handles.SphereHandleCap(0, snapPt.Key, Quaternion.identity, 0.5f, EventType.Repaint);
-
-                GUIStyle labelStyle = new GUIStyle();
-                labelStyle.alignment = TextAnchor.MiddleCenter;
-                labelStyle.normal.textColor = Color.green;
-                Handles.Label(snapPt.Key + Vector3.up, snapPt.Value.ToString() + " deg", labelStyle);
+                
+                _labelStyle.normal.textColor = Color.green;
+                Handles.Label(snapPt.Key + Vector3.up, snapPt.Value.ToString() + " deg", _labelStyle);
             }
         }
     }
@@ -119,4 +128,5 @@ public class TurnAroundCameraEditor : Editor
 
         _targetCamera.transform.position = _circleCenterPos + (offsetFromCenter.normalized * _circleRadius);
     }
-}*/
+}
+#endif

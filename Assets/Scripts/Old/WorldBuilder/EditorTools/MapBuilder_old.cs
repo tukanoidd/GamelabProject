@@ -304,7 +304,7 @@ public class MapData
     }
 }
 
-public class MapBuilder : MonoBehaviour
+public class MapBuilder_old : MonoBehaviour
 {
     public bool showOnPlay = false;
 

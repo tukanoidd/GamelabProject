@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DataTypes;
-using Helpers;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
