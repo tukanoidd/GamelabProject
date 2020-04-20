@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace DataTypes
@@ -52,18 +54,30 @@ namespace DataTypes
     /// </summary>
     public struct MapLocation
     {
-        public int coord1;
-        public int coord2;
+        public int row;
+        public int col;
 
         /// <summary>
         /// Constructor for MapLocation struct
         /// </summary>
-        /// <param name="coord1">First coordinate</param>
-        /// <param name="coord2">Secind coordinate</param>
-        public MapLocation(int coord1, int coord2)
+        /// <param name="row">First coordinate</param>
+        /// <param name="col">Secind coordinate</param>
+        public MapLocation(int row, int col)
         {
-            this.coord1 = coord1;
-            this.coord2 = coord2;
+            this.row = row;
+            this.col = col;
+        }
+
+        public Vector2 ToVector2() => new Vector2(row, col);
+
+        public static MapLocation operator -(MapLocation mL1, MapLocation mL2)
+        {
+            return new MapLocation(mL1.row - mL2.row, mL1.col - mL2.col);
+        }
+
+        public static MapLocation operator +(MapLocation mL1, MapLocation mL2)
+        {
+            return new MapLocation(mL1.row + mL2.row, mL1.col + mL2.col);
         }
     }
 
@@ -73,8 +87,8 @@ namespace DataTypes
     public struct BlockConnection
     {
         public KeyValuePair<Block, Block> connectedBlocks;
-        public Plane plane;
-        public Dictionary<ConnectionPoint, ConnectionPoint> connectionPoints;
+        public GravitationalPlane gravitationalPlane;
+        public KeyValuePair<ConnectionPoint, ConnectionPoint> connectionPoints;
         public List<Vector3> customCameraPositions;
         public bool isNear;
 
@@ -82,14 +96,16 @@ namespace DataTypes
         /// Constructor for BlockConnection struct
         /// </summary>
         /// <param name="connectedBlocks">Blocks that are connected</param>
-        /// <param name="plane">Plane of their connection</param>
+        /// <param name="gravitationalPlane">Plane of their connection</param>
         /// <param name="connectionPoints">Connection points blocks are connected with</param>
         /// <param name="customCameraPositions">Camera positions that allow this connection to be viable</param>>
         /// <param name="isNear">If the connection is between near blocks</param>
-        public BlockConnection(KeyValuePair<Block, Block> connectedBlocks, Plane plane, Dictionary<ConnectionPoint, ConnectionPoint> connectionPoints, List<Vector3> customCameraPositions, bool isNear)
+        public BlockConnection(KeyValuePair<Block, Block> connectedBlocks, GravitationalPlane gravitationalPlane,
+            KeyValuePair<ConnectionPoint, ConnectionPoint> connectionPoints, List<Vector3> customCameraPositions,
+            bool isNear)
         {
             this.connectedBlocks = connectedBlocks;
-            this.plane = plane;
+            this.gravitationalPlane = gravitationalPlane;
             this.connectionPoints = connectionPoints;
             this.customCameraPositions = customCameraPositions;
             this.isNear = isNear;
@@ -111,11 +127,25 @@ namespace DataTypes
         /// <param name="mapLocation">Location on the map</param>
         /// <param name="worldLocation">Location in the scene</param>
         /// <param name="block">Block that is stored in this map cell</param>
-        public MapBlockData(MapLocation mapLocation, Vector3 worldLocation, List<BlockConnection> blockConnections, Block block)
+        public MapBlockData(MapLocation mapLocation, Vector3 worldLocation, Block block)
         {
             mapLoc = mapLocation;
             worldLoc = worldLocation;
             this.block = block;
+        }
+
+        /// <summary>
+        /// Find nearest blockData in the map
+        /// </summary>
+        /// <param name="blockData">MapBlockData that we need to find nearest MapBlockData to</param>
+        /// <param name="blockDatasInTheMap">Other MapBlockDatas that are added to the map</param>
+        /// <returns>Nearest MapBlockData if could find one, otherwise null</returns>
+        public static MapBlockData? GetNearestBlockData(MapBlockData blockData, MapBlockData[] blockDatasInTheMap)
+        {
+            MapBlockData[] viableBlockDatas = blockDatasInTheMap.Where(bD => bD.block != blockData.block).ToArray();
+            if (viableBlockDatas.Length < 0) return null;
+
+            return viableBlockDatas.OrderBy(bD => Vector3.Distance(bD.worldLoc, blockData.worldLoc)).ToArray()[0];
         }
     }
 
@@ -143,6 +173,23 @@ namespace DataTypes
             if (normal == AxisDirection.Positive) return PlaneSide.PlaneNormalPositive;
             if (normal == AxisDirection.Negative) return PlaneSide.PlaneNormalNegative;
             return PlaneSide.PlaneNormalZero;
+        }
+
+        public static PlaneSide GetPlaneSide(float normal)
+        {
+            if (normal > 0) return PlaneSide.PlaneNormalPositive;
+            if (normal < 0) return PlaneSide.PlaneNormalNegative;
+            return PlaneSide.PlaneNormalZero;
+        }
+
+        public static bool operator ==(GravitationalPlane gV1, GravitationalPlane gV2)
+        {
+            return gV1.plane == gV2.plane && gV1.planeSide == gV2.planeSide;
+        }
+
+        public static bool operator !=(GravitationalPlane gV1, GravitationalPlane gV2)
+        {
+            return !(gV1 == gV2);
         }
     }
 
@@ -265,10 +312,281 @@ namespace DataTypes
             if (Math.Abs(val) < 0.05f) return AxisDirection.Zero;
             return AxisDirection.Negative;
         }
+
+        public static int NormalizeDirection(AxisDirection dir)
+        {
+            switch (dir)
+            {
+                case AxisDirection.Positive:
+                    return 1;
+                case AxisDirection.Negative:
+                    return -1;
+                default:
+                    return 0;
+            }
+        }
     }
     //----------------Structs----------------\\
 
     //----------------Classes----------------\\
+    public class MapData
+    {
+        private const int _length = 100;
+        private const int _height = 100;
+
+        private MapLocation _center;
+
+        public Dictionary<GravitationalPlane, HashSet<MapBlockData>[,]> maps =
+            new Dictionary<GravitationalPlane, HashSet<MapBlockData>[,]>();
+
+        private HashSet<MapBlockData> _blockDatasInMap = new HashSet<MapBlockData>();
+
+        public void CreateMap(MapBlockData[] blockDatas, GravitationalPlane gravitationalPlane)
+        {
+            HashSet<MapBlockData>[,] map = new HashSet<MapBlockData>[_height, _length];
+            _center = new MapLocation(_height / 2, _length / 2);
+
+            MapBlockData[] viableBlockDatas = blockDatas
+                .Where(blockData => blockData.block.isWalkablePoints[gravitationalPlane].isWalkable).ToArray();
+
+            if (viableBlockDatas.Length < 1) return;
+
+            AddBlocksToMap(ref map, viableBlockDatas, gravitationalPlane);
+            map = ShrinkMap(map);
+
+            maps[gravitationalPlane] = map;
+        }
+
+        private void AddBlocksToMap(ref HashSet<MapBlockData>[,] map, MapBlockData[] blockDatas,
+            GravitationalPlane gravitationalPlane)
+        {
+            AddBlockToMap(ref map, blockDatas[0], gravitationalPlane, true);
+        }
+
+        private void AddBlockToMap(ref HashSet<MapBlockData>[,] map, MapBlockData blockData,
+            GravitationalPlane gravitationalPlane, bool first = false)
+        {
+            if (first)
+            {
+                AddBlockToMapWithCoords(ref map, blockData, new MapLocation(_height / 2, _length / 2),
+                    gravitationalPlane);
+            }
+            else
+            {
+                MapLocation location = new MapLocation(0, 0), nearLocation = new MapLocation(0, 0);
+
+                MapBlockData? checkNearBlockData =
+                    MapBlockData.GetNearestBlockData(blockData, _blockDatasInMap.ToArray());
+                if (!checkNearBlockData.HasValue) return;
+
+                MapBlockData nearBlockData = checkNearBlockData.Value;
+
+                switch (gravitationalPlane.plane)
+                {
+                    case Plane.XY:
+                        location.row = (int) blockData.worldLoc.y;
+                        location.col = (int) blockData.worldLoc.x;
+
+                        nearLocation.row = (int) nearBlockData.worldLoc.y;
+                        nearLocation.col = (int) nearBlockData.worldLoc.x;
+                        break;
+                    case Plane.XZ:
+                        location.row = (int) blockData.worldLoc.z;
+                        location.col = (int) blockData.worldLoc.x;
+
+                        nearLocation.row = (int) nearBlockData.worldLoc.z;
+                        nearLocation.col = (int) nearBlockData.worldLoc.x;
+                        break;
+                    case Plane.YZ:
+                        location.row = (int) blockData.worldLoc.y;
+                        location.col = (int) blockData.worldLoc.z;
+
+                        nearLocation.row = (int) nearBlockData.worldLoc.y;
+                        nearLocation.col = (int) nearBlockData.worldLoc.z;
+                        break;
+                }
+
+                MapLocation offset = location - nearLocation;
+
+                AddBlockToMapWithCoords(ref map, blockData, nearBlockData.mapLoc + offset, gravitationalPlane);
+            }
+        }
+
+        private void AddBlockToMapWithCoords(ref HashSet<MapBlockData>[,] map, MapBlockData blockData,
+            MapLocation mapLocation,
+            GravitationalPlane gravitationalPlane)
+        {
+            try
+            {
+                map[mapLocation.row, mapLocation.col].Add(blockData);
+                blockData.mapLoc = mapLocation;
+                _blockDatasInMap.Add(blockData);
+
+                // Cycle through viable block's connections to find other blocks and add them to the map if any
+                AddBlocksFromConnections(ref map, blockData, gravitationalPlane);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("------------------------------------");
+                Debug.Log(mapLocation.ToVector2());
+                Debug.Log(map.GetLength(0) + " " + map.GetLength(1));
+                Debug.Log("Couldn't add block to PathFinding map. Error: " + e);
+                Debug.Log("------------------------------------\n");
+            }
+        }
+
+        private void AddBlocksFromConnections(ref HashSet<MapBlockData>[,] map, MapBlockData blockData,
+            GravitationalPlane gravitationalPlane)
+        {
+            ConnectionPoint[] viableConnectionPoints = blockData.block.connectionPoints
+                .Where(connectionPoint => connectionPoint.posDirs.Key.Contains(gravitationalPlane)).ToArray();
+            List<BlockConnection> viableConnections =
+                GetViableConnections(blockData, gravitationalPlane, viableConnectionPoints);
+
+            foreach (BlockConnection blockConnection in viableConnections)
+            {
+                AddBlockToMapFromConnection(ref map, blockConnection, blockData, gravitationalPlane);
+            }
+        }
+
+        private List<BlockConnection> GetViableConnections(MapBlockData blockData,
+            GravitationalPlane gravitationalPlane, ConnectionPoint[] viableConnectionPoints)
+        {
+            List<BlockConnection> blockConnections = blockData.block.blockConnections;
+            HashSet<BlockConnection> viableConnections = new HashSet<BlockConnection>();
+
+            foreach (ConnectionPoint viableConnectionPoint in viableConnectionPoints)
+            {
+                foreach (BlockConnection blockConnection in blockConnections)
+                {
+                    if (blockConnection.gravitationalPlane != gravitationalPlane) continue;
+                    if (!blockConnection.connectionPoints.Key == viableConnectionPoint &&
+                        !blockConnection.connectionPoints.Value == viableConnectionPoint) continue;
+
+                    Block checkBlock = null;
+
+                    if (blockConnection.connectedBlocks.Key == blockData.block)
+                        checkBlock = blockConnection.connectedBlocks.Value;
+                    else if (blockConnection.connectedBlocks.Value == blockData.block)
+                        checkBlock = blockConnection.connectedBlocks.Key;
+
+                    if (checkBlock == null) continue;
+                    if (!_blockDatasInMap.Contains(checkBlock.mapData)) viableConnections.Add(blockConnection);
+                }
+            }
+
+            return viableConnections.ToList();
+        }
+
+        private void AddBlockToMapFromConnection(ref HashSet<MapBlockData>[,] map, BlockConnection blockConnection,
+            MapBlockData blockData, GravitationalPlane gravitationalPlane)
+        {
+            AddBlockToMapWithCoords(
+                ref map,
+                blockData,
+                GetCustomlyConnectedBlockMapLocation(blockData, blockConnection, gravitationalPlane),
+                gravitationalPlane
+            );
+        }
+
+        private MapLocation GetCustomlyConnectedBlockMapLocation(MapBlockData blockData,
+            BlockConnection blockConnection, GravitationalPlane gravitationalPlane)
+        {
+            MapLocation newMapLocation = blockData.mapLoc;
+
+            ConnectionPoint connectionPointFrom = blockConnection.connectionPoints.Key.parentBlock == blockData.block
+                ? blockConnection.connectionPoints.Key
+                : blockConnection.connectionPoints.Value;
+
+            AxisDirection xDir = connectionPointFrom.posDirs.Value.First(dir => dir.axis == Axis.X).dir;
+            AxisDirection yDir = connectionPointFrom.posDirs.Value.First(dir => dir.axis == Axis.Y).dir;
+            AxisDirection zDir = connectionPointFrom.posDirs.Value.First(dir => dir.axis == Axis.Z).dir;
+
+            if (gravitationalPlane.plane == Plane.XY)
+            {
+                newMapLocation.row += AxisPositionDirection.NormalizeDirection(yDir);
+                newMapLocation.col += AxisPositionDirection.NormalizeDirection(xDir);
+            }
+            else if (gravitationalPlane.plane == Plane.XZ)
+            {
+                newMapLocation.row += AxisPositionDirection.NormalizeDirection(zDir);
+                newMapLocation.col += AxisPositionDirection.NormalizeDirection(xDir);
+            }
+            else if (gravitationalPlane.plane == Plane.YZ)
+            {
+                newMapLocation.row += AxisPositionDirection.NormalizeDirection(yDir);
+                newMapLocation.col += AxisPositionDirection.NormalizeDirection(zDir);
+            }
+
+            return newMapLocation;
+        }
+
+        private HashSet<MapBlockData>[,] ShrinkMap(HashSet<MapBlockData>[,] map)
+        {
+            MapLocation minCoords, maxCoords;
+
+            int minRow = map.GetLength(0);
+            int minCol = map.GetLength(1);
+
+            for (int row = 0; row < map.GetLength(0); row++)
+            {
+                for (int col = 0; col < map.GetLength(1); col++)
+                {
+                    if (map[row, col] != null && map[row, col].Count > 0)
+                    {
+                        minRow = row;
+                        minCol = col;
+                        goto FoundMin;
+                    }
+                }
+            }
+
+            FoundMin:
+            minCoords = new MapLocation(minRow, minCol);
+
+            int maxRow = 0, maxCol = 0;
+
+            for (int row = map.GetLength(0) - 1; row >= 0; row--)
+            {
+                for (int col = map.GetLength(1) - 1; col >= 0; col--)
+                {
+                    if (map[row, col] != null && map[row, col].Count > 0)
+                    {
+                        maxRow = row;
+                        maxCol = col;
+                        goto FoundMax;
+                    }
+                }
+            }
+
+            FoundMax:
+            maxCoords = new MapLocation(maxRow, maxCol);
+
+            int rows = Mathf.Abs(maxCoords.row - minCoords.row);
+            int cols = Mathf.Abs(maxCoords.col - minCoords.col);
+
+            HashSet<MapBlockData>[,] newMap = new HashSet<MapBlockData>[rows + 1, cols + 1];
+
+            for (int row = 0; row <= rows; row++)
+            {
+                for (int col = 0; col <= cols; col++)
+                {
+                    newMap[row, col] = map[row + minRow, col + minCol];
+                    if (newMap[row, col] != null)
+                    {
+                        newMap[row, col].Select(blockData => blockData = new MapBlockData(
+                            new MapLocation(row, col),
+                            blockData.worldLoc,
+                            blockData.block
+                        ));
+                    }
+                }
+            }
+
+            return newMap;
+        }
+    }
+
     /// <summary>
     /// Class that is used in saving the path in PathFinder object
     /// </summary>

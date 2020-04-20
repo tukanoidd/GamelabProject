@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using DataTypes;
-using MeshEdge;
 using UnityEditor;
 using Plane = DataTypes.Plane;
 
@@ -14,7 +13,7 @@ using Plane = DataTypes.Plane;
 [ExecuteAlways]
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
-[RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(BoxCollider))]
 public class Block : MonoBehaviour
 {
     //---------Public and Private Visible In Inspector---------\\
@@ -50,7 +49,6 @@ public class Block : MonoBehaviour
     //--------Private and Public Invisible In Inspector--------\\
     private Mesh _mesh;
     private MeshRenderer _meshRenderer;
-    private List<Edge> _meshEdges = new List<Edge>();
 
     [NonSerialized] public int id;
 
@@ -80,7 +78,7 @@ public class Block : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            LevelEventSystem.current.onBlockClicked += BlockClickedTapped;    
+            LevelEventSystem.current.onBlockClicked += BlockClickedTapped;
         }
     }
 
@@ -92,7 +90,6 @@ public class Block : MonoBehaviour
     {
         _mesh = GetComponent<MeshFilter>().sharedMesh;
         _meshRenderer = GetComponent<MeshRenderer>();
-        _meshEdges = MeshEdgeTools.GetEdges(_mesh.triangles).FindBoundary().SortEdges();
     }
 
     void ScaleToSetSize()
@@ -154,15 +151,28 @@ public class Block : MonoBehaviour
         connectionPoints = new List<ConnectionPoint>();
         DestroyImmediate(transform.Find("ConnectionPoints")?.gameObject);
 
-        Vector3[] vertices = _mesh.vertices;
-        List<Vector3> connectionPointsPositions = new List<Vector3>();
-
-        foreach (Edge edge in _meshEdges)
+        float halfX = size.x / 2f;
+        float halfY = size.y / 2f;
+        float halfZ = size.z / 2f;
+        
+        List<Vector3> connectionPointsPositions = new List<Vector3>()
         {
-            Vector3 newConnectionPointPosition = (vertices[edge.v1] + vertices[edge.v2]) / 2;
-            if (!connectionPointsPositions.Contains(newConnectionPointPosition))
-                connectionPointsPositions.Add(newConnectionPointPosition);
-        }
+            //Upper
+            new Vector3(-halfX, halfY, 0),
+            new Vector3(0, halfY, halfZ),
+            new Vector3(halfX, halfY, 0),
+            new Vector3(0, halfY, -halfZ),
+            //Middle
+            new Vector3(-halfX, 0, -halfZ),
+            new Vector3(-halfX, 0, halfZ),
+            new Vector3(halfX, 0, halfZ),
+            new Vector3(halfX, 0, -halfZ),
+            //Lower
+            new Vector3(-halfX, -halfY, 0),
+            new Vector3(0, -halfY, halfZ),
+            new Vector3(halfX, -halfY, 0),
+            new Vector3(0, -halfY, -halfZ)
+        };
 
         GameObject connectionPointsHolder = new GameObject("ConnectionPoints");
         connectionPointsHolder.transform.SetParent(transform);
@@ -198,6 +208,10 @@ public class Block : MonoBehaviour
         GameObject isWalkablePointsHolder = new GameObject("IsWalkablePoints");
         isWalkablePointsHolder.transform.SetParent(transform);
 
+        float halfX = size.x / 2f;
+        float halfY = size.y / 2f;
+        float halfZ = size.z / 2f;
+        
         for (int i = 0; i < BlockGravitationalPlanes.Count; i++)
         {
             GravitationalPlane gravitationalPlane = BlockGravitationalPlanes[i];
@@ -215,27 +229,27 @@ public class Block : MonoBehaviour
             if (gravitationalPlane.plane == Plane.XY)
             {
                 if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalPositive)
-                    newIsWalkablePointTransform.localPosition = new Vector3(0, 0, size.z / 2f);
+                    newIsWalkablePointTransform.localPosition = new Vector3(0, 0, halfZ);
                 if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalNegative)
-                    newIsWalkablePointTransform.localPosition = new Vector3(0, 0, -size.z / 2f);
+                    newIsWalkablePointTransform.localPosition = new Vector3(0, 0, -halfZ);
             }
             else if (gravitationalPlane.plane == Plane.XZ)
             {
                 if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalPositive)
-                    newIsWalkablePointTransform.localPosition = new Vector3(0, size.y / 2f, 0);
+                    newIsWalkablePointTransform.localPosition = new Vector3(0, halfY, 0);
                 if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalNegative)
-                    newIsWalkablePointTransform.localPosition = new Vector3(0, -size.y / 2f, 0);
+                    newIsWalkablePointTransform.localPosition = new Vector3(0, -halfY, 0);
             }
             else if (gravitationalPlane.plane == Plane.YZ)
             {
                 if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalPositive)
-                    newIsWalkablePointTransform.localPosition = new Vector3(size.x / 2f, 0, 0);
+                    newIsWalkablePointTransform.localPosition = new Vector3(halfX, 0, 0);
                 if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalNegative)
-                    newIsWalkablePointTransform.localPosition = new Vector3(-size.x / 2f, 0, 0);
+                    newIsWalkablePointTransform.localPosition = new Vector3(-halfX, 0, 0);
             }
 
             Collider isWalkablePointCollider = newIsWalkablePoint.GetComponent<Collider>();
-            if (isWalkablePointCollider) DestroyImmediate(isWalkablePointCollider);
+            if (isWalkablePointCollider) isWalkablePointCollider.isTrigger = true;
 
             IsWalkablePoint newIsWalkablePointComponent = newIsWalkablePoint.AddComponent<IsWalkablePoint>();
             newIsWalkablePointComponent.parentBlock = this;
@@ -267,12 +281,10 @@ public class Block : MonoBehaviour
             Gizmos.color = Color.yellow;
             foreach (BlockConnection blockConnection in blockConnections)
             {
-                foreach (KeyValuePair<ConnectionPoint, ConnectionPoint> connectionPointsDictionary in blockConnection
-                    .connectionPoints)
-                {
-                    Gizmos.DrawLine(connectionPointsDictionary.Key.transform.position,
-                        connectionPointsDictionary.Value.transform.position);
-                }
+                Gizmos.DrawLine(
+                    blockConnection.connectionPoints.Key.transform.position,
+                    blockConnection.connectionPoints.Value.transform.position
+                );
             }
         }
 

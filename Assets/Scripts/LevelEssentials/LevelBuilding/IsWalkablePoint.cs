@@ -46,4 +46,14 @@ public class IsWalkablePoint : MonoBehaviour
             _meshRenderer.sharedMaterial = _isNotWalkableMat;
 #endif
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        IsWalkablePoint checkIsWalkablePoint = other.GetComponent<IsWalkablePoint>();
+        if (checkIsWalkablePoint)
+        {
+            if (isWalkable) isWalkable = false;
+            if (checkIsWalkablePoint.isWalkable) checkIsWalkablePoint.isWalkable = false;
+        }
+    }
 }

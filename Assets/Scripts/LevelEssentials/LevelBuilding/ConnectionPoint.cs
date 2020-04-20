@@ -34,7 +34,7 @@ public class ConnectionPoint : MonoBehaviour
     [NonSerialized] public bool isConnected;
     [NonSerialized] public bool isConnectedNearby;
 
-    [NonSerialized] public KeyValuePair<List<Plane>, List<AxisPositionDirection>> posDirs;
+    [NonSerialized] public KeyValuePair<List<GravitationalPlane>, List<AxisPositionDirection>> posDirs;
     //--------Private and Public Invisible In Inspector--------\\
 
     private void Awake()
@@ -67,22 +67,22 @@ public class ConnectionPoint : MonoBehaviour
         float y = connectionPointPos.y;
         float z = connectionPointPos.z;
 
-        List<Plane> planes = new List<Plane>();
+        List<GravitationalPlane> gravitationalPlanes = new List<GravitationalPlane>();
 
         if (y > 0 || y < 0)
         {
-            planes.Add(Plane.XZ);
+            gravitationalPlanes.Add(new GravitationalPlane(Plane.XZ, GravitationalPlane.GetPlaneSide(y)));
 
-            if (x > 0 || x < 0) planes.Add(Plane.YZ);
-            else if (z < 0 || z > 0) planes.Add(Plane.XY);
+            if (x > 0 || x < 0) gravitationalPlanes.Add(new GravitationalPlane(Plane.YZ, GravitationalPlane.GetPlaneSide(x)));
+            else if (z < 0 || z > 0) gravitationalPlanes.Add(new GravitationalPlane(Plane.XY, GravitationalPlane.GetPlaneSide(z)));
         }
         else
         {
-            planes.Add(Plane.XY);
-            planes.Add(Plane.YZ);
+            gravitationalPlanes.Add(new GravitationalPlane(Plane.XY, GravitationalPlane.GetPlaneSide(z)));
+            gravitationalPlanes.Add(new GravitationalPlane(Plane.YZ, GravitationalPlane.GetPlaneSide(x)));
         }
 
-        posDirs = new KeyValuePair<List<Plane>, List<AxisPositionDirection>>(planes, new List<AxisPositionDirection>()
+        posDirs = new KeyValuePair<List<GravitationalPlane>, List<AxisPositionDirection>>(gravitationalPlanes, new List<AxisPositionDirection>()
         {
             new AxisPositionDirection(Axis.X, AxisPositionDirection.GetDirection(x)),
             new AxisPositionDirection(Axis.Y, AxisPositionDirection.GetDirection(y)),
@@ -96,13 +96,13 @@ public class ConnectionPoint : MonoBehaviour
 
         _tpTriggers = new List<BoxCollider>();
 
-        foreach (Plane plane in posDirs.Key)
+        foreach (GravitationalPlane gravitationalPlane in posDirs.Key)
         {
             BoxCollider tpTrigger = gameObject.AddComponent<BoxCollider>();
             tpTrigger.isTrigger = true;
             tpTrigger.tag = "TpTrigger";
 
-            SetupTpTrigger(tpTrigger, plane, posDirs.Value);
+            SetupTpTrigger(tpTrigger, gravitationalPlane.plane, posDirs.Value);
 
             _tpTriggers.Add(tpTrigger);
         }
