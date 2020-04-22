@@ -153,7 +153,6 @@ public class ConnectionPoint : MonoBehaviour
 
             planeSide = GravitationalPlane.GetPlaneSide(yDir);
 
-            Debug.Log(name + ", plane: " + plane + ", xDir: " + xDir + ", zDir: " + zDir);
             if (xDir == AxisDirection.Zero)
             {
                 tpTriggerSize.x = relativeBlockSize.x / tpTriggerLengthDivider;
@@ -197,6 +196,11 @@ public class ConnectionPoint : MonoBehaviour
     {
         tpTrigger.size = size;
         tpTrigger.center = center;
+    }
+
+    public void FindNearbyConnections()
+    {
+        //todo add logic
     }
 
 #if UNITY_EDITOR

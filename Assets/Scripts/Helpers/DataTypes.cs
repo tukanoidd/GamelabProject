@@ -82,37 +82,6 @@ namespace DataTypes
     }
 
     /// <summary>
-    /// Struct that stores information about connected block
-    /// </summary>
-    public struct BlockConnection
-    {
-        public KeyValuePair<Block, Block> connectedBlocks;
-        public GravitationalPlane gravitationalPlane;
-        public KeyValuePair<ConnectionPoint, ConnectionPoint> connectionPoints;
-        public List<Vector3> customCameraPositions;
-        public bool isNear;
-
-        /// <summary>
-        /// Constructor for BlockConnection struct
-        /// </summary>
-        /// <param name="connectedBlocks">Blocks that are connected</param>
-        /// <param name="gravitationalPlane">Plane of their connection</param>
-        /// <param name="connectionPoints">Connection points blocks are connected with</param>
-        /// <param name="customCameraPositions">Camera positions that allow this connection to be viable</param>>
-        /// <param name="isNear">If the connection is between near blocks</param>
-        public BlockConnection(KeyValuePair<Block, Block> connectedBlocks, GravitationalPlane gravitationalPlane,
-            KeyValuePair<ConnectionPoint, ConnectionPoint> connectionPoints, List<Vector3> customCameraPositions,
-            bool isNear)
-        {
-            this.connectedBlocks = connectedBlocks;
-            this.gravitationalPlane = gravitationalPlane;
-            this.connectionPoints = connectionPoints;
-            this.customCameraPositions = customCameraPositions;
-            this.isNear = isNear;
-        }
-    }
-
-    /// <summary>
     /// Struct that keeps data of a block in map's cell
     /// </summary>
     public struct MapBlockData
@@ -329,6 +298,37 @@ namespace DataTypes
     //----------------Structs----------------\\
 
     //----------------Classes----------------\\
+    /// <summary>
+    /// Struct that stores information about connected block
+    /// </summary>
+    public class BlockConnection
+    {
+        public HashSet<Block> connectedBlocks;
+        public GravitationalPlane gravitationalPlane;
+        public HashSet<ConnectionPoint> connectionPoints;
+        public SortedSet<Vector3> customCameraPositions;
+        public bool isNear;
+
+        /// <summary>
+        /// Constructor for BlockConnection struct
+        /// </summary>
+        /// <param name="connectedBlocks">Blocks that are connected</param>
+        /// <param name="gravitationalPlane">Plane of their connection</param>
+        /// <param name="connectionPoints">Connection points blocks are connected with</param>
+        /// <param name="customCameraPositions">Camera positions that allow this connection to be viable</param>>
+        /// <param name="isNear">If the connection is between near blocks</param>
+        public BlockConnection(HashSet<Block> connectedBlocks, GravitationalPlane gravitationalPlane,
+            HashSet<ConnectionPoint> connectionPoints, SortedSet<Vector3> customCameraPositions,
+            bool isNear)
+        {
+            this.connectedBlocks = connectedBlocks;
+            this.gravitationalPlane = gravitationalPlane;
+            this.connectionPoints = connectionPoints;
+            this.customCameraPositions = customCameraPositions;
+            this.isNear = isNear;
+        }
+    }
+    
     public class MapData
     {
         private const int _length = 100;
@@ -452,26 +452,19 @@ namespace DataTypes
         private List<BlockConnection> GetViableConnections(MapBlockData blockData,
             GravitationalPlane gravitationalPlane, ConnectionPoint[] viableConnectionPoints)
         {
-            List<BlockConnection> blockConnections = blockData.block.blockConnections;
             HashSet<BlockConnection> viableConnections = new HashSet<BlockConnection>();
 
             foreach (ConnectionPoint viableConnectionPoint in viableConnectionPoints)
             {
-                foreach (BlockConnection blockConnection in blockConnections)
+                foreach (BlockConnection blockConnection in GameManager.current.blockConnections)
                 {
                     if (blockConnection.gravitationalPlane != gravitationalPlane) continue;
-                    if (!blockConnection.connectionPoints.Key == viableConnectionPoint &&
-                        !blockConnection.connectionPoints.Value == viableConnectionPoint) continue;
+                    if (!blockConnection.connectionPoints.Contains(viableConnectionPoint)) continue;
 
-                    Block checkBlock = null;
-
-                    if (blockConnection.connectedBlocks.Key == blockData.block)
-                        checkBlock = blockConnection.connectedBlocks.Value;
-                    else if (blockConnection.connectedBlocks.Value == blockData.block)
-                        checkBlock = blockConnection.connectedBlocks.Key;
-
-                    if (checkBlock == null) continue;
-                    if (!_blockDatasInMap.Contains(checkBlock.mapData)) viableConnections.Add(blockConnection);
+                    if (blockConnection.connectedBlocks.Contains(blockData.block))
+                    {
+                        if (!_blockDatasInMap.Contains(blockData)) viableConnections.Add(blockConnection);   
+                    }
                 }
             }
 
@@ -494,9 +487,9 @@ namespace DataTypes
         {
             MapLocation newMapLocation = blockData.mapLoc;
 
-            ConnectionPoint connectionPointFrom = blockConnection.connectionPoints.Key.parentBlock == blockData.block
-                ? blockConnection.connectionPoints.Key
-                : blockConnection.connectionPoints.Value;
+            ConnectionPoint connectionPointFrom =
+                blockConnection.connectionPoints.First(
+                    connectionPoint => connectionPoint.parentBlock == blockData.block);
 
             AxisDirection xDir = connectionPointFrom.posDirs.Value.First(dir => dir.axis == Axis.X).dir;
             AxisDirection yDir = connectionPointFrom.posDirs.Value.First(dir => dir.axis == Axis.Y).dir;

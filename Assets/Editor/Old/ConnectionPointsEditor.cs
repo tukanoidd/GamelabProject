@@ -21,18 +21,6 @@ public class ConnectionPointsEditor : Editor
     {
         if (_conPoint)
         {
-            if (GUILayout.Button("Set No Connections"))
-            {
-                ConnectionPoint[] conPoints = Selection.gameObjects
-                    .Where(obj => obj.GetComponent<ConnectionPoint>())
-                    .Select(obj => obj.GetComponent<ConnectionPoint>()).ToArray();
-                    
-                foreach (ConnectionPoint conPoint in conPoints)
-                {
-                    conPoint.SetNoConnections();   
-                }
-            }
-
             if (GUILayout.Button("Add Custom Camera Position"))
             {
                 TurnAroundCamera camera = FindObjectOfType<TurnAroundCamera>();

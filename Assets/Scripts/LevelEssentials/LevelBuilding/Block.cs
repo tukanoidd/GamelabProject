@@ -18,8 +18,6 @@ public class Block : MonoBehaviour
 {
     //---------Public and Private Visible In Inspector---------\\
 #if UNITY_EDITOR
-    [SerializeField] private bool drawDebugConnectionLines = true;
-
     [SerializeField] private bool drawDebugAxisLines = true;
     [SerializeField] private float debugAxisLinesLength = 3f;
     [SerializeField] private bool drawDebugAxisLinesTitles = false;
@@ -39,11 +37,15 @@ public class Block : MonoBehaviour
         new GravitationalPlane(Plane.YZ, PlaneSide.PlaneNormalPositive),
     };
 
-    public bool HasConnections => blockConnections.Count > 0;
-    public bool HasNearbyConnections => blockConnections.Any(blockConnection => blockConnection.isNear);
+    public bool HasConnections =>
+        GameManager.current.blockConnections.Any(blockConnection => blockConnection.connectedBlocks.Contains(this));
+
+    public bool HasNearbyConnections => GameManager.current.blockConnections.Any(blockConnection =>
+        blockConnection.isNear && blockConnection.connectedBlocks.Contains(this));
 
     public List<BlockConnection> NearbyConnections =>
-        blockConnections.Where(blockConnection => blockConnection.isNear).ToList();
+        GameManager.current.blockConnections.Where(blockConnection =>
+            blockConnection.isNear && blockConnection.connectedBlocks.Contains(this)).ToList();
     //---------Public and Private Visible In Inspector---------\\
 
     //--------Private and Public Invisible In Inspector--------\\
@@ -59,8 +61,6 @@ public class Block : MonoBehaviour
 
     [NonSerialized] public Dictionary<GravitationalPlane, IsWalkablePoint> isWalkablePoints =
         new Dictionary<GravitationalPlane, IsWalkablePoint>();
-
-    [NonSerialized] public List<BlockConnection> blockConnections = new List<BlockConnection>();
 
     [NonSerialized] public MapBlockData mapData;
     //--------Private and Public Invisible In Inspector--------\\
@@ -154,7 +154,7 @@ public class Block : MonoBehaviour
         float halfX = size.x / 2f;
         float halfY = size.y / 2f;
         float halfZ = size.z / 2f;
-        
+
         List<Vector3> connectionPointsPositions = new List<Vector3>()
         {
             //Upper
@@ -211,7 +211,7 @@ public class Block : MonoBehaviour
         float halfX = size.x / 2f;
         float halfY = size.y / 2f;
         float halfZ = size.z / 2f;
-        
+
         for (int i = 0; i < BlockGravitationalPlanes.Count; i++)
         {
             GravitationalPlane gravitationalPlane = BlockGravitationalPlanes[i];
@@ -276,18 +276,6 @@ public class Block : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        if (drawDebugConnectionLines)
-        {
-            Gizmos.color = Color.yellow;
-            foreach (BlockConnection blockConnection in blockConnections)
-            {
-                Gizmos.DrawLine(
-                    blockConnection.connectionPoints.Key.transform.position,
-                    blockConnection.connectionPoints.Value.transform.position
-                );
-            }
-        }
-
         if (drawDebugAxisLines)
         {
             Vector3 position = transform.position;
