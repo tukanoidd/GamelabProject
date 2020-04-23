@@ -1,4 +1,6 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -6,23 +8,36 @@ using UnityEngine;
 [CustomEditor(typeof(ConnectionPoint))]
 public class ConnectionPointEditor : Editor
 {
-    private ConnectionPoint _connectionPoint;
+    private ConnectionPoint[] _connectionPoints;
     
     private void OnEnable()
     {
-        _connectionPoint = (ConnectionPoint) target;
+        _connectionPoints = Selection.gameObjects.Where(obj => obj.GetComponent<ConnectionPoint>() != null)
+            .Select(obj => obj.GetComponent<ConnectionPoint>()).ToArray();
     }
 
     public override void OnInspectorGUI()
     {
-        if (_connectionPoint)
+        if (_connectionPoints.Length > 0)
         {
             if (GUILayout.Button("Remove Connections"))
             {
-                GameManager.current.RemoveConnectionsFromConnectionPoint(_connectionPoint);
+                foreach (ConnectionPoint connectionPoint in _connectionPoints)
+                {
+                    GameManager.current.RemoveConnectionsFromConnectionPoint(connectionPoint);   
+                }
+            }
+
+            if (_connectionPoints.Length == 2)
+            {
+                if (GUILayout.Button("Add Custom Camera Position To This Connection"))
+                {
+                    GameManager.current.AddCameraPosition(_connectionPoints);
+                }   
             }
         }
 
         DrawDefaultInspector();
     }
 }
+#endif

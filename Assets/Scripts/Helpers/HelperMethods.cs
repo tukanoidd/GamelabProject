@@ -1,7 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using DataTypes;
 using UnityEngine;
+using Plane = DataTypes.Plane;
 
 public static class HelperMethods
 {
@@ -20,7 +22,7 @@ public static class HelperMethods
             GameObject.DestroyImmediate(collider.gameObject);
         }
     }
-    
+
     public static void DestroyObjects(IsWalkablePoint[] isWalkablePoints)
     {
         foreach (IsWalkablePoint isWalkablePoint in isWalkablePoints)
@@ -28,7 +30,7 @@ public static class HelperMethods
             GameObject.DestroyImmediate(isWalkablePoint.gameObject);
         }
     }
-    
+
     public static Vector3 Multiply(Vector3 v1, Vector3 v2) => new Vector3(
         v1.x * v2.x,
         v1.y * v2.y,
@@ -40,7 +42,7 @@ public static class HelperMethods
         v1.y / v2.y,
         v1.z / v2.z
     );
-    
+
     public static Vector3 Divide(Vector3 v1, BlockSize v2) => new Vector3(
         v1.x / v2.x,
         v1.y / v2.y,
@@ -58,7 +60,7 @@ public static class HelperMethods
         (float) v1.y / v2.y,
         (float) v1.z / v2.z
     );
-    
+
     public static void CenterPosition(Transform targetTransform) => targetTransform.position = Vector3.zero;
 
     public static void SnapToGrid(Transform targetTransform)
@@ -70,26 +72,76 @@ public static class HelperMethods
 
         targetTransform.position = initPosition;
     }
-    
+
     public static Vector3 SnapToBlockGrid(Vector3 pos)
-    {        
+    {
         Vector3 newPos = Vector3.zero;
-            
+
         newPos.x = Mathf.RoundToInt(pos.x / Block.size.x) * Block.size.x;
         newPos.y = Mathf.RoundToInt(pos.y / Block.size.x) * Block.size.x;
         newPos.z = Mathf.RoundToInt(pos.z / Block.size.x) * Block.size.x;
 
         return newPos;
     }
-    
-    public static Vector3 SnapToBlockGridXZPlane(Vector3 pos)
+
+    public static Vector3 SnapToBlockGridPlane(Vector3 pos, Plane plane)
     {
         Vector3 newPos = Vector3.zero;
-            
-        newPos.x = Mathf.RoundToInt(pos.x / Block.size.x) * Block.size.x;
-        newPos.y = pos.y;
-        newPos.z = Mathf.RoundToInt(pos.z / Block.size.x) * Block.size.x;
+
+        switch (plane)
+        {
+            case Plane.XY:
+                newPos.x = Mathf.RoundToInt(pos.x / Block.size.x) * Block.size.x;
+                newPos.y = Mathf.RoundToInt(pos.y / Block.size.y) * Block.size.y;
+                newPos.z = pos.z;
+                break;
+            case Plane.XZ:
+                newPos.x = Mathf.RoundToInt(pos.x / Block.size.x) * Block.size.x;
+                newPos.y = pos.y;
+                newPos.z = Mathf.RoundToInt(pos.z / Block.size.z) * Block.size.z;
+                break;
+            case Plane.YZ:
+                newPos.x = pos.x;
+                newPos.y = Mathf.RoundToInt(pos.y / Block.size.y) * Block.size.y;
+                newPos.z = Mathf.RoundToInt(pos.z / Block.size.z) * Block.size.z;
+                break;
+        }
 
         return newPos;
+    }
+
+    public static bool CheckIsNear(ConnectionPoint connectionPoint1, ConnectionPoint connectionPoint2) =>
+        Vector3.Distance(connectionPoint1.transform.position, connectionPoint2.transform.position) <=
+        Block.nearbyRadius;
+
+    public static bool CheckInGrid(Vector3 pos)
+    {
+        if (VectorIsInt(pos))
+        {
+            if (pos % Block.size == Vector3.zero)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public static bool VectorIsInt(Vector3 vector) =>
+        FloatIsInt(vector.x) && FloatIsInt(vector.y) && FloatIsInt(vector.z);
+
+    public static bool FloatIsInt(float num) => Math.Abs(Mathf.RoundToInt(num) - num) < 0.05f;
+
+    public static bool CheckBlockInPosition(Vector3 pos)
+    {
+        Block[] blocks = GameObject.FindObjectsOfType<Block>();
+
+        foreach (Block block in blocks)
+        {
+            if (Vector3.Distance(block.transform.position, pos) <=
+                Mathf.Min(Block.size.x, Block.size.y, Block.size.z) / 2f) return true;
+        }
+
+        return false;
     }
 }

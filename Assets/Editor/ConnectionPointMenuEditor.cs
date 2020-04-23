@@ -12,13 +12,17 @@ public static class ConnectionPointMenuEditor
     {
         GameManager.current.RemoveAllCameraPositions(GetAllConnectionPoints());
     }
-    
+
     [MenuItem("MapBuilder/Connection Points/Selected Points/Camera Positions/Add")]
     private static void SelectedConnectionPointsAddCameraPositions()
     {
-        GameManager.current.AddCameraPosition(GetSelectedConnectionPoints());
+        ConnectionPoint[] selectedConnectionPoints = GetSelectedConnectionPoints();
+        if (selectedConnectionPoints.Length == 2)
+        {
+            GameManager.current.AddCameraPosition(GetSelectedConnectionPoints());
+        }
     }
-    
+
     [MenuItem("MapBuilder/Connection Points/Selected Points/Camera Positions/Remove")]
     private static void SelectedConnectionPointsRemoveCameraPositions()
     {
@@ -41,7 +45,14 @@ public static class ConnectionPointMenuEditor
         ConnectionPoint[] connectionPoints = GetSelectedConnectionPoints();
         if (connectionPoints.Length > 1)
         {
-            GameManager.current.ConnectBlocks(connectionPoints[0], connectionPoints[1]);
+            GameManager.current.ConnectBlocks(
+                connectionPoints[0],
+                connectionPoints[1],
+                HelperMethods.CheckIsNear(
+                    connectionPoints[0],
+                    connectionPoints[1]
+                )
+            );
         }
     }
 

@@ -25,7 +25,7 @@ public class Block : MonoBehaviour
 #endif
 
     public static BlockSize size = new BlockSize(1, 1, 1);
-    public static float nearbyRadius = 1;
+    public static float nearbyRadius = 0.5f;
 
     public static readonly List<GravitationalPlane> BlockGravitationalPlanes = new List<GravitationalPlane>()
     {
@@ -63,6 +63,8 @@ public class Block : MonoBehaviour
         new Dictionary<GravitationalPlane, IsWalkablePoint>();
 
     [NonSerialized] public MapBlockData mapData;
+
+    [NonSerialized] public MapPartBuilder mapPartBuilderParent = null;
     //--------Private and Public Invisible In Inspector--------\\
 
     private void Awake()
@@ -198,6 +200,8 @@ public class Block : MonoBehaviour
 
             connectionPoints.Add(newConnectionPointComponent);
         }
+
+        connectionPointsHolder.transform.localPosition = Vector3.zero;
     }
 
     private void CreateIsWalkablePoints()
@@ -256,6 +260,8 @@ public class Block : MonoBehaviour
             newIsWalkablePointComponent.gravitationalPlane = gravitationalPlane;
 
             isWalkablePoints.Add(gravitationalPlane, newIsWalkablePointComponent);
+            
+            isWalkablePointsHolder.transform.localPosition = Vector3.zero;
         }
     }
 

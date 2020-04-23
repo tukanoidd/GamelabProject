@@ -73,8 +73,10 @@ public class ConnectionPoint : MonoBehaviour
         {
             gravitationalPlanes.Add(new GravitationalPlane(Plane.XZ, GravitationalPlane.GetPlaneSide(y)));
 
-            if (x > 0 || x < 0) gravitationalPlanes.Add(new GravitationalPlane(Plane.YZ, GravitationalPlane.GetPlaneSide(x)));
-            else if (z < 0 || z > 0) gravitationalPlanes.Add(new GravitationalPlane(Plane.XY, GravitationalPlane.GetPlaneSide(z)));
+            if (x > 0 || x < 0)
+                gravitationalPlanes.Add(new GravitationalPlane(Plane.YZ, GravitationalPlane.GetPlaneSide(x)));
+            else if (z < 0 || z > 0)
+                gravitationalPlanes.Add(new GravitationalPlane(Plane.XY, GravitationalPlane.GetPlaneSide(z)));
         }
         else
         {
@@ -82,12 +84,13 @@ public class ConnectionPoint : MonoBehaviour
             gravitationalPlanes.Add(new GravitationalPlane(Plane.YZ, GravitationalPlane.GetPlaneSide(x)));
         }
 
-        posDirs = new KeyValuePair<List<GravitationalPlane>, List<AxisPositionDirection>>(gravitationalPlanes, new List<AxisPositionDirection>()
-        {
-            new AxisPositionDirection(Axis.X, AxisPositionDirection.GetDirection(x)),
-            new AxisPositionDirection(Axis.Y, AxisPositionDirection.GetDirection(y)),
-            new AxisPositionDirection(Axis.Z, AxisPositionDirection.GetDirection(z)),
-        });
+        posDirs = new KeyValuePair<List<GravitationalPlane>, List<AxisPositionDirection>>(gravitationalPlanes,
+            new List<AxisPositionDirection>()
+            {
+                new AxisPositionDirection(Axis.X, AxisPositionDirection.GetDirection(x)),
+                new AxisPositionDirection(Axis.Y, AxisPositionDirection.GetDirection(y)),
+                new AxisPositionDirection(Axis.Z, AxisPositionDirection.GetDirection(z)),
+            });
     }
 
     public void AddTpTriggers()
@@ -132,7 +135,6 @@ public class ConnectionPoint : MonoBehaviour
 
             planeSide = GravitationalPlane.GetPlaneSide(zDir);
 
-            Debug.Log(name + ", plane: " + plane + ", xDir: " + xDir + ", yDir: " + yDir);
             if (xDir == AxisDirection.Zero)
             {
                 tpTriggerSize.x = relativeBlockSize.x / tpTriggerLengthDivider;
@@ -173,7 +175,6 @@ public class ConnectionPoint : MonoBehaviour
 
             planeSide = GravitationalPlane.GetPlaneSide(xDir);
 
-            Debug.Log(name + ", plane: " + plane + ", yDir: " + yDir + ", zDir: " + zDir);
             if (yDir == AxisDirection.Zero)
             {
                 tpTriggerSize.y = relativeBlockSize.y / tpTriggerLengthDivider;
@@ -200,7 +201,18 @@ public class ConnectionPoint : MonoBehaviour
 
     public void FindNearbyConnections()
     {
-        //todo add logic
+        ConnectionPoint[] connectionPoints = FindObjectsOfType<ConnectionPoint>().Where(connectionPoint =>
+            connectionPoint != this && parentBlock != connectionPoint.parentBlock &&
+            HelperMethods.CheckIsNear(connectionPoint, this)).ToArray();
+
+        foreach (ConnectionPoint connectionPoint in connectionPoints)
+        {
+            GameManager.current.ConnectBlocks(
+                connectionPoint,
+                this,
+                HelperMethods.CheckIsNear(connectionPoint, this)
+            );
+        }
     }
 
 #if UNITY_EDITOR
@@ -229,7 +241,7 @@ public class ConnectionPoint : MonoBehaviour
         {
             Player player = other.GetComponent<Player>();
             if (!player) return;
-            
+
             if (!player.canTeleport && !player.isTeleporting) player.canTeleport = true;
         }
     }

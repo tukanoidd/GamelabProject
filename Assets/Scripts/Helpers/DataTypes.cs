@@ -119,50 +119,6 @@ namespace DataTypes
     }
 
     /// <summary>
-    /// Struct that indicates which plane character should move on based on gravity direction
-    /// </summary>
-    public struct GravitationalPlane
-    {
-        public Plane plane;
-        public PlaneSide planeSide;
-
-        /// <summary>
-        /// Constructor for GravitationalPlane struct
-        /// </summary>
-        /// <param name="plane">Which plane character moves on</param>
-        /// <param name="planeSide">Which side of a plane character moves on</param>
-        public GravitationalPlane(Plane plane, PlaneSide planeSide)
-        {
-            this.plane = plane;
-            this.planeSide = planeSide;
-        }
-
-        public static PlaneSide GetPlaneSide(AxisDirection normal)
-        {
-            if (normal == AxisDirection.Positive) return PlaneSide.PlaneNormalPositive;
-            if (normal == AxisDirection.Negative) return PlaneSide.PlaneNormalNegative;
-            return PlaneSide.PlaneNormalZero;
-        }
-
-        public static PlaneSide GetPlaneSide(float normal)
-        {
-            if (normal > 0) return PlaneSide.PlaneNormalPositive;
-            if (normal < 0) return PlaneSide.PlaneNormalNegative;
-            return PlaneSide.PlaneNormalZero;
-        }
-
-        public static bool operator ==(GravitationalPlane gV1, GravitationalPlane gV2)
-        {
-            return gV1.plane == gV2.plane && gV1.planeSide == gV2.planeSide;
-        }
-
-        public static bool operator !=(GravitationalPlane gV1, GravitationalPlane gV2)
-        {
-            return !(gV1 == gV2);
-        }
-    }
-
-    /// <summary>
     /// Struct for indicating movement direction
     /// </summary>
     public struct MovementDirection
@@ -254,6 +210,12 @@ namespace DataTypes
             (int) (v1.y / v2.y),
             (int) (v1.z / v2.z)
         );
+
+        public static Vector3 operator %(Vector3 v1, BlockSize v2) => new Vector3(
+            (int) v1.x % v2.x,
+            (int) v1.y % v2.y,
+            (int) v1.z % v2.z
+        );
     }
 
     /// <summary>
@@ -299,7 +261,7 @@ namespace DataTypes
 
     //----------------Classes----------------\\
     /// <summary>
-    /// Struct that stores information about connected block
+    /// Class that stores information about connected block
     /// </summary>
     public class BlockConnection
     {
@@ -310,7 +272,7 @@ namespace DataTypes
         public bool isNear;
 
         /// <summary>
-        /// Constructor for BlockConnection struct
+        /// Constructor for BlockConnection class
         /// </summary>
         /// <param name="connectedBlocks">Blocks that are connected</param>
         /// <param name="gravitationalPlane">Plane of their connection</param>
@@ -577,6 +539,50 @@ namespace DataTypes
             }
 
             return newMap;
+        }
+    }
+    
+    /// <summary>
+    /// Class that indicates which plane character should move on based on gravity direction
+    /// </summary>
+    public class GravitationalPlane
+    {
+        public Plane plane;
+        public PlaneSide planeSide;
+
+        /// <summary>
+        /// Constructor for GravitationalPlane class
+        /// </summary>
+        /// <param name="plane">Which plane character moves on</param>
+        /// <param name="planeSide">Which side of a plane character moves on</param>
+        public GravitationalPlane(Plane plane, PlaneSide planeSide)
+        {
+            this.plane = plane;
+            this.planeSide = planeSide;
+        }
+
+        public static PlaneSide GetPlaneSide(AxisDirection normal)
+        {
+            if (normal == AxisDirection.Positive) return PlaneSide.PlaneNormalPositive;
+            if (normal == AxisDirection.Negative) return PlaneSide.PlaneNormalNegative;
+            return PlaneSide.PlaneNormalZero;
+        }
+
+        public static PlaneSide GetPlaneSide(float normal)
+        {
+            if (normal > 0) return PlaneSide.PlaneNormalPositive;
+            if (normal < 0) return PlaneSide.PlaneNormalNegative;
+            return PlaneSide.PlaneNormalZero;
+        }
+
+        public static bool operator ==(GravitationalPlane gV1, GravitationalPlane gV2)
+        {
+            return gV1.plane == gV2.plane && gV1.planeSide == gV2.planeSide;
+        }
+
+        public static bool operator !=(GravitationalPlane gV1, GravitationalPlane gV2)
+        {
+            return !(gV1 == gV2);
         }
     }
 

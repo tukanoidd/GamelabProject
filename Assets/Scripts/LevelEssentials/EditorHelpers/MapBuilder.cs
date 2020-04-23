@@ -38,4 +38,15 @@ public class MapBuilder : MonoBehaviour
             }
         }
     }
+
+    public GameObject AddMapPartBuilder()
+    {
+        GameObject newMapPartBuilder = new GameObject("MapPartBuilder " +
+                                                      (FindObjectsOfType<MapPartBuilder>().Length + 1));
+        newMapPartBuilder.tag = "MapBuild";
+        MapPartBuilder newMapPartBuilderComponent = newMapPartBuilder.AddComponent<MapPartBuilder>();
+        newMapPartBuilder.transform.SetParent(transform);
+
+        return newMapPartBuilder;
+    }
 }

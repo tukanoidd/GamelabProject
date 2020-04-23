@@ -13,6 +13,7 @@ public class MapPartBuilder : MonoBehaviour
             GameObject firstBlock = Instantiate(blockPrefab, transform);
             firstBlock.name = "BuildingBlock " + FindObjectsOfType<Block>().Length;
             firstBlock.transform.localPosition = Vector3.zero;
+            firstBlock.GetComponent<Block>().mapPartBuilderParent = this;
 
             Selection.activeGameObject = firstBlock;
         }

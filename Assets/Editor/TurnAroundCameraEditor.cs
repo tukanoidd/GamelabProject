@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿#if UNITY_EDITOR
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-#if UNITY_EDITOR
 [CustomEditor(typeof(TurnAroundCamera))]
 public class TurnAroundCameraEditor : Editor
 {
@@ -12,7 +12,7 @@ public class TurnAroundCameraEditor : Editor
     private Vector3 _circleCenterPos;
 
     private bool _circleLock = true;
-    
+
     private GUIStyle _labelStyle = new GUIStyle();
 
     private void OnEnable()
@@ -23,7 +23,7 @@ public class TurnAroundCameraEditor : Editor
             _targetCamera.CreateTargetToLookAt();
             CalcCircle();
         }
-        
+
         _labelStyle.alignment = TextAnchor.MiddleCenter;
     }
 
@@ -50,7 +50,7 @@ public class TurnAroundCameraEditor : Editor
 
             _targetCamera.circleCalc = true;
         }
-        
+
         Repaint();
     }
 
@@ -75,7 +75,7 @@ public class TurnAroundCameraEditor : Editor
             foreach (KeyValuePair<Vector3, int> snapPt in _targetCamera.snappingPoints)
             {
                 Handles.SphereHandleCap(0, snapPt.Key, Quaternion.identity, 0.5f, EventType.Repaint);
-                
+
                 _labelStyle.normal.textColor = Color.green;
                 Handles.Label(snapPt.Key + Vector3.up, snapPt.Value.ToString() + " deg", _labelStyle);
             }
