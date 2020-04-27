@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DataTypes;
+using UnityEditor;
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -19,6 +20,8 @@ public class ConnectionPoint : MonoBehaviour
     public static float tpTriggerDepthDivider = 5;
 
     public float customMaxCamOffset = 0.5f;
+
+    public bool HasParent => parentBlock != null;
     //---------Public and Private Visible In Inspector---------\\
 
     //--------Private and Public Invisible In Inspector--------\\
@@ -30,11 +33,11 @@ public class ConnectionPoint : MonoBehaviour
 
     private List<BoxCollider> _tpTriggers;
 
-    [NonSerialized] public Block parentBlock;
-    [NonSerialized] public bool isConnected;
-    [NonSerialized] public bool isConnectedNearby;
+    public Block parentBlock;
+    public bool isConnected;
+    public bool isConnectedNearby;
 
-    [NonSerialized] public KeyValuePair<List<GravitationalPlane>, List<AxisPositionDirection>> posDirs;
+    public ConnectionPointPositionDirections posDirs;
     //--------Private and Public Invisible In Inspector--------\\
 
     private void Awake()
@@ -84,7 +87,7 @@ public class ConnectionPoint : MonoBehaviour
             gravitationalPlanes.Add(new GravitationalPlane(Plane.YZ, GravitationalPlane.GetPlaneSide(x)));
         }
 
-        posDirs = new KeyValuePair<List<GravitationalPlane>, List<AxisPositionDirection>>(gravitationalPlanes,
+        posDirs = new ConnectionPointPositionDirections(gravitationalPlanes,
             new List<AxisPositionDirection>()
             {
                 new AxisPositionDirection(Axis.X, AxisPositionDirection.GetDirection(x)),
@@ -99,13 +102,13 @@ public class ConnectionPoint : MonoBehaviour
 
         _tpTriggers = new List<BoxCollider>();
 
-        foreach (GravitationalPlane gravitationalPlane in posDirs.Key)
+        foreach (GravitationalPlane gravitationalPlane in posDirs.gravitationalPlanes)
         {
             BoxCollider tpTrigger = gameObject.AddComponent<BoxCollider>();
             tpTrigger.isTrigger = true;
             tpTrigger.tag = "TpTrigger";
 
-            SetupTpTrigger(tpTrigger, gravitationalPlane.plane, posDirs.Value);
+            SetupTpTrigger(tpTrigger, gravitationalPlane.plane, posDirs.axisPositionDirections);
 
             _tpTriggers.Add(tpTrigger);
         }
@@ -219,8 +222,16 @@ public class ConnectionPoint : MonoBehaviour
     private void UpdateDebugMaterials()
     {
         if (isConnected && _meshRenderer.sharedMaterial != _connectedMat) _meshRenderer.sharedMaterial = _connectedMat;
-        else if (isConnected && _meshRenderer.sharedMaterial != _standardMat)
+        else if (!isConnected && _meshRenderer.sharedMaterial != _standardMat)
             _meshRenderer.sharedMaterial = _standardMat;
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (GameManager.current.connectionPointsDebugDrawHasParentBlock)
+        {
+            Handles.Label(transform.position + Vector3.up, HasParent ? "Y" : "N");   
+        }
     }
 #endif
 

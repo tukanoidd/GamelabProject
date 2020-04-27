@@ -11,23 +11,40 @@ public class GameManager : MonoBehaviour
     //---------Public and Private Visible In Inspector---------\\
 #if UNITY_EDITOR
     [SerializeField] private bool drawDebugConnectionLines = true;
+    public bool connectionPointsDebugDrawHasParentBlock = true;
+    public TpTriggerDebugDrawMode tpTriggerDebugDrawMode = TpTriggerDebugDrawMode.DimensionLines;
 #endif
 
-    public static GameManager current;
+    private static GameManager s_current = null;
+    
+    public static GameManager current
+    {
+        get
+        {
+            if (s_current == null) s_current = FindObjectOfType<GameManager>();
+ 
+            return s_current;
+        }
+
+        set => s_current = value;
+    }
+    
+    public DeviceType deviceType;
+    
+    public Player player;
+    public TurnAroundCamera mainCamera;
+    public PathFinder pathFinder;
+    
+    public bool gamePaused = false;
+
+    public bool playerLockedMovement = false;
+    public bool cameraLockedMovement = false;
+
+    public List<BlockConnection> blockConnections = new List<BlockConnection>();
     //---------Public and Private Visible In Inspector---------\\
 
     //--------Private and Public Invisible In Inspector--------\\
-    [NonSerialized] public DeviceType deviceType;
-    [NonSerialized] public bool gamePaused = false;
-
-    [NonSerialized] public Player player;
-    [NonSerialized] public TurnAroundCamera mainCamera;
-    [NonSerialized] public PathFinder pathFinder;
-
-    [NonSerialized] public bool playerLockedMovement = false;
-    [NonSerialized] public bool cameraLockedMovement = false;
-
-    [NonSerialized] public List<BlockConnection> blockConnections = new List<BlockConnection>();
+    
     //--------Private and Public Invisible In Inspector--------\\
 
     //--------Static Behavior--------\\
@@ -45,8 +62,13 @@ public class GameManager : MonoBehaviour
     //--------Static Behavior--------\\
 
     private void Awake()
+    { 
+        InitVars();   
+    }
+
+    public void InitVars()
     {
-        current = this;
+        s_current = this;
 
         deviceType = SystemInfo.deviceType;
 
@@ -59,7 +81,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (ConnectionPoint connectionPoint in connectionPoints)
         {
-            RemoveConnectionsFromConnectionPoint(connectionPoint);
+            RemoveConnectionsFromConnectionPoint(connectionPoint, nearby);
         }
     }
 
@@ -97,7 +119,7 @@ public class GameManager : MonoBehaviour
             blockConnection.connectionPoints.Contains(conPoint1) &&
             blockConnection.connectionPoints.Contains(conPoint2)).ToArray();
 
-        if (removeConnections.Length > 1)
+        if (removeConnections.Length > 0)
         {
             DisconnectPoint(conPoint1);
             DisconnectPoint(conPoint2);
@@ -124,9 +146,9 @@ public class GameManager : MonoBehaviour
 
             foreach (BlockConnection blockConnection in neededBlockConnections)
             {
-                mainCamera.customPositions.RemoveWhere(customPosition =>
-                    blockConnection.customCameraPositions.Contains(customPosition));
-                blockConnection.customCameraPositions = new SortedSet<Vector3>();
+                mainCamera.customPositions.RemoveAll(customPosition =>
+                    blockConnection.customCameraPositions.Contains(customPosition));;
+                blockConnection.customCameraPositions = new List<Vector3>();
             }
         }
     }
@@ -139,8 +161,8 @@ public class GameManager : MonoBehaviour
             connectionPoints.Any(connectionPoint => connection.connectionPoints.Contains(connectionPoint))).ToArray();
         foreach (BlockConnection connection in connections)
         {
-            mainCamera.customPositions.Add(camPos);
-            connection.customCameraPositions.Add(camPos);
+            if (!mainCamera.customPositions.Contains(camPos)) mainCamera.customPositions.Add(camPos);
+            if (!connection.customCameraPositions.Contains(camPos)) connection.customCameraPositions.Add(camPos);
         }
     }
 
@@ -148,32 +170,53 @@ public class GameManager : MonoBehaviour
     {
         if (connectionPoint1.parentBlock == connectionPoint2.parentBlock) return;
 
-        GravitationalPlane sameGravitationalPlane = connectionPoint1.posDirs.Key.FirstOrDefault(gravitationalPlane =>
-            connectionPoint2.posDirs.Key.Contains(gravitationalPlane));
+        if (blockConnections.Any(blockConnection =>
+            blockConnection.connectionPoints.Contains(connectionPoint1) &&
+            blockConnection.connectionPoints.Contains(connectionPoint2))) return;
+
+        GravitationalPlane sameGravitationalPlane = null;
+        
+        foreach (GravitationalPlane gravitationalPlane in connectionPoint1.posDirs.gravitationalPlanes)
+        {
+            foreach (GravitationalPlane otherGravitationalPlane in connectionPoint2.posDirs.gravitationalPlanes)
+            {
+                if (gravitationalPlane.IsEqual(otherGravitationalPlane))
+                {
+                    sameGravitationalPlane = gravitationalPlane;
+                    goto FoundSameGravitationalPlane;
+                }
+            }
+        }
+        
+        FoundSameGravitationalPlane:
 
         if (sameGravitationalPlane == null) return;
         
-        if (!blockConnections.Any(blockConnection =>
-            blockConnection.connectionPoints.Contains(connectionPoint1) &&
-            blockConnection.connectionPoints.Contains(connectionPoint2)))
-        {
-            HashSet<Block> connectedBlocks = new HashSet<Block>();
-            HashSet<ConnectionPoint> connectionPoints = new HashSet<ConnectionPoint>();
+        List<Block> connectedBlocks = new List<Block>();
+        List<ConnectionPoint> connectionPoints = new List<ConnectionPoint>();
             
-            connectedBlocks.Add(connectionPoint1.parentBlock);
-            connectedBlocks.Add(connectionPoint2.parentBlock);
+        connectedBlocks.Add(connectionPoint1.parentBlock);
+        connectedBlocks.Add(connectionPoint2.parentBlock);
 
-            connectionPoints.Add(connectionPoint1);
-            connectionPoints.Add(connectionPoint2);
+        connectionPoints.Add(connectionPoint1);
+        connectionPoints.Add(connectionPoint2);
+        
+        blockConnections.Add(new BlockConnection(
+            connectedBlocks,
+            sameGravitationalPlane,
+            connectionPoints,
+            new List<Vector3>(),
+            isNear
+        ));
 
-            blockConnections.Add(new BlockConnection(
-               connectedBlocks,
-               sameGravitationalPlane,
-               connectionPoints,
-               new SortedSet<Vector3>(),
-               isNear
-            ));
-        }
+        ConnectPoint(connectionPoint1, isNear);
+        ConnectPoint(connectionPoint2, isNear);
+    }
+
+    private void ConnectPoint(ConnectionPoint connectionPoint, bool isNear)
+    {
+        connectionPoint.isConnected = true;
+        connectionPoint.isConnectedNearby = isNear;
     }
 
 #if UNITY_EDITOR

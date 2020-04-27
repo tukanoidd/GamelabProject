@@ -34,7 +34,7 @@ public class TurnAroundCamera : MonoBehaviour
     [NonSerialized] public int degToSnap = 0;
     [NonSerialized] public bool circleCalc = false;
 
-    [NonSerialized] public HashSet<Vector3> customPositions = new HashSet<Vector3>();
+    [NonSerialized] public List<Vector3> customPositions = new List<Vector3>();
     //--------Private and Public Invisible In Inspector--------\\
 
     private void Awake()

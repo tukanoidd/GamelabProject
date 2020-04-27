@@ -7,23 +7,13 @@ using UnityEngine;
 
 public static class ConnectionPointMenuEditor
 {
-    [MenuItem("MapBuilder/Connection Points/All Points/Camera Positions/Remove")]
+    [MenuItem("MapBuilder/Connection Points/All Points/Remove Camera Positions")]
     private static void AllConnectionPointsRemoveCameraPositions()
     {
         GameManager.current.RemoveAllCameraPositions(GetAllConnectionPoints());
     }
 
-    [MenuItem("MapBuilder/Connection Points/Selected Points/Camera Positions/Add")]
-    private static void SelectedConnectionPointsAddCameraPositions()
-    {
-        ConnectionPoint[] selectedConnectionPoints = GetSelectedConnectionPoints();
-        if (selectedConnectionPoints.Length == 2)
-        {
-            GameManager.current.AddCameraPosition(GetSelectedConnectionPoints());
-        }
-    }
-
-    [MenuItem("MapBuilder/Connection Points/Selected Points/Camera Positions/Remove")]
+    [MenuItem("MapBuilder/Connection Points/Selected Points/Remove Camera Positions")]
     private static void SelectedConnectionPointsRemoveCameraPositions()
     {
         GameManager.current.RemoveAllCameraPositions(GetSelectedConnectionPoints());

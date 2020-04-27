@@ -52,19 +52,19 @@ public class Block : MonoBehaviour
     private Mesh _mesh;
     private MeshRenderer _meshRenderer;
 
-    [NonSerialized] public int id;
+    public int id;
 
     [NonSerialized] public bool pointsReset = false;
     [NonSerialized] public bool initPoints = true;
 
-    [NonSerialized] public List<ConnectionPoint> connectionPoints = new List<ConnectionPoint>();
+    public List<ConnectionPoint> connectionPoints = new List<ConnectionPoint>();
 
-    [NonSerialized] public Dictionary<GravitationalPlane, IsWalkablePoint> isWalkablePoints =
+    public Dictionary<GravitationalPlane, IsWalkablePoint> isWalkablePoints =
         new Dictionary<GravitationalPlane, IsWalkablePoint>();
 
-    [NonSerialized] public MapBlockData mapData;
+    public MapBlockData mapData;
 
-    [NonSerialized] public MapPartBuilder mapPartBuilderParent = null;
+    public MapPartBuilder mapPartBuilderParent = null;
     //--------Private and Public Invisible In Inspector--------\\
 
     private void Awake()
@@ -120,7 +120,11 @@ public class Block : MonoBehaviour
                 HelperMethods.DestroyObjects(checkConnectionPoints);
                 CreateConnectionPoints();
             }
-            else connectionPoints = checkConnectionPoints.ToList();
+            else
+            {
+                connectionPoints = checkConnectionPoints.ToList();
+                SetParentBlockToConnectionPoints();
+            }
         }
         else CreateConnectionPoints();
 
@@ -202,6 +206,23 @@ public class Block : MonoBehaviour
         }
 
         connectionPointsHolder.transform.localPosition = Vector3.zero;
+    }
+
+    public void SetParentBlockToConnectionPoints()
+    {
+        if (connectionPoints.Count < 1)
+        {
+            ConnectionPoint[] checkConnectionPoints = GetComponentsInChildren<ConnectionPoint>();
+            connectionPoints = checkConnectionPoints.ToList();
+            SetParentBlockToConnectionPoints();
+        }
+        else
+        {
+            foreach (ConnectionPoint connectionPoint in connectionPoints)
+            {
+                connectionPoint.parentBlock = this;
+            }   
+        }
     }
 
     private void CreateIsWalkablePoints()

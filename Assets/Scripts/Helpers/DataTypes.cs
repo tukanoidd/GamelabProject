@@ -46,6 +46,12 @@ namespace DataTypes
         Y,
         Z
     }
+    
+    public enum TpTriggerDebugDrawMode {
+        Outline,
+        DimensionLines,
+        None
+    }
     //-----------------Enums-----------------\\
 
     //----------------Structs----------------\\
@@ -221,6 +227,7 @@ namespace DataTypes
     /// <summary>
     /// Struct for showing position and direction of the object on another object's axis
     /// </summary>
+    [Serializable]
     public struct AxisPositionDirection
     {
         public Axis axis;
@@ -263,12 +270,13 @@ namespace DataTypes
     /// <summary>
     /// Class that stores information about connected block
     /// </summary>
+    [Serializable]
     public class BlockConnection
     {
-        public HashSet<Block> connectedBlocks;
+        public List<Block> connectedBlocks;
         public GravitationalPlane gravitationalPlane;
-        public HashSet<ConnectionPoint> connectionPoints;
-        public SortedSet<Vector3> customCameraPositions;
+        public List<ConnectionPoint> connectionPoints;
+        public List<Vector3> customCameraPositions;
         public bool isNear;
 
         /// <summary>
@@ -279,8 +287,8 @@ namespace DataTypes
         /// <param name="connectionPoints">Connection points blocks are connected with</param>
         /// <param name="customCameraPositions">Camera positions that allow this connection to be viable</param>>
         /// <param name="isNear">If the connection is between near blocks</param>
-        public BlockConnection(HashSet<Block> connectedBlocks, GravitationalPlane gravitationalPlane,
-            HashSet<ConnectionPoint> connectionPoints, SortedSet<Vector3> customCameraPositions,
+        public BlockConnection(List<Block> connectedBlocks, GravitationalPlane gravitationalPlane,
+            List<ConnectionPoint> connectionPoints, List<Vector3> customCameraPositions,
             bool isNear)
         {
             this.connectedBlocks = connectedBlocks;
@@ -401,7 +409,7 @@ namespace DataTypes
             GravitationalPlane gravitationalPlane)
         {
             ConnectionPoint[] viableConnectionPoints = blockData.block.connectionPoints
-                .Where(connectionPoint => connectionPoint.posDirs.Key.Contains(gravitationalPlane)).ToArray();
+                .Where(connectionPoint => connectionPoint.posDirs.gravitationalPlanes.Contains(gravitationalPlane)).ToArray();
             List<BlockConnection> viableConnections =
                 GetViableConnections(blockData, gravitationalPlane, viableConnectionPoints);
 
@@ -453,9 +461,9 @@ namespace DataTypes
                 blockConnection.connectionPoints.First(
                     connectionPoint => connectionPoint.parentBlock == blockData.block);
 
-            AxisDirection xDir = connectionPointFrom.posDirs.Value.First(dir => dir.axis == Axis.X).dir;
-            AxisDirection yDir = connectionPointFrom.posDirs.Value.First(dir => dir.axis == Axis.Y).dir;
-            AxisDirection zDir = connectionPointFrom.posDirs.Value.First(dir => dir.axis == Axis.Z).dir;
+            AxisDirection xDir = connectionPointFrom.posDirs.axisPositionDirections.First(dir => dir.axis == Axis.X).dir;
+            AxisDirection yDir = connectionPointFrom.posDirs.axisPositionDirections.First(dir => dir.axis == Axis.Y).dir;
+            AxisDirection zDir = connectionPointFrom.posDirs.axisPositionDirections.First(dir => dir.axis == Axis.Z).dir;
 
             if (gravitationalPlane.plane == Plane.XY)
             {
@@ -545,6 +553,7 @@ namespace DataTypes
     /// <summary>
     /// Class that indicates which plane character should move on based on gravity direction
     /// </summary>
+    [Serializable]
     public class GravitationalPlane
     {
         public Plane plane;
@@ -575,14 +584,11 @@ namespace DataTypes
             return PlaneSide.PlaneNormalZero;
         }
 
-        public static bool operator ==(GravitationalPlane gV1, GravitationalPlane gV2)
+        public bool IsEqual(GravitationalPlane other)
         {
-            return gV1.plane == gV2.plane && gV1.planeSide == gV2.planeSide;
-        }
+            if (other == null) return false;
 
-        public static bool operator !=(GravitationalPlane gV1, GravitationalPlane gV2)
-        {
-            return !(gV1 == gV2);
+            return plane == other.plane && planeSide == other.planeSide;
         }
     }
 
@@ -602,6 +608,19 @@ namespace DataTypes
         {
             this.mapBlockDatas = mapBlockDatas;
             parent = null;
+        }
+    }
+
+    [Serializable]
+    public class ConnectionPointPositionDirections
+    {
+        public List<GravitationalPlane> gravitationalPlanes;
+        public List<AxisPositionDirection> axisPositionDirections;
+
+        public ConnectionPointPositionDirections(List<GravitationalPlane> gravitationalPlanes, List<AxisPositionDirection> axisPositionDirections)
+        {
+            this.gravitationalPlanes = gravitationalPlanes;
+            this.axisPositionDirections = axisPositionDirections;
         }
     }
 

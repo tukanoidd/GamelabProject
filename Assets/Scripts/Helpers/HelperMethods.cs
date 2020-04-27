@@ -2,7 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using DataTypes;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Plane = DataTypes.Plane;
 
 public static class HelperMethods
