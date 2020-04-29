@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 3470389497488073221}
   - component: {fileID: 3470389497488073220}
   - component: {fileID: 336694126938222643}
-  - component: {fileID: 4766238513894997805}
-  - component: {fileID: 1899108754661182281}
+  - component: {fileID: 994730848312439522}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -115,7 +114,7 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4766238513894997805
+--- !u!114 &994730848312439522
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,21 +123,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 3470389497488073223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ebada564d1a9e14a8106f314728cddb, type: 3}
+  m_Script: {fileID: 11500000, guid: a2129b6836b14a8489d97edc9326ce86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkBlockUnderMaxDistance: 3
---- !u!114 &1899108754661182281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3470389497488073223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e81c2507a4d9074080df31695162b0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravity: {x: 0, y: -1, z: 0}
-  walkSpeed: 10
+  drawDebugLineToTarget: 1
+  drawDebugLineForward: 1
+  debugLineForwardLength: 3
+  drawPathWhenMoving: 0
+  movementSpeed: 10
+  customCameraPositionMaxOffset: 0.5
+  gravitationalPlane:
+    plane: 1
+    planeSide: 0

@@ -42,6 +42,7 @@ public class TurnAroundCamera : MonoBehaviour
         cam = GetComponent<Camera>();
 
         waitTillSnappingCoroutine = GameManager.Countdown(waitTillSnapping, SnapToNearestCustomPosition);
+        CreateTargetToLookAt();
     }
 
     private void Start()
@@ -88,7 +89,7 @@ public class TurnAroundCamera : MonoBehaviour
                 // Look at the object
                 transform.LookAt(targetToLookAt.transform);
             }
-            else StartCoroutine(waitTillSnappingCoroutine);
+            //else StartCoroutine(waitTillSnappingCoroutine);
         }
     }
 

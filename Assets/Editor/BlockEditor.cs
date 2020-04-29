@@ -1,5 +1,7 @@
 ﻿#if UNITY_EDITOR
 using System;
+using System.Collections.Generic;
+using DataTypes;
 using UnityEditor;
 using UnityEngine;
 
@@ -11,6 +13,8 @@ public class BlockEditor : Editor
     private Transform _blockTransform;
     
     private Tool _lastTool = Tool.None;
+
+    private bool _expandIsWalkablePointsDictionary = false;
 
     private void OnEnable()
     {
@@ -26,6 +30,46 @@ public class BlockEditor : Editor
 
     public override void OnInspectorGUI()
     {
+        if (_targetBlock)
+        {
+            if (_targetBlock.isWalkablePoints.Count > 0)
+            {
+                _expandIsWalkablePointsDictionary =
+                    EditorGUILayout.Foldout(_expandIsWalkablePointsDictionary, "Is Walkable Points");
+                if (_expandIsWalkablePointsDictionary)
+                {
+                    foreach (KeyValuePair<GravitationalPlane, IsWalkablePoint> point in _targetBlock.isWalkablePoints)
+                    {
+                        GUILayout.BeginHorizontal();
+                        
+                        GUILayout.Label("GravitationalPlane");
+                        GUILayout.Label("IsWalkablePoint");
+                        
+                        GUILayout.EndHorizontal();
+                    
+                        GUILayout.BeginHorizontal();
+                        GUILayout.BeginVertical();
+                        GUILayout.Label(point.Key.plane.ToString());
+                        GUILayout.Label(point.Key.planeSide.ToString());
+                        GUILayout.EndVertical();
+                    
+                        GUILayout.BeginVertical();
+                        GUILayout.Label(point.Value.name);
+                        GUILayout.Label(point.Value.isWalkable.ToString());
+                        GUILayout.Label(point.Value.parentBlock ? point.Value.parentBlock.name : "None");
+                        GUILayout.Label("GravitationalPlane");
+                        GUILayout.BeginVertical();
+                        GUILayout.Label("Plane " + point.Value.gravitationalPlane.plane);
+                        GUILayout.Label("PlaneSide " + point.Value.gravitationalPlane.planeSide);
+                        GUILayout.EndVertical();
+                        GUILayout.EndVertical();
+                        
+                        GUILayout.EndHorizontal();
+                    }
+                }   
+            }   
+        }
+        
         DrawDefaultInspector();
     }
 

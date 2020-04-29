@@ -11,9 +11,10 @@ public static class HelperMethods
 {
     public static void DestroyObjects(ConnectionPoint[] connectionPoints)
     {
+        Debug.Log("Destroying connection point: " + DateTime.Now);
         foreach (ConnectionPoint connectionPoint in connectionPoints)
         {
-            GameObject.DestroyImmediate(connectionPoint.gameObject);
+            if (connectionPoint) GameObject.DestroyImmediate(connectionPoint.gameObject);
         }
     }
 
@@ -21,7 +22,7 @@ public static class HelperMethods
     {
         foreach (Collider collider in colliders)
         {
-            GameObject.DestroyImmediate(collider.gameObject);
+            if (collider) GameObject.DestroyImmediate(collider);
         }
     }
 

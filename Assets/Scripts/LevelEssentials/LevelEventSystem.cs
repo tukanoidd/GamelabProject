@@ -5,7 +5,19 @@ using UnityEngine;
 
 public class LevelEventSystem : MonoBehaviour
 {
-    public static LevelEventSystem current;
+    private static LevelEventSystem s_current = null;
+    
+    public static LevelEventSystem current
+    {
+        get
+        {
+            if (s_current == null) s_current = FindObjectOfType<LevelEventSystem>();
+ 
+            return s_current;
+        }
+
+        set => s_current = value;
+    }
     
     public event Action<int> onBlockClicked;
 

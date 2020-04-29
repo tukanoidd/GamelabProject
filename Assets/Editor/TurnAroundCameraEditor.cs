@@ -109,7 +109,7 @@ public class TurnAroundCameraEditor : Editor
             }
         }
 
-        base.OnInspectorGUI();
+        DrawDefaultInspector();
     }
 
     private void SnapToDegree()

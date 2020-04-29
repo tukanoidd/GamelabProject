@@ -4,6 +4,8 @@ using System.Linq;
 using UnityEngine;
 using DataTypes;
 using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 using Plane = DataTypes.Plane;
 
 /// <summary>
@@ -53,9 +55,6 @@ public class Block : MonoBehaviour
     private MeshRenderer _meshRenderer;
 
     public int id;
-
-    [NonSerialized] public bool pointsReset = false;
-    [NonSerialized] public bool initPoints = true;
 
     public List<ConnectionPoint> connectionPoints = new List<ConnectionPoint>();
 
@@ -112,44 +111,27 @@ public class Block : MonoBehaviour
 #endif
 
         // Creating new connection points
-        ConnectionPoint[] checkConnectionPoints = GetComponentsInChildren<ConnectionPoint>();
+        ConnectionPoint[] checkConnectionPoints = gameObject.GetComponentsInChildren<ConnectionPoint>();
+
         if (checkConnectionPoints.Length > 0)
         {
-            if (pointsReset || initPoints)
-            {
-                HelperMethods.DestroyObjects(checkConnectionPoints);
-                CreateConnectionPoints();
-            }
-            else
-            {
-                connectionPoints = checkConnectionPoints.ToList();
-                SetParentBlockToConnectionPoints();
-            }
+            connectionPoints = checkConnectionPoints.ToList();
+            SetParentBlockToConnectionPoints();
         }
         else CreateConnectionPoints();
 
         // Creating new isWalkablePoint
-        IsWalkablePoint[] checkIsWalkablePoints = GetComponentsInChildren<IsWalkablePoint>();
+        IsWalkablePoint[] checkIsWalkablePoints = gameObject.GetComponentsInChildren<IsWalkablePoint>();
         if (checkIsWalkablePoints.Length > 0)
         {
-            if (pointsReset || initPoints)
+            isWalkablePoints = new Dictionary<GravitationalPlane, IsWalkablePoint>();
+            foreach (IsWalkablePoint isWalkablePoint in checkIsWalkablePoints)
             {
-                HelperMethods.DestroyObjects(checkIsWalkablePoints);
-                CreateIsWalkablePoints();
-            }
-            else
-            {
-                isWalkablePoints = new Dictionary<GravitationalPlane, IsWalkablePoint>();
-                foreach (IsWalkablePoint isWalkablePoint in checkIsWalkablePoints)
-                {
-                    isWalkablePoints.Add(isWalkablePoint.gravitationalPlane, isWalkablePoint);
-                }
+                isWalkablePoints.Add(isWalkablePoint.gravitationalPlane, isWalkablePoint);
+                isWalkablePoint.parentBlock = this;
             }
         }
         else CreateIsWalkablePoints();
-
-        pointsReset = false;
-        initPoints = true;
     }
 
     private void CreateConnectionPoints()
@@ -221,7 +203,7 @@ public class Block : MonoBehaviour
             foreach (ConnectionPoint connectionPoint in connectionPoints)
             {
                 connectionPoint.parentBlock = this;
-            }   
+            }
         }
     }
 
@@ -281,7 +263,7 @@ public class Block : MonoBehaviour
             newIsWalkablePointComponent.gravitationalPlane = gravitationalPlane;
 
             isWalkablePoints.Add(gravitationalPlane, newIsWalkablePointComponent);
-            
+
             isWalkablePointsHolder.transform.localPosition = Vector3.zero;
         }
     }
@@ -331,7 +313,7 @@ public class Block : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (Application.isPlaying)
+        if (Application.isPlaying && LevelEventSystem.current)
         {
             LevelEventSystem.current.onBlockClicked -= BlockClickedTapped;
         }

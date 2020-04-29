@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Object = System.Object;
 
 namespace DataTypes
 {
@@ -45,12 +46,6 @@ namespace DataTypes
         X,
         Y,
         Z
-    }
-    
-    public enum TpTriggerDebugDrawMode {
-        Outline,
-        DimensionLines,
-        None
     }
     //-----------------Enums-----------------\\
 
@@ -322,8 +317,8 @@ namespace DataTypes
             if (viableBlockDatas.Length < 1) return;
 
             AddBlocksToMap(ref map, viableBlockDatas, gravitationalPlane);
-            map = ShrinkMap(map);
-
+            //map = ShrinkMap(map);
+            
             maps[gravitationalPlane] = map;
         }
 
@@ -331,6 +326,8 @@ namespace DataTypes
             GravitationalPlane gravitationalPlane)
         {
             AddBlockToMap(ref map, blockDatas[0], gravitationalPlane, true);
+            
+            for (int i = 1; i < blockDatas.Length; i++) AddBlockToMap(ref map, blockDatas[i], gravitationalPlane, false);
         }
 
         private void AddBlockToMap(ref HashSet<MapBlockData>[,] map, MapBlockData blockData,
@@ -343,6 +340,8 @@ namespace DataTypes
             }
             else
             {
+                //todo fix not first adding
+                
                 MapLocation location = new MapLocation(0, 0), nearLocation = new MapLocation(0, 0);
 
                 MapBlockData? checkNearBlockData =
@@ -388,6 +387,8 @@ namespace DataTypes
         {
             try
             {
+                if (map[mapLocation.row, mapLocation.col] == null) map[mapLocation.row, mapLocation.col] = new HashSet<MapBlockData>();
+                
                 map[mapLocation.row, mapLocation.col].Add(blockData);
                 blockData.mapLoc = mapLocation;
                 _blockDatasInMap.Add(blockData);
@@ -413,6 +414,8 @@ namespace DataTypes
             List<BlockConnection> viableConnections =
                 GetViableConnections(blockData, gravitationalPlane, viableConnectionPoints);
 
+            //todo fix getViableConnections
+            
             foreach (BlockConnection blockConnection in viableConnections)
             {
                 AddBlockToMapFromConnection(ref map, blockConnection, blockData, gravitationalPlane);
@@ -584,11 +587,38 @@ namespace DataTypes
             return PlaneSide.PlaneNormalZero;
         }
 
-        public bool IsEqual(GravitationalPlane other)
+        public static int PlaneSideToInt(PlaneSide planeSide)
         {
-            if (other == null) return false;
+            switch (planeSide)
+            {
+                case PlaneSide.PlaneNormalNegative:
+                    return -1;
+                case PlaneSide.PlaneNormalPositive:
+                    return 1;
+                default:
+                    return 0;
+            }
+        }
 
-            return plane == other.plane && planeSide == other.planeSide;
+        public override bool Equals(object obj)
+        {
+            if (obj is GravitationalPlane) return Equals((GravitationalPlane) obj);
+            else return base.Equals(obj);
+        }
+
+        public bool Equals(GravitationalPlane gravitationalPlane)
+        {
+            if (gravitationalPlane == null) return false;
+            return plane == gravitationalPlane.plane && planeSide == gravitationalPlane.planeSide;
+        }
+
+        public override int GetHashCode()
+        {
+            int hash = 17;
+            hash = hash * 23 + plane.GetHashCode();
+            hash = hash * 23 + planeSide.GetHashCode();
+
+            return hash;
         }
     }
 

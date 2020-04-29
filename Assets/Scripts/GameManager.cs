@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DataTypes;
+using UnityEditor;
 using UnityEngine;
 
 [ExecuteAlways]
@@ -12,7 +13,6 @@ public class GameManager : MonoBehaviour
 #if UNITY_EDITOR
     [SerializeField] private bool drawDebugConnectionLines = true;
     public bool connectionPointsDebugDrawHasParentBlock = true;
-    public TpTriggerDebugDrawMode tpTriggerDebugDrawMode = TpTriggerDebugDrawMode.DimensionLines;
 #endif
 
     private static GameManager s_current = null;
@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
     public bool playerLockedMovement = false;
     public bool cameraLockedMovement = false;
 
-    public List<BlockConnection> blockConnections = new List<BlockConnection>();
+    public List<BlockConnection> blockConnections;
     //---------Public and Private Visible In Inspector---------\\
 
     //--------Private and Public Invisible In Inspector--------\\
@@ -83,6 +83,8 @@ public class GameManager : MonoBehaviour
         {
             RemoveConnectionsFromConnectionPoint(connectionPoint, nearby);
         }
+        
+        EditorUtility.SetDirty(this);
     }
 
     public void RemoveConnectionsFromConnectionPoint(ConnectionPoint connectionPoint, bool nearby = false)
@@ -100,6 +102,8 @@ public class GameManager : MonoBehaviour
                 .Where(blockConnection => blockConnection.connectionPoints.Contains(connectionPoint)).ToArray());
             blockConnections.RemoveAll(blockConnection => blockConnection.connectionPoints.Contains(connectionPoint));
         }
+        
+        EditorUtility.SetDirty(this);
     }
 
     public void DisconnectPoints(BlockConnection[] removeConnectionsList)
@@ -129,9 +133,11 @@ public class GameManager : MonoBehaviour
                 blockConnections.Remove(blockConnection);
             }
         }
+        
+        EditorUtility.SetDirty(this);
     }
 
-    public void DisconnectPoint(ConnectionPoint connectionPoint)
+    private void DisconnectPoint(ConnectionPoint connectionPoint)
     {
         connectionPoint.isConnected = false;
         connectionPoint.isConnectedNearby = false;
@@ -151,6 +157,8 @@ public class GameManager : MonoBehaviour
                 blockConnection.customCameraPositions = new List<Vector3>();
             }
         }
+        
+        EditorUtility.SetDirty(this);
     }
 
     public void AddCameraPosition(ConnectionPoint[] connectionPoints)
@@ -164,6 +172,8 @@ public class GameManager : MonoBehaviour
             if (!mainCamera.customPositions.Contains(camPos)) mainCamera.customPositions.Add(camPos);
             if (!connection.customCameraPositions.Contains(camPos)) connection.customCameraPositions.Add(camPos);
         }
+        
+        EditorUtility.SetDirty(this);
     }
 
     public void ConnectBlocks(ConnectionPoint connectionPoint1, ConnectionPoint connectionPoint2, bool isNear)
@@ -180,7 +190,7 @@ public class GameManager : MonoBehaviour
         {
             foreach (GravitationalPlane otherGravitationalPlane in connectionPoint2.posDirs.gravitationalPlanes)
             {
-                if (gravitationalPlane.IsEqual(otherGravitationalPlane))
+                if (gravitationalPlane.Equals(otherGravitationalPlane))
                 {
                     sameGravitationalPlane = gravitationalPlane;
                     goto FoundSameGravitationalPlane;
@@ -211,6 +221,8 @@ public class GameManager : MonoBehaviour
 
         ConnectPoint(connectionPoint1, isNear);
         ConnectPoint(connectionPoint2, isNear);
+        
+        EditorUtility.SetDirty(this);
     }
 
     private void ConnectPoint(ConnectionPoint connectionPoint, bool isNear)

@@ -20,10 +20,10 @@ public class GameManagerEditor : Editor
             if (GUILayout.Button("Set Current Game Manager"))
             {
                 GameManager.current = _targetGameManager;
-            }
-        
-            DrawDefaultInspector();   
+            }   
         }
+        
+        DrawDefaultInspector();
     }
 }
 #endif
