@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using DataTypes;
 using UnityEngine;
@@ -22,7 +21,7 @@ public class MapBuilder : MonoBehaviour
     //--------Private and Public Invisible In Inspector--------\\
     private MapData _pathFindingMapsData;
 
-    private MapBlockData[] _blockDatas;
+    private Block[] _blocks;
 
     private GameObject _mapRepresentation;
 
@@ -35,8 +34,7 @@ public class MapBuilder : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            _blockDatas = FindObjectsOfType<Block>().Where(block => block.transform.parent.CompareTag("MapBuild"))
-                .Select(block => new MapBlockData(new MapLocation(0, 0), block.transform.position, block)).ToArray();
+            _blocks = FindObjectsOfType<Block>().Where(block => block.transform.parent.CompareTag("MapBuild")).ToArray();
             GenerateMaps();
         }
     }
@@ -45,11 +43,11 @@ public class MapBuilder : MonoBehaviour
     {
         _pathFindingMapsData = new MapData();
 
-        if (_blockDatas.Length > 0)
+        if (_blocks.Length > 0)
         {
             foreach (GravitationalPlane gravitationalPlane in gravitationalPlanes)
             {
-                _pathFindingMapsData.CreateMap(_blockDatas, gravitationalPlane);
+                _pathFindingMapsData.CreateMap(_blocks, gravitationalPlane);
             }
         }
     }
@@ -59,7 +57,7 @@ public class MapBuilder : MonoBehaviour
         GameObject newMapPartBuilder = new GameObject("MapPartBuilder " +
                                                       (FindObjectsOfType<MapPartBuilder>().Length + 1));
         newMapPartBuilder.tag = "MapBuild";
-        MapPartBuilder newMapPartBuilderComponent = newMapPartBuilder.AddComponent<MapPartBuilder>();
+        newMapPartBuilder.AddComponent<MapPartBuilder>();
         newMapPartBuilder.transform.SetParent(transform);
 
         return newMapPartBuilder;
@@ -82,8 +80,7 @@ public class MapBuilder : MonoBehaviour
             int i = 0;
             foreach (MapBlockData blockData in blockDatas)
             {
-                GameObject blockRepresenation = Instantiate(blockData.block.gameObject);
-                blockRepresenation.transform.SetParent(_mapRepresentation.transform);
+                GameObject blockRepresenation = Instantiate(blockData.block.gameObject, _mapRepresentation.transform, true);
 
                 switch (showMap.plane)
                 {

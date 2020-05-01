@@ -5,6 +5,7 @@ using DataTypes;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Object = UnityEngine.Object;
 using Plane = DataTypes.Plane;
 
 public static class HelperMethods
@@ -144,6 +145,16 @@ public static class HelperMethods
             if (Vector3.Distance(block.transform.position, pos) <=
                 Mathf.Min(Block.size.x, Block.size.y, Block.size.z) / 2f) return true;
         }
+
+        return false;
+    }
+
+    public static bool KeyValuePairsEqualBothWays<T>(KeyValuePair<T, T> kVP1, KeyValuePair<T, T> kVP2)
+    {
+        if (kVP1.Key.Equals(kVP2.Key)) return kVP1.Value.Equals(kVP2.Value);
+        if (kVP1.Key.Equals(kVP2.Value)) return kVP1.Value.Equals(kVP2.Key);
+        if (kVP1.Value.Equals(kVP2.Key)) return kVP1.Key.Equals(kVP2.Value);
+        if (kVP1.Value.Equals(kVP2.Value)) return kVP1.Key.Equals(kVP2.Key);
 
         return false;
     }

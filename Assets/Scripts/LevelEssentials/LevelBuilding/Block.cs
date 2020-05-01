@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using DataTypes;
 using UnityEditor;
-using UnityEditor.SceneManagement;
-using UnityEngine.SceneManagement;
 using Plane = DataTypes.Plane;
 
 /// <summary>
@@ -22,7 +19,7 @@ public class Block : MonoBehaviour
 #if UNITY_EDITOR
     [SerializeField] private bool drawDebugAxisLines = true;
     [SerializeField] private float debugAxisLinesLength = 3f;
-    [SerializeField] private bool drawDebugAxisLinesTitles = false;
+    [SerializeField] private bool drawDebugAxisLinesTitles;
     [SerializeField] private Vector3 drawDebugAxisLinesTitlesOffset = Vector3.up * 0.3f;
 #endif
 
@@ -51,7 +48,6 @@ public class Block : MonoBehaviour
     //---------Public and Private Visible In Inspector---------\\
 
     //--------Private and Public Invisible In Inspector--------\\
-    private Mesh _mesh;
     private MeshRenderer _meshRenderer;
 
     public int id;
@@ -61,9 +57,7 @@ public class Block : MonoBehaviour
     public Dictionary<GravitationalPlane, IsWalkablePoint> isWalkablePoints =
         new Dictionary<GravitationalPlane, IsWalkablePoint>();
 
-    public MapBlockData mapData;
-
-    public MapPartBuilder mapPartBuilderParent = null;
+    public MapPartBuilder mapPartBuilderParent;
     //--------Private and Public Invisible In Inspector--------\\
 
     private void Awake()
@@ -83,13 +77,8 @@ public class Block : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-    }
-
     private void InitPrivateVars()
     {
-        _mesh = GetComponent<MeshFilter>().sharedMesh;
         _meshRenderer = GetComponent<MeshRenderer>();
     }
 

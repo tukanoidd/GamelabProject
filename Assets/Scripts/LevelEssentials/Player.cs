@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     private Material _testBlockMat;
 
     [NonSerialized] public bool isMoving = false;
-    [NonSerialized] public MovementAxisConstraints? movementAxisConstraints = null;
+    [NonSerialized] public MovementAxisConstraints movementAxisConstraints = null;
     
     [NonSerialized] public bool isTeleporting = false;
     [NonSerialized] public bool canTeleport = true;

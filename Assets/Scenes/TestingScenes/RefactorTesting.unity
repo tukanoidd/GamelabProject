@@ -1407,7 +1407,7 @@ MonoBehaviour:
   debugAxisLinesLength: 3
   drawDebugAxisLinesTitles: 0
   drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -184278
+  id: 17544
   connectionPoints:
   - {fileID: 1525912137}
   - {fileID: 1231793811}
@@ -3743,7 +3743,7 @@ MonoBehaviour:
   debugAxisLinesLength: 3
   drawDebugAxisLinesTitles: 0
   drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -181556
+  id: 17786
   connectionPoints:
   - {fileID: 805064899}
   - {fileID: 365160638}
@@ -5936,7 +5936,7 @@ MonoBehaviour:
   debugAxisLinesLength: 3
   drawDebugAxisLinesTitles: 0
   drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -183310
+  id: 18014
   connectionPoints:
   - {fileID: 726067883}
   - {fileID: 245059313}
@@ -12798,7 +12798,7 @@ MonoBehaviour:
   debugAxisLinesLength: 3
   drawDebugAxisLinesTitles: 0
   drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -182644
+  id: 18728
   connectionPoints:
   - {fileID: 1641205001}
   - {fileID: 1119305348}
@@ -13402,7 +13402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customMaxCamOffset: 0.5
   parentBlock: {fileID: 1734110313}
-  isConnected: 0
+  isConnected: 1
   isConnectedNearby: 0
   posDirs:
     gravitationalPlanes:
@@ -13461,7 +13461,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f6df3864e85dfe74ca32ef08e08cca0f, type: 2}
+  - {fileID: 2100000, guid: 4352b14d325009d4c8e402211e307775, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14075,7 +14075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customMaxCamOffset: 0.5
   parentBlock: {fileID: 121150232}
-  isConnected: 0
+  isConnected: 1
   isConnectedNearby: 0
   posDirs:
     gravitationalPlanes:
@@ -14134,7 +14134,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f6df3864e85dfe74ca32ef08e08cca0f, type: 2}
+  - {fileID: 2100000, guid: 4352b14d325009d4c8e402211e307775, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15155,7 +15155,7 @@ MonoBehaviour:
   debugAxisLinesLength: 3
   drawDebugAxisLinesTitles: 0
   drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -182974
+  id: 18974
   connectionPoints:
   - {fileID: 440586166}
   - {fileID: 652116850}
@@ -17888,7 +17888,7 @@ MonoBehaviour:
   debugAxisLinesLength: 3
   drawDebugAxisLinesTitles: 0
   drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -184902
+  id: 19258
   connectionPoints:
   - {fileID: 647686648}
   - {fileID: 33320398}
@@ -19331,7 +19331,7 @@ MonoBehaviour:
   debugAxisLinesLength: 3
   drawDebugAxisLinesTitles: 0
   drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -181972
+  id: 19406
   connectionPoints:
   - {fileID: 1997533478}
   - {fileID: 904551266}
@@ -20177,7 +20177,7 @@ PrefabInstance:
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.size
-      value: 28
+      value: 29
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
@@ -20457,6 +20457,16 @@ PrefabInstance:
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[27].connectionPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[28].connectedBlocks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[28].connectionPoints.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
@@ -21334,6 +21344,31 @@ PrefabInstance:
       propertyPath: blockConnections.Array.data[27].isNear
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[28].connectedBlocks.Array.data[0]
+      value: 
+      objectReference: {fileID: 1734110313}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[28].connectedBlocks.Array.data[1]
+      value: 
+      objectReference: {fileID: 121150232}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[28].gravitationalPlane.plane
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[28].connectionPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1201450078}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[28].connectionPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1231793811}
     - target: {fileID: 3562979625353122815, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21874,7 +21909,7 @@ MonoBehaviour:
   debugAxisLinesLength: 3
   drawDebugAxisLinesTitles: 0
   drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -182308
+  id: 19508
   connectionPoints:
   - {fileID: 13076186}
   - {fileID: 364879015}
@@ -23719,7 +23754,7 @@ MonoBehaviour:
   debugAxisLinesLength: 3
   drawDebugAxisLinesTitles: 0
   drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -185238
+  id: 19700
   connectionPoints:
   - {fileID: 170039869}
   - {fileID: 287389412}
