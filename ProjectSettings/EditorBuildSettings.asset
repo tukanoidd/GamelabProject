@@ -12,15 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Menus/LevelsMenu.unity
     guid: 134090c234c8b1045a9f00546f443c7e
   - enabled: 1
-    path: Assets/Scenes/Levels/Level 1.unity
+    path: Assets/Scenes/OldLevels/Level 1.unity
     guid: 1a23e8e15f352d74f9c2409d5e18fcac
   - enabled: 1
-    path: Assets/Scenes/Levels/Level 2 [BrokenGenMap].unity
+    path: Assets/Scenes/OldLevels/Level 2 [BrokenGenMap].unity
     guid: e60ff31f0749f564091b7950a60615e3
   - enabled: 1
-    path: Assets/Scenes/Levels/Level 3 [Rebuild entirely].unity
+    path: Assets/Scenes/OldLevels/Level 3 [Rebuild entirely].unity
     guid: d3dc9dd4044b9b5409a20033255e430e
   - enabled: 1
-    path: Assets/Scenes/Levels/Level 4 [BrokenGenMap].unity
+    path: Assets/Scenes/OldLevels/Level 4 [BrokenGenMap].unity
     guid: 80e62e00c20669e48a774dedf90ee03b
   m_configObjects: {}
