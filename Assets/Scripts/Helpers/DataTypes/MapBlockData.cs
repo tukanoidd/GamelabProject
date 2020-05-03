@@ -39,5 +39,29 @@ namespace DataTypes
 
             return viableBlockDatas.OrderBy(bD => Vector3.Distance(bD.worldLoc, block.transform.position)).ToArray()[0];
         }
+        
+        public override bool Equals(object obj)
+        {
+            if (obj is MapBlockData) return Equals((MapBlockData) obj);
+            else return base.Equals(obj);
+        }
+
+        public bool Equals(MapBlockData mapBlockData)
+        {
+            if (mapBlockData == null) return false;
+            return mapLoc.Equals(mapBlockData.mapLoc) && 
+                   worldLoc == mapBlockData.worldLoc &&
+                   block == mapBlockData.block;
+        }
+
+        public override int GetHashCode()
+        {
+            int hash = 17;
+            hash = hash * 23 + mapLoc.GetHashCode();
+            hash = hash * 23 + worldLoc.GetHashCode();
+            hash = hash * 23 + block.GetHashCode();
+
+            return hash;
+        }
     }
 }

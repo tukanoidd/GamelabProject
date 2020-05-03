@@ -1,21 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Xml.Schema;
 using UnityEngine;
 
 namespace DataTypes
 {
     public class MapData
     {
-        private const int _length = 100;
-        private const int _height = 100;
+        private readonly int _length;
+        private readonly int _height;
+
+        public MapData(int l, int h)
+        {
+            _length = l;
+            _height = h;
+        }
 
         private MapLocation _center;
 
         public Dictionary<GravitationalPlane, HashSet<MapBlockData>[,]> maps =
             new Dictionary<GravitationalPlane, HashSet<MapBlockData>[,]>();
 
-        private HashSet<MapBlockData> _blockDatasInMap = new HashSet<MapBlockData>();
+        private HashSet<MapBlockData> _blockDatasInMap;
 
         private Dictionary<BlockConnection, HashSet<KeyValuePair<MapLocation, MapLocation>>> _blockConnectionsInMap =
             new Dictionary<BlockConnection, HashSet<KeyValuePair<MapLocation, MapLocation>>>();
@@ -36,24 +43,26 @@ namespace DataTypes
             maps[gravitationalPlane] = map;
         }
 
-        private void AddBlocksToMap(ref HashSet<MapBlockData>[,] map, Block[] blocks,
+        private void AddBlocksToMap(ref HashSet<MapBlockData>[,] map, Block[] viableBlocks,
             GravitationalPlane gravitationalPlane)
         {
-            AddBlockToMap(ref map, blocks[0], gravitationalPlane, true);
+            _blockDatasInMap = new HashSet<MapBlockData>();
 
-            for (int i = 1; i < blocks.Length; i++)
+            AddBlockToMap(ref map, viableBlocks, viableBlocks[0], gravitationalPlane, true);
+
+            for (int i = 1; i < viableBlocks.Length; i++)
             {
-                if (_blockDatasInMap.All(blockDataInMap => blockDataInMap.block != blocks[i]))
-                    AddBlockToMap(ref map, blocks[i], gravitationalPlane, false);
+                if (_blockDatasInMap.All(blockData => blockData.block != viableBlocks[i]))
+                    AddBlockToMap(ref map, viableBlocks, viableBlocks[i], gravitationalPlane);
             }
         }
 
-        private void AddBlockToMap(ref HashSet<MapBlockData>[,] map, Block block,
+        private void AddBlockToMap(ref HashSet<MapBlockData>[,] map, Block[] viableBlocks, Block block,
             GravitationalPlane gravitationalPlane, bool first = false)
         {
             if (first)
             {
-                AddBlockToMapWithCoords(ref map, block, new MapLocation(_height / 2, _length / 2),
+                AddBlockToMapWithCoords(ref map, viableBlocks, block, new MapLocation(_height / 2, _length / 2),
                     gravitationalPlane);
             }
             else
@@ -94,11 +103,12 @@ namespace DataTypes
 
                 MapLocation offset = location - nearLocation;
 
-                AddBlockToMapWithCoords(ref map, block, nearBlockData.mapLoc + offset, gravitationalPlane);
+                AddBlockToMapWithCoords(ref map, viableBlocks, block, nearBlockData.mapLoc + offset,
+                    gravitationalPlane);
             }
         }
 
-        private void AddBlockToMapWithCoords(ref HashSet<MapBlockData>[,] map, Block block,
+        private void AddBlockToMapWithCoords(ref HashSet<MapBlockData>[,] map, Block[] viableBlocks, Block block,
             MapLocation newMapLocation,
             GravitationalPlane gravitationalPlane, BlockConnection blockConnection = null,
             MapLocation connectionFromBlockLocation = null)
@@ -111,7 +121,6 @@ namespace DataTypes
                 MapBlockData newMapBlockData = new MapBlockData(newMapLocation, block.transform.position, block);
 
                 map[newMapLocation.row, newMapLocation.col].Add(newMapBlockData);
-                _blockDatasInMap.Add(newMapBlockData);
 
                 if (blockConnection != null && connectionFromBlockLocation != null)
                 {
@@ -134,8 +143,10 @@ namespace DataTypes
                     }
                 }
 
+                _blockDatasInMap.Add(newMapBlockData);
+
                 // Cycle through viable block's connections to find other blocks and add them to the map if any
-                AddBlocksFromConnections(ref map, newMapBlockData, gravitationalPlane);
+                AddBlocksFromConnections(ref map, viableBlocks, newMapBlockData, gravitationalPlane);
             }
             catch (Exception e)
             {
@@ -147,7 +158,8 @@ namespace DataTypes
             }
         }
 
-        private void AddBlocksFromConnections(ref HashSet<MapBlockData>[,] map, MapBlockData blockData,
+        private void AddBlocksFromConnections(ref HashSet<MapBlockData>[,] map, Block[] viableBlocks,
+            MapBlockData blockData,
             GravitationalPlane gravitationalPlane)
         {
             ConnectionPoint[] viableConnectionPoints = blockData.block.connectionPoints
@@ -155,13 +167,15 @@ namespace DataTypes
                 .ToArray();
 
             Dictionary<KeyValuePair<Block, BlockConnection>, KeyValuePair<MapLocation, MapLocation>> blocksToAdd =
-                GetViableBlocksToAddFromConnections(ref map, viableConnectionPoints, blockData, gravitationalPlane);
+                GetViableBlocksToAddFromConnections(ref map, viableBlocks, viableConnectionPoints, blockData,
+                    gravitationalPlane);
 
             foreach (KeyValuePair<KeyValuePair<Block, BlockConnection>, KeyValuePair<MapLocation, MapLocation>>
                 blockToAdd in blocksToAdd)
             {
                 AddBlockToMapWithCoords(
                     ref map,
+                    viableBlocks,
                     blockToAdd.Key.Key, // blockToAdd
                     blockToAdd.Value.Key, // mapLocationTo
                     gravitationalPlane,
@@ -173,7 +187,8 @@ namespace DataTypes
 
         private Dictionary<KeyValuePair<Block, BlockConnection>, KeyValuePair<MapLocation, MapLocation>>
             GetViableBlocksToAddFromConnections(
-                ref HashSet<MapBlockData>[,] map, ConnectionPoint[] viableConnectionPoints, MapBlockData blockDataFrom,
+                ref HashSet<MapBlockData>[,] map, Block[] viableBlocks, ConnectionPoint[] viableConnectionPoints,
+                MapBlockData blockDataFrom,
                 GravitationalPlane gravitationalPlane)
         {
             Dictionary<KeyValuePair<Block, BlockConnection>, KeyValuePair<MapLocation, MapLocation>> blocksToAdd =
@@ -187,16 +202,18 @@ namespace DataTypes
                     if (!blockConnection.connectionPoints.Contains(viableConnectionPoint)) continue;
                     if (!blockConnection.connectedBlocks.Contains(blockDataFrom.block)) continue;
 
+                    KeyValuePair<Block, BlockConnection> blockToAdd = new KeyValuePair<Block, BlockConnection>(
+                        blockConnection.connectedBlocks.First(block => block != blockDataFrom.block),
+                        blockConnection
+                    );
+
+                    if (!viableBlocks.Contains(blockToAdd.Key)) continue;
+
                     KeyValuePair<MapLocation, MapLocation> mapLocationsToFrom =
                         new KeyValuePair<MapLocation, MapLocation>(
                             GetMapLocationFromConnection(blockDataFrom, blockConnection, gravitationalPlane.plane),
                             blockDataFrom.mapLoc
                         );
-
-                    KeyValuePair<Block, BlockConnection> blockToAdd = new KeyValuePair<Block, BlockConnection>(
-                        blockConnection.connectedBlocks.First(block => block != blockDataFrom.block),
-                        blockConnection
-                    );
 
                     if (_blockConnectionsInMap.ContainsKey(blockConnection))
                     {
@@ -229,8 +246,6 @@ namespace DataTypes
                 .dir;
             AxisDirection zDir = connectionPointFrom.posDirs.axisPositionDirections.First(dir => dir.axis == Axis.Z)
                 .dir;
-            
-            Debug.Log(connectionPointFrom.name + " : " + connectionPointFrom.parentBlock.name + " ~ xDir - " + xDir + ", yDir - " + yDir + ", zDir - " + zDir);
 
             if (plane == Plane.XY)
             {
@@ -247,9 +262,6 @@ namespace DataTypes
                 newMapLocation.row += AxisPositionDirection.NormalizeDirection(yDir);
                 newMapLocation.col += AxisPositionDirection.NormalizeDirection(zDir);
             }
-
-            Debug.Log(blockDataFrom.mapLoc.ToVector2() + " : " + blockDataFrom.block.name + " - " +
-                      newMapLocation.ToVector2() + " : " + blockConnection.connectedBlocks.First(block => block != blockDataFrom.block).name);
 
             return newMapLocation;
         }

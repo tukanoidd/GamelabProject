@@ -30,6 +30,18 @@ public class ConnectionPointEditor : Editor
 
             if (_connectionPoints.Length == 2)
             {
+                if (GUILayout.Button("Connect 2 Points"))
+                {
+                    ConnectionPoint conPoint1 = _connectionPoints[0], conPoint2 = _connectionPoints[1];
+                    GameManager.current.ConnectBlocks(conPoint1, conPoint2, HelperMethods.CheckIsNear(conPoint1, conPoint2));
+                }
+
+                if (GUILayout.Button("Disconnect 2 Points"))
+                {
+                    ConnectionPoint conPoint1 = _connectionPoints[0], conPoint2 = _connectionPoints[1];
+                    GameManager.current.RemoveConnectionBetweenTwoPoints(conPoint1, conPoint2);
+                }
+                
                 if (GUILayout.Button("Add Custom Camera Position To This Connection"))
                 {
                     GameManager.current.AddCameraPosition(_connectionPoints);

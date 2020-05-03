@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Linq;
+using DataTypes;
 using UnityEditor;
 using UnityEngine;
 using GravitationalPlane = DataTypes.GravitationalPlane;
+using Plane = DataTypes.Plane;
 
 [ExecuteAlways]
 [RequireComponent(typeof(MeshRenderer))]
@@ -14,6 +17,8 @@ public class IsWalkablePoint : MonoBehaviour
     public GravitationalPlane gravitationalPlane;
 
     public bool isWalkable = true;
+    
+    public Block parentBlock;
     //---------Public and Private Visible In Inspector---------\\
 
     //--------Private and Public Invisible In Inspector--------\\
@@ -22,8 +27,6 @@ public class IsWalkablePoint : MonoBehaviour
     private Material _isWalkableMat;
     private Material _isNotWalkableMat;
 #endif
-
-    [NonSerialized] public Block parentBlock;
     //--------Private and Public Invisible In Inspector--------\\
 
     private void Awake()
@@ -36,6 +39,8 @@ public class IsWalkablePoint : MonoBehaviour
 
         _meshRenderer.sharedMaterial = isWalkable ? _isWalkableMat : _isNotWalkableMat;
 #endif
+        
+        CheckIfWalkable();
     }
 
     private void Update()
@@ -47,13 +52,17 @@ public class IsWalkablePoint : MonoBehaviour
 #endif
     }
 
-    private void OnTriggerStay(Collider other)
+    public void CheckIfWalkable()
     {
-        IsWalkablePoint checkIsWalkablePoint = other.GetComponent<IsWalkablePoint>();
-        if (checkIsWalkablePoint)
+        float dist = Block.size.PlaneNormal(gravitationalPlane) / 2f;
+        GravitationalPlane gravitationalPlaneToLookFor = gravitationalPlane.Opposite; 
+
+        IsWalkablePoint nearWalkablePoint = FindObjectsOfType<IsWalkablePoint>().FirstOrDefault(isWalkablePoint => isWalkablePoint.gravitationalPlane.Equals(gravitationalPlaneToLookFor) && isWalkablePoint.parentBlock != parentBlock && Vector3.Distance(transform.position, isWalkablePoint.transform.position) <= dist);
+        if (nearWalkablePoint != null)
         {
-            if (isWalkable) isWalkable = false;
-            if (checkIsWalkablePoint.isWalkable) checkIsWalkablePoint.isWalkable = false;
+            isWalkable = false;
+            nearWalkablePoint.isWalkable = false;
         }
+        else isWalkable = true;
     }
 }

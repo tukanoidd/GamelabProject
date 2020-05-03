@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DataTypes;
 using UnityEngine;
@@ -8,6 +9,10 @@ public class MapBuilder : MonoBehaviour
 {
     //---------Public and Private Visible In Inspector---------\\
     [SerializeField] private List<GravitationalPlane> gravitationalPlanes = new List<GravitationalPlane>();
+    [SerializeField] private float mapRepresentationUpOffset = 10;
+
+    [SerializeField] private int mapHeight = 100;
+    [SerializeField] private int mapLength = 100;
 
     public bool PathFindingMapsDataExists => _pathFindingMapsData != null;
     public bool MapRepresentationExists => _mapRepresentation != null;
@@ -15,7 +20,8 @@ public class MapBuilder : MonoBehaviour
     public Plane[] AvailablePlanes => _pathFindingMapsData.maps.Select(map => map.Key.plane).ToArray();
 
     public PlaneSide[] AvailablePlaneSides(Plane availablePlane) =>
-        _pathFindingMapsData.maps.Where(map => map.Key.plane == availablePlane).Select(map => map.Key.planeSide).ToArray();
+        _pathFindingMapsData.maps.Where(map => map.Key.plane == availablePlane).Select(map => map.Key.planeSide)
+            .ToArray();
     //---------Public and Private Visible In Inspector---------\\
 
     //--------Private and Public Invisible In Inspector--------\\
@@ -26,7 +32,7 @@ public class MapBuilder : MonoBehaviour
     private GameObject _mapRepresentation;
 
 #if UNITY_EDITOR
-    [HideInInspector] public GravitationalPlane showMap;
+    [HideInInspector] public GravitationalPlane showMapGravitationalPlane;
 #endif
     //--------Private and Public Invisible In Inspector--------\\
 
@@ -34,14 +40,15 @@ public class MapBuilder : MonoBehaviour
     {
         if (Application.isPlaying)
         {
-            _blocks = FindObjectsOfType<Block>().Where(block => block.transform.parent.CompareTag("MapBuild")).ToArray();
+            _blocks = FindObjectsOfType<Block>().Where(block => block.transform.parent.CompareTag("MapBuild"))
+                .ToArray();
             GenerateMaps();
         }
     }
 
     private void GenerateMaps()
     {
-        _pathFindingMapsData = new MapData();
+        _pathFindingMapsData = new MapData(mapLength, mapHeight);
 
         if (_blocks.Length > 0)
         {
@@ -66,47 +73,67 @@ public class MapBuilder : MonoBehaviour
 #if UNITY_EDITOR
     public void ShowMap()
     {
-        if (showMap == null || _pathFindingMapsData.maps[showMap].Length <= 0) return;
+        if (showMapGravitationalPlane == null ||
+            _pathFindingMapsData.maps[showMapGravitationalPlane].Length <= 0) return;
 
-        _mapRepresentation = new GameObject("Map Represenation " + showMap.plane + " " + showMap.planeSide);
-        _mapRepresentation.transform.position = Vector3.up * 50;
+        _mapRepresentation = new GameObject("Map Represenation " + showMapGravitationalPlane.plane + " " +
+                                            showMapGravitationalPlane.planeSide);
+        _mapRepresentation.transform.position = Vector3.up * mapRepresentationUpOffset;
 
-        HashSet<MapBlockData>[,] mapToShow = _pathFindingMapsData.maps[showMap];
+        HashSet<MapBlockData>[,] mapToShow = _pathFindingMapsData.maps[showMapGravitationalPlane];
+
+        int rows = mapToShow.GetLength(0);
+        int cols = mapToShow.GetLength(1);
 
         foreach (HashSet<MapBlockData> blockDatas in mapToShow)
         {
             if (blockDatas == null) continue;
-            
+
             int i = 0;
             foreach (MapBlockData blockData in blockDatas)
             {
-                GameObject blockRepresenation = Instantiate(blockData.block.gameObject, _mapRepresentation.transform, true);
+                GameObject blockRepresenation =
+                    Instantiate(blockData.block.gameObject, _mapRepresentation.transform, true);
 
-                switch (showMap.plane)
-                {
-                    case Plane.XY:
-                        blockRepresenation.transform.localPosition = new Vector3(
-                            blockData.mapLoc.col,
-                            blockData.mapLoc.row,
-                            i * Block.size.z * 2 * GravitationalPlane.PlaneSideToInt(showMap.planeSide)
-                        );
-                        break;
-                    case Plane.XZ:
-                        blockRepresenation.transform.localPosition = new Vector3(
-                            blockData.mapLoc.col,
-                            i * Block.size.y * 2 * GravitationalPlane.PlaneSideToInt(showMap.planeSide),
-                            blockData.mapLoc.row
-                        );
-                        break;
-                    case Plane.YZ:
-                        blockRepresenation.transform.localPosition = new Vector3(
-                            blockData.mapLoc.row,
-                            i * Block.size.y * 2 * GravitationalPlane.PlaneSideToInt(showMap.planeSide),
-                            blockData.mapLoc.col
-                        );
-                        break;
-                }
+                int row = blockData.mapLoc.row - rows / 2;
+                int col = blockData.mapLoc.col - cols / 2;
+
+                blockRepresenation.transform.localPosition = DebugMapRepresentationBlockLocalPosition(
+                    showMapGravitationalPlane.plane,
+                    col,
+                    row,
+                    i
+                );
             }
+        }
+    }
+
+    private Vector3 DebugMapRepresentationBlockLocalPosition(Plane plane, int col, int row, int i)
+    {
+        switch (plane)
+        {
+            case Plane.XY:
+                return new Vector3(
+                    col,
+                    row,
+                    i * Block.size.z * 2 *
+                    GravitationalPlane.PlaneSideToInt(showMapGravitationalPlane.planeSide)
+                );
+            case Plane.XZ:
+                return new Vector3(
+                    col,
+                    i * Block.size.y * 2 *
+                    GravitationalPlane.PlaneSideToInt(showMapGravitationalPlane.planeSide),
+                    row
+                );
+            case Plane.YZ:
+                return new Vector3(
+                    i * Block.size.x * 2 *
+                    GravitationalPlane.PlaneSideToInt(showMapGravitationalPlane.planeSide),
+                    row,
+                    col
+                );
+            default: return Vector3.zero;
         }
     }
 
@@ -118,7 +145,7 @@ public class MapBuilder : MonoBehaviour
             {
                 DestroyImmediate(blockRepresentation.gameObject);
             }
-            
+
             DestroyImmediate(_mapRepresentation);
         }
     }

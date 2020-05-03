@@ -10,10 +10,21 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     //---------Public and Private Visible In Inspector---------\\
+
+    #region DebugSettings
 #if UNITY_EDITOR
+    [Header("Connections Debug Settings")]
     [SerializeField] private bool drawDebugConnectionLines = true;
     public bool connectionPointsDebugDrawHasParentBlock = true;
+    
+    [Header("Blocks Debug Settings")]
+    public bool blocksDebugDrawLocalPositions = false;
+    public bool blocksDebugDrawAxisLines = true;
+    public float blocksDebugAxisLinesLength = 3f;
+    public bool blocksDebugDrawAxisLinesTitles;
+    public Vector3 blocksDebugDrawAxisLinesTitlesOffset = Vector3.up * 0.3f;
 #endif
+    #endregion
 
     private static GameManager s_current = null;
     
@@ -29,17 +40,22 @@ public class GameManager : MonoBehaviour
         set => s_current = value;
     }
     
+    [Space(20)]
     public DeviceType deviceType;
     
+    [Header("Essential Level References")]
     public Player player;
     public TurnAroundCamera mainCamera;
     public PathFinder pathFinder;
     
+    [Space(20)]
     public bool gamePaused = false;
 
+    [Header("Locked Movement")]
     public bool playerLockedMovement = false;
     public bool cameraLockedMovement = false;
 
+    [Space(20)]
     public List<BlockConnection> blockConnections;
     //---------Public and Private Visible In Inspector---------\\
 
@@ -77,19 +93,19 @@ public class GameManager : MonoBehaviour
         pathFinder = FindObjectOfType<PathFinder>();
     }
 
-    public void RemoveConnectionsFromPoints(ConnectionPoint[] connectionPoints, bool nearby = false)
+    public void RemoveConnectionsFromPoints(ConnectionPoint[] connectionPoints, bool onlyNearby = false)
     {
         foreach (ConnectionPoint connectionPoint in connectionPoints)
         {
-            RemoveConnectionsFromConnectionPoint(connectionPoint, nearby);
+            RemoveConnectionsFromConnectionPoint(connectionPoint, onlyNearby);
         }
         
         EditorUtility.SetDirty(this);
     }
 
-    public void RemoveConnectionsFromConnectionPoint(ConnectionPoint connectionPoint, bool nearby = false)
+    public void RemoveConnectionsFromConnectionPoint(ConnectionPoint connectionPoint, bool onlyNearby = false)
     {
-        if (nearby)
+        if (onlyNearby)
         {
             DisconnectPoints(blockConnections.Where(blockConnection =>
                 blockConnection.connectionPoints.Contains(connectionPoint) && blockConnection.isNear).ToArray());

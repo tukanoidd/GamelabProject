@@ -170,7 +170,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 0
     planeSide: 1
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 792537767}
 --- !u!23 &36287381
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -189,7 +190,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -241,7 +242,7 @@ PrefabInstance:
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.851925
+      value: -3.4692962
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
@@ -251,27 +252,27 @@ PrefabInstance:
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.851925
+      value: 7.0162997
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.11775975
+      value: 0.08120353
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8790498
+      value: 0.9096668
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.28429717
+      value: -0.34743112
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.3641143
+      value: 0.21261232
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
@@ -1184,6 +1185,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 511941437}
 --- !u!23 &81292582
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1294,6 +1296,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 1704250205}
 --- !u!23 &83714421
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1678,6 +1681,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 1526145276}
 --- !u!23 &99829393
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1924,7 +1928,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 2
     planeSide: 0
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 511941437}
 --- !u!23 &124738272
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1943,7 +1948,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2035,6 +2040,7 @@ MonoBehaviour:
     plane: 2
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 2135727020}
 --- !u!23 &132687021
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2556,6 +2562,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 293471422}
 --- !u!23 &150891924
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3249,7 +3256,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 2
     planeSide: 1
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 2086274066}
 --- !u!23 &204022148
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3268,7 +3276,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3908,6 +3916,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 1704250205}
 --- !u!23 &236016536
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4060,6 +4069,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 2135727020}
 --- !u!23 &244085246
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4343,6 +4353,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 2101902874}
 --- !u!23 &292650705
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4451,11 +4462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDebugAxisLines: 1
-  debugAxisLinesLength: 3
-  drawDebugAxisLinesTitles: 0
-  drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -43688
+  id: 108128
   connectionPoints:
   - {fileID: 740644736}
   - {fileID: 2036616305}
@@ -4638,11 +4645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDebugAxisLines: 1
-  debugAxisLinesLength: 3
-  drawDebugAxisLinesTitles: 0
-  drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -54126
+  id: 108146
   connectionPoints:
   - {fileID: 1534143798}
   - {fileID: 1639275521}
@@ -4843,7 +4846,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 0
     planeSide: 0
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 792537767}
 --- !u!23 &310380428
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4862,7 +4866,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5091,6 +5095,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 511941437}
 --- !u!23 &326079093
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5474,7 +5479,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 2
     planeSide: 0
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 2135727020}
 --- !u!23 &330809986
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5493,7 +5499,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5585,6 +5591,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 293471422}
 --- !u!23 &345771513
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -5868,6 +5875,7 @@ MonoBehaviour:
     plane: 2
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 1526145276}
 --- !u!23 &384505962
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6936,7 +6944,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 0
     planeSide: 1
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 300528042}
 --- !u!23 &435222379
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6955,7 +6964,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7220,6 +7229,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 2086274066}
 --- !u!23 &494581698
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7388,11 +7398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDebugAxisLines: 1
-  debugAxisLinesLength: 3
-  drawDebugAxisLinesTitles: 0
-  drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -53206
+  id: 108432
   connectionPoints:
   - {fileID: 954237123}
   - {fileID: 1803271416}
@@ -7457,6 +7463,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 2086274066}
 --- !u!23 &519636352
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7567,6 +7574,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 1530127434}
 --- !u!23 &520033632
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -8946,6 +8954,7 @@ MonoBehaviour:
     plane: 2
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 511941437}
 --- !u!23 &646024434
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9235,6 +9244,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 511941437}
 --- !u!23 &662797712
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9756,6 +9766,7 @@ MonoBehaviour:
     plane: 2
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 1255925250}
 --- !u!23 &687323300
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9866,6 +9877,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 1530127434}
 --- !u!23 &692518333
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10386,7 +10398,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 2
     planeSide: 0
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 1704250205}
 --- !u!23 &745651836
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10405,7 +10418,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10771,6 +10784,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 300528042}
 --- !u!23 &787184190
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10939,11 +10953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDebugAxisLines: 1
-  debugAxisLinesLength: 3
-  drawDebugAxisLinesTitles: 0
-  drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -53790
+  id: 108800
   connectionPoints:
   - {fileID: 1538957890}
   - {fileID: 1567628397}
@@ -11145,6 +11155,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 1526145276}
 --- !u!23 &820684936
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11255,6 +11266,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 2101902874}
 --- !u!23 &825431986
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11587,7 +11599,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 2
     planeSide: 0
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 1530127434}
 --- !u!23 &874796453
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11606,7 +11619,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12109,6 +12122,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 1526145276}
 --- !u!23 &902717759
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12988,6 +13002,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 1704250205}
 --- !u!23 &988767092
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13235,6 +13250,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 293471422}
 --- !u!23 &1050622860
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13344,7 +13360,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 0
     planeSide: 0
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 2101902874}
 --- !u!23 &1051602722
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13363,7 +13380,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -13454,7 +13471,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 2
     planeSide: 1
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 1507846860}
 --- !u!23 &1051707542
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13473,7 +13491,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14203,6 +14221,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 2101902874}
 --- !u!23 &1164408435
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14897,6 +14916,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 1255925250}
 --- !u!23 &1204474804
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15007,6 +15027,7 @@ MonoBehaviour:
     plane: 2
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 1507846860}
 --- !u!23 &1206941668
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15254,6 +15275,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 1255925250}
 --- !u!23 &1234523044
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15501,6 +15523,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 792537767}
 --- !u!23 &1244551927
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15610,7 +15633,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 0
     planeSide: 1
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 1255925250}
 --- !u!23 &1246093715
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15629,7 +15653,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -15822,7 +15846,7 @@ GameObject:
   - component: {fileID: 1255925251}
   - component: {fileID: 1255925250}
   m_Layer: 0
-  m_Name: BuildingBlock 5
+  m_Name: BuildingBlock 4
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15856,11 +15880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDebugAxisLines: 1
-  debugAxisLinesLength: 3
-  drawDebugAxisLinesTitles: 0
-  drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -24574
+  id: 109314
   connectionPoints:
   - {fileID: 327514784}
   - {fileID: 711623308}
@@ -16533,6 +16553,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 511941437}
 --- !u!23 &1316479305
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16643,6 +16664,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 1526145276}
 --- !u!23 &1316745763
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16753,6 +16775,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 1507846860}
 --- !u!23 &1320202692
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16863,6 +16886,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 1507846860}
 --- !u!23 &1322998770
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17658,6 +17682,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 792537767}
 --- !u!23 &1365916013
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18042,6 +18067,7 @@ MonoBehaviour:
     plane: 2
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 792537767}
 --- !u!23 &1384768189
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18230,6 +18256,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 1507846860}
 --- !u!23 &1406536099
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18614,6 +18641,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 2135727020}
 --- !u!23 &1416523946
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18754,6 +18782,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 300528042}
 --- !u!23 &1435525742
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19001,6 +19030,7 @@ MonoBehaviour:
     plane: 2
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 792537767}
 --- !u!23 &1437317466
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -19794,11 +19824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDebugAxisLines: 1
-  debugAxisLinesLength: 3
-  drawDebugAxisLinesTitles: 0
-  drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -23398
+  id: 109724
   connectionPoints:
   - {fileID: 1762127062}
   - {fileID: 2038362511}
@@ -20060,6 +20086,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 1704250205}
 --- !u!23 &1516469870
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20155,7 +20182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customMaxCamOffset: 0.5
   parentBlock: {fileID: 2135727020}
-  isConnected: 1
+  isConnected: 0
   isConnectedNearby: 0
   posDirs:
     gravitationalPlanes:
@@ -20214,7 +20241,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4352b14d325009d4c8e402211e307775, type: 2}
+  - {fileID: 2100000, guid: f6df3864e85dfe74ca32ef08e08cca0f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20422,7 +20449,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526145274}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9761511, y: 0, z: -2}
+  m_LocalPosition: {x: 1, y: 0, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2137740386}
@@ -20442,11 +20469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDebugAxisLines: 1
-  debugAxisLinesLength: 3
-  drawDebugAxisLinesTitles: 0
-  drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -44158
+  id: 109790
   connectionPoints:
   - {fileID: 391708405}
   - {fileID: 1163577816}
@@ -20843,11 +20866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDebugAxisLines: 1
-  debugAxisLinesLength: 3
-  drawDebugAxisLinesTitles: 0
-  drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -23062
+  id: 109830
   connectionPoints:
   - {fileID: 1343764261}
   - {fileID: 1541296488}
@@ -21246,6 +21265,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 1507846860}
 --- !u!23 &1535717441
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21381,7 +21401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customMaxCamOffset: 0.5
   parentBlock: {fileID: 792537767}
-  isConnected: 0
+  isConnected: 1
   isConnectedNearby: 0
   posDirs:
     gravitationalPlanes:
@@ -21414,7 +21434,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f6df3864e85dfe74ca32ef08e08cca0f, type: 2}
+  - {fileID: 2100000, guid: 4352b14d325009d4c8e402211e307775, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21629,7 +21649,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 2
     planeSide: 1
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 1530127434}
 --- !u!23 &1541344435
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21648,7 +21669,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21739,7 +21760,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 0
     planeSide: 0
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 2086274066}
 --- !u!23 &1541477934
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -21758,7 +21780,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21987,6 +22009,7 @@ MonoBehaviour:
     plane: 2
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 300528042}
 --- !u!23 &1543837976
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22097,6 +22120,7 @@ MonoBehaviour:
     plane: 2
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 1255925250}
 --- !u!23 &1549892885
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22344,6 +22368,7 @@ MonoBehaviour:
     plane: 2
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 293471422}
 --- !u!23 &1573785117
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22865,6 +22890,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 2086274066}
 --- !u!23 &1608880776
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23141,7 +23167,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4352b14d325009d4c8e402211e307775, type: 2}
+  - {fileID: 2100000, guid: f6df3864e85dfe74ca32ef08e08cca0f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23184,7 +23210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customMaxCamOffset: 0.5
   parentBlock: {fileID: 300528042}
-  isConnected: 1
+  isConnected: 0
   isConnectedNearby: 0
   posDirs:
     gravitationalPlanes:
@@ -23888,7 +23914,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 2
     planeSide: 1
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 2101902874}
 --- !u!23 &1673328358
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -23907,7 +23934,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23998,7 +24025,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 2
     planeSide: 0
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 2101902874}
 --- !u!23 &1690576788
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24017,7 +24045,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24293,11 +24321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDebugAxisLines: 1
-  debugAxisLinesLength: 3
-  drawDebugAxisLinesTitles: 0
-  drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -43352
+  id: 110186
   connectionPoints:
   - {fileID: 408324224}
   - {fileID: 1511862117}
@@ -26063,12 +26087,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[37].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 2135727020}
+      objectReference: {fileID: 511941437}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[37].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 300528042}
+      objectReference: {fileID: 1526145276}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[37].gravitationalPlane.plane
@@ -26078,12 +26102,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[37].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1518510247}
+      objectReference: {fileID: 1803271416}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[37].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1639275521}
+      objectReference: {fileID: 358889325}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[37].isNear
@@ -26093,7 +26117,7 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[38].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 511941437}
+      objectReference: {fileID: 792537767}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[38].connectedBlocks.Array.data[1]
@@ -26108,12 +26132,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[38].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1803271416}
+      objectReference: {fileID: 1538957890}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[38].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 358889325}
+      objectReference: {fileID: 1915519897}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[9].gravitationalPlane.planeSide
@@ -26179,6 +26203,21 @@ PrefabInstance:
       propertyPath: blockConnections.Array.data[39].connectionPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1915519897}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blocksDebugDrawAxisLines
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: drawDebugConnectionLines
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: mapBuilderDebugDrawMapGrid
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122815, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -26237,12 +26276,37 @@ PrefabInstance:
     - target: {fileID: 8229593832200055687, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: gravitationalPlanes.Array.size
-      value: 2
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8229593832200055687, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: gravitationalPlanes.Array.data[1].plane
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229593832200055687, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: gravitationalPlanes.Array.data[1].planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229593832200055687, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: gravitationalPlanes.Array.data[3].planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229593832200055687, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: gravitationalPlanes.Array.data[4].plane
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229593832200055687, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: gravitationalPlanes.Array.data[5].plane
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8229593832200055687, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: gravitationalPlanes.Array.data[5].planeSide
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4587637052794317380, guid: e4c23ff47de2f8342b9e74f935033f38, type: 3}
@@ -26590,6 +26654,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 2135727020}
 --- !u!23 &1734097009
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26699,7 +26764,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 2
     planeSide: 1
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 1526145276}
 --- !u!23 &1744413997
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -26718,7 +26784,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -27126,6 +27192,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 300528042}
 --- !u!23 &1781103199
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27235,7 +27302,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 2
     planeSide: 1
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 1704250205}
 --- !u!23 &1798793436
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -27254,7 +27322,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -28067,6 +28135,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 1255925250}
 --- !u!23 &1854410965
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28451,6 +28520,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 293471422}
 --- !u!23 &1867134323
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28561,6 +28631,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 2135727020}
 --- !u!23 &1868346357
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -28966,7 +29037,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customMaxCamOffset: 0.5
   parentBlock: {fileID: 1526145276}
-  isConnected: 0
+  isConnected: 1
   isConnectedNearby: 0
   posDirs:
     gravitationalPlanes:
@@ -29025,7 +29096,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f6df3864e85dfe74ca32ef08e08cca0f, type: 2}
+  - {fileID: 2100000, guid: 4352b14d325009d4c8e402211e307775, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29117,7 +29188,8 @@ MonoBehaviour:
   gravitationalPlane:
     plane: 2
     planeSide: 0
-  isWalkable: 1
+  isWalkable: 0
+  parentBlock: {fileID: 293471422}
 --- !u!23 &1922651988
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -29136,7 +29208,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6b52f537fa2aa5d40bd3c9538ddafc72, type: 2}
+  - {fileID: 2100000, guid: 7880cb41d62217b48b327aa4c041abc4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -29675,6 +29747,7 @@ MonoBehaviour:
     plane: 0
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 1530127434}
 --- !u!23 &1953005360
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -30250,6 +30323,7 @@ MonoBehaviour:
     plane: 1
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 1530127434}
 --- !u!23 &1984980908
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31266,6 +31340,7 @@ MonoBehaviour:
     plane: 2
     planeSide: 1
   isWalkable: 1
+  parentBlock: {fileID: 300528042}
 --- !u!23 &2057990656
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -31923,11 +31998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDebugAxisLines: 1
-  debugAxisLinesLength: 3
-  drawDebugAxisLinesTitles: 0
-  drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -52806
+  id: 110758
   connectionPoints:
   - {fileID: 629382937}
   - {fileID: 1195185301}
@@ -32129,6 +32200,7 @@ MonoBehaviour:
     plane: 2
     planeSide: 0
   isWalkable: 1
+  parentBlock: {fileID: 2086274066}
 --- !u!23 &2093798310
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -32340,7 +32412,7 @@ GameObject:
   - component: {fileID: 2101902875}
   - component: {fileID: 2101902874}
   m_Layer: 0
-  m_Name: BuildingBlock 6
+  m_Name: BuildingBlock 5
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32374,11 +32446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDebugAxisLines: 1
-  debugAxisLinesLength: 3
-  drawDebugAxisLinesTitles: 0
-  drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -24910
+  id: 110804
   connectionPoints:
   - {fileID: 1055755642}
   - {fileID: 187092178}
@@ -32638,11 +32706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  drawDebugAxisLines: 1
-  debugAxisLinesLength: 3
-  drawDebugAxisLinesTitles: 0
-  drawDebugAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
-  id: -19544
+  id: 110830
   connectionPoints:
   - {fileID: 2058558869}
   - {fileID: 92286585}

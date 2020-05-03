@@ -49,6 +49,24 @@ namespace DataTypes
             }
         }
 
+        public GravitationalPlane Opposite => new GravitationalPlane(
+            plane,
+            OppositePlaneSide(planeSide)
+        );
+
+        public static PlaneSide OppositePlaneSide(PlaneSide planeSide)
+        {
+            switch (planeSide)
+            {
+                case PlaneSide.PlaneNormalNegative: return PlaneSide.PlaneNormalPositive;
+                case PlaneSide.PlaneNormalPositive: return PlaneSide.PlaneNormalNegative;
+                default: return PlaneSide.PlaneNormalZero;
+            }
+        }
+
+        public static PlaneSide OppositePlaneSide(GravitationalPlane gravitationalPlane) =>
+            OppositePlaneSide(gravitationalPlane.planeSide);
+
         public override bool Equals(object obj)
         {
             if (obj is GravitationalPlane) return Equals((GravitationalPlane) obj);

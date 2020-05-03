@@ -1,5 +1,6 @@
 ﻿#if UNITY_EDITOR
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using DataTypes;
 using UnityEditor;
@@ -30,20 +31,25 @@ public class MapBuilderEditor : Editor
                 Selection.activeGameObject = _mapBuilder.AddMapPartBuilder();
             }
 
+            if (GUILayout.Button("Rename Children In Hierarchy Order"))
+            {
+                RenameBlocksHierarchyOrder();
+            }
+
             if (_mapBuilder.PathFindingMapsDataExists)
             {
                 Plane[] availablePlanes = _mapBuilder.AvailablePlanes;
                 if (availablePlanes.Length > 0)
                 {
-                    Plane selectedPlane = availablePlanes.Contains(_mapBuilder.showMap.plane)
-                        ? _mapBuilder.showMap.plane
+                    Plane selectedPlane = availablePlanes.Contains(_mapBuilder.showMapGravitationalPlane.plane)
+                        ? _mapBuilder.showMapGravitationalPlane.plane
                         : availablePlanes[0];
 
                     GUILayout.Label("Map To Show");
                     GUILayout.BeginVertical();
                     GUILayout.Label("Gravitational Plane");
 
-                    _mapBuilder.showMap.plane = availablePlanes[
+                    _mapBuilder.showMapGravitationalPlane.plane = availablePlanes[
                         EditorGUILayout.Popup(
                             "Plane",
                             Array.IndexOf(availablePlanes, selectedPlane),
@@ -51,15 +57,15 @@ public class MapBuilderEditor : Editor
                         )
                     ];
 
-                    PlaneSide[] availablePlaneSides = _mapBuilder.AvailablePlaneSides(_mapBuilder.showMap.plane);
+                    PlaneSide[] availablePlaneSides = _mapBuilder.AvailablePlaneSides(_mapBuilder.showMapGravitationalPlane.plane);
 
                     if (availablePlaneSides.Length > 0)
                     {
-                        PlaneSide selectedPlaneSide = availablePlaneSides.Contains(_mapBuilder.showMap.planeSide)
-                            ? _mapBuilder.showMap.planeSide
+                        PlaneSide selectedPlaneSide = availablePlaneSides.Contains(_mapBuilder.showMapGravitationalPlane.planeSide)
+                            ? _mapBuilder.showMapGravitationalPlane.planeSide
                             : availablePlaneSides[0];
 
-                        _mapBuilder.showMap.planeSide = availablePlaneSides[
+                        _mapBuilder.showMapGravitationalPlane.planeSide = availablePlaneSides[
                             EditorGUILayout.Popup(
                                 "Plane Side",
                                 Array.IndexOf(availablePlaneSides, selectedPlaneSide),
@@ -67,7 +73,7 @@ public class MapBuilderEditor : Editor
                             )
                         ];
 
-                        if (_mapBuilder.showMap != null)
+                        if (_mapBuilder.showMapGravitationalPlane != null)
                         {
                             if (!_mapBuilder.MapRepresentationExists)
                             {
@@ -92,6 +98,32 @@ public class MapBuilderEditor : Editor
         }
 
         DrawDefaultInspector();
+    }
+
+    private void RenameBlocksHierarchyOrder()
+    {
+        MapPartBuilder[] mapPartBuilders = FindObjectsOfType<MapPartBuilder>()
+            .OrderBy(mapPartBuider => mapPartBuider.transform.GetSiblingIndex()).ToArray();
+
+        if (mapPartBuilders.Length > 0)
+        {
+            List<Block> blocks = new List<Block>();
+
+            for (int i = 0; i < mapPartBuilders.Length; i++)
+            {
+                mapPartBuilders[i].name = "MapPartBuilder " + (i + 1);
+
+                Block[] blocksinMapBuider = mapPartBuilders[i].GetComponentsInChildren<Block>()
+                    .OrderBy(block => block.transform.GetSiblingIndex()).ToArray();
+                
+                blocks.AddRange(blocksinMapBuider);
+            }
+
+            for (int i = 0; i < blocks.Count; i++)
+            {
+                blocks[i].name = "BuildingBlock " + (i + 1);
+            }
+        }
     }
 }
 #endif

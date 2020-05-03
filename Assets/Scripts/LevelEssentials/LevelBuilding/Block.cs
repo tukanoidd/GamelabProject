@@ -17,10 +17,7 @@ public class Block : MonoBehaviour
 {
     //---------Public and Private Visible In Inspector---------\\
 #if UNITY_EDITOR
-    [SerializeField] private bool drawDebugAxisLines = true;
-    [SerializeField] private float debugAxisLinesLength = 3f;
-    [SerializeField] private bool drawDebugAxisLinesTitles;
-    [SerializeField] private Vector3 drawDebugAxisLinesTitlesOffset = Vector3.up * 0.3f;
+    
 #endif
 
     public static BlockSize size = new BlockSize(1, 1, 1);
@@ -256,6 +253,23 @@ public class Block : MonoBehaviour
             isWalkablePointsHolder.transform.localPosition = Vector3.zero;
         }
     }
+    
+    public void IsWalkablePointsCheckIfWalkable()
+    {
+        foreach (IsWalkablePoint isWalkablePoint in isWalkablePoints.Values)
+        {
+            isWalkablePoint.CheckIfWalkable();
+        }   
+    }
+    
+    public void IsWalkablePointsSetActiveAndSetParentBlock()
+    {
+        foreach (IsWalkablePoint isWalkablePoint in isWalkablePoints.Values)
+        {
+            isWalkablePoint.enabled = true;
+            isWalkablePoint.parentBlock = this;
+        }
+    }
 
     private void BlockClickedTapped(int id)
     {
@@ -274,28 +288,36 @@ public class Block : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        if (drawDebugAxisLines)
+        if (GameManager.current.blocksDebugDrawAxisLines)
         {
             Vector3 position = transform.position;
             Vector3 endPos;
 
             // X Axis
             Gizmos.color = Color.red;
-            endPos = position + transform.right * debugAxisLinesLength;
+            endPos = position + transform.right * GameManager.current.blocksDebugAxisLinesLength;
             Gizmos.DrawLine(position, endPos);
-            if (drawDebugAxisLinesTitles) Handles.Label(endPos + drawDebugAxisLinesTitlesOffset, "Right");
+            if (GameManager.current.blocksDebugDrawAxisLinesTitles) 
+                Handles.Label(endPos + GameManager.current.blocksDebugDrawAxisLinesTitlesOffset, "Right");
 
             // Y Axis
             Gizmos.color = Color.green;
-            endPos = position + transform.up * debugAxisLinesLength;
+            endPos = position + transform.up * GameManager.current.blocksDebugAxisLinesLength;
             Gizmos.DrawLine(position, endPos);
-            if (drawDebugAxisLinesTitles) Handles.Label(endPos + drawDebugAxisLinesTitlesOffset, "Up");
+            if (GameManager.current.blocksDebugDrawAxisLinesTitles) 
+                Handles.Label(endPos + GameManager.current.blocksDebugDrawAxisLinesTitlesOffset, "Up");
 
             // Z Axis
             Gizmos.color = Color.blue;
-            endPos = position + transform.forward * debugAxisLinesLength;
+            endPos = position + transform.forward * GameManager.current.blocksDebugAxisLinesLength;
             Gizmos.DrawLine(position, endPos);
-            if (drawDebugAxisLinesTitles) Handles.Label(endPos + drawDebugAxisLinesTitlesOffset, "Forward");
+            if (GameManager.current.blocksDebugDrawAxisLinesTitles) 
+                Handles.Label(endPos + GameManager.current.blocksDebugDrawAxisLinesTitlesOffset, "Forward");
+        }
+
+        if (GameManager.current.blocksDebugDrawLocalPositions)
+        {
+            Handles.Label(transform.position + Vector3.up, transform.localPosition.ToString());
         }
     }
 #endif

@@ -1,4 +1,5 @@
 ﻿#if UNITY_EDITOR
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
@@ -8,19 +9,27 @@ using UnityEngine;
 public class TurnAroundCameraEditor : Editor
 {
     private TurnAroundCamera _targetCamera;
+    private Transform _targetCamTransform;
     private float _circleRadius;
     private Vector3 _circleCenterPos;
 
+    private Tool _lastTool = Tool.None;
+
     private bool _circleLock = true;
+    private bool _snapToCircle = false;
 
     private GUIStyle _labelStyle = new GUIStyle();
 
     private void OnEnable()
     {
+        _lastTool = Tools.current;
+        
         _targetCamera = target as TurnAroundCamera;
-        if (_targetCamera)
+        if (_targetCamera != null)
         {
             _targetCamera.CreateTargetToLookAt();
+            _targetCamTransform = _targetCamera.transform;
+            
             CalcCircle();
         }
 
@@ -31,7 +40,7 @@ public class TurnAroundCameraEditor : Editor
     {
         if (_targetCamera.targetToLookAt && !_targetCamera.circleCalc)
         {
-            Vector3 cameraPos = _targetCamera.transform.position;
+            Vector3 cameraPos = _targetCamTransform.position;
             Vector3 targetPos = _targetCamera.targetToLookAt.transform.position;
             _circleCenterPos = new Vector3(targetPos.x, cameraPos.y, targetPos.z);
             _circleRadius = Vector2.Distance(new Vector2(targetPos.x, targetPos.z),
@@ -58,10 +67,20 @@ public class TurnAroundCameraEditor : Editor
     {
         if (_targetCamera && _targetCamera.targetToLookAt)
         {
+            _targetCamTransform.LookAt(_targetCamera.targetToLookAt.transform);
+
             Handles.color = Color.white;
             Handles.DrawWireDisc(_circleCenterPos, Vector3.up, _circleRadius);
-            _targetCamera.transform.LookAt(_targetCamera.targetToLookAt.transform);
+            
+            Handles.color = Color.red;
+            foreach (KeyValuePair<Vector3, int> snapPt in _targetCamera.snappingPoints)
+            {
+                Handles.SphereHandleCap(0, snapPt.Key, Quaternion.identity, 0.5f, EventType.Repaint);
 
+                _labelStyle.normal.textColor = Color.green;
+                Handles.Label(snapPt.Key + Vector3.up, snapPt.Value + " deg", _labelStyle);
+            }
+            
             Handles.color = Color.magenta;
             Handles.SphereHandleCap(
                 0,
@@ -71,14 +90,20 @@ public class TurnAroundCameraEditor : Editor
                 EventType.Repaint
             );
 
-            Handles.color = Color.red;
-            foreach (KeyValuePair<Vector3, int> snapPt in _targetCamera.snappingPoints)
+            if (_snapToCircle)
             {
-                Handles.SphereHandleCap(0, snapPt.Key, Quaternion.identity, 0.5f, EventType.Repaint);
+                if (Tools.current == Tool.Move) Tools.current = Tool.None;
 
-                _labelStyle.normal.textColor = Color.green;
-                Handles.Label(snapPt.Key + Vector3.up, snapPt.Value.ToString() + " deg", _labelStyle);
+                Vector3 newPos =
+                    Handles.PositionHandle(_targetCamTransform.position, Quaternion.identity);
+
+                if (_targetCamTransform.position != newPos)
+                {
+                    _targetCamTransform.position = newPos;
+                    PutInCircle();
+                }
             }
+            else Tools.current = _lastTool;
         }
     }
 
@@ -90,6 +115,7 @@ public class TurnAroundCameraEditor : Editor
 
             if (_circleLock)
             {
+                _snapToCircle = GUILayout.Toggle(_snapToCircle, "Snap To Circle On Moving");
                 if (GUILayout.Button("Put In Circle")) PutInCircle();
 
                 _targetCamera.selDeg =
@@ -101,6 +127,8 @@ public class TurnAroundCameraEditor : Editor
             }
             else
             {
+                if (_snapToCircle) _snapToCircle = false;
+                
                 if (GUILayout.Button("Set New Circle"))
                 {
                     _targetCamera.circleCalc = false;
@@ -115,18 +143,23 @@ public class TurnAroundCameraEditor : Editor
     private void SnapToDegree()
     {
         if (_targetCamera.snappingPoints.Any())
-            _targetCamera.transform.position = _targetCamera.snappingPoints
+            _targetCamTransform.position = _targetCamera.snappingPoints
                 .First(snapPt => snapPt.Value == _targetCamera.degToSnap).Key;
     }
 
     private void PutInCircle()
     {
-        Vector3 cameraPos = _targetCamera.transform.position;
+        Vector3 cameraPos = _targetCamTransform.position;
         cameraPos.y = _circleCenterPos.y;
 
         Vector3 offsetFromCenter = cameraPos - _circleCenterPos;
 
-        _targetCamera.transform.position = _circleCenterPos + (offsetFromCenter.normalized * _circleRadius);
+        _targetCamTransform.position = _circleCenterPos + (offsetFromCenter.normalized * _circleRadius);
+    }
+
+    private void OnDisable()
+    {
+        Tools.current = _lastTool;
     }
 }
 #endif

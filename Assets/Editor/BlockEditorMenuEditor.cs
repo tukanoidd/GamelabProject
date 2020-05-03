@@ -4,17 +4,31 @@ using UnityEngine;
 
 public static class BlockEditorMenuEditor
 {
-    [MenuItem("MapBuilder/Blocks/All Blocks/Connection Points/Set Parent Block")]
-    private static void AllBlocksSetParentBlockToConnectionPoints()
+    [MenuItem("MapBuilder/Blocks/All Blocks/Is Walkable Points/All/Check If Walkable")]
+    private static void AllBlocksAllWalkablePointsCheckIfWalkable()
     {
-        SetParentBlocks(GetAllBlocks());
+        IsWalkablePointsCheckIfWalkable(GetAllBlocks());
     }
 
-    private static void SetParentBlocks(Block[] blocks)
+    [MenuItem("MapBuilder/Blocks/All Blocks/Is Walkable Points/All/Set Active and Set Parent Block")]
+    private static void AllBlocksAllWalkablePointsSetActiveSetParentBlock()
+    {
+        IsWalkablePointsSetActiveAndSetParentBlock(GetAllBlocks());
+    }
+
+    private static void IsWalkablePointsSetActiveAndSetParentBlock(Block[] blocks)
     {
         foreach (Block block in blocks)
         {
-            block.SetParentBlockToConnectionPoints();
+            block.IsWalkablePointsSetActiveAndSetParentBlock();
+        }
+    }
+    
+    private static void IsWalkablePointsCheckIfWalkable(Block[] blocks)
+    {
+        foreach (Block block in blocks)
+        {
+            block.IsWalkablePointsCheckIfWalkable();
         }
     }
 

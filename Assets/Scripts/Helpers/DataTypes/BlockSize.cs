@@ -26,6 +26,19 @@ namespace DataTypes
             z = zSize;
         }
 
+        public int PlaneNormal(Plane plane)
+        {
+            switch (plane)
+            {
+                case Plane.XY: return z;
+                case Plane.XZ: return y;
+                case Plane.YZ: return x;
+                default: return 0;
+            }
+        }
+
+        public int PlaneNormal(GravitationalPlane gravitationalPlane) => PlaneNormal(gravitationalPlane.plane);
+
         public Vector3 ToVector()
         {
             return new Vector3(x, y, z);
@@ -47,6 +60,12 @@ namespace DataTypes
             v1.x / v2.x,
             v1.y / v2.y,
             v1.z / v2.z
+        );
+        
+        public static BlockSize operator /(BlockSize bS, int i) => new BlockSize(
+            bS.x / i,
+            bS.y / i,
+            bS.z / i
         );
 
         public static Vector3 operator %(Vector3 v1, BlockSize v2) => new Vector3(

@@ -75,7 +75,7 @@ public class BlockEditor : Editor
 
     private void OnSceneGUI()
     {
-        if (!_targetBlock && !_blockTransform.parent && !_targetBlock.mapPartBuilderParent) return;
+        if (_targetBlock == null && _blockTransform.parent == null && _targetBlock.mapPartBuilderParent == null) return;
 
         if (_targetBlock.mapPartBuilderParent)
         {
