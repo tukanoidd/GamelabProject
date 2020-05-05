@@ -57,8 +57,6 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if (GameManager.current.gamePaused) return;
-        
-        if (isMoving) {} //todo smooth movement logic
 
         LockRotation();
     }

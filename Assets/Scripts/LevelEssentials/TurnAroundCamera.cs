@@ -70,7 +70,9 @@ public class TurnAroundCamera : MonoBehaviour
 
     private void TurnCamera()
     {
-        if (!GameManager.current.player.isMoving && !GameManager.current.gamePaused)
+        if (!GameManager.current.player.isMoving 
+            && !GameManager.current.gamePaused 
+            && !GameManager.current.cameraLockedMovement)
         {
             float horizontal = -GetHorizontalRotation();
             if (Math.Abs(horizontal) > 0.05f)

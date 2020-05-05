@@ -247,6 +247,9 @@ public class GameManager : MonoBehaviour
         connectionPoint.isConnectedNearby = isNear;
     }
 
+    public bool ConnectionExists(Block block1, Block block2) => blockConnections.Any(blockConnection =>
+            blockConnection.connectedBlocks.Contains(block1) && blockConnection.connectedBlocks.Contains(block2));
+
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {

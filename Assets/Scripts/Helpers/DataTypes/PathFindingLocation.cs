@@ -7,16 +7,23 @@ namespace DataTypes
     /// </summary>
     public class PathFindingLocation
     {
-        public List<MapBlockData> mapBlockDatas;
+        public MapBlockData mapBlockData;
+        public MapLocation mapLoc;
+        
         public PathFindingLocation parent;
+
+        public int f = 0;
+        public int g = 0;
+        public int h = 0;
 
         /// <summary>
         /// Constructor for PathFindingLocation class
         /// </summary>
-        /// <param name="mapBlockDatas">Datas of blocks in the map's cell</param>
-        public PathFindingLocation(List<MapBlockData> mapBlockDatas)
+        /// <param name="mapBlockData">Data of block in the map's cell</param>
+        public PathFindingLocation(MapBlockData mapBlockData, MapLocation mapLoc)
         {
-            this.mapBlockDatas = mapBlockDatas;
+            this.mapBlockData = mapBlockData;
+            this.mapLoc = mapLoc;
             parent = null;
         }
     }

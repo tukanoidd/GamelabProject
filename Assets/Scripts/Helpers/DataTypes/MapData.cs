@@ -121,6 +121,9 @@ namespace DataTypes
                 MapBlockData newMapBlockData = new MapBlockData(newMapLocation, block.transform.position, block);
 
                 map[newMapLocation.row, newMapLocation.col].Add(newMapBlockData);
+                
+                if (block.mapBlockDatas[gravitationalPlane] == null) block.mapBlockDatas[gravitationalPlane] = new HashSet<MapBlockData>();
+                block.mapBlockDatas[gravitationalPlane].Add(newMapBlockData);
 
                 if (blockConnection != null && connectionFromBlockLocation != null)
                 {
@@ -142,7 +145,7 @@ namespace DataTypes
                         )) _blockConnectionsInMap[blockConnection].Add(blockConnectionLocations);
                     }
                 }
-
+                
                 _blockDatasInMap.Add(newMapBlockData);
 
                 // Cycle through viable block's connections to find other blocks and add them to the map if any

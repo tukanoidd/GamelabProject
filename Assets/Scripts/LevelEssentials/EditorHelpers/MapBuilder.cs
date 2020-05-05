@@ -8,11 +8,11 @@ using Plane = DataTypes.Plane;
 public class MapBuilder : MonoBehaviour
 {
     //---------Public and Private Visible In Inspector---------\\
-    [SerializeField] private List<GravitationalPlane> gravitationalPlanes = new List<GravitationalPlane>();
-    [SerializeField] private float mapRepresentationUpOffset = 10;
-
     [SerializeField] private int mapHeight = 100;
     [SerializeField] private int mapLength = 100;
+    
+    [SerializeField] private List<GravitationalPlane> gravitationalPlanes = new List<GravitationalPlane>();
+    [SerializeField] private float mapRepresentationUpOffset = 10;
 
     public bool PathFindingMapsDataExists => _pathFindingMapsData != null;
     public bool MapRepresentationExists => _mapRepresentation != null;
@@ -90,6 +90,7 @@ public class MapBuilder : MonoBehaviour
             if (blockDatas == null) continue;
 
             int i = 0;
+            
             foreach (MapBlockData blockData in blockDatas)
             {
                 GameObject blockRepresenation =
@@ -97,13 +98,15 @@ public class MapBuilder : MonoBehaviour
 
                 int row = blockData.mapLoc.row - rows / 2;
                 int col = blockData.mapLoc.col - cols / 2;
-
+                
                 blockRepresenation.transform.localPosition = DebugMapRepresentationBlockLocalPosition(
                     showMapGravitationalPlane.plane,
                     col,
                     row,
                     i
                 );
+
+                i++;
             }
         }
     }

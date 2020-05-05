@@ -37,7 +37,7 @@ namespace DataTypes
             }
         }
 
-        public int PlaneNormal(GravitationalPlane gravitationalPlane) => PlaneNormal(gravitationalPlane.plane);
+        public int PlaneNormal(GravitationalPlane gravitationalPlane) => gravitationalPlane != null ? PlaneNormal(gravitationalPlane.plane) : 0;
 
         public Vector3 ToVector()
         {

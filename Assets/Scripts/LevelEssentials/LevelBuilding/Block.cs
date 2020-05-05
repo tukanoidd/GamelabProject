@@ -22,6 +22,8 @@ public class Block : MonoBehaviour
 
     public static BlockSize size = new BlockSize(1, 1, 1);
     public static float nearbyRadius = 0.5f;
+    
+    public Dictionary<GravitationalPlane, HashSet<MapBlockData>> mapBlockDatas = new Dictionary<GravitationalPlane, HashSet<MapBlockData>>();
 
     public static readonly List<GravitationalPlane> BlockGravitationalPlanes = new List<GravitationalPlane>()
     {
@@ -32,16 +34,6 @@ public class Block : MonoBehaviour
         new GravitationalPlane(Plane.YZ, PlaneSide.PlaneNormalNegative),
         new GravitationalPlane(Plane.YZ, PlaneSide.PlaneNormalPositive),
     };
-
-    public bool HasConnections =>
-        GameManager.current.blockConnections.Any(blockConnection => blockConnection.connectedBlocks.Contains(this));
-
-    public bool HasNearbyConnections => GameManager.current.blockConnections.Any(blockConnection =>
-        blockConnection.isNear && blockConnection.connectedBlocks.Contains(this));
-
-    public List<BlockConnection> NearbyConnections =>
-        GameManager.current.blockConnections.Where(blockConnection =>
-            blockConnection.isNear && blockConnection.connectedBlocks.Contains(this)).ToList();
     //---------Public and Private Visible In Inspector---------\\
 
     //--------Private and Public Invisible In Inspector--------\\
