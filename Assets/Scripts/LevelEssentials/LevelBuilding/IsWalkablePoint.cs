@@ -39,6 +39,11 @@ public class IsWalkablePoint : MonoBehaviour
 
         _meshRenderer.sharedMaterial = isWalkable ? _isWalkableMat : _isNotWalkableMat;
 #endif
+
+        if (Application.isPlaying)
+        {
+            CheckIfWalkable();
+        }
     }
 
     private void Update()
