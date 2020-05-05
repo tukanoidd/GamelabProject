@@ -242,37 +242,37 @@ PrefabInstance:
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.4692962
+      value: 5.53464
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 7
+      value: 5.52
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.0162997
+      value: 5.53464
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.08120353
+      value: -0.1156893
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.9096668
+      value: 0.8806507
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.34743112
+      value: -0.2792987
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.21261232
+      value: -0.36477748
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
@@ -282,17 +282,17 @@ PrefabInstance:
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 39.857002
+      value: 35.2
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -133.876
+      value: -135
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.365
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839422, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
@@ -4462,7 +4462,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 108128
+  id: 43326
   connectionPoints:
   - {fileID: 740644736}
   - {fileID: 2036616305}
@@ -4645,7 +4645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 108146
+  id: 43344
   connectionPoints:
   - {fileID: 1534143798}
   - {fileID: 1639275521}
@@ -7398,7 +7398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 108432
+  id: 43630
   connectionPoints:
   - {fileID: 954237123}
   - {fileID: 1803271416}
@@ -10953,7 +10953,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 108800
+  id: 43998
   connectionPoints:
   - {fileID: 1538957890}
   - {fileID: 1567628397}
@@ -15880,7 +15880,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 109314
+  id: 44512
   connectionPoints:
   - {fileID: 327514784}
   - {fileID: 711623308}
@@ -19824,7 +19824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 109724
+  id: 44922
   connectionPoints:
   - {fileID: 1762127062}
   - {fileID: 2038362511}
@@ -20182,7 +20182,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customMaxCamOffset: 0.5
   parentBlock: {fileID: 2135727020}
-  isConnected: 0
+  isConnected: 1
   isConnectedNearby: 0
   posDirs:
     gravitationalPlanes:
@@ -20241,7 +20241,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f6df3864e85dfe74ca32ef08e08cca0f, type: 2}
+  - {fileID: 2100000, guid: 4352b14d325009d4c8e402211e307775, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -20469,7 +20469,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 109790
+  id: 44988
   connectionPoints:
   - {fileID: 391708405}
   - {fileID: 1163577816}
@@ -20866,7 +20866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 109830
+  id: 45028
   connectionPoints:
   - {fileID: 1343764261}
   - {fileID: 1541296488}
@@ -23167,7 +23167,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f6df3864e85dfe74ca32ef08e08cca0f, type: 2}
+  - {fileID: 2100000, guid: 4352b14d325009d4c8e402211e307775, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -23210,7 +23210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customMaxCamOffset: 0.5
   parentBlock: {fileID: 300528042}
-  isConnected: 0
+  isConnected: 1
   isConnectedNearby: 0
   posDirs:
     gravitationalPlanes:
@@ -24321,7 +24321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 110186
+  id: 45384
   connectionPoints:
   - {fileID: 408324224}
   - {fileID: 1511862117}
@@ -24476,7 +24476,7 @@ PrefabInstance:
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.size
-      value: 39
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
@@ -26182,12 +26182,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[39].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 792537767}
+      objectReference: {fileID: 2135727020}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[39].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1526145276}
+      objectReference: {fileID: 300528042}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[39].gravitationalPlane.plane
@@ -26197,12 +26197,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[39].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1538957890}
+      objectReference: {fileID: 1518510247}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[39].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1915519897}
+      objectReference: {fileID: 1639275521}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blocksDebugDrawAxisLines
@@ -31998,7 +31998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 110758
+  id: 45956
   connectionPoints:
   - {fileID: 629382937}
   - {fileID: 1195185301}
@@ -32446,7 +32446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 110804
+  id: 46002
   connectionPoints:
   - {fileID: 1055755642}
   - {fileID: 187092178}
@@ -32706,7 +32706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 110830
+  id: 46028
   connectionPoints:
   - {fileID: 2058558869}
   - {fileID: 92286585}
