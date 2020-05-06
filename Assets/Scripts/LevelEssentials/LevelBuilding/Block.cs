@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using DataTypes;
 using UnityEditor;
+using UnityEngine.PlayerLoop;
 using Plane = DataTypes.Plane;
 
 /// <summary>
@@ -10,9 +12,9 @@ using Plane = DataTypes.Plane;
 /// that can be used to navigate the character on in the scene 
 /// </summary>
 [ExecuteAlways]
-[RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(BoxCollider))]
+[RequireComponent(typeof(MeshFilter))]
 public class Block : MonoBehaviour
 {
     //---------Public and Private Visible In Inspector---------\\
@@ -265,16 +267,40 @@ public class Block : MonoBehaviour
 
     private void BlockClickedTapped(int id)
     {
-        if (this.id == id)
+        GameManager gm = GameManager.current;
+        
+        if (this.id == id && gm.player.canMove && gm.mapBuilder.PathFindingMapsDataExists)
         {
-            //todo logic for player movement on click   
-            Debug.Log(name + " clicked");
+            Debug.Log(name);
+            StartCoroutine(
+                gm.player.MoveAlongPath(
+                    gm.pathFinder.FindShortestPath(
+                        gm.player.blockStandingOn, this, gm.player.gravitationalPlane
+                        )
+                    )
+                );
         }
     }
 
     public void TeleportPlayerFrom(Player player, ConnectionPoint connectionPoint)
     {
         //todo add teleportation logic
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        CheckIfPlayerCollided(other);
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        CheckIfPlayerCollided(other);
+    }
+
+    private void CheckIfPlayerCollided(Collision other)
+    {
+        if (other.gameObject != GameManager.current.player.gameObject) return;
+        if (GameManager.current.player.BlockStandingOn != this) GameManager.current.player.BlockStandingOn = this;
     }
 
 #if UNITY_EDITOR

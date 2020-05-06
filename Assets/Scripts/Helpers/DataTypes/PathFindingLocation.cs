@@ -9,6 +9,7 @@ namespace DataTypes
     {
         public MapBlockData mapBlockData;
         public MapLocation mapLoc;
+        public BlockConnection connection;
         
         public PathFindingLocation parent;
 
@@ -16,15 +17,20 @@ namespace DataTypes
         public int g = 0;
         public int h = 0;
 
-        /// <summary>
-        /// Constructor for PathFindingLocation class
-        /// </summary>
-        /// <param name="mapBlockData">Data of block in the map's cell</param>
         public PathFindingLocation(MapBlockData mapBlockData, MapLocation mapLoc)
         {
             this.mapBlockData = mapBlockData;
             this.mapLoc = mapLoc;
             parent = null;
+            connection = null;
+        }
+        
+        public PathFindingLocation(MapBlockData mapBlockData, MapLocation mapLoc, BlockConnection connection)
+        {
+            this.mapBlockData = mapBlockData;
+            this.mapLoc = mapLoc;
+            parent = null;
+            connection = null;
         }
     }
 }

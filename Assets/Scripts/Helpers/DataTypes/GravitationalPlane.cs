@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace DataTypes
 {
@@ -47,6 +48,40 @@ namespace DataTypes
                 default:
                     return 0;
             }
+        }
+        
+        public Vector3 ToGravityVector()
+        {
+            Vector3 gravity = Vector3.zero;
+
+            if (plane == Plane.XY) gravity.z = 1;
+            if (plane == Plane.XZ) gravity.y = 1;
+            if (plane == Plane.YZ) gravity.x = 1;
+
+            gravity *= -PlaneSideToInt(planeSide);
+
+            return gravity;
+        }
+        
+        public Vector3 ToRotationEuler(Vector3 rotationFrom)
+        {
+            Vector3 eulerRotation = Vector3.zero;
+            eulerRotation.y = rotationFrom.y;
+
+            if (plane == Plane.XZ)
+            {
+                if (planeSide == PlaneSide.PlaneNormalNegative) eulerRotation.x = 180;
+            } else if (plane == Plane.XY)
+            {
+                if (planeSide == PlaneSide.PlaneNormalPositive) eulerRotation.x = 90;
+                else if (planeSide == PlaneSide.PlaneNormalNegative) eulerRotation.x = 270;
+            } else if (plane == Plane.YZ)
+            {
+                if (planeSide == PlaneSide.PlaneNormalPositive) eulerRotation.z = 270;
+                else if (planeSide == PlaneSide.PlaneNormalNegative) eulerRotation.z = 90;
+            }
+
+            return eulerRotation;
         }
 
         public GravitationalPlane Opposite => new GravitationalPlane(

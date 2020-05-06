@@ -60,7 +60,7 @@ public class LevelInputManager : MonoBehaviour
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 1000, LayerMask.NameToLayer("Map")))
+        if (Physics.Raycast(ray, out hit, 1000, LayerMask.NameToLayer("Block")))
         {
             Block block = hit.transform.GetComponent<Block>();
             if (block)

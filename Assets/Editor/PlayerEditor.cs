@@ -36,6 +36,11 @@ public class PlayerEditor : Editor
                 _targetPlayer.transform.position =
                     HelperMethods.SnapToBlockGridPlane(_targetPlayer.transform.position, Plane.YZ);
             }
+
+            if (GUILayout.Button("Update Rotation"))
+            {
+                _targetPlayer.UpdateRotation();
+            }
         }
 
         DrawDefaultInspector();

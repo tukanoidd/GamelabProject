@@ -13,19 +13,20 @@ public class MapBuilder : MonoBehaviour
     
     [SerializeField] private List<GravitationalPlane> gravitationalPlanes = new List<GravitationalPlane>();
     [SerializeField] private float mapRepresentationUpOffset = 10;
+    
+    public MapData pathFindingMapsData;
 
-    public bool PathFindingMapsDataExists => _pathFindingMapsData != null;
+    public bool PathFindingMapsDataExists => pathFindingMapsData != null;
     public bool MapRepresentationExists => _mapRepresentation != null;
 
-    public Plane[] AvailablePlanes => _pathFindingMapsData.maps.Select(map => map.Key.plane).ToArray();
+    public Plane[] AvailablePlanes => pathFindingMapsData.maps.Select(map => map.Key.plane).ToArray();
 
     public PlaneSide[] AvailablePlaneSides(Plane availablePlane) =>
-        _pathFindingMapsData.maps.Where(map => map.Key.plane == availablePlane).Select(map => map.Key.planeSide)
+        pathFindingMapsData.maps.Where(map => map.Key.plane == availablePlane).Select(map => map.Key.planeSide)
             .ToArray();
     //---------Public and Private Visible In Inspector---------\\
 
     //--------Private and Public Invisible In Inspector--------\\
-    private MapData _pathFindingMapsData;
 
     private Block[] _blocks;
 
@@ -48,13 +49,13 @@ public class MapBuilder : MonoBehaviour
 
     private void GenerateMaps()
     {
-        _pathFindingMapsData = new MapData(mapLength, mapHeight);
+        pathFindingMapsData = new MapData(mapLength, mapHeight);
 
         if (_blocks.Length > 0)
         {
             foreach (GravitationalPlane gravitationalPlane in gravitationalPlanes)
             {
-                _pathFindingMapsData.CreateMap(_blocks, gravitationalPlane);
+                pathFindingMapsData.CreateMap(_blocks, gravitationalPlane);
             }
         }
     }
@@ -74,13 +75,13 @@ public class MapBuilder : MonoBehaviour
     public void ShowMap()
     {
         if (showMapGravitationalPlane == null ||
-            _pathFindingMapsData.maps[showMapGravitationalPlane].Length <= 0) return;
+            pathFindingMapsData.maps[showMapGravitationalPlane].Length <= 0) return;
 
         _mapRepresentation = new GameObject("Map Represenation " + showMapGravitationalPlane.plane + " " +
                                             showMapGravitationalPlane.planeSide);
         _mapRepresentation.transform.position = Vector3.up * mapRepresentationUpOffset;
 
-        HashSet<MapBlockData>[,] mapToShow = _pathFindingMapsData.maps[showMapGravitationalPlane];
+        HashSet<MapBlockData>[,] mapToShow = pathFindingMapsData.maps[showMapGravitationalPlane];
 
         int rows = mapToShow.GetLength(0);
         int cols = mapToShow.GetLength(1);

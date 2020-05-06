@@ -122,7 +122,7 @@ namespace DataTypes
 
                 map[newMapLocation.row, newMapLocation.col].Add(newMapBlockData);
                 
-                if (block.mapBlockDatas[gravitationalPlane] == null) block.mapBlockDatas[gravitationalPlane] = new HashSet<MapBlockData>();
+                if (!block.mapBlockDatas.ContainsKey(gravitationalPlane)) block.mapBlockDatas[gravitationalPlane] = new HashSet<MapBlockData>();
                 block.mapBlockDatas[gravitationalPlane].Add(newMapBlockData);
 
                 if (blockConnection != null && connectionFromBlockLocation != null)

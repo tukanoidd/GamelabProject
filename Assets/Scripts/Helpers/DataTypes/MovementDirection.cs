@@ -8,7 +8,7 @@
         public AxisDirection xAxis;
         public AxisDirection yAxis;
         public AxisDirection zAxis;
-
+        
         /// <summary>
         /// Constructor for MovementDirectionStruct struct
         /// </summary>

@@ -6,9 +6,10 @@ using UnityEngine;
 
 public class PathFinder : MonoBehaviour
 {
-    public List<PathFindingLocation> FindShortestPath(Block startBlock, Block targetBlock,
-        HashSet<MapBlockData>[,] map, GravitationalPlane gravitationalPlane)
+    public List<PathFindingLocation> FindShortestPath(Block startBlock, Block targetBlock, GravitationalPlane gravitationalPlane)
     {
+        HashSet<MapBlockData>[,] map = GameManager.current.mapBuilder.pathFindingMapsData.maps[gravitationalPlane];
+        
         if (map == null) return new List<PathFindingLocation>();
 
         GameManager.current.cameraLockedMovement = true;
@@ -22,6 +23,8 @@ public class PathFinder : MonoBehaviour
         PathFindingLocation current, start, target;
 
         List<PathFindingLocation> openList, closedList;
+
+        BlockConnection connection;
 
         int lowest;
 
@@ -68,12 +71,19 @@ public class PathFinder : MonoBehaviour
                     List<List<PathFindingLocation>> viableAdjacentBlocks = new List<List<PathFindingLocation>>();
                     foreach (HashSet<MapBlockData> blockDatas in adjBlocks)
                     {
-                        List<MapBlockData> checkBlockDatas = blockDatas.Where(blockData =>
-                            GameManager.current.ConnectionExists(blockData.block, current.mapBlockData.block)).ToList();
+                        Dictionary<MapBlockData, BlockConnection> checkBlockDatas = new Dictionary<MapBlockData, BlockConnection>();
+                        foreach (MapBlockData blockData in blockDatas)
+                        {
+                            if (GameManager.current.ConnectionExists(blockData.block, current.mapBlockData.block,
+                                gravitationalPlane, out connection))
+                            {
+                                checkBlockDatas.Add(blockData, connection);
+                            }
+                        }
                         if (checkBlockDatas.Count > 0)
                         {
                             viableAdjacentBlocks.Add(checkBlockDatas
-                                .Select(blockData => new PathFindingLocation(blockData, blockData.mapLoc)).ToList());
+                                .Select(blockDataConnection => new PathFindingLocation(blockDataConnection.Key, blockDataConnection.Key.mapLoc, blockDataConnection.Value)).ToList());
                         }
                     }
 
@@ -94,6 +104,7 @@ public class PathFinder : MonoBehaviour
                                 adjBlockLocation.h = ComputeHScore(adjBlockLocation.mapLoc, target.mapLoc);
                                 adjBlockLocation.f = adjBlockLocation.g + adjBlockLocation.h;
                                 adjBlockLocation.parent = current;
+                                current.connection = adjBlockLocation.connection;
                                 
                                 // And add it to the open list
                                 openList.Insert(0, adjBlockLocation);
@@ -107,6 +118,7 @@ public class PathFinder : MonoBehaviour
                                     adjBlockLocation.g = g;
                                     adjBlockLocation.f = adjBlockLocation.g + adjBlockLocation.h;
                                     adjBlockLocation.parent = current;
+                                    current.connection = adjBlockLocation.connection;
                                 }
                             }
                         }
@@ -114,7 +126,6 @@ public class PathFinder : MonoBehaviour
                 }
             }
         }
-
         // If no paths variations are presented, return empty list
         if (pathVariations.Count == 0) return new List<PathFindingLocation>();
         // Other wise return the shortest path
@@ -131,6 +142,7 @@ public class PathFinder : MonoBehaviour
             current = current.parent;
         }
 
+        pathVariant.Reverse();
         pathVariations.Add(pathVariant);
     }
 

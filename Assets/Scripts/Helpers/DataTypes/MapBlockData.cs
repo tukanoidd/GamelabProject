@@ -35,7 +35,7 @@ namespace DataTypes
         public static MapBlockData GetNearestBlockData(Block block, MapBlockData[] blockDatasInTheMap)
         {
             MapBlockData[] viableBlockDatas = blockDatasInTheMap.Where(bD => bD.block != block).ToArray();
-            if (viableBlockDatas.Length < 0) return null;
+            if (viableBlockDatas.Length < 1) return null;
 
             return viableBlockDatas.OrderBy(bD => Vector3.Distance(bD.worldLoc, block.transform.position)).ToArray()[0];
         }
