@@ -271,7 +271,6 @@ public class Block : MonoBehaviour
         
         if (this.id == id && gm.player.canMove && gm.mapBuilder.PathFindingMapsDataExists)
         {
-            Debug.Log(name);
             StartCoroutine(
                 gm.player.MoveAlongPath(
                     gm.pathFinder.FindShortestPath(
@@ -279,6 +278,7 @@ public class Block : MonoBehaviour
                         )
                     )
                 );
+            GameManager.current.cameraLockedMovement = false;
         }
     }
 
