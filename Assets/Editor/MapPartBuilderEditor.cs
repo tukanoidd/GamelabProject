@@ -16,7 +16,7 @@ public class MapPartBuilderEditor : Editor
         {
             if (!_mapPartBuilder.blockPrefab)
             {
-                _mapPartBuilder.blockPrefab = Resources.Load<GameObject>("Prefabs/BuildingBlockPrefab");
+                _mapPartBuilder.blockPrefab = Resources.Load<GameObject>("Prefabs/Blocks/BuildingBlockPrefab");
             }
         }
     }

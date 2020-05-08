@@ -234,8 +234,8 @@ GameObject:
   - component: {fileID: 8352266956361199897}
   - component: {fileID: 2967023530597125785}
   - component: {fileID: 7462665598555963264}
-  - component: {fileID: 4274210779435587540}
-  - component: {fileID: 8667216414675688330}
+  - component: {fileID: 3880446324457704438}
+  - component: {fileID: 1483068634069374700}
   m_Layer: 8
   m_Name: ConnectionPoint 10
   m_TagString: TpTrigger
@@ -333,7 +333,7 @@ MonoBehaviour:
       dir: 1
     - axis: 2
       dir: 0
---- !u!65 &4274210779435587540
+--- !u!65 &3880446324457704438
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -346,7 +346,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8, y: 5, z: 2}
   m_Center: {x: 0, y: -2.5, z: 0}
---- !u!65 &8667216414675688330
+--- !u!65 &1483068634069374700
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -371,8 +371,8 @@ GameObject:
   - component: {fileID: 6680843076931776964}
   - component: {fileID: 8006007423350579313}
   - component: {fileID: 2151581776778857751}
-  - component: {fileID: 2857882800081681707}
-  - component: {fileID: 6514802189766415599}
+  - component: {fileID: 376269854245639663}
+  - component: {fileID: 1400948841715380438}
   m_Layer: 8
   m_Name: ConnectionPoint 8
   m_TagString: TpTrigger
@@ -470,7 +470,7 @@ MonoBehaviour:
       dir: 2
     - axis: 2
       dir: 1
---- !u!65 &2857882800081681707
+--- !u!65 &376269854245639663
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -483,7 +483,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 8, z: 5}
   m_Center: {x: 0, y: 0, z: -2.5}
---- !u!65 &6514802189766415599
+--- !u!65 &1400948841715380438
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -508,8 +508,8 @@ GameObject:
   - component: {fileID: 3937146627998106789}
   - component: {fileID: 8334436582210958942}
   - component: {fileID: 5139401447077574465}
-  - component: {fileID: 5359907297970664845}
-  - component: {fileID: 2390315262778014384}
+  - component: {fileID: 7637242099685371897}
+  - component: {fileID: 3264858592604789566}
   m_Layer: 8
   m_Name: ConnectionPoint 3
   m_TagString: TpTrigger
@@ -607,7 +607,7 @@ MonoBehaviour:
       dir: 0
     - axis: 2
       dir: 2
---- !u!65 &5359907297970664845
+--- !u!65 &7637242099685371897
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -620,7 +620,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 5, z: 8}
   m_Center: {x: 0, y: 2.5, z: 0}
---- !u!65 &2390315262778014384
+--- !u!65 &3264858592604789566
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -645,8 +645,8 @@ GameObject:
   - component: {fileID: 5122244214503209692}
   - component: {fileID: 1508154782314505882}
   - component: {fileID: 6609700078625901314}
-  - component: {fileID: 8075025597609656237}
-  - component: {fileID: 2882538067492760787}
+  - component: {fileID: 8066992040236927}
+  - component: {fileID: 2824030837396785190}
   m_Layer: 8
   m_Name: ConnectionPoint 4
   m_TagString: TpTrigger
@@ -744,7 +744,7 @@ MonoBehaviour:
       dir: 0
     - axis: 2
       dir: 1
---- !u!65 &8075025597609656237
+--- !u!65 &8066992040236927
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -757,7 +757,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8, y: 5, z: 2}
   m_Center: {x: 0, y: 2.5, z: 0}
---- !u!65 &2882538067492760787
+--- !u!65 &2824030837396785190
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -893,8 +893,8 @@ GameObject:
   - component: {fileID: 1678457857843922768}
   - component: {fileID: 4124147685982948653}
   - component: {fileID: 1144906676554070693}
-  - component: {fileID: 4012573668443926187}
-  - component: {fileID: 6324605791284159372}
+  - component: {fileID: 4787141349008371249}
+  - component: {fileID: 4523259916625622063}
   m_Layer: 8
   m_Name: ConnectionPoint 11
   m_TagString: TpTrigger
@@ -992,7 +992,7 @@ MonoBehaviour:
       dir: 1
     - axis: 2
       dir: 2
---- !u!65 &4012573668443926187
+--- !u!65 &4787141349008371249
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1005,7 +1005,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 5, z: 8}
   m_Center: {x: 0, y: -2.5, z: 0}
---- !u!65 &6324605791284159372
+--- !u!65 &4523259916625622063
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1141,8 +1141,8 @@ GameObject:
   - component: {fileID: 4734215701909892793}
   - component: {fileID: 2343931373657171765}
   - component: {fileID: 3698020047676813014}
-  - component: {fileID: 7933038079438967458}
-  - component: {fileID: 296642692556128849}
+  - component: {fileID: 8391957924980675995}
+  - component: {fileID: 1200203600332687642}
   m_Layer: 8
   m_Name: ConnectionPoint 5
   m_TagString: TpTrigger
@@ -1240,7 +1240,7 @@ MonoBehaviour:
       dir: 2
     - axis: 2
       dir: 1
---- !u!65 &7933038079438967458
+--- !u!65 &8391957924980675995
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1253,7 +1253,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 8, z: 5}
   m_Center: {x: 0, y: 0, z: -2.5}
---- !u!65 &296642692556128849
+--- !u!65 &1200203600332687642
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1389,8 +1389,8 @@ GameObject:
   - component: {fileID: 7003371231277762955}
   - component: {fileID: 2246353829689145680}
   - component: {fileID: 7848509544239157727}
-  - component: {fileID: 6611728643234190259}
-  - component: {fileID: 4674321259456172203}
+  - component: {fileID: 180210719367193335}
+  - component: {fileID: 7478069190549406965}
   m_Layer: 8
   m_Name: ConnectionPoint 6
   m_TagString: TpTrigger
@@ -1488,7 +1488,7 @@ MonoBehaviour:
       dir: 2
     - axis: 2
       dir: 0
---- !u!65 &6611728643234190259
+--- !u!65 &180210719367193335
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1501,7 +1501,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 8, z: 5}
   m_Center: {x: 0, y: 0, z: 2.5}
---- !u!65 &4674321259456172203
+--- !u!65 &7478069190549406965
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1526,8 +1526,8 @@ GameObject:
   - component: {fileID: 8205124818529515778}
   - component: {fileID: 5748502736260844069}
   - component: {fileID: 2576104732190879113}
-  - component: {fileID: 8759580265033834292}
-  - component: {fileID: 4350543359748042836}
+  - component: {fileID: 2199598941936879759}
+  - component: {fileID: 5239181589762281214}
   m_Layer: 8
   m_Name: ConnectionPoint 2
   m_TagString: TpTrigger
@@ -1625,7 +1625,7 @@ MonoBehaviour:
       dir: 0
     - axis: 2
       dir: 0
---- !u!65 &8759580265033834292
+--- !u!65 &2199598941936879759
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1638,7 +1638,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8, y: 5, z: 2}
   m_Center: {x: 0, y: 2.5, z: 0}
---- !u!65 &4350543359748042836
+--- !u!65 &5239181589762281214
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1663,8 +1663,8 @@ GameObject:
   - component: {fileID: 7773195991918946178}
   - component: {fileID: 2820259329651456558}
   - component: {fileID: 7643767553507940704}
-  - component: {fileID: 8505353718986716344}
-  - component: {fileID: 2190400124426755981}
+  - component: {fileID: 8453714885979931547}
+  - component: {fileID: 4311832355546133815}
   m_Layer: 8
   m_Name: ConnectionPoint 12
   m_TagString: TpTrigger
@@ -1762,7 +1762,7 @@ MonoBehaviour:
       dir: 1
     - axis: 2
       dir: 1
---- !u!65 &8505353718986716344
+--- !u!65 &8453714885979931547
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1775,7 +1775,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8, y: 5, z: 2}
   m_Center: {x: 0, y: -2.5, z: 0}
---- !u!65 &2190400124426755981
+--- !u!65 &4311832355546133815
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1800,8 +1800,8 @@ GameObject:
   - component: {fileID: 7958572694449184797}
   - component: {fileID: 7156453387280331042}
   - component: {fileID: 777275013394674253}
-  - component: {fileID: 7428451808133131548}
-  - component: {fileID: 3162981962320529899}
+  - component: {fileID: 4382136128383563605}
+  - component: {fileID: 8262566024132772599}
   m_Layer: 8
   m_Name: ConnectionPoint 1
   m_TagString: TpTrigger
@@ -1899,7 +1899,7 @@ MonoBehaviour:
       dir: 0
     - axis: 2
       dir: 2
---- !u!65 &7428451808133131548
+--- !u!65 &4382136128383563605
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1912,7 +1912,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 5, z: 8}
   m_Center: {x: 0, y: 2.5, z: 0}
---- !u!65 &3162981962320529899
+--- !u!65 &8262566024132772599
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1937,8 +1937,8 @@ GameObject:
   - component: {fileID: 3855402453666533746}
   - component: {fileID: 7075460123077029640}
   - component: {fileID: 2769689204801835286}
-  - component: {fileID: 8132288540139495938}
-  - component: {fileID: 4491421490648794757}
+  - component: {fileID: 5273967776158388699}
+  - component: {fileID: 8390323497901560476}
   m_Layer: 8
   m_Name: ConnectionPoint 9
   m_TagString: TpTrigger
@@ -2036,7 +2036,7 @@ MonoBehaviour:
       dir: 1
     - axis: 2
       dir: 2
---- !u!65 &8132288540139495938
+--- !u!65 &5273967776158388699
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2049,7 +2049,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 5, z: 8}
   m_Center: {x: 0, y: -2.5, z: 0}
---- !u!65 &4491421490648794757
+--- !u!65 &8390323497901560476
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2116,8 +2116,8 @@ GameObject:
   - component: {fileID: 3461510681305571669}
   - component: {fileID: 999559788749876924}
   - component: {fileID: 200495517719920217}
-  - component: {fileID: 3226463212420554578}
-  - component: {fileID: 5577817820134065807}
+  - component: {fileID: 8006072476848488881}
+  - component: {fileID: 3463084963968395701}
   m_Layer: 8
   m_Name: ConnectionPoint 7
   m_TagString: TpTrigger
@@ -2215,7 +2215,7 @@ MonoBehaviour:
       dir: 2
     - axis: 2
       dir: 0
---- !u!65 &3226463212420554578
+--- !u!65 &8006072476848488881
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2228,7 +2228,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 8, z: 5}
   m_Center: {x: 0, y: 0, z: 2.5}
---- !u!65 &5577817820134065807
+--- !u!65 &3463084963968395701
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2366,7 +2366,7 @@ GameObject:
   - component: {fileID: 8485869265477385651}
   - component: {fileID: 8485869265477385650}
   m_Layer: 9
-  m_Name: BuildingBlockBridgeEnd 1
+  m_Name: BridgeEnd
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2461,7 +2461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 57000
+  id: 38794
   connectionPoints:
   - {fileID: 777275013394674253}
   - {fileID: 2576104732190879113}
@@ -2537,22 +2537,22 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: f48ead528952b4646ad5918f62369333,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.70714813
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f48ead528952b4646ad5918f62369333,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.0000001376708
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f48ead528952b4646ad5918f62369333,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.70706546
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f48ead528952b4646ad5918f62369333,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.00000013768694
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f48ead528952b4646ad5918f62369333,
         type: 3}
@@ -2567,7 +2567,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: f48ead528952b4646ad5918f62369333,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 89.993
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f48ead528952b4646ad5918f62369333,
         type: 3}

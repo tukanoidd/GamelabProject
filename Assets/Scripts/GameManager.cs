@@ -24,6 +24,9 @@ public class GameManager : MonoBehaviour
     public float blocksDebugAxisLinesLength = 3f;
     public bool blocksDebugDrawAxisLinesTitles;
     public Vector3 blocksDebugDrawAxisLinesTitlesOffset = Vector3.up * 0.3f;
+
+    [Header("Bridges Debug Settings")] public bool bridgesDebugDrawStartSphere = true;
+    public bool bridgesDebugDrawStartLabel = true;
 #endif
 
     #endregion
@@ -45,8 +48,7 @@ public class GameManager : MonoBehaviour
     [Space(20)] public float gravitationalAcceleration = 9.81f;
     [Space(20)] public DeviceType deviceType;
 
-    [Header("Essential Level References")] 
-    public Player player;
+    [Header("Essential Level References")] public Player player;
     public TurnAroundCamera mainCamera;
     public PathFinder pathFinder;
     public MapBuilder mapBuilder;
@@ -248,12 +250,15 @@ public class GameManager : MonoBehaviour
         connectionPoint.isConnectedNearby = isNear;
     }
 
-    public bool ConnectionExists(Block block1, Block block2, GravitationalPlane gravitationalPlane, out BlockConnection connection)
+    public bool ConnectionExists(Block block1, Block block2, GravitationalPlane gravitationalPlane,
+        out BlockConnection connection)
     {
         BlockConnection checkConnection;
-        if (gravitationalPlane == null) checkConnection =  blockConnections.FirstOrDefault(blockConnection =>
+        if (gravitationalPlane == null)
+            checkConnection = blockConnections.FirstOrDefault(blockConnection =>
                 blockConnection.connectedBlocks.Contains(block1) && blockConnection.connectedBlocks.Contains(block2));
-        else checkConnection = blockConnections.FirstOrDefault(blockConnection =>
+        else
+            checkConnection = blockConnections.FirstOrDefault(blockConnection =>
                 blockConnection.connectedBlocks.Contains(block1) &&
                 blockConnection.connectedBlocks.Contains(block2) &&
                 blockConnection.gravitationalPlane.Equals(gravitationalPlane)
@@ -261,6 +266,14 @@ public class GameManager : MonoBehaviour
 
         connection = checkConnection;
         return checkConnection != null;
+    }
+
+    public void UpdateConnections()
+    {
+        blockConnections = blockConnections.Where(blockConnection =>
+                blockConnection.connectedBlocks.All(block => block != null) &&
+                blockConnection.connectionPoints.All(connectionPoint => connectionPoint != null))
+            .ToList();
     }
 
 #if UNITY_EDITOR
@@ -271,7 +284,8 @@ public class GameManager : MonoBehaviour
             Gizmos.color = Color.yellow;
             foreach (BlockConnection blockConnection in blockConnections)
             {
-                ConnectionPoint[] connectionPoints = blockConnection.connectionPoints.ToArray();
+                ConnectionPoint[] connectionPoints = blockConnection.connectionPoints
+                    .Where(connectionPoint => connectionPoint != null).ToArray();
                 if (connectionPoints.Length > 1)
                 {
                     Gizmos.DrawLine(
@@ -279,6 +293,7 @@ public class GameManager : MonoBehaviour
                         connectionPoints[1].transform.position
                     );
                 }
+                else UpdateConnections();
             }
         }
     }
