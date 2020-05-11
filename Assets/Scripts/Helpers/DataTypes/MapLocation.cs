@@ -20,8 +20,18 @@ namespace DataTypes
             this.row = row;
             this.col = col;
         }
+        
+        public static MapLocation Zero => new MapLocation(0, 0);
 
         public Vector2 ToVector2() => new Vector2(row, col);
+
+        public Vector3 ToWorldLoc(Plane plane)
+        {
+            if (plane == Plane.XY) return new Vector3(col, row, 0);
+            if (plane == Plane.XZ) return new Vector3(col, 0, row);    
+            if (plane == Plane.YZ) return new Vector3(0, row, col); 
+            return Vector3.zero;
+        }
 
         public static MapLocation operator -(MapLocation mL1, MapLocation mL2)
         {

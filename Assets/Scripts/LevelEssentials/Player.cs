@@ -50,20 +50,20 @@ public class Player : MonoBehaviour
     private float _height = 0;
 
     private Vector3? _targetPosition = null;
-    private Block _targetBlock = null;
-    private PathFindingLocation _current = null;
 
     private Material _testBlockMat;
     private Material _savedBlockMat;
 
-    public bool isMoving = false;
-    public MovementAxisConstraints movementAxisConstraints = null;
+    private BlockConnection _currentMovementConnection = null;
+    private Block _targetBlock = null;
 
-    public bool isTeleporting = false;
-    public bool canTeleport = true;
-    public bool canMove = false;
+    [HideInInspector] public bool isMoving = false;
+    [HideInInspector] public MovementAxisConstraints movementAxisConstraints = null;
 
-    public MovementDirection? movementDirection = null;
+    [HideInInspector] public bool canTeleport = true;
+    [HideInInspector] public ConnectionPoint teleportedLastTo = null;
+
+    [HideInInspector] public bool canMove = false;
     //--------Private and Public Invisible In Inspector--------\\
 
     private void Awake()
@@ -71,7 +71,6 @@ public class Player : MonoBehaviour
         InitPrivateVars();
 
         UpdateGravity();
-        UpdateRotation();
     }
 
     private void Update()
@@ -93,9 +92,42 @@ public class Player : MonoBehaviour
         transform.localEulerAngles = gravitationalPlane.ToRotationEuler(transform.localRotation.eulerAngles);
     }
 
+    private void UpdateConstraints()
+    {
+        RigidbodyConstraints newConstraints = RigidbodyConstraints.None;
+
+        if (gravitationalPlane.plane == Plane.XY)
+        {
+            newConstraints |= RigidbodyConstraints.FreezeRotationX;
+            newConstraints |= RigidbodyConstraints.FreezeRotationY;
+        }
+        else if (gravitationalPlane.plane == Plane.XZ)
+        {
+            newConstraints |= RigidbodyConstraints.FreezeRotationX;
+            newConstraints |= RigidbodyConstraints.FreezeRotationZ;
+        }
+        else if (gravitationalPlane.plane == Plane.YZ)
+        {
+            newConstraints |= RigidbodyConstraints.FreezeRotationY;
+            newConstraints |= RigidbodyConstraints.FreezeRotationZ;
+        }
+
+        if (movementAxisConstraints != null)
+        {
+            if (movementAxisConstraints.x) newConstraints |= RigidbodyConstraints.FreezePositionX;
+            if (movementAxisConstraints.y) newConstraints |= RigidbodyConstraints.FreezePositionY;
+            if (movementAxisConstraints.z) newConstraints |= RigidbodyConstraints.FreezePositionZ;
+        }
+
+        _rigidbody.constraints = newConstraints;
+    }
+
     private void UpdateGravity()
     {
         Physics.gravity = gravitationalPlane.ToGravityVector() * GameManager.current.gravitationalAcceleration;
+
+        UpdateRotation();
+        UpdateConstraints();
     }
 
     public IEnumerator MoveAlongPath(List<PathFindingLocation> path)
@@ -103,41 +135,86 @@ public class Player : MonoBehaviour
         isMoving = true;
         int i = 0;
 
-        Vector3 targetBlockPos, playerPos, targetPos;
+        Vector3 playerPos = Vector3.zero, targetPos = Vector3.zero;
+        MapLocation targetMapPos = MapLocation.Zero, currentBlockMapPos = MapLocation.Zero;
         float dist = 0;
 
         while (i < path.Count)
         {
-            targetBlockPos = path[i].mapBlockData.worldLoc;
             playerPos = transform.position;
-            targetPos = targetBlockPos;
+            _currentMovementConnection = i == 0 ? path[i].connection : path[i - 1].connection;
 
-            float offset = GravitationalPlane.PlaneSideToInt(gravitationalPlane.planeSide) * _height;
+            if (path[i].mapBlockData.block != _targetBlock)
+            {
+                _targetBlock = path[i].mapBlockData.block;
 
-            if (gravitationalPlane.plane == Plane.XY) targetPos.z += offset;
-            else if (gravitationalPlane.plane == Plane.XZ) targetPos.y += offset;
-            else if (gravitationalPlane.plane == Plane.YZ) targetPos.x += offset;
+                targetPos = path[i].mapBlockData.worldLoc;
+                targetMapPos = path[i].mapLoc;
+                
+                currentBlockMapPos = i == 0 ? targetMapPos : path[i - 1].mapLoc;
+
+                float offset = GravitationalPlane.PlaneSideToInt(gravitationalPlane.planeSide) * _height;
+
+                if (gravitationalPlane.plane == Plane.XY) targetPos.z += offset;
+                else if (gravitationalPlane.plane == Plane.XZ) targetPos.y += offset;
+                else if (gravitationalPlane.plane == Plane.YZ) targetPos.x += offset;
+
+                if (i != 0) movementAxisConstraints = new MovementAxisConstraints(currentBlockMapPos-targetMapPos, gravitationalPlane.plane);
+
+                UpdateConstraints();
+            }
 
             dist = Vector3.Distance(targetPos, playerPos);
 
             if (dist < 0.1f) i++;
             else
             {
-                _rigidbody.MovePosition(targetPos);
+                //_rigidbody.MovePosition(targetPos);
                 transform.Translate((targetPos - playerPos) * Time.deltaTime * movementSpeed);
             }
 
             yield return new WaitForFixedUpdate();
         }
 
+        _currentMovementConnection = null;
+        _targetBlock = null;
         isMoving = false;
+    }
+
+    public void TeleportFrom(ConnectionPoint fromTargetConnectionPoint)
+    {
+        if (_currentMovementConnection == null) return;
+
+        Debug.Log(fromTargetConnectionPoint.parentBlock.name);
+        ConnectionPoint targetConnectionPoint =
+            _currentMovementConnection.connectionPoints.Contains(fromTargetConnectionPoint)
+                ? _currentMovementConnection.connectionPoints.First(connectionPoint =>
+                    connectionPoint != fromTargetConnectionPoint)
+                : null;
+
+        if (targetConnectionPoint == null) return;
+        Debug.Log(targetConnectionPoint.parentBlock.name + " : " + _targetBlock.name);
+        if (targetConnectionPoint.parentBlock != _targetBlock) return;
+
+        canTeleport = false;
+
+        teleportedLastTo = targetConnectionPoint;
+
+        Vector3 offset = transform.position - fromTargetConnectionPoint.transform.position;
+        Debug.Log(offset);
+
+        transform.position = targetConnectionPoint.transform.position + new Vector3(
+            offset.x,
+            _height,
+            offset.z
+        );
     }
 
     private void OnCollisionEnter(Collision other)
     {
         if (other.gameObject.GetComponent<Block>())
         {
-            canMove = true;
+            if (!canMove) canMove = true;
         }
     }
 

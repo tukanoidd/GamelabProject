@@ -138,7 +138,7 @@ public class PathFinder : MonoBehaviour
 
         while (current.parent != null)
         {
-            pathVariant.Add(current.parent);
+            pathVariant.Add(current);
             current = current.parent;
         }
 

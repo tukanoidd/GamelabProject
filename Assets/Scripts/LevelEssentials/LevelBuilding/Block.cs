@@ -282,11 +282,6 @@ public class Block : MonoBehaviour
         }
     }
 
-    public void TeleportPlayerFrom(Player player, ConnectionPoint connectionPoint)
-    {
-        //todo add teleportation logic
-    }
-
     private void OnCollisionEnter(Collision other)
     {
         CheckIfPlayerCollided(other);

@@ -30,7 +30,7 @@ namespace DataTypes
             this.mapBlockData = mapBlockData;
             this.mapLoc = mapLoc;
             parent = null;
-            connection = null;
+            this.connection = connection;
         }
     }
 }

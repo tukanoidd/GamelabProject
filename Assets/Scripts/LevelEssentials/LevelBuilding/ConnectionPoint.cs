@@ -218,7 +218,40 @@ public class ConnectionPoint : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!isConnectedNearby && isConnected)
+        {
+            Player player = other.GetComponent<Player>();
+            if (!player) return;
+            
+            if (name.Contains("2") && parentBlock.name.Contains("5"))
+            {
+                Debug.Log("-------");
+                Debug.Log(player.canTeleport);
+                Debug.Log("-------");
+            }
+
+            if (player.canTeleport)
+            {
+                //Debug.Log("InitTp from " + name + " : " + parentBlock.name);
+                player.TeleportFrom(this);
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (!isConnectedNearby)
+        {
+            Player player = other.GetComponent<Player>();
+            if (!player) return;
+            if (!player.canTeleport && player.teleportedLastTo == this) player.canTeleport = true;
+        }
+    }
+
 #if UNITY_EDITOR
+
     private void UpdateDebugMaterials()
     {
         if (isConnected && _meshRenderer.sharedMaterial != _connectedMat) _meshRenderer.sharedMaterial = _connectedMat;
@@ -234,26 +267,4 @@ public class ConnectionPoint : MonoBehaviour
         }
     }
 #endif
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!isConnectedNearby)
-        {
-            Player player = other.GetComponent<Player>();
-            if (!player) return;
-
-            if (player.canTeleport && !player.isTeleporting) parentBlock.TeleportPlayerFrom(player, this);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (!isConnectedNearby)
-        {
-            Player player = other.GetComponent<Player>();
-            if (!player) return;
-
-            if (!player.canTeleport && !player.isTeleporting) player.canTeleport = true;
-        }
-    }
 }

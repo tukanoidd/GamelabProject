@@ -37,7 +37,8 @@ namespace DataTypes
             }
         }
 
-        public int PlaneNormal(GravitationalPlane gravitationalPlane) => gravitationalPlane != null ? PlaneNormal(gravitationalPlane.plane) : 0;
+        public int PlaneNormal(GravitationalPlane gravitationalPlane) =>
+            gravitationalPlane != null ? PlaneNormal(gravitationalPlane.plane) : 0;
 
         public Vector3 ToVector()
         {
@@ -61,7 +62,7 @@ namespace DataTypes
             v1.y / v2.y,
             v1.z / v2.z
         );
-        
+
         public static BlockSize operator /(BlockSize bS, int i) => new BlockSize(
             bS.x / i,
             bS.y / i,
@@ -72,6 +73,12 @@ namespace DataTypes
             (int) v1.x % v2.x,
             (int) v1.y % v2.y,
             (int) v1.z % v2.z
+        );
+
+        public static Vector3 operator *(Vector3 v1, BlockSize v2) => new Vector3(
+            v1.x * v2.x,
+            v1.y * v2.y,
+            v1.z * v2.z
         );
     }
 }

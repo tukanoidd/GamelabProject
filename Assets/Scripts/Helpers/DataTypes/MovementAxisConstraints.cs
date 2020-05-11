@@ -1,4 +1,7 @@
-﻿namespace DataTypes
+﻿using System;
+using UnityEngine;
+
+namespace DataTypes
 {
     /// <summary>
     /// Indicates of a constraint along different axis for player movement
@@ -20,6 +23,27 @@
             x = xAxisConstrained;
             y = yAxisConstrained;
             z = zAxisConstrained;
+        }
+
+        public MovementAxisConstraints(MapLocation offset, Plane plane)
+        {
+            Debug.Log(offset.ToVector2());
+            if (plane == Plane.XY)
+            {
+                x = offset.col == 0;
+                y = offset.row == 0;
+                z = false;   
+            } else if (plane == Plane.XZ)
+            {
+                x = offset.col == 0;
+                z = offset.row == 0;
+                y = false;   
+            } else if (plane == Plane.YZ)
+            {
+                z = offset.col == 0;
+                y = offset.row == 0;
+                x = false;   
+            }
         }
     }
 }
