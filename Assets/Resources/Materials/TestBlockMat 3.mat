@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: TestBlockMat 2
-  m_Shader: {fileID: -6465566751694194690, guid: a634d7a1ea0505142a82b45e8bdf9ae6,
+  m_Name: TestBlockMat 3
+  m_Shader: {fileID: -6465566751694194690, guid: 1f673c4a3ca68f7449b249593dccd04b,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -84,11 +84,9 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_1D50BA12: {r: 0.6997328, g: 1, b: 0, a: 0}
-    - Color_41164691: {r: 0.4946947, g: 0, b: 1, a: 0}
-    - Color_ADEB4733: {r: 0.6755496, g: 0.1568627, b: 0.90588236, a: 0}
-    - Color_D22492D0: {r: 0, g: 1, b: 0.88181186, a: 0}
-    - Color_DDF4B53F: {r: 0.972549, g: 0.18823528, b: 0.83763736, a: 0}
+    - Color_41164691: {r: 0.6784314, g: 0.5356819, b: 0.36078432, a: 0}
+    - Color_D22492D0: {r: 0.3399264, g: 0.5568628, b: 0, a: 0}
+    - Color_DDF4B53F: {r: 0.87383986, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 0.9528302, g: 0.6323803, b: 0.24719654, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
