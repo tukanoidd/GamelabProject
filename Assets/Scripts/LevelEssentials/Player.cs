@@ -196,7 +196,7 @@ public class Player : MonoBehaviour
             {
                 if (!_currentMovementConnection.customCameraPositions.Any(pos =>
                     Vector3.Distance(GameManager.current.mainCamera.transform.position, pos) <=
-                    customCameraPositionMaxOffset))
+                    customCameraPositionMaxOffset) && !_currentMovementConnection.isNear)
                 {
                     _velocity = Vector3.zero;
                     yield break;
