@@ -161,11 +161,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   drawDebugConnectionLines: 1
   connectionPointsDebugDrawHasParentBlock: 0
-  tpTriggerDebugDrawMode: 1
+  blocksDebugDrawLocalPositions: 0
+  blocksDebugDrawAxisLines: 1
+  blocksDebugAxisLinesLength: 3
+  blocksDebugDrawAxisLinesTitles: 0
+  blocksDebugDrawAxisLinesTitlesOffset: {x: 0, y: 0.3, z: 0}
+  bridgesDebugDrawStartSphere: 1
+  bridgesDebugDrawStartLabel: 1
+  gravitationalAcceleration: 9.81
   deviceType: 3
   player: {fileID: 0}
   mainCamera: {fileID: 0}
   pathFinder: {fileID: 0}
+  mapBuilder: {fileID: 0}
   gamePaused: 0
   playerLockedMovement: 0
   cameraLockedMovement: 0
@@ -194,6 +202,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb89dc69c4c41504d8ec6226aefb8eca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  checkBlockMask:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!1001 &1271391929
 PrefabInstance:
   m_ObjectHideFlags: 0

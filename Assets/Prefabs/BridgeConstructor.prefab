@@ -43,9 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f6d84427b9c930459f4d4e605e479c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alongAxis: 2
+  bridgeOrientation:
+    axis: 0
+    dir: 0
   bridgeEndPrefab: {fileID: 8485869265477385649, guid: 2caeb73014d1eac4c85814f066c571e1,
     type: 3}
   bridgeMiddlePrefab: {fileID: 8485869265477385649, guid: 1b0a7ce60559ea0428a95caf75183750,
     type: 3}
   middleLength: 2
+  bridgeFirstEndObjectWithBlock: {fileID: 0}

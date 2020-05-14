@@ -6,9 +6,9 @@ using DataTypes;
 using UnityEngine;
 using Plane = DataTypes.Plane;
 
+[RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(MeshRenderer))]
 [RequireComponent(typeof(MeshFilter))]
-[RequireComponent(typeof(Rigidbody))]
 public class Player : MonoBehaviour
 {
     //---------Public and Private Visible In Inspector---------\\
@@ -19,7 +19,15 @@ public class Player : MonoBehaviour
     [SerializeField] private bool drawPathWhenMoving;
     [SerializeField] private float movementSpeed = 10;
 
+    [SerializeField] private float gravity = 10f;
+
+    [SerializeField] private float groundCheckDist = 0.4f;
+    [SerializeField] private float groundedGravity = 2f;
+    [SerializeField] private LayerMask groundMask;
+
     [SerializeField] private float customCameraPositionMaxOffset = 0.5f;
+
+    [SerializeField] private bool checkForCamera = false;
 
     public GravitationalPlane gravitationalPlane = new GravitationalPlane(Plane.XZ, PlaneSide.PlaneNormalPositive);
 
@@ -46,7 +54,7 @@ public class Player : MonoBehaviour
     //---------Public and Private Visible In Inspector---------\\
 
     //--------Private and Public Invisible In Inspector--------\\
-    private Rigidbody _rigidbody;
+    private CharacterController _characterController;
     private float _height = 0;
 
     private Vector3? _targetPosition = null;
@@ -57,128 +65,202 @@ public class Player : MonoBehaviour
     private BlockConnection _currentMovementConnection = null;
     private Block _targetBlock = null;
 
+    private Vector3 _velocity = Vector3.zero;
+
+    private Transform _groundCheck;
+
+    [HideInInspector] public bool grounded = false;
     [HideInInspector] public bool isMoving = false;
-    [HideInInspector] public MovementAxisConstraints movementAxisConstraints = null;
 
     [HideInInspector] public bool canTeleport = true;
     [HideInInspector] public ConnectionPoint teleportedLastTo = null;
 
-    [HideInInspector] public bool canMove = false;
     //--------Private and Public Invisible In Inspector--------\\
 
     private void Awake()
     {
         InitPrivateVars();
-
-        UpdateGravity();
+        UpdateRotation();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if (GameManager.current.gamePaused) return;
+        if (GameManager.current.gamePaused) StopAllCoroutines();
+        else
+        {
+            CalculateGravity();
+            UpdateRotation();
+        }
+
+        _characterController.Move(_velocity * Time.fixedDeltaTime);
+    }
+
+    private void CalculateGravity()
+    {
+        float planeSideGravity = gravity * -GravitationalPlane.PlaneSideToInt(gravitationalPlane.planeSide);
+
+        Collider[] colliders = Physics.OverlapSphere(_groundCheck.position, groundCheckDist, groundMask);
+        grounded = colliders.Length > 0;
+
+        if (grounded)
+        {
+            Block[] blocks = colliders.Where(coll => coll.GetComponent<Block>() != null)
+                .Select(coll => coll.GetComponent<Block>()).ToArray();
+
+            if (blocks.Length > 0)
+                BlockStandingOn = blocks
+                    .OrderBy(block => Vector3.Distance(_groundCheck.position, block.transform.position)).First();
+        }
+
+        if (gravitationalPlane.plane == Plane.XY)
+        {
+            if (!grounded)
+            {
+                if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalPositive && _velocity.z < 0)
+                    _velocity.z = -groundedGravity;
+                else if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalNegative && _velocity.z > 0)
+                    _velocity.z = groundedGravity;
+            }
+
+            _velocity.z += planeSideGravity;
+        }
+        else if (gravitationalPlane.plane == Plane.XZ)
+        {
+            if (!grounded)
+            {
+                if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalPositive && _velocity.y < 0)
+                    _velocity.y = -groundedGravity;
+                else if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalNegative && _velocity.y > 0)
+                    _velocity.y = groundedGravity;
+            }
+
+            _velocity.y += planeSideGravity;
+        }
+        else if (gravitationalPlane.plane == Plane.YZ)
+        {
+            if (!grounded)
+            {
+                if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalPositive && _velocity.x < 0)
+                    _velocity.x = -groundedGravity;
+                else if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalNegative && _velocity.x > 0)
+                    _velocity.x = groundedGravity;
+            }
+
+            _velocity.x += planeSideGravity;
+        }
+    }
+
+    private void OnGravityChanged()
+    {
+        _velocity = Vector3.zero;
+        UpdateRotation();
     }
 
     private void InitPrivateVars()
     {
-        _rigidbody = GetComponent<Rigidbody>();
-
+        _characterController = GetComponent<CharacterController>();
+        _groundCheck = transform.Find("GroundCheck");
         _height = GetComponent<MeshRenderer>().bounds.size.y;
-
         _testBlockMat = Resources.Load<Material>("Materials/PathFindingBlockTest");
     }
 
-    public void UpdateRotation()
-    {
-        transform.localEulerAngles = gravitationalPlane.ToRotationEuler(transform.localRotation.eulerAngles);
-    }
-
-    private void UpdateConstraints()
-    {
-        RigidbodyConstraints newConstraints = RigidbodyConstraints.None;
-
-        if (gravitationalPlane.plane == Plane.XY)
-        {
-            newConstraints |= RigidbodyConstraints.FreezeRotationX;
-            newConstraints |= RigidbodyConstraints.FreezeRotationY;
-        }
-        else if (gravitationalPlane.plane == Plane.XZ)
-        {
-            newConstraints |= RigidbodyConstraints.FreezeRotationX;
-            newConstraints |= RigidbodyConstraints.FreezeRotationZ;
-        }
-        else if (gravitationalPlane.plane == Plane.YZ)
-        {
-            newConstraints |= RigidbodyConstraints.FreezeRotationY;
-            newConstraints |= RigidbodyConstraints.FreezeRotationZ;
-        }
-
-        if (movementAxisConstraints != null)
-        {
-            if (movementAxisConstraints.x) newConstraints |= RigidbodyConstraints.FreezePositionX;
-            if (movementAxisConstraints.y) newConstraints |= RigidbodyConstraints.FreezePositionY;
-            if (movementAxisConstraints.z) newConstraints |= RigidbodyConstraints.FreezePositionZ;
-        }
-
-        _rigidbody.constraints = newConstraints;
-    }
-
-    private void UpdateGravity()
-    {
-        Physics.gravity = gravitationalPlane.ToGravityVector() * GameManager.current.gravitationalAcceleration;
-
-        UpdateRotation();
-        UpdateConstraints();
-    }
+    public void UpdateRotation() => transform.localEulerAngles =
+        gravitationalPlane.ToRotationEuler(transform.localRotation.eulerAngles);
 
     public IEnumerator MoveAlongPath(List<PathFindingLocation> path)
     {
         isMoving = true;
-        int i = 0;
+        
+        int lastI = -1;
 
-        Vector3 playerPos = Vector3.zero, targetPos = Vector3.zero;
-        MapLocation targetMapPos = MapLocation.Zero, currentBlockMapPos = MapLocation.Zero;
-        float dist = 0;
+        PathFindingLocation loc = null;
+        PathFindingLocation nextLoc = null;
+        MapLocation offset;
+        MapLocation prevOffset = new MapLocation(-1, -1);
+        Vector2 targetBlockPos2D = Vector2.zero;
+        Vector2 playerPos2D = Vector2.zero;
 
-        while (i < path.Count)
+        for (int i = 0; i < path.Count() - 1;)
         {
-            playerPos = transform.position;
-            _currentMovementConnection = i == 0 ? path[i].connection : path[i - 1].connection;
-
-            if (path[i].mapBlockData.block != _targetBlock)
+            if (lastI != i)
             {
-                _targetBlock = path[i].mapBlockData.block;
+                Debug.Log("e");
+                lastI = i;
 
-                targetPos = path[i].mapBlockData.worldLoc;
-                targetMapPos = path[i].mapLoc;
-                
-                currentBlockMapPos = i == 0 ? targetMapPos : path[i - 1].mapLoc;
-
-                float offset = GravitationalPlane.PlaneSideToInt(gravitationalPlane.planeSide) * _height;
-
-                if (gravitationalPlane.plane == Plane.XY) targetPos.z += offset;
-                else if (gravitationalPlane.plane == Plane.XZ) targetPos.y += offset;
-                else if (gravitationalPlane.plane == Plane.YZ) targetPos.x += offset;
-
-                if (i != 0) movementAxisConstraints = new MovementAxisConstraints(currentBlockMapPos-targetMapPos, gravitationalPlane.plane);
-
-                UpdateConstraints();
+                loc = path[i];
+                nextLoc = i == 0 ? loc : path[i - 1];
+                _currentMovementConnection = loc.connection;
             }
 
-            dist = Vector3.Distance(targetPos, playerPos);
-
-            if (dist < 0.1f) i++;
-            else
+            if (_currentMovementConnection != null && checkForCamera)
             {
-                //_rigidbody.MovePosition(targetPos);
-                transform.Translate((targetPos - playerPos) * Time.deltaTime * movementSpeed);
+                if (!_currentMovementConnection.customCameraPositions.Any(pos =>
+                    Vector3.Distance(GameManager.current.mainCamera.transform.position, pos) <=
+                    customCameraPositionMaxOffset))
+                {
+                    _velocity = Vector3.zero;
+                    yield break;
+                }
             }
 
-            yield return new WaitForFixedUpdate();
+            if (loc != null && nextLoc != null)
+            {
+                Debug.Log("ewe");
+                offset = nextLoc.mapLoc - loc.mapLoc;
+
+                if (!prevOffset.Equals(offset))
+                {
+                    Vector3 targetBlocPos = nextLoc.mapBlockData.block.transform.position;
+                    Vector3 playerPos = transform.position;
+                    
+                    prevOffset = offset;
+                    Rotate(offset);
+
+                    if (gravitationalPlane.plane == Plane.XY)
+                    {
+                        _velocity.x = offset.col * movementSpeed;
+                        _velocity.y = offset.row * movementSpeed;
+                        
+                        targetBlockPos2D = new Vector2(targetBlocPos.x, targetBlocPos.y);
+                        playerPos2D = new Vector2(playerPos.x, playerPos.y);
+                    }
+                    else if (gravitationalPlane.plane == Plane.XZ)
+                    {
+                        _velocity.x = offset.col * movementSpeed;
+                        _velocity.z = offset.row * movementSpeed;
+                        
+                        targetBlockPos2D = new Vector2(targetBlocPos.x, targetBlocPos.z);
+                        playerPos2D = new Vector2(playerPos.x, playerPos.z);
+                    }
+                    else if (gravitationalPlane.plane == Plane.YZ)
+                    {
+                        _velocity.z = offset.col * movementSpeed;
+                        _velocity.y = offset.row * movementSpeed;
+                        
+                        targetBlockPos2D = new Vector2(targetBlocPos.y, targetBlocPos.z);
+                        playerPos2D = new Vector2(playerPos.y, playerPos.z);
+                    }
+                }
+            }
+
+            if (Vector2.Distance(playerPos2D, targetBlockPos2D) <= 0.07f) i++;
         }
-
-        _currentMovementConnection = null;
-        _targetBlock = null;
+        
+        _velocity = Vector3.zero;
         isMoving = false;
+        GameManager.current.cameraLockedMovement = false;
+    }
+
+    private void Rotate(MapLocation offset)
+    {
+        int row = offset.row;
+        int col = offset.col;
+
+        transform.localEulerAngles = new Vector3(
+            transform.localEulerAngles.x,
+            row != 0 ? (row < 0 ? 0 : 180) : (col != 0 ? (col < 0 ? -90 : 90) : 0),
+            transform.localEulerAngles.z
+        );
     }
 
     public void TeleportFrom(ConnectionPoint fromTargetConnectionPoint)
@@ -208,14 +290,6 @@ public class Player : MonoBehaviour
             _height,
             offset.z
         );
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.GetComponent<Block>())
-        {
-            if (!canMove) canMove = true;
-        }
     }
 
 #if UNITY_EDITOR

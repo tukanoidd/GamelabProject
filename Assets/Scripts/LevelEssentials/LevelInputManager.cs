@@ -6,6 +6,7 @@ using UnityEngine;
 public class LevelInputManager : MonoBehaviour
 {
     //---------Public and Private Visible In Inspector---------\\
+    [SerializeField] private LayerMask checkBlockMask;
     //---------Public and Private Visible In Inspector---------\\
 
     //--------Private and Public Invisible In Inspector--------\\
@@ -59,14 +60,11 @@ public class LevelInputManager : MonoBehaviour
     private void CheckIfGotBlock(Ray ray)
     {
         RaycastHit hit;
-
-        if (Physics.Raycast(ray, out hit, 1000, LayerMask.NameToLayer("Block")))
+        
+        if (Physics.Raycast(ray, out hit, 1000, checkBlockMask))
         {
             Block block = hit.transform.GetComponent<Block>();
-            if (block)
-            {
-                LevelEventSystem.current.OnBlockClicked(block.id);
-            }
+            if (block) LevelEventSystem.current.OnBlockClicked(block.id);
         }
     }
 }

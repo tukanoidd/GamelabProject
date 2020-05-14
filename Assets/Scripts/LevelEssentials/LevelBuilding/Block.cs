@@ -269,7 +269,7 @@ public class Block : MonoBehaviour
     {
         GameManager gm = GameManager.current;
         
-        if (this.id == id && gm.player.canMove && gm.mapBuilder.PathFindingMapsDataExists)
+        if (this.id == id && gm.player.grounded && gm.mapBuilder.PathFindingMapsDataExists)
         {
             StartCoroutine(
                 gm.player.MoveAlongPath(
@@ -280,22 +280,6 @@ public class Block : MonoBehaviour
                 );
             GameManager.current.cameraLockedMovement = false;
         }
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        CheckIfPlayerCollided(other);
-    }
-
-    private void OnCollisionStay(Collision other)
-    {
-        CheckIfPlayerCollided(other);
-    }
-
-    private void CheckIfPlayerCollided(Collision other)
-    {
-        if (other.gameObject != GameManager.current.player.gameObject) return;
-        if (GameManager.current.player.BlockStandingOn != this) GameManager.current.player.BlockStandingOn = this;
     }
 
 #if UNITY_EDITOR
