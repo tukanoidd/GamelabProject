@@ -50,7 +50,7 @@ public class PathFinder : MonoBehaviour
                     // Get the location with the lowest F score
                     lowest = openList.Min(l => l.f);
                     current = openList.First(l => l.f == lowest);
-
+                    
                     // Add the current location to the closed list
                     closedList.Add(current);
 
@@ -126,8 +126,12 @@ public class PathFinder : MonoBehaviour
                 }
             }
         }
+
+        pathVariations = pathVariations.Where(pathVar => pathVar.Any(loc => loc.mapBlockData.block == targetBlock)).ToList();
+        
         // If no paths variations are presented, return empty list
         if (pathVariations.Count == 0) return new List<PathFindingLocation>();
+        
         // Other wise return the shortest path
         return pathVariations.OrderBy(pathVariant => pathVariant.Count).ToList()[0];
     }
@@ -136,7 +140,7 @@ public class PathFinder : MonoBehaviour
     {
         List<PathFindingLocation> pathVariant = new List<PathFindingLocation>();
 
-        while (current.parent != null)
+        while (current != null)
         {
             pathVariant.Add(current);
             current = current.parent;

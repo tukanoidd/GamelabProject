@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
 
         if (gravitationalPlane.plane == Plane.XY)
         {
-            if (!grounded)
+            if (grounded)
             {
                 if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalPositive && _velocity.z < 0)
                     _velocity.z = -groundedGravity;
@@ -126,7 +126,7 @@ public class Player : MonoBehaviour
         }
         else if (gravitationalPlane.plane == Plane.XZ)
         {
-            if (!grounded)
+            if (grounded)
             {
                 if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalPositive && _velocity.y < 0)
                     _velocity.y = -groundedGravity;
@@ -138,7 +138,7 @@ public class Player : MonoBehaviour
         }
         else if (gravitationalPlane.plane == Plane.YZ)
         {
-            if (!grounded)
+            if (grounded)
             {
                 if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalPositive && _velocity.x < 0)
                     _velocity.x = -groundedGravity;
@@ -170,7 +170,7 @@ public class Player : MonoBehaviour
     public IEnumerator MoveAlongPath(List<PathFindingLocation> path)
     {
         isMoving = true;
-        
+
         int lastI = -1;
 
         PathFindingLocation loc = null;
@@ -180,15 +180,17 @@ public class Player : MonoBehaviour
         Vector2 targetBlockPos2D = Vector2.zero;
         Vector2 playerPos2D = Vector2.zero;
 
+        Debug.Log("Path: " + String.Join(" -> ", path.Select(locc => locc.mapBlockData.block.name)));
+
         for (int i = 0; i < path.Count() - 1;)
         {
             if (lastI != i)
             {
-                Debug.Log("e");
                 lastI = i;
 
                 loc = path[i];
-                nextLoc = i == 0 ? loc : path[i - 1];
+                nextLoc = path[i + 1];
+
                 _currentMovementConnection = loc.connection;
             }
 
@@ -205,50 +207,64 @@ public class Player : MonoBehaviour
 
             if (loc != null && nextLoc != null)
             {
-                Debug.Log("ewe");
                 offset = nextLoc.mapLoc - loc.mapLoc;
 
-                if (!prevOffset.Equals(offset))
-                {
-                    Vector3 targetBlocPos = nextLoc.mapBlockData.block.transform.position;
-                    Vector3 playerPos = transform.position;
-                    
-                    prevOffset = offset;
-                    Rotate(offset);
+                _targetBlock = nextLoc.mapBlockData.block;
+                
+                Vector3 targetBlockPos = nextLoc.mapBlockData.block.transform.position;
+                Vector3 playerPos = transform.position;
 
-                    if (gravitationalPlane.plane == Plane.XY)
-                    {
-                        _velocity.x = offset.col * movementSpeed;
-                        _velocity.y = offset.row * movementSpeed;
-                        
-                        targetBlockPos2D = new Vector2(targetBlocPos.x, targetBlocPos.y);
-                        playerPos2D = new Vector2(playerPos.x, playerPos.y);
-                    }
-                    else if (gravitationalPlane.plane == Plane.XZ)
-                    {
-                        _velocity.x = offset.col * movementSpeed;
-                        _velocity.z = offset.row * movementSpeed;
-                        
-                        targetBlockPos2D = new Vector2(targetBlocPos.x, targetBlocPos.z);
-                        playerPos2D = new Vector2(playerPos.x, playerPos.z);
-                    }
-                    else if (gravitationalPlane.plane == Plane.YZ)
-                    {
-                        _velocity.z = offset.col * movementSpeed;
-                        _velocity.y = offset.row * movementSpeed;
-                        
-                        targetBlockPos2D = new Vector2(targetBlocPos.y, targetBlocPos.z);
-                        playerPos2D = new Vector2(playerPos.y, playerPos.z);
-                    }
+                if (!prevOffset.Equals(offset)) Rotate(offset);
+
+                prevOffset = offset;
+
+                if (gravitationalPlane.plane == Plane.XY)
+                {
+                    _velocity.x = offset.col * movementSpeed;
+                    _velocity.y = offset.row * movementSpeed;
+
+                    targetBlockPos2D = new Vector2(targetBlockPos.x, targetBlockPos.y);
+                    playerPos2D = new Vector2(playerPos.x, playerPos.y);
+                }
+                else if (gravitationalPlane.plane == Plane.XZ)
+                {
+                    _velocity.x = offset.col * movementSpeed;
+                    _velocity.z = offset.row * movementSpeed;
+
+                    targetBlockPos2D = new Vector2(targetBlockPos.x, targetBlockPos.z);
+                    playerPos2D = new Vector2(playerPos.x, playerPos.z);
+                }
+                else if (gravitationalPlane.plane == Plane.YZ)
+                {
+                    _velocity.z = offset.col * movementSpeed;
+                    _velocity.y = offset.row * movementSpeed;
+
+                    targetBlockPos2D = new Vector2(targetBlockPos.y, targetBlockPos.z);
+                    playerPos2D = new Vector2(playerPos.y, playerPos.z);
+                }
+
+                yield return new WaitForFixedUpdate();
+
+                if (Vector2.Distance(playerPos2D, targetBlockPos2D) <= 0.1f)
+                {
+                    TeleportTo(HelperMethods.SnapToBlockGridPlane(transform.position, gravitationalPlane.plane));
+                    i++;
                 }
             }
-
-            if (Vector2.Distance(playerPos2D, targetBlockPos2D) <= 0.07f) i++;
         }
-        
+
+        _targetBlock = null;
+        _currentMovementConnection = null;
         _velocity = Vector3.zero;
         isMoving = false;
         GameManager.current.cameraLockedMovement = false;
+    }
+
+    private void TeleportTo(Vector3 newPos)
+    {
+        _characterController.enabled = false;
+        transform.position = newPos;
+        _characterController.enabled = true;
     }
 
     private void Rotate(MapLocation offset)
@@ -258,7 +274,7 @@ public class Player : MonoBehaviour
 
         transform.localEulerAngles = new Vector3(
             transform.localEulerAngles.x,
-            row != 0 ? (row < 0 ? 0 : 180) : (col != 0 ? (col < 0 ? -90 : 90) : 0),
+            row != 0 ? (row < 0 ? 180 : 0) : (col != 0 ? (col < 0 ? -90 : 90) : 0),
             transform.localEulerAngles.z
         );
     }
@@ -267,29 +283,33 @@ public class Player : MonoBehaviour
     {
         if (_currentMovementConnection == null) return;
 
-        Debug.Log(fromTargetConnectionPoint.parentBlock.name);
+        foreach (Block block in _currentMovementConnection.connectedBlocks)
+        {
+            Debug.Log(block.name);
+        }
+
         ConnectionPoint targetConnectionPoint =
             _currentMovementConnection.connectionPoints.Contains(fromTargetConnectionPoint)
                 ? _currentMovementConnection.connectionPoints.First(connectionPoint =>
                     connectionPoint != fromTargetConnectionPoint)
                 : null;
 
+        Debug.Log(_targetBlock.name + " : " + targetConnectionPoint);
+        
         if (targetConnectionPoint == null) return;
-        Debug.Log(targetConnectionPoint.parentBlock.name + " : " + _targetBlock.name);
         if (targetConnectionPoint.parentBlock != _targetBlock) return;
-
+        
         canTeleport = false;
 
         teleportedLastTo = targetConnectionPoint;
 
         Vector3 offset = transform.position - fromTargetConnectionPoint.transform.position;
-        Debug.Log(offset);
-
-        transform.position = targetConnectionPoint.transform.position + new Vector3(
+        
+        TeleportTo(targetConnectionPoint.transform.position + new Vector3(
             offset.x,
             _height,
             offset.z
-        );
+        ));
     }
 
 #if UNITY_EDITOR

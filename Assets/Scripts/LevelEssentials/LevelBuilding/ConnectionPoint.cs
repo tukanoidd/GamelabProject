@@ -224,19 +224,8 @@ public class ConnectionPoint : MonoBehaviour
         {
             Player player = other.GetComponent<Player>();
             if (!player) return;
-            
-            if (name.Contains("2") && parentBlock.name.Contains("5"))
-            {
-                Debug.Log("-------");
-                Debug.Log(player.canTeleport);
-                Debug.Log("-------");
-            }
 
-            if (player.canTeleport)
-            {
-                //Debug.Log("InitTp from " + name + " : " + parentBlock.name);
-                player.TeleportFrom(this);
-            }
+            if (player.canTeleport) player.TeleportFrom(this);
         }
     }
 
