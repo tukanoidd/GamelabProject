@@ -53,8 +53,6 @@ public class GameManager : MonoBehaviour
     public PathFinder pathFinder;
     public MapBuilder mapBuilder;
 
-    [Space(20)] public bool gamePaused = false;
-
     [Header("Locked Movement")] public bool playerLockedMovement = false;
     public bool cameraLockedMovement = false;
 

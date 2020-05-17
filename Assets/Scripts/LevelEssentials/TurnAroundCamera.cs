@@ -70,8 +70,7 @@ public class TurnAroundCamera : MonoBehaviour
 
     private void TurnCamera()
     {
-        if (!GameManager.current.player.isMoving 
-            && !GameManager.current.gamePaused 
+        if (!GameManager.current.player.isMoving
             && !GameManager.current.cameraLockedMovement)
         {
             float horizontal = -GetHorizontalRotation();
@@ -91,6 +90,7 @@ public class TurnAroundCamera : MonoBehaviour
                 // Look at the object
                 transform.LookAt(targetToLookAt.transform);
             }
+
             //else StartCoroutine(waitTillSnappingCoroutine);
         }
     }

@@ -10,8 +10,6 @@ TagManager:
   - MapBuild
   - MapRepresentation
   - Map
-  - MainPanel
-  - PauseButton
   - TpTrigger
   - IsWalkablePoint
   layers:

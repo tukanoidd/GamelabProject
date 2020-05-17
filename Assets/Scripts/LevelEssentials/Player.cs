@@ -85,12 +85,8 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (GameManager.current.gamePaused) StopAllCoroutines();
-        else
-        {
-            CalculateGravity();
-            UpdateRotation();
-        }
+        CalculateGravity();
+        UpdateRotation();
 
         _characterController.Move(_velocity * Time.fixedDeltaTime);
     }
@@ -210,7 +206,7 @@ public class Player : MonoBehaviour
                 offset = nextLoc.mapLoc - loc.mapLoc;
 
                 _targetBlock = nextLoc.mapBlockData.block;
-                
+
                 Vector3 targetBlockPos = nextLoc.mapBlockData.block.transform.position;
                 Vector3 playerPos = transform.position;
 
@@ -288,16 +284,16 @@ public class Player : MonoBehaviour
                 ? _currentMovementConnection.connectionPoints.First(connectionPoint =>
                     connectionPoint != fromTargetConnectionPoint)
                 : null;
-        
+
         if (targetConnectionPoint == null) return;
         if (targetConnectionPoint.parentBlock != _targetBlock) return;
-        
+
         canTeleport = false;
 
         teleportedLastTo = targetConnectionPoint;
 
         Vector3 offset = transform.position - fromTargetConnectionPoint.transform.position;
-        
+
         TeleportTo(targetConnectionPoint.transform.position + new Vector3(
             offset.x,
             _height,
