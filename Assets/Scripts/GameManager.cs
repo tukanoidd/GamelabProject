@@ -250,22 +250,24 @@ public class GameManager : MonoBehaviour
         connectionPoint.isConnectedNearby = isNear;
     }
 
-    public bool ConnectionExists(Block block1, Block block2, GravitationalPlane gravitationalPlane,
-        out BlockConnection connection)
+    public bool ConnectionExists(Block block1, Block block2, GravitationalPlane gravitationalPlane)
+    {
+        return FindConnection(block1, block2, gravitationalPlane) != null;
+    }
+
+    public BlockConnection FindConnection(Block block1, Block block2, GravitationalPlane gravitationalPlane)
     {
         BlockConnection checkConnection;
         if (gravitationalPlane == null)
-            checkConnection = blockConnections.FirstOrDefault(blockConnection =>
+            return blockConnections.FirstOrDefault(blockConnection =>
                 blockConnection.connectedBlocks.Contains(block1) && blockConnection.connectedBlocks.Contains(block2));
-        else
-            checkConnection = blockConnections.FirstOrDefault(blockConnection =>
-                blockConnection.connectedBlocks.Contains(block1) &&
-                blockConnection.connectedBlocks.Contains(block2) &&
-                blockConnection.gravitationalPlane.Equals(gravitationalPlane)
-            );
 
-        connection = checkConnection;
-        return checkConnection != null;
+
+        return blockConnections.FirstOrDefault(blockConnection =>
+            blockConnection.connectedBlocks.Contains(block1) &&
+            blockConnection.connectedBlocks.Contains(block2) &&
+            blockConnection.gravitationalPlane.Equals(gravitationalPlane)
+        );
     }
 
     public void UpdateConnections()

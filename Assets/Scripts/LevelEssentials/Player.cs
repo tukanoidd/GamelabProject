@@ -180,9 +180,9 @@ public class Player : MonoBehaviour
         Vector2 targetBlockPos2D = Vector2.zero;
         Vector2 playerPos2D = Vector2.zero;
 
-        Debug.Log("Path: " + String.Join(" -> ", path.Select(locc => locc.mapBlockData.block.name)));
+        int pathLen = path.Count();
 
-        for (int i = 0; i < path.Count() - 1;)
+        for (int i = 0; i < pathLen - 1;)
         {
             if (lastI != i)
             {
@@ -283,18 +283,11 @@ public class Player : MonoBehaviour
     {
         if (_currentMovementConnection == null) return;
 
-        foreach (Block block in _currentMovementConnection.connectedBlocks)
-        {
-            Debug.Log(block.name);
-        }
-
         ConnectionPoint targetConnectionPoint =
             _currentMovementConnection.connectionPoints.Contains(fromTargetConnectionPoint)
                 ? _currentMovementConnection.connectionPoints.First(connectionPoint =>
                     connectionPoint != fromTargetConnectionPoint)
                 : null;
-
-        Debug.Log(_targetBlock.name + " : " + targetConnectionPoint);
         
         if (targetConnectionPoint == null) return;
         if (targetConnectionPoint.parentBlock != _targetBlock) return;
