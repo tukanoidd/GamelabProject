@@ -8,19 +8,33 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Canvas))]
 public class SettingsUIManager : MonoBehaviour
 {
-    [SerializeField] private Settings settings;
-    
-    [Space(20)]
-    [SerializeField] private bool isMainMenu = false;
+    private Settings _settings;
 
-    [Header("References")]
-    [SerializeField] private GameObject settingsPanel;
+    [Space(20)] [SerializeField] private bool isMainMenu = false;
+
+    [Header("References")] [SerializeField]
+    private GameObject settingsPanel;
+
     [SerializeField] private GameObject soundButton;
     [SerializeField] private Text soundButtonText;
     [SerializeField] private GameObject backButton;
 
     void Awake()
     {
+        _settings = Resources.Load<Settings>("ScriptableObjects/Settings");
+        
+        if (!PlayerPrefs.HasKey("soundOn"))
+        {
+            PlayerPrefs.SetInt("soundOn", 1);
+            _settings.soundOn = true;
+            PlayerPrefs.Save();
+        }
+        else
+        {
+            if (PlayerPrefs.GetInt("soundOn") == 0) _settings.soundOn = false;
+            else _settings.soundOn = true;
+        }
+
         UpdateSoundButton();
         settingsPanel.SetActive(false);
         if (isMainMenu) backButton.SetActive(false);
@@ -28,20 +42,22 @@ public class SettingsUIManager : MonoBehaviour
 
     private void UpdateSoundButton()
     {
-        soundButtonText.text = "M - " + (settings.soundOn ? "On" : "Off");
-        Debug.Log(soundButtonText.text);
+        soundButtonText.text = "M - " + (_settings.soundOn ? "On" : "Off");
     }
 
     public void ToggleSound()
     {
-        settings.soundOn = !settings.soundOn;
+        _settings.soundOn = !_settings.soundOn;
+        PlayerPrefs.SetInt("soundOn", _settings.soundOn ? 1 : 0);
+        PlayerPrefs.Save();
+        
         UpdateSoundButton();
     }
 
     public void TogleSettings()
     {
         bool newVisibility = !settingsPanel.activeSelf;
-        
+
         if (settingsPanel) settingsPanel.SetActive(newVisibility);
     }
 }

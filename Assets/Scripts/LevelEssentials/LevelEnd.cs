@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,10 +10,12 @@ using UnityEngine.SceneManagement;
 public class LevelEnd : MonoBehaviour
 {
     private Material _material;
+    private LevelsProgress _levelsProgress;
 
     private void Awake()
     {
         _material = GetComponent<MeshRenderer>().material;
+        _levelsProgress = Resources.Load<LevelsProgress>("ScriptableObjects/LevelsProgress");
     }
 
     void Start()
@@ -40,7 +43,20 @@ public class LevelEnd : MonoBehaviour
     {
         if (other.GetComponent<Player>())
         {
+            UnlockNewLevel();
             SceneManager.LoadScene("LevelsMenu");
         }        
+    }
+
+    private void UnlockNewLevel()
+    {
+        int nextLevel = int.Parse(SceneManager.GetActiveScene().name.Split(' ')[1]);
+
+        if (nextLevel >= _levelsProgress.allLevels.Count()) return;
+        if (_levelsProgress.levelsUnlocked.Any(lName => lName.Contains(nextLevel.ToString()))) return;
+
+        _levelsProgress.levelsUnlocked.Add(_levelsProgress.allLevels[nextLevel]);
+        
+        HelperMethods.SaveLevelsProgress(_levelsProgress.ToLevelsProgressData());
     }
 }

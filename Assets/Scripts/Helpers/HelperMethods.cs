@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using DataTypes;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -157,5 +159,13 @@ public static class HelperMethods
         if (kVP1.Value.Equals(kVP2.Value)) return kVP1.Key.Equals(kVP2.Key);
 
         return false;
+    }
+
+    public static void SaveLevelsProgress(LevelsProgressData dataToSave)
+    {
+        BinaryFormatter bf = new BinaryFormatter();
+        FileStream file = File.Create(Application.persistentDataPath + "/levelsProgress.save");
+        bf.Serialize(file, dataToSave);
+        file.Close();
     }
 }
