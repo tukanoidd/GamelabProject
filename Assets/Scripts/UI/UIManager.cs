@@ -13,7 +13,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private float levelButtonHeight = 130;
     
     [SerializeField] private int levelsCount = 3;
-    [SerializeField] private List<GameObject> levelButtons;
+    [SerializeField] private List<LoadLevelButton> levelButtons;
     
     private LevelsProgress _levelsProgress;
     private GameObject _levelButtonsHolder;
@@ -27,13 +27,12 @@ public class UIManager : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "LevelsMenu")
         {
-            levelButtons = new List<GameObject>();
+            levelButtons = new List<LoadLevelButton>();
             foreach (Transform child in _levelButtonsHolder.transform)
             {
-                levelButtons.Add(child.gameObject);
-                Debug.Log(String.Join("->", _levelsProgress.levelsUnlocked));
-                Debug.Log(child.GetComponentInChildren<Text>().text);
-                child.gameObject.SetActive(_levelsProgress.levelsUnlocked.Contains(child.GetComponentInChildren<Text>().text));
+                LoadLevelButton button = child.gameObject.GetComponent<LoadLevelButton>(); 
+                levelButtons.Add(button);
+                child.gameObject.SetActive(_levelsProgress.levelsUnlocked.Contains(button.levelName));
             }
         }
     }
