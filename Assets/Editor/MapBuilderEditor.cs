@@ -1,17 +1,17 @@
-﻿using System;
-using System.Collections;
+﻿#if UNITY_EDITOR
+using System;
 using System.Collections.Generic;
-using UnityEngine;
-using Helpers;
-#if UNITY_EDITOR
+using System.Linq;
+using DataTypes;
 using UnityEditor;
+using UnityEngine;
+using Plane = DataTypes.Plane;
 
 [CustomEditor(typeof(MapBuilder))]
 public class MapBuilderEditor : Editor
 {
     private MapBuilder _mapBuilder;
-    private bool _showMap = false;
-    
+
     private void OnEnable()
     {
         _mapBuilder = (MapBuilder) target;
@@ -19,59 +19,111 @@ public class MapBuilderEditor : Editor
 
     public override void OnInspectorGUI()
     {
-        if (!_mapBuilder) return;
-        
-        if (GUILayout.Button("Center Position"))
+        if (_mapBuilder)
         {
-            EditorHelpers.CenterPosition(_mapBuilder.transform);
-        }
-        
-        if (GUILayout.Button("Add Map Part Builder"))
-        {
-            Selection.activeGameObject = AddMapPartBuilder(_mapBuilder).gameObject;
-        }
-
-        if (GUILayout.Button("Get Needed Data"))
-        {
-            _mapBuilder.GetNeededData();
-        }
-
-        if (_mapBuilder.dataExists)
-        {
-            if (GUILayout.Button("Generate Map"))
+            if (GUILayout.Button("Center Position"))
             {
-                _mapBuilder.GenerateMap();
-            }   
-        }
+                HelperMethods.CenterPosition(_mapBuilder.transform);
+            }
 
-        GameObject mapToShow = GameObject.FindGameObjectWithTag("MapRepresentation");
-        bool newVal = GUILayout.Toggle(mapToShow ? _showMap : false, "Show Map");
-        if (newVal != _showMap)
-        {
-            _showMap = newVal;
-            if (_showMap) _mapBuilder.ShowMap();
-            else _mapBuilder.HideMap();
-        }
-        else
-        {
-            if (mapToShow)
+            if (GUILayout.Button("Add Map Part Builder"))
             {
-                if (newVal && !mapToShow.activeSelf) _mapBuilder.ShowMap();
-                else if (!newVal && mapToShow.activeSelf) _mapBuilder.HideMap();   
+                Selection.activeGameObject = _mapBuilder.AddMapPartBuilder();
+            }
+
+            if (GUILayout.Button("Rename Children In Hierarchy Order"))
+            {
+                RenameBlocksHierarchyOrder();
+            }
+
+            if (_mapBuilder.PathFindingMapsDataExists)
+            {
+                Plane[] availablePlanes = _mapBuilder.AvailablePlanes;
+                if (availablePlanes.Length > 0)
+                {
+                    Plane selectedPlane = availablePlanes.Contains(_mapBuilder.showMapGravitationalPlane.plane)
+                        ? _mapBuilder.showMapGravitationalPlane.plane
+                        : availablePlanes[0];
+
+                    GUILayout.Label("Map To Show");
+                    GUILayout.BeginVertical();
+                    GUILayout.Label("Gravitational Plane");
+
+                    _mapBuilder.showMapGravitationalPlane.plane = availablePlanes[
+                        EditorGUILayout.Popup(
+                            "Plane",
+                            Array.IndexOf(availablePlanes, selectedPlane),
+                            availablePlanes.Select(plane => plane.ToString()).ToArray()
+                        )
+                    ];
+
+                    PlaneSide[] availablePlaneSides = _mapBuilder.AvailablePlaneSides(_mapBuilder.showMapGravitationalPlane.plane);
+
+                    if (availablePlaneSides.Length > 0)
+                    {
+                        PlaneSide selectedPlaneSide = availablePlaneSides.Contains(_mapBuilder.showMapGravitationalPlane.planeSide)
+                            ? _mapBuilder.showMapGravitationalPlane.planeSide
+                            : availablePlaneSides[0];
+
+                        _mapBuilder.showMapGravitationalPlane.planeSide = availablePlaneSides[
+                            EditorGUILayout.Popup(
+                                "Plane Side",
+                                Array.IndexOf(availablePlaneSides, selectedPlaneSide),
+                                availablePlaneSides.Select(planeSide => planeSide.ToString()).ToArray()
+                            )
+                        ];
+
+                        if (_mapBuilder.showMapGravitationalPlane != null)
+                        {
+                            if (!_mapBuilder.MapRepresentationExists)
+                            {
+                                if (GUILayout.Button("Show Map Representation"))
+                                {
+                                    _mapBuilder.ShowMap();
+                                }
+                            }
+                            else
+                            {
+                                if (GUILayout.Button("Remove Map Representation"))
+                                {
+                                    _mapBuilder.RemoveMap();
+                                }
+                            }
+                        }
+                    }
+                    
+                    GUILayout.EndVertical();
+                }
             }
         }
 
         DrawDefaultInspector();
     }
 
-    private MapPartBuilder AddMapPartBuilder(MapBuilder mapBuilder)
+    private void RenameBlocksHierarchyOrder()
     {
-        GameObject newMapPartBuilder = new GameObject("MapPartBuilder");
-        newMapPartBuilder.tag = "MapBuild";
-        MapPartBuilder newMapPartBuilderComponent = newMapPartBuilder.AddComponent<MapPartBuilder>();
-        newMapPartBuilder.transform.parent = mapBuilder.transform;
+        MapPartBuilder[] mapPartBuilders = FindObjectsOfType<MapPartBuilder>()
+            .OrderBy(mapPartBuider => mapPartBuider.transform.GetSiblingIndex()).ToArray();
 
-        return newMapPartBuilderComponent;
+        if (mapPartBuilders.Length > 0)
+        {
+            List<Block> blocks = new List<Block>();
+
+            for (int i = 0; i < mapPartBuilders.Length; i++)
+            {
+                mapPartBuilders[i].name = "MapPartBuilder " + (i + 1);
+
+                Block[] blocksinMapBuider = mapPartBuilders[i].GetComponentsInChildren<Block>()
+                    .OrderBy(block => block.transform.GetSiblingIndex()).ToArray();
+                
+                blocks.AddRange(blocksinMapBuider);
+            }
+
+            for (int i = 0; i < blocks.Count; i++)
+            {
+                blocks[i].name = "BuildingBlock " + (i + 1);
+            }
+        }
     }
 }
 #endif

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿#if UNITY_EDITOR
+using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -38,17 +39,21 @@ public class LoadLevelButtonEditor : Editor
     
     public override void OnInspectorGUI()
     {
-        if (GUILayout.Button("Update Scenes List"))
+        if (_button)
         {
-            UpdateScenesList();
-        }
+            if (GUILayout.Button("Update Scenes List"))
+            {
+                UpdateScenesList();
+            }
 
-        if (_scenesNum > 0 && _button)
-        {
-            _button.selectedLevelIndex = EditorGUILayout.Popup("Select A Level", _button.selectedLevelIndex, _levels.ToArray());
-            _button.levelName = _levels[_button.selectedLevelIndex];
+            if (_scenesNum > 0 && _button)
+            {
+                _button.selectedLevelIndex = EditorGUILayout.Popup("Select A Level", _button.selectedLevelIndex, _levels.ToArray());
+                _button.levelName = _levels[_button.selectedLevelIndex];
+            }   
         }
 
         DrawDefaultInspector();
     }
 }
+#endif

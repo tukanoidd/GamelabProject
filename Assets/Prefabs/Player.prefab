@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3070006410262902912
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7186709412386565526}
+  m_Layer: 0
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7186709412386565526
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3070006410262902912}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.99, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3470389497488073219}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3470389497488073223
 GameObject:
   m_ObjectHideFlags: 0
@@ -12,9 +42,8 @@ GameObject:
   - component: {fileID: 3470389497488073218}
   - component: {fileID: 3470389497488073221}
   - component: {fileID: 3470389497488073220}
-  - component: {fileID: 336694126938222643}
-  - component: {fileID: 4766238513894997805}
-  - component: {fileID: 1899108754661182281}
+  - component: {fileID: 3161248708887861470}
+  - component: {fileID: 994730848312439522}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -32,7 +61,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.53566, y: 0.53566, z: 0.53566}
-  m_Children: []
+  m_Children:
+  - {fileID: 7186709412386565526}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -97,7 +127,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!143 &336694126938222643
+--- !u!143 &3161248708887861470
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,14 +138,14 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1.6
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4766238513894997805
+--- !u!114 &994730848312439522
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,21 +154,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 3470389497488073223}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ebada564d1a9e14a8106f314728cddb, type: 3}
+  m_Script: {fileID: 11500000, guid: a2129b6836b14a8489d97edc9326ce86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkBlockUnderMaxDistance: 3
---- !u!114 &1899108754661182281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3470389497488073223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e81c2507a4d9074080df31695162b0e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gravity: {x: 0, y: -1, z: 0}
-  walkSpeed: 10
+  drawDebugLineToTarget: 1
+  drawDebugLineForward: 1
+  debugLineForwardLength: 3
+  drawPathWhenMoving: 0
+  movementSpeed: 10
+  gravity: 0.3
+  groundCheckDist: 0.4
+  groundedGravity: 0.1
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 512
+  customCameraPositionMaxOffset: 0.5
+  gravitationalPlane:
+    plane: 1
+    planeSide: 0
+  blockStandingOn: {fileID: 0}
+  grounded: 0
+  isMoving: 0
+  canTeleport: 1
+  teleportedLastTo: {fileID: 0}

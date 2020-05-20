@@ -1,19 +1,16 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Helpers;
+﻿#if UNITY_EDITOR
+using System;
 using UnityEditor;
 using UnityEngine;
+using Plane = DataTypes.Plane;
 
 [CustomEditor(typeof(LevelEnd))]
 public class LevelEndEditor : Editor
 {
     private LevelEnd _targetLevelEnd;
-    private GameDefaultSettings _defaultGameSettings;
 
     private void OnEnable()
     {
-        _defaultGameSettings = Resources.Load<GameDefaultSettings>("ScriptableObjects/DefaultGameSettings");
         _targetLevelEnd = (LevelEnd) target;
     }
 
@@ -21,13 +18,26 @@ public class LevelEndEditor : Editor
     {
         if (_targetLevelEnd)
         {
-            if (GUILayout.Button("Snap To Block Grid XZ Plane") && _defaultGameSettings)
+            if (GUILayout.Button("Snap To BLock Grid XZ Plane"))
             {
-                _targetLevelEnd.transform.position = EditorHelpers.SnapToBlockGridXZPlane(_targetLevelEnd.transform.position,
-                    _defaultGameSettings.defaultBlockSize.ToVector());
-            }    
+                _targetLevelEnd.transform.position =
+                    HelperMethods.SnapToBlockGridPlane(_targetLevelEnd.transform.position, Plane.XZ);
+            }
+            
+            if (GUILayout.Button("Snap To BLock Grid XY Plane"))
+            {
+                _targetLevelEnd.transform.position =
+                    HelperMethods.SnapToBlockGridPlane(_targetLevelEnd.transform.position, Plane.XY);
+            }
+            
+            if (GUILayout.Button("Snap To BLock Grid YZ Plane"))
+            {
+                _targetLevelEnd.transform.position =
+                    HelperMethods.SnapToBlockGridPlane(_targetLevelEnd.transform.position, Plane.YZ);
+            }
         }
 
         DrawDefaultInspector();
     }
 }
+#endif

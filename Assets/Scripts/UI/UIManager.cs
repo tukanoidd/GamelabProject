@@ -1,37 +1,81 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(Canvas))]
 public class UIManager : MonoBehaviour
 {
-    [SerializeField] private bool isLevel = false;
-    [SerializeField] bool isVisible = true;
-
-    private DeviceType _deviceType;
+    [SerializeField] private float levelButtonWidth = 400;
+    [SerializeField] private float levelButtonHeight = 130;
     
-    private Canvas _canvas;
-    private Player _player;
-    private TurnAroundCamera _cam;
-    private GameObject _mainPanel;
-    private GameObject _pauseButton;
-
-    void Awake()
+    [SerializeField] private int levelsCount = 3;
+    [SerializeField] private List<LoadLevelButton> levelButtons;
+    
+    private LevelsProgress _levelsProgress;
+    private GameObject _levelButtonsHolder;
+    
+    private void Awake()
     {
-        _deviceType = SystemInfo.deviceType;
+        _levelButtonsHolder = GameObject.Find("LevelButtons");
+        _levelsProgress = Resources.Load<LevelsProgress>("ScriptableObjects/LevelsProgress");
 
-            _canvas = GetComponent<Canvas>();
-        
-        _mainPanel = GameObject.FindGameObjectWithTag("MainPanel");
+        LoadLevelsProgress();
 
-        _player = FindObjectOfType<Player>();
-        _cam = FindObjectOfType<TurnAroundCamera>();
-        
-        _pauseButton = GameObject.FindGameObjectWithTag("PauseButton");
-
-        SetPause();
+        if (SceneManager.GetActiveScene().name == "LevelsMenu")
+        {
+            levelButtons = new List<LoadLevelButton>();
+            foreach (Transform child in _levelButtonsHolder.transform)
+            {
+                LoadLevelButton button = child.gameObject.GetComponent<LoadLevelButton>(); 
+                levelButtons.Add(button);
+                child.gameObject.SetActive(_levelsProgress.levelsUnlocked.Contains(button.levelName));
+            }
+        }
     }
+
+    private void LoadLevelsProgress()
+    {
+        if (!_levelsProgress.allLevels.Any() || !_levelsProgress.levelsUnlocked.Any())
+        {
+            if (File.Exists(Application.persistentDataPath + "/levelsProgress.save"))
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                FileStream file = File.Open(Application.persistentDataPath + "/levelsProgress.save", FileMode.Open);
+                LevelsProgressData levelsProgressData = (LevelsProgressData) bf.Deserialize(file);
+                _levelsProgress.allLevels = levelsProgressData.allLevels;
+                _levelsProgress.levelsUnlocked = levelsProgressData.levelsUnlocked;
+                file.Close();
+            }
+            else
+            {
+                LevelsProgressData dataToSave = CreateNewLevelsProgressDataObject();
+                _levelsProgress.allLevels = dataToSave.allLevels;
+                _levelsProgress.levelsUnlocked = dataToSave.levelsUnlocked;
+                HelperMethods.SaveLevelsProgress(dataToSave);
+            }
+        }
+    }
+
+    private LevelsProgressData CreateNewLevelsProgressDataObject()
+    {
+        LevelsProgressData lProgData = new LevelsProgressData();
+        
+        lProgData.allLevels = new List<string>();
+
+        for (int i = 0; i < levelsCount; i++)
+        {
+            lProgData.allLevels.Add("Level " + (i + 1));
+        }
+        
+        lProgData.levelsUnlocked = new List<string>() {lProgData.allLevels[0]};
+
+        return lProgData;
+    }
+
     public void LevelsMenu()
     {
         SceneManager.LoadScene("LevelsMenu");
@@ -45,36 +89,5 @@ public class UIManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
-    }
-
-    void Update()
-    {
-        if (_deviceType == DeviceType.Desktop)
-        {
-            if (isLevel && _canvas)
-            {
-                if (Input.GetKeyDown(KeyCode.Escape))
-                {
-                    ToggleVisibility();
-                }   
-            }   
-        }
-    }
-
-    public void ToggleVisibility()
-    {
-        isVisible = !isVisible;
-        
-        SetPause();
-    }
-
-    void SetPause()
-    {
-        if (_mainPanel) _mainPanel.SetActive(isVisible);
-        
-        if (_player) _player.gamePaused = isVisible;
-        if (_cam) _cam.gamePaused = isVisible;
-        
-        if (_pauseButton) _pauseButton.SetActive(!isVisible);
     }
 }
