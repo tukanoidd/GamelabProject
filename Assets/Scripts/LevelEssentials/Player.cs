@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
         else if (gravitationalPlane.plane == Plane.XZ)
         {
             if (grounded)
-            {
+            {   
                 if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalPositive && _velocity.y < 0)
                     _velocity.y = -groundedGravity;
                 else if (gravitationalPlane.planeSide == PlaneSide.PlaneNormalNegative && _velocity.y > 0)
@@ -293,12 +293,8 @@ public class Player : MonoBehaviour
         teleportedLastTo = targetConnectionPoint;
 
         Vector3 offset = transform.position - fromTargetConnectionPoint.transform.position;
-
-        TeleportTo(targetConnectionPoint.transform.position + new Vector3(
-            offset.x,
-            _height,
-            offset.z
-        ));
+        
+        TeleportTo(targetConnectionPoint.transform.position + offset);
     }
 
 #if UNITY_EDITOR

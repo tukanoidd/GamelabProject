@@ -38,7 +38,6 @@ namespace DataTypes
             if (viableBlocks.Length < 1) return;
 
             AddBlocksToMap(ref map, viableBlocks, gravitationalPlane);
-            //map = ShrinkMap(map);
 
             maps[gravitationalPlane] = map;
         }
@@ -267,71 +266,6 @@ namespace DataTypes
             }
 
             return newMapLocation;
-        }
-
-        private HashSet<MapBlockData>[,] ShrinkMap(HashSet<MapBlockData>[,] map)
-        {
-            MapLocation minCoords, maxCoords;
-
-            int minRow = map.GetLength(0);
-            int minCol = map.GetLength(1);
-
-            for (int row = 0; row < map.GetLength(0); row++)
-            {
-                for (int col = 0; col < map.GetLength(1); col++)
-                {
-                    if (map[row, col] != null && map[row, col].Count > 0)
-                    {
-                        minRow = row;
-                        minCol = col;
-                        goto FoundMin;
-                    }
-                }
-            }
-
-            FoundMin:
-            minCoords = new MapLocation(minRow, minCol);
-
-            int maxRow = 0, maxCol = 0;
-
-            for (int row = map.GetLength(0) - 1; row >= 0; row--)
-            {
-                for (int col = map.GetLength(1) - 1; col >= 0; col--)
-                {
-                    if (map[row, col] != null && map[row, col].Count > 0)
-                    {
-                        maxRow = row;
-                        maxCol = col;
-                        goto FoundMax;
-                    }
-                }
-            }
-
-            FoundMax:
-            maxCoords = new MapLocation(maxRow, maxCol);
-
-            int rows = Mathf.Abs(maxCoords.row - minCoords.row);
-            int cols = Mathf.Abs(maxCoords.col - minCoords.col);
-
-            HashSet<MapBlockData>[,] newMap = new HashSet<MapBlockData>[rows + 1, cols + 1];
-
-            for (int row = 0; row <= rows; row++)
-            {
-                for (int col = 0; col <= cols; col++)
-                {
-                    newMap[row, col] = map[row + minRow, col + minCol];
-                    if (newMap[row, col] != null)
-                    {
-                        newMap[row, col].Select(blockData => blockData = new MapBlockData(
-                            new MapLocation(row, col),
-                            blockData.worldLoc,
-                            blockData.block
-                        ));
-                    }
-                }
-            }
-
-            return newMap;
         }
     }
 }
