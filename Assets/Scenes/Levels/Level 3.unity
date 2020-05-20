@@ -952,7 +952,7 @@ GameObject:
   - component: {fileID: 64056888}
   - component: {fileID: 64056887}
   - component: {fileID: 64056886}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: IsWalkablePoint5
   m_TagString: IsWalkablePoint
   m_Icon: {fileID: 0}
@@ -2724,7 +2724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 141178
+  id: 241290
   connectionPoints:
   - {fileID: 475132643}
   - {fileID: 2030444343}
@@ -2847,7 +2847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 141190
+  id: 241302
   connectionPoints:
   - {fileID: 158555641}
   - {fileID: 1518709218}
@@ -3335,7 +3335,7 @@ GameObject:
   - component: {fileID: 138161060}
   - component: {fileID: 138161059}
   - component: {fileID: 138161058}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: IsWalkablePoint4
   m_TagString: IsWalkablePoint
   m_Icon: {fileID: 0}
@@ -4732,7 +4732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 141386
+  id: 241498
   connectionPoints:
   - {fileID: 640311955}
   - {fileID: 1475520303}
@@ -6747,7 +6747,7 @@ GameObject:
   - component: {fileID: 275426416}
   - component: {fileID: 275426415}
   - component: {fileID: 275426414}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ConnectionPoint 8
   m_TagString: TpTrigger
   m_Icon: {fileID: 0}
@@ -9413,7 +9413,7 @@ GameObject:
   - component: {fileID: 353682436}
   - component: {fileID: 353682433}
   - component: {fileID: 353682432}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ConnectionPoint 9
   m_TagString: TpTrigger
   m_Icon: {fileID: 0}
@@ -9687,7 +9687,7 @@ GameObject:
   - component: {fileID: 361485732}
   - component: {fileID: 361485731}
   - component: {fileID: 361485730}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ConnectionPoint 4
   m_TagString: TpTrigger
   m_Icon: {fileID: 0}
@@ -11279,7 +11279,7 @@ GameObject:
   - component: {fileID: 419413006}
   - component: {fileID: 419413005}
   - component: {fileID: 419413004}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ConnectionPoint 11
   m_TagString: TpTrigger
   m_Icon: {fileID: 0}
@@ -11963,7 +11963,7 @@ GameObject:
   - component: {fileID: 449484863}
   - component: {fileID: 449484862}
   - component: {fileID: 449484861}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: IsWalkablePoint2
   m_TagString: IsWalkablePoint
   m_Icon: {fileID: 0}
@@ -13566,7 +13566,7 @@ GameObject:
   - component: {fileID: 575511701}
   - component: {fileID: 575511700}
   - component: {fileID: 575511699}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ConnectionPoint 7
   m_TagString: TpTrigger
   m_Icon: {fileID: 0}
@@ -16613,7 +16613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 142616
+  id: 242728
   connectionPoints:
   - {fileID: 473383587}
   - {fileID: 1140890246}
@@ -16915,7 +16915,7 @@ GameObject:
   - component: {fileID: 757364175}
   - component: {fileID: 757364174}
   - component: {fileID: 757364173}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: IsWalkablePoint6
   m_TagString: IsWalkablePoint
   m_Icon: {fileID: 0}
@@ -18751,7 +18751,7 @@ GameObject:
   - component: {fileID: 828117738}
   - component: {fileID: 828117737}
   - component: {fileID: 828117736}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: IsWalkablePoint3
   m_TagString: IsWalkablePoint
   m_Icon: {fileID: 0}
@@ -18957,7 +18957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 142860
+  id: 242972
   connectionPoints:
   - {fileID: 2028009521}
   - {fileID: 1461888108}
@@ -19229,7 +19229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 142888
+  id: 243000
   connectionPoints:
   - {fileID: 364770296}
   - {fileID: 408591810}
@@ -19506,7 +19506,7 @@ GameObject:
   - component: {fileID: 868916609}
   - component: {fileID: 868916608}
   - component: {fileID: 868916607}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ConnectionPoint 2
   m_TagString: TpTrigger
   m_Icon: {fileID: 0}
@@ -19643,7 +19643,7 @@ GameObject:
   - component: {fileID: 869163858}
   - component: {fileID: 869163857}
   - component: {fileID: 869163856}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ConnectionPoint 10
   m_TagString: TpTrigger
   m_Icon: {fileID: 0}
@@ -20178,7 +20178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 142986
+  id: 243098
   connectionPoints:
   - {fileID: 931893746}
   - {fileID: 1388784949}
@@ -20455,7 +20455,7 @@ GameObject:
   - component: {fileID: 919138736}
   - component: {fileID: 919138733}
   - component: {fileID: 919138732}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ConnectionPoint 5
   m_TagString: TpTrigger
   m_Icon: {fileID: 0}
@@ -22187,7 +22187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 143194
+  id: 243306
   connectionPoints:
   - {fileID: 1791154601}
   - {fileID: 1024183891}
@@ -23108,7 +23108,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1094055784}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: ConnectionPoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23249,7 +23249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 143304
+  id: 243416
   connectionPoints:
   - {fileID: 1978909993}
   - {fileID: 513269857}
@@ -23372,7 +23372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 143316
+  id: 243428
   connectionPoints:
   - {fileID: 425204269}
   - {fileID: 2053195556}
@@ -23495,7 +23495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 143328
+  id: 243440
   connectionPoints:
   - {fileID: 1988108338}
   - {fileID: 263627815}
@@ -23977,7 +23977,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 143378
+  id: 243490
   connectionPoints:
   - {fileID: 1696531749}
   - {fileID: 868916609}
@@ -24985,7 +24985,7 @@ GameObject:
   - component: {fileID: 1154821114}
   - component: {fileID: 1154821111}
   - component: {fileID: 1154821110}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ConnectionPoint 6
   m_TagString: TpTrigger
   m_Icon: {fileID: 0}
@@ -27114,7 +27114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 143698
+  id: 243810
   connectionPoints:
   - {fileID: 1859449910}
   - {fileID: 352594972}
@@ -28914,7 +28914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 143884
+  id: 243996
   connectionPoints:
   - {fileID: 1122704229}
   - {fileID: 967361937}
@@ -29349,7 +29349,7 @@ GameObject:
   - component: {fileID: 1365714148}
   - component: {fileID: 1365714147}
   - component: {fileID: 1365714146}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: IsWalkablePoint1
   m_TagString: IsWalkablePoint
   m_Icon: {fileID: 0}
@@ -31861,7 +31861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 144190
+  id: 244302
   connectionPoints:
   - {fileID: 286257994}
   - {fileID: 2045309048}
@@ -37321,7 +37321,7 @@ GameObject:
   - component: {fileID: 1696531749}
   - component: {fileID: 1696531746}
   - component: {fileID: 1696531745}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ConnectionPoint 1
   m_TagString: TpTrigger
   m_Icon: {fileID: 0}
@@ -37569,7 +37569,7 @@ GameObject:
   - component: {fileID: 1712035016}
   - component: {fileID: 1712035015}
   - component: {fileID: 1712035014}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ConnectionPoint 3
   m_TagString: TpTrigger
   m_Icon: {fileID: 0}
@@ -41375,7 +41375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 144946
+  id: 245058
   connectionPoints:
   - {fileID: 84997475}
   - {fileID: 1281277820}
@@ -41498,7 +41498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 144958
+  id: 245070
   connectionPoints:
   - {fileID: 690326233}
   - {fileID: 764732776}
@@ -42202,7 +42202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 145032
+  id: 245144
   connectionPoints:
   - {fileID: 824548389}
   - {fileID: 1179306716}
@@ -46433,7 +46433,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2061720440}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: IsWalkablePoints
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46996,7 +46996,7 @@ GameObject:
   - component: {fileID: 2092016598}
   - component: {fileID: 2092016597}
   - component: {fileID: 2092016596}
-  m_Layer: 9
+  m_Layer: 8
   m_Name: ConnectionPoint 12
   m_TagString: TpTrigger
   m_Icon: {fileID: 0}
