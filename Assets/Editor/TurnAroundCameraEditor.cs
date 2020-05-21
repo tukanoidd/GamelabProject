@@ -38,7 +38,7 @@ public class TurnAroundCameraEditor : Editor
 
     private void CalcCircle()
     {
-        if (_targetCamera.targetToLookAt && !_targetCamera.circleCalc)
+        if (_targetCamera.targetToLookAt)
         {
             Vector3 cameraPos = _targetCamTransform.position;
             Vector3 targetPos = _targetCamera.targetToLookAt.transform.position;
@@ -56,8 +56,6 @@ public class TurnAroundCameraEditor : Editor
                     _circleCenterPos.z + (_circleRadius * Mathf.Sin(i * Mathf.Deg2Rad))
                 ), i);
             }
-
-            _targetCamera.circleCalc = true;
         }
 
         Repaint();
@@ -131,7 +129,6 @@ public class TurnAroundCameraEditor : Editor
                 
                 if (GUILayout.Button("Set New Circle"))
                 {
-                    _targetCamera.circleCalc = false;
                     CalcCircle();
                 }
             }

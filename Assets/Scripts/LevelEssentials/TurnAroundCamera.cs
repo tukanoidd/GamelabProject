@@ -31,7 +31,6 @@ public class TurnAroundCamera : MonoBehaviour
     public int selDeg = 0;
     public string[] degOptions = new string[8] {"0", "45", "90", "135", "180", "225", "270", "315"};
     public int degToSnap = 0;
-    public bool circleCalc = false;
 
     public List<Vector3> customPositions = new List<Vector3>();
     //--------Private and Public Invisible In Inspector--------\\
