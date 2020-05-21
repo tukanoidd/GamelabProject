@@ -269,7 +269,7 @@ public class Block : MonoBehaviour
     {
         GameManager gm = GameManager.current;
         
-        if (this.id == id && gm.player.grounded && gm.mapBuilder.PathFindingMapsDataExists)
+        if (this.id == id && gm.player.grounded && gm.mapBuilder.PathFindingMapsDataExists && !gm.player.isMoving)
         {
             StartCoroutine(
                 gm.player.MoveAlongPath(
