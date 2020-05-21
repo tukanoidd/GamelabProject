@@ -268,8 +268,8 @@ public class Block : MonoBehaviour
     private void BlockClickedTapped(int id)
     {
         GameManager gm = GameManager.current;
-        Debug.Log(gm.mapBuilder);
-        if (this.id == id && gm.player.grounded && gm.mapBuilder.PathFindingMapsDataExists)
+        
+        if (this.id == id && gm.player.grounded && gm.mapBuilder.PathFindingMapsDataExists && !gm.player.isMoving)
         {
             StartCoroutine(
                 gm.player.MoveAlongPath(
