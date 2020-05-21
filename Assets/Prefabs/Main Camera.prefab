@@ -27,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3954717491784839422}
-  m_LocalRotation: {x: 0.11591566, y: -0.88047725, z: 0.27984518, w: 0.3647056}
+  m_LocalRotation: {x: 0.17151128, y: -0.78518975, z: 0.24924184, w: 0.5403142}
   m_LocalPosition: {x: 12.41, y: 12.41, z: 12.41}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -130,8 +130,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelerometerThreshold: 0.3
   rotationSpeed: 1.5
-  waitTillSnapping: 1
-  snappingThreshold: 0.5
-  snappingSpeed: 1
+  waitTillSnapping: 0.5
+  snappingThreshold: 4
+  snappingSpeed: 0.01
   snapMaxDistanceDelta: 0.05
   targetToLookAt: {fileID: 0}
+  cam: {fileID: 0}
+  selDeg: 0
+  degOptions:
+  - 0
+  - 45
+  - 90
+  - 135
+  - 180
+  - 225
+  - 270
+  - 315
+  degToSnap: 0
+  customPositions: []
