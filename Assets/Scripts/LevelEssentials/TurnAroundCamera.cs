@@ -76,6 +76,7 @@ public class TurnAroundCamera : MonoBehaviour
             {
                 
                 StopAllCoroutines();
+                _snapping = false;
 
                 RotateCamera(horizontal);
             }
