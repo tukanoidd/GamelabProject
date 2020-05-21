@@ -63,20 +63,6 @@ public class GameManager : MonoBehaviour
 
     //--------Private and Public Invisible In Inspector--------\\
 
-    //--------Static Behavior--------\\
-    public static IEnumerator Countdown(float duration, Action funcToExecute)
-    {
-        float normalizedTime = 0;
-        while (normalizedTime <= 1f)
-        {
-            normalizedTime += Time.deltaTime / duration;
-            yield return null;
-        }
-
-        funcToExecute();
-    }
-    //--------Static Behavior--------\\
-
     private void Awake()
     {
         InitVars();
@@ -191,6 +177,7 @@ public class GameManager : MonoBehaviour
         }
 
         EditorUtility.SetDirty(this);
+        EditorUtility.SetDirty(mainCamera);
     }
 
     public void ConnectBlocks(ConnectionPoint connectionPoint1, ConnectionPoint connectionPoint2, bool isNear)

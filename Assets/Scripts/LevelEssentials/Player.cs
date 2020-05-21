@@ -196,7 +196,8 @@ public class Player : MonoBehaviour
                     Vector3.Distance(GameManager.current.mainCamera.transform.position, pos) <=
                     customCameraPositionMaxOffset) && !_currentMovementConnection.isNear)
                 {
-                    _velocity = Vector3.zero;
+                    ResetMovement();
+                    
                     yield break;
                 }
             }
@@ -249,6 +250,12 @@ public class Player : MonoBehaviour
             }
         }
 
+        
+        ResetMovement();
+    }
+
+    private void ResetMovement()
+    {
         _targetBlock = null;
         _currentMovementConnection = null;
         _velocity = Vector3.zero;

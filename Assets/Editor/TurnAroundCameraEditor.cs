@@ -24,7 +24,7 @@ public class TurnAroundCameraEditor : Editor
     {
         _lastTool = Tools.current;
         
-        _targetCamera = target as TurnAroundCamera;
+        _targetCamera = (TurnAroundCamera) target;
         if (_targetCamera != null)
         {
             _targetCamera.CreateTargetToLookAt();
@@ -65,7 +65,7 @@ public class TurnAroundCameraEditor : Editor
 
     private void OnSceneGUI()
     {
-        if (_targetCamera && _targetCamera.targetToLookAt)
+        if (_targetCamera != null && _targetCamera.targetToLookAt)
         {
             _targetCamTransform.LookAt(_targetCamera.targetToLookAt.transform);
 
