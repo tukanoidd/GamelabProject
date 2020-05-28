@@ -9471,7 +9471,7 @@ PrefabInstance:
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[113].customCameraPositions.Array.data[0].x
-      value: -12.044988
+      value: 2.044986
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
@@ -9481,7 +9481,7 @@ PrefabInstance:
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[113].customCameraPositions.Array.data[0].z
-      value: 12.794988
+      value: -1.2949884
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
@@ -15057,7 +15057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 282368
+  id: 29594
   connectionPoints:
   - {fileID: 1696659243}
   - {fileID: 1446185526}
@@ -19149,7 +19149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 282794
+  id: 30020
   connectionPoints:
   - {fileID: 1386992738}
   - {fileID: 1262694606}
@@ -20042,7 +20042,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 282886
+  id: 30112
   connectionPoints:
   - {fileID: 1220946175}
   - {fileID: 1089517101}
@@ -20854,7 +20854,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 282972
+  id: 30198
   connectionPoints:
   - {fileID: 675098305}
   - {fileID: 1014947245}
@@ -21336,7 +21336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 283022
+  id: 30248
   connectionPoints:
   - {fileID: 1815454487}
   - {fileID: 1904090032}
@@ -21681,7 +21681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 283058
+  id: 30284
   connectionPoints:
   - {fileID: 1582451241}
   - {fileID: 1770296827}
@@ -22437,7 +22437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 283136
+  id: 30362
   connectionPoints:
   - {fileID: 1941512644}
   - {fileID: 167507730}
@@ -25461,7 +25461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 283452
+  id: 30678
   connectionPoints:
   - {fileID: 786339149}
   - {fileID: 1382567100}
@@ -26965,7 +26965,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 283602
+  id: 30828
   connectionPoints:
   - {fileID: 1375565296}
   - {fileID: 1066274899}
@@ -28559,7 +28559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 283766
+  id: 30992
   connectionPoints:
   - {fileID: 333957017}
   - {fileID: 826023215}
@@ -28904,7 +28904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 283802
+  id: 31028
   connectionPoints:
   - {fileID: 1796301998}
   - {fileID: 1002713702}
@@ -35871,7 +35871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 284522
+  id: 31748
   connectionPoints:
   - {fileID: 1918948108}
   - {fileID: 1102956089}
@@ -36284,6 +36284,21 @@ PrefabInstance:
         type: 3}
       propertyPath: degToSnap
       value: 315
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[1].x
+      value: -12.044988
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[1].y
+      value: 6.29
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[1].z
+      value: 12.794988
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fb1ca12a0982b245a72fc0f98073909, type: 3}
@@ -37483,7 +37498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 284678
+  id: 31904
   connectionPoints:
   - {fileID: 1218542286}
   - {fileID: 1837406596}
@@ -40220,7 +40235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 284964
+  id: 32190
   connectionPoints:
   - {fileID: 540566802}
   - {fileID: 600351011}
@@ -41387,7 +41402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 285084
+  id: 32310
   connectionPoints:
   - {fileID: 506562167}
   - {fileID: 871420355}
@@ -45624,7 +45639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 285522
+  id: 32748
   connectionPoints:
   - {fileID: 1702299095}
   - {fileID: 1434794125}
@@ -51705,7 +51720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 286148
+  id: 33374
   connectionPoints:
   - {fileID: 755606619}
   - {fileID: 644660592}
@@ -52914,7 +52929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 286272
+  id: 33498
   connectionPoints:
   - {fileID: 1119211001}
   - {fileID: 61902537}
@@ -55066,7 +55081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 286494
+  id: 33720
   connectionPoints:
   - {fileID: 1581206867}
   - {fileID: 215877312}
@@ -59023,7 +59038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 286900
+  id: 34126
   connectionPoints:
   - {fileID: 299193190}
   - {fileID: 165535001}
@@ -59926,7 +59941,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 286994
+  id: 34220
   connectionPoints:
   - {fileID: 1719785935}
   - {fileID: 1616383873}
@@ -71405,7 +71420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 288188
+  id: 35414
   connectionPoints:
   - {fileID: 1636987970}
   - {fileID: 1305883879}
@@ -72461,7 +72476,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 288296
+  id: 35522
   connectionPoints:
   - {fileID: 78104601}
   - {fileID: 1630150204}
@@ -72584,7 +72599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 288308
+  id: 35534
   connectionPoints:
   - {fileID: 1370046740}
   - {fileID: 1840905666}
@@ -72707,7 +72722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 288320
+  id: 35546
   connectionPoints:
   - {fileID: 683518385}
   - {fileID: 143675628}
@@ -75577,7 +75592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 288616
+  id: 35842
   connectionPoints:
   - {fileID: 2005674379}
   - {fileID: 1924428323}
@@ -76375,7 +76390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 288698
+  id: 35924
   connectionPoints:
   - {fileID: 799264300}
   - {fileID: 425189990}
@@ -76883,7 +76898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 288750
+  id: 35976
   connectionPoints:
   - {fileID: 1405704677}
   - {fileID: 360125934}
@@ -79616,7 +79631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 289034
+  id: 36260
   connectionPoints:
   - {fileID: 426538707}
   - {fileID: 731448288}
@@ -80818,7 +80833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 289156
+  id: 36382
   connectionPoints:
   - {fileID: 1813237372}
   - {fileID: 1874746537}

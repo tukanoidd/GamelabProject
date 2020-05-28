@@ -39,7 +39,7 @@ public class UIManager : MonoBehaviour
 
     private void LoadLevelsProgress()
     {
-        if (!_levelsProgress.allLevels.Any() || !_levelsProgress.levelsUnlocked.Any())
+        if (!_levelsProgress.allLevels.Any() || _levelsProgress.levelsUnlocked.Count() < 2)
         {
             if (File.Exists(Application.persistentDataPath + "/levelsProgress.save"))
             {

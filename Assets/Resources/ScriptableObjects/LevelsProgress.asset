@@ -12,5 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef79db311fc24a3e97dad93a0629b4de, type: 3}
   m_Name: LevelsProgress
   m_EditorClassIdentifier: 
-  levelsUnlocked: []
-  allLevels: []
+  levelsUnlocked:
+  - Level 1
+  allLevels:
+  - Level 1
+  - Level 2
+  - Level 3
+  - Level 4
+  - Level 5
+  - Level 6
