@@ -18,15 +18,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level 2.unity
     guid: ea10ab33128f97f48a801d2ea578c123
   - enabled: 1
-    path: Assets/Scenes/Levels/Level 3.unity
+    path: Assets/Scenes/Levels/Level 3 [CameraBroken].unity
     guid: 5862d57bd952da44bb1dca8fe5610464
   - enabled: 1
     path: Assets/Scenes/Levels/Level 4.unity
     guid: af402bd775fa10a458c62fec7c1970c5
   - enabled: 1
-    path: Assets/Scenes/Levels/Level 5.unity
+    path: Assets/Scenes/Levels/Level 6.unity
     guid: fbf8f319ccb031a4ab77406c18a10a66
   - enabled: 1
-    path: Assets/Scenes/Levels/Level 6.unity
+    path: Assets/Scenes/Levels/Level 7.unity
     guid: 825443794fbb3de49b2f363850198bd6
   m_configObjects: {}
