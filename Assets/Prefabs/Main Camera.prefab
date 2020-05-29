@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accelerometerThreshold: 0.3
   rotationSpeed: 1.5
-  waitTillSnapping: 0.5
+  waitTillSnapping: 0.2
   snappingThreshold: 4
   snappingSpeed: 0.01
   snapMaxDistanceDelta: 0.05

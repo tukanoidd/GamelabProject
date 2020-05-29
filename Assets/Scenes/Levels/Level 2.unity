@@ -2013,7 +2013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 202422
+  id: 152108
   connectionPoints:
   - {fileID: 762779786}
   - {fileID: 920236997}
@@ -3542,7 +3542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 202578
+  id: 152264
   connectionPoints:
   - {fileID: 1282076141}
   - {fileID: 517151375}
@@ -7194,7 +7194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 202950
+  id: 152636
   connectionPoints:
   - {fileID: 143463594}
   - {fileID: 539245162}
@@ -9694,7 +9694,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 203204
+  id: 152890
   connectionPoints:
   - {fileID: 627961635}
   - {fileID: 839570454}
@@ -12222,7 +12222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 203468
+  id: 153154
   connectionPoints:
   - {fileID: 100956864}
   - {fileID: 783520427}
@@ -16265,7 +16265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 203876
+  id: 153562
   connectionPoints:
   - {fileID: 762056040}
   - {fileID: 1424329026}
@@ -16877,7 +16877,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 203938
+  id: 153624
   connectionPoints:
   - {fileID: 1309817700}
   - {fileID: 1928045078}
@@ -20158,7 +20158,7 @@ PrefabInstance:
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.409998
+      value: -11.410001
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
@@ -20168,27 +20168,27 @@ PrefabInstance:
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.910002
+      value: -13.909999
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.27984816
+      value: 0.27984813
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.36470515
+      value: 0.36470523
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.11591688
+      value: -0.11591691
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8804763
+      value: 0.88047624
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
@@ -20214,6 +20214,71 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[0].x
+      value: 13.409998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[0].y
+      value: 10.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[0].z
+      value: -13.910002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: targetToLookAt
+      value: 
+      objectReference: {fileID: 1017121102}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: selDeg
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: degToSnap
+      value: 135
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[1].x
+      value: 13.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[1].y
+      value: 10.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[1].z
+      value: 10.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[2].x
+      value: -11.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[2].y
+      value: 10.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[2].z
+      value: 10.91
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fb1ca12a0982b245a72fc0f98073909, type: 3}
@@ -22400,7 +22465,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 204510
+  id: 154196
   connectionPoints:
   - {fileID: 767783188}
   - {fileID: 163793509}
@@ -23600,6 +23665,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
+      propertyPath: blockConnections.Array.data[76].customCameraPositions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[77].customCameraPositions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[78].customCameraPositions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[79].customCameraPositions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[80].customCameraPositions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[81].customCameraPositions.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 454331593}
@@ -23622,32 +23717,32 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[0].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 177233652}
+      objectReference: {fileID: 296217853}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[0].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2070328286}
+      objectReference: {fileID: 1175312542}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[0].gravitationalPlane.plane
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[0].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[0].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1116733254}
+      objectReference: {fileID: 2085952140}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[0].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1731436634}
+      objectReference: {fileID: 56427058}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[0].isNear
@@ -23657,12 +23752,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[1].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 177233652}
+      objectReference: {fileID: 394729001}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[1].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2070328286}
+      objectReference: {fileID: 177233652}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[1].gravitationalPlane.planeSide
@@ -23672,12 +23767,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[1].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 2058020609}
+      objectReference: {fileID: 1710368691}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[1].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1436789845}
+      objectReference: {fileID: 58910233}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[1].isNear
@@ -23687,22 +23782,22 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[2].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 177233652}
+      objectReference: {fileID: 2070328286}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[2].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2070328286}
+      objectReference: {fileID: 177233652}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[2].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 58910233}
+      objectReference: {fileID: 1984615946}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[2].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1984615946}
+      objectReference: {fileID: 58910233}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[2].isNear
@@ -23712,27 +23807,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[3].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 177233652}
+      objectReference: {fileID: 296217853}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[3].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2070328286}
+      objectReference: {fileID: 1175312542}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[3].gravitationalPlane.plane
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[3].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 143463594}
+      objectReference: {fileID: 1864982892}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[3].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1323896500}
+      objectReference: {fileID: 74925736}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[3].isNear
@@ -23742,32 +23837,32 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[4].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 394729001}
+      objectReference: {fileID: 1769501615}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[4].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 177233652}
+      objectReference: {fileID: 1864444035}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[4].gravitationalPlane.plane
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[4].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[4].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 2088024406}
+      objectReference: {fileID: 267337828}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[4].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 900406459}
+      objectReference: {fileID: 77051116}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[4].isNear
@@ -23777,27 +23872,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[5].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 394729001}
+      objectReference: {fileID: 1803324980}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[5].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 177233652}
+      objectReference: {fileID: 1864444035}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[5].gravitationalPlane.plane
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[5].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1814992103}
+      objectReference: {fileID: 1197949122}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[5].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1902314926}
+      objectReference: {fileID: 77051116}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[5].isNear
@@ -23807,12 +23902,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[6].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 394729001}
+      objectReference: {fileID: 2113367887}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[6].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 177233652}
+      objectReference: {fileID: 2064617110}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[6].gravitationalPlane.plane
@@ -23821,18 +23916,18 @@ PrefabInstance:
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[6].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[6].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1710368691}
+      objectReference: {fileID: 1730190305}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[6].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 58910233}
+      objectReference: {fileID: 88610082}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[6].isNear
@@ -23842,27 +23937,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[7].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 394729001}
+      objectReference: {fileID: 793305030}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[7].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 177233652}
+      objectReference: {fileID: 1060862728}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[7].gravitationalPlane.plane
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[7].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1979532753}
+      objectReference: {fileID: 1028127006}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[7].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 539245162}
+      objectReference: {fileID: 92918948}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[7].isNear
@@ -23872,32 +23967,32 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[8].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 2073365683}
+      objectReference: {fileID: 793305030}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[8].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 394729001}
+      objectReference: {fileID: 1898544225}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[8].gravitationalPlane.plane
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[8].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[8].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1837083360}
+      objectReference: {fileID: 2078418382}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[8].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 724648271}
+      objectReference: {fileID: 95036114}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[8].isNear
@@ -23907,27 +24002,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[9].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 2073365683}
+      objectReference: {fileID: 1910997592}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[9].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 394729001}
+      objectReference: {fileID: 1175312542}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[9].gravitationalPlane.plane
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[9].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 2099705909}
+      objectReference: {fileID: 673796416}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[9].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1303164098}
+      objectReference: {fileID: 99892319}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[9].isNear
@@ -23937,16 +24032,16 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[10].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 2073365683}
+      objectReference: {fileID: 540382732}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[10].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 394729001}
+      objectReference: {fileID: 1426476545}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[10].gravitationalPlane.plane
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
@@ -23957,12 +24052,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[10].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1892411068}
+      objectReference: {fileID: 1804771407}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[10].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1033463755}
+      objectReference: {fileID: 102089556}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[10].isNear
@@ -23972,12 +24067,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[11].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 2073365683}
+      objectReference: {fileID: 793305030}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[11].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 394729001}
+      objectReference: {fileID: 1898544225}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[11].gravitationalPlane.plane
@@ -23987,12 +24082,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[11].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1369051131}
+      objectReference: {fileID: 910351459}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[11].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 783520427}
+      objectReference: {fileID: 112641455}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[11].isNear
@@ -24002,16 +24097,16 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[12].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1088443491}
+      objectReference: {fileID: 68133711}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[12].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2073365683}
+      objectReference: {fileID: 540382732}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[12].gravitationalPlane.plane
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
@@ -24022,12 +24117,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[12].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1985167655}
+      objectReference: {fileID: 1364095937}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[12].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 781918542}
+      objectReference: {fileID: 135389484}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[12].isNear
@@ -24037,12 +24132,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[13].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1088443491}
+      objectReference: {fileID: 1752673865}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[13].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2073365683}
+      objectReference: {fileID: 745026439}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[13].gravitationalPlane.plane
@@ -24052,12 +24147,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[13].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1570489967}
+      objectReference: {fileID: 1477365470}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[13].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1787173731}
+      objectReference: {fileID: 141047694}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[13].isNear
@@ -24067,32 +24162,32 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[14].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1088443491}
+      objectReference: {fileID: 793305030}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[14].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2073365683}
+      objectReference: {fileID: 1898544225}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[14].gravitationalPlane.plane
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[14].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[14].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 775419200}
+      objectReference: {fileID: 2110531756}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[14].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 707497499}
+      objectReference: {fileID: 142937524}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[14].isNear
@@ -24102,12 +24197,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[15].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1088443491}
+      objectReference: {fileID: 2070328286}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[15].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2073365683}
+      objectReference: {fileID: 177233652}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[15].gravitationalPlane.plane
@@ -24117,12 +24212,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[15].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1960623498}
+      objectReference: {fileID: 1323896500}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[15].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 601515296}
+      objectReference: {fileID: 143463594}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[15].isNear
@@ -24132,12 +24227,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[16].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 793305030}
+      objectReference: {fileID: 1898544225}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[16].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1060862728}
+      objectReference: {fileID: 1752673865}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[16].gravitationalPlane.plane
@@ -24146,18 +24241,18 @@ PrefabInstance:
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[16].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[16].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 543116863}
+      objectReference: {fileID: 1806877954}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[16].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1448289184}
+      objectReference: {fileID: 152669572}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[16].isNear
@@ -24167,27 +24262,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[17].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 793305030}
+      objectReference: {fileID: 296217853}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[17].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1060862728}
+      objectReference: {fileID: 2113367887}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[17].gravitationalPlane.plane
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[17].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1109966830}
+      objectReference: {fileID: 1141769827}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[17].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1025230390}
+      objectReference: {fileID: 155342381}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[17].isNear
@@ -24197,16 +24292,16 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[18].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 793305030}
+      objectReference: {fileID: 1803324980}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[18].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1060862728}
+      objectReference: {fileID: 1864444035}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[18].gravitationalPlane.plane
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
@@ -24217,12 +24312,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[18].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1028127006}
+      objectReference: {fileID: 1387585339}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[18].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 92918948}
+      objectReference: {fileID: 161403043}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[18].isNear
@@ -24232,12 +24327,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[19].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 793305030}
+      objectReference: {fileID: 1752673865}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[19].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1060862728}
+      objectReference: {fileID: 745026439}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[19].gravitationalPlane.plane
@@ -24247,12 +24342,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[19].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 349427351}
+      objectReference: {fileID: 1878664612}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[19].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 760389249}
+      objectReference: {fileID: 163793509}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[19].isNear
@@ -24262,12 +24357,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[20].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1898544225}
+      objectReference: {fileID: 296217853}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[20].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 793305030}
+      objectReference: {fileID: 1175312542}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[20].gravitationalPlane.plane
@@ -24276,18 +24371,18 @@ PrefabInstance:
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[20].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[20].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 112641455}
+      objectReference: {fileID: 627961635}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[20].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 910351459}
+      objectReference: {fileID: 164226272}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[20].isNear
@@ -24297,27 +24392,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[21].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1898544225}
+      objectReference: {fileID: 1175312542}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[21].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 793305030}
+      objectReference: {fileID: 1910997592}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[21].gravitationalPlane.plane
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[21].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 95036114}
+      objectReference: {fileID: 696356793}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[21].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 2078418382}
+      objectReference: {fileID: 200259620}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[21].isNear
@@ -24327,12 +24422,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[22].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1898544225}
+      objectReference: {fileID: 1186957378}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[22].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 793305030}
+      objectReference: {fileID: 552499481}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[22].gravitationalPlane.plane
@@ -24347,12 +24442,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[22].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1836855293}
+      objectReference: {fileID: 1147395166}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[22].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 581907687}
+      objectReference: {fileID: 269041149}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[22].isNear
@@ -24362,12 +24457,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[23].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1898544225}
+      objectReference: {fileID: 296217853}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[23].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 793305030}
+      objectReference: {fileID: 2113367887}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[23].gravitationalPlane.plane
@@ -24377,12 +24472,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[23].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 142937524}
+      objectReference: {fileID: 1268161818}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[23].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 2110531756}
+      objectReference: {fileID: 276211891}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[23].isNear
@@ -24401,23 +24496,23 @@ PrefabInstance:
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[24].gravitationalPlane.plane
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[24].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[24].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1203435972}
+      objectReference: {fileID: 1058296445}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[24].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1788238492}
+      objectReference: {fileID: 339652239}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[24].isNear
@@ -24427,12 +24522,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[25].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1752673865}
+      objectReference: {fileID: 1898544225}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[25].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1898544225}
+      objectReference: {fileID: 1752673865}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[25].gravitationalPlane.plane
@@ -24442,12 +24537,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[25].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1058296445}
+      objectReference: {fileID: 1472861064}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[25].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 339652239}
+      objectReference: {fileID: 348425964}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[25].isNear
@@ -24457,32 +24552,32 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[26].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1752673865}
+      objectReference: {fileID: 1060862728}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[26].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1898544225}
+      objectReference: {fileID: 793305030}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[26].gravitationalPlane.plane
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[26].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[26].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 348425964}
+      objectReference: {fileID: 760389249}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[26].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1472861064}
+      objectReference: {fileID: 349427351}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[26].isNear
@@ -24492,27 +24587,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[27].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1752673865}
+      objectReference: {fileID: 1175312542}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[27].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1898544225}
+      objectReference: {fileID: 1910997592}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[27].gravitationalPlane.plane
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[27].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 152669572}
+      objectReference: {fileID: 1866224085}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[27].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1806877954}
+      objectReference: {fileID: 360328572}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[27].isNear
@@ -24522,16 +24617,16 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[28].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 745026439}
+      objectReference: {fileID: 1731945348}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[28].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1752673865}
+      objectReference: {fileID: 552499481}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[28].gravitationalPlane.plane
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
@@ -24542,12 +24637,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[28].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1848976117}
+      objectReference: {fileID: 744291360}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[28].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 2090982505}
+      objectReference: {fileID: 401412423}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[28].isNear
@@ -24557,27 +24652,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[29].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 745026439}
+      objectReference: {fileID: 540382732}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[29].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1752673865}
+      objectReference: {fileID: 1426476545}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[29].gravitationalPlane.plane
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[29].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1678626540}
+      objectReference: {fileID: 695153583}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[29].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 2040460032}
+      objectReference: {fileID: 408102699}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[29].isNear
@@ -24587,16 +24682,16 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[30].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 745026439}
+      objectReference: {fileID: 68133711}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[30].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1752673865}
+      objectReference: {fileID: 540382732}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[30].gravitationalPlane.plane
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
@@ -24607,12 +24702,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[30].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 141047694}
+      objectReference: {fileID: 901688173}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[30].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1477365470}
+      objectReference: {fileID: 441075326}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[30].isNear
@@ -24622,27 +24717,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[31].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 745026439}
+      objectReference: {fileID: 1426476545}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[31].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1752673865}
+      objectReference: {fileID: 98825597}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[31].gravitationalPlane.plane
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[31].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 163793509}
+      objectReference: {fileID: 848274819}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[31].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1878664612}
+      objectReference: {fileID: 444405569}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[31].isNear
@@ -24652,12 +24747,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[32].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1864444035}
+      objectReference: {fileID: 540382732}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[32].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1769501615}
+      objectReference: {fileID: 1426476545}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[32].gravitationalPlane.plane
@@ -24666,18 +24761,18 @@ PrefabInstance:
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[32].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[32].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 566292936}
+      objectReference: {fileID: 663917310}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[32].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 808842919}
+      objectReference: {fileID: 486393287}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[32].isNear
@@ -24687,12 +24782,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[33].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1864444035}
+      objectReference: {fileID: 1186957378}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[33].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1769501615}
+      objectReference: {fileID: 552499481}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[33].gravitationalPlane.plane
@@ -24702,12 +24797,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[33].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 77051116}
+      objectReference: {fileID: 852567910}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[33].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 267337828}
+      objectReference: {fileID: 532812178}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[33].isNear
@@ -24717,16 +24812,16 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[34].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1864444035}
+      objectReference: {fileID: 552499481}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[34].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1769501615}
+      objectReference: {fileID: 1731945348}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[34].gravitationalPlane.plane
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
@@ -24737,12 +24832,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[34].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1396678311}
+      objectReference: {fileID: 1261400885}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[34].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1796726300}
+      objectReference: {fileID: 536885101}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[34].isNear
@@ -24752,12 +24847,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[35].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1864444035}
+      objectReference: {fileID: 394729001}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[35].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1769501615}
+      objectReference: {fileID: 177233652}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[35].gravitationalPlane.plane
@@ -24767,12 +24862,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[35].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 659044667}
+      objectReference: {fileID: 1979532753}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[35].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 652073769}
+      objectReference: {fileID: 539245162}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[35].isNear
@@ -24782,12 +24877,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[36].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1864444035}
+      objectReference: {fileID: 1060862728}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[36].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1803324980}
+      objectReference: {fileID: 793305030}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[36].gravitationalPlane.plane
@@ -24802,12 +24897,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[36].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 161403043}
+      objectReference: {fileID: 1448289184}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[36].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1387585339}
+      objectReference: {fileID: 543116863}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[36].isNear
@@ -24817,22 +24912,22 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[37].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1864444035}
+      objectReference: {fileID: 1769501615}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[37].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1803324980}
+      objectReference: {fileID: 1864444035}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[37].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1378456719}
+      objectReference: {fileID: 808842919}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[37].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 2054892241}
+      objectReference: {fileID: 566292936}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[37].isNear
@@ -24842,12 +24937,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[38].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1864444035}
+      objectReference: {fileID: 1898544225}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[38].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1803324980}
+      objectReference: {fileID: 793305030}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[38].gravitationalPlane.planeSide
@@ -24857,12 +24952,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[38].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 77051116}
+      objectReference: {fileID: 1836855293}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[38].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1197949122}
+      objectReference: {fileID: 581907687}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[38].isNear
@@ -24872,12 +24967,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[39].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1864444035}
+      objectReference: {fileID: 1803324980}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[39].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1803324980}
+      objectReference: {fileID: 1864444035}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[39].gravitationalPlane.plane
@@ -24887,12 +24982,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[39].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 588820593}
+      objectReference: {fileID: 617846027}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[39].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 617846027}
+      objectReference: {fileID: 588820593}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[39].isNear
@@ -24902,12 +24997,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[40].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 552499481}
+      objectReference: {fileID: 1088443491}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[40].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1186957378}
+      objectReference: {fileID: 2073365683}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[40].gravitationalPlane.plane
@@ -24916,18 +25011,18 @@ PrefabInstance:
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[40].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[40].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1210429371}
+      objectReference: {fileID: 1960623498}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[40].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 2023010561}
+      objectReference: {fileID: 601515296}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[40].isNear
@@ -24937,27 +25032,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[41].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 552499481}
+      objectReference: {fileID: 1864444035}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[41].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1186957378}
+      objectReference: {fileID: 1769501615}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[41].gravitationalPlane.plane
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[41].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 532812178}
+      objectReference: {fileID: 659044667}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[41].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 852567910}
+      objectReference: {fileID: 652073769}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[41].isNear
@@ -24967,12 +25062,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[42].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 552499481}
+      objectReference: {fileID: 1088443491}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[42].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1186957378}
+      objectReference: {fileID: 2073365683}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[42].gravitationalPlane.plane
@@ -24987,12 +25082,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[42].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 269041149}
+      objectReference: {fileID: 775419200}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[42].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1147395166}
+      objectReference: {fileID: 707497499}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[42].isNear
@@ -25002,12 +25097,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[43].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 552499481}
+      objectReference: {fileID: 2073365683}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[43].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1186957378}
+      objectReference: {fileID: 394729001}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[43].gravitationalPlane.plane
@@ -25017,12 +25112,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[43].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1928045078}
+      objectReference: {fileID: 1837083360}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[43].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1906352128}
+      objectReference: {fileID: 724648271}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[43].isNear
@@ -25032,12 +25127,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[44].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1731945348}
+      objectReference: {fileID: 68133711}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[44].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 552499481}
+      objectReference: {fileID: 540382732}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[44].gravitationalPlane.plane
@@ -25046,18 +25141,18 @@ PrefabInstance:
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[44].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[44].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 536885101}
+      objectReference: {fileID: 1674259902}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[44].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1261400885}
+      objectReference: {fileID: 762056040}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[44].isNear
@@ -25067,27 +25162,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[45].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1731945348}
+      objectReference: {fileID: 1088443491}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[45].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 552499481}
+      objectReference: {fileID: 2073365683}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[45].gravitationalPlane.plane
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[45].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1486255165}
+      objectReference: {fileID: 1985167655}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[45].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1637510884}
+      objectReference: {fileID: 781918542}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[45].isNear
@@ -25097,32 +25192,32 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[46].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1731945348}
+      objectReference: {fileID: 2073365683}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[46].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 552499481}
+      objectReference: {fileID: 394729001}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[46].gravitationalPlane.plane
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[46].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[46].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 744291360}
+      objectReference: {fileID: 1369051131}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[46].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 401412423}
+      objectReference: {fileID: 783520427}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[46].isNear
@@ -25132,27 +25227,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[47].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1731945348}
+      objectReference: {fileID: 1426476545}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[47].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 552499481}
+      objectReference: {fileID: 98825597}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[47].gravitationalPlane.plane
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[47].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1777168786}
+      objectReference: {fileID: 1025166984}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[47].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1447217797}
+      objectReference: {fileID: 793082732}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[47].isNear
@@ -25162,32 +25257,32 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[48].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 540382732}
+      objectReference: {fileID: 1426476545}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[48].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 68133711}
+      objectReference: {fileID: 540382732}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[48].gravitationalPlane.plane
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[48].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[48].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 441075326}
+      objectReference: {fileID: 1556013929}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[48].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 901688173}
+      objectReference: {fileID: 795934506}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[48].isNear
@@ -25197,12 +25292,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[49].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 540382732}
+      objectReference: {fileID: 394729001}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[49].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 68133711}
+      objectReference: {fileID: 177233652}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[49].gravitationalPlane.planeSide
@@ -25212,12 +25307,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[49].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 135389484}
+      objectReference: {fileID: 2088024406}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[49].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1364095937}
+      objectReference: {fileID: 900406459}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[49].isNear
@@ -25227,22 +25322,22 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[50].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 540382732}
+      objectReference: {fileID: 2113367887}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[50].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 68133711}
+      objectReference: {fileID: 296217853}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[50].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1333724704}
+      objectReference: {fileID: 960563845}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[50].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 981229026}
+      objectReference: {fileID: 914828932}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[50].isNear
@@ -25252,12 +25347,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[51].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 540382732}
+      objectReference: {fileID: 2064617110}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[51].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 68133711}
+      objectReference: {fileID: 2113367887}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[51].gravitationalPlane.plane
@@ -25267,12 +25362,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[51].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 762056040}
+      objectReference: {fileID: 1360905621}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[51].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1674259902}
+      objectReference: {fileID: 936684353}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[51].isNear
@@ -25282,16 +25377,16 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[52].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1426476545}
+      objectReference: {fileID: 2064617110}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[52].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 540382732}
+      objectReference: {fileID: 2113367887}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[52].gravitationalPlane.plane
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
@@ -25302,12 +25397,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[52].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 408102699}
+      objectReference: {fileID: 1544499710}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[52].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 695153583}
+      objectReference: {fileID: 960563845}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[52].isNear
@@ -25317,27 +25412,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[53].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1426476545}
+      objectReference: {fileID: 540382732}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[53].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 540382732}
+      objectReference: {fileID: 68133711}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[53].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[53].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 102089556}
+      objectReference: {fileID: 1333724704}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[53].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1804771407}
+      objectReference: {fileID: 981229026}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[53].isNear
@@ -25347,22 +25442,22 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[54].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1426476545}
+      objectReference: {fileID: 793305030}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[54].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 540382732}
+      objectReference: {fileID: 1060862728}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[54].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1556013929}
+      objectReference: {fileID: 1109966830}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[54].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 795934506}
+      objectReference: {fileID: 1025230390}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[54].isNear
@@ -25372,27 +25467,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[55].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1426476545}
+      objectReference: {fileID: 2073365683}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[55].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 540382732}
+      objectReference: {fileID: 394729001}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[55].gravitationalPlane.plane
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[55].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 486393287}
+      objectReference: {fileID: 1892411068}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[55].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 663917310}
+      objectReference: {fileID: 1033463755}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[55].isNear
@@ -25402,12 +25497,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[56].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 98825597}
+      objectReference: {fileID: 2070328286}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[56].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1426476545}
+      objectReference: {fileID: 177233652}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[56].gravitationalPlane.plane
@@ -25422,12 +25517,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[56].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1514982977}
+      objectReference: {fileID: 1731436634}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[56].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1564882653}
+      objectReference: {fileID: 1116733254}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[56].isNear
@@ -25437,27 +25532,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[57].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 98825597}
+      objectReference: {fileID: 1910997592}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[57].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1426476545}
+      objectReference: {fileID: 1175312542}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[57].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[57].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 793082732}
+      objectReference: {fileID: 1479665421}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[57].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1025166984}
+      objectReference: {fileID: 1117356370}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[57].isNear
@@ -25467,22 +25562,22 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[58].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 98825597}
+      objectReference: {fileID: 2113367887}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[58].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1426476545}
+      objectReference: {fileID: 296217853}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[58].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 444405569}
+      objectReference: {fileID: 1458740194}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[58].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 848274819}
+      objectReference: {fileID: 1130105004}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[58].isNear
@@ -25492,12 +25587,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[59].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 98825597}
+      objectReference: {fileID: 1898544225}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[59].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1426476545}
+      objectReference: {fileID: 1752673865}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[59].gravitationalPlane.plane
@@ -25507,12 +25602,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[59].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1282076141}
+      objectReference: {fileID: 1788238492}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[59].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1352164542}
+      objectReference: {fileID: 1203435972}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[59].isNear
@@ -25522,12 +25617,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[60].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 2113367887}
+      objectReference: {fileID: 1186957378}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[60].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2064617110}
+      objectReference: {fileID: 552499481}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[60].gravitationalPlane.plane
@@ -25542,12 +25637,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[60].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1333410864}
+      objectReference: {fileID: 2023010561}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[60].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1441296642}
+      objectReference: {fileID: 1210429371}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[60].isNear
@@ -25557,27 +25652,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[61].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 2113367887}
+      objectReference: {fileID: 1426476545}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[61].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2064617110}
+      objectReference: {fileID: 98825597}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[61].gravitationalPlane.plane
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[61].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1730190305}
+      objectReference: {fileID: 1352164542}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[61].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 88610082}
+      objectReference: {fileID: 1282076141}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[61].isNear
@@ -25587,12 +25682,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[62].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 2113367887}
+      objectReference: {fileID: 2073365683}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[62].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2064617110}
+      objectReference: {fileID: 394729001}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[62].gravitationalPlane.plane
@@ -25601,18 +25696,18 @@ PrefabInstance:
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[62].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[62].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 960563845}
+      objectReference: {fileID: 2099705909}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[62].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1544499710}
+      objectReference: {fileID: 1303164098}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[62].isNear
@@ -25622,12 +25717,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[63].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 2113367887}
+      objectReference: {fileID: 2064617110}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[63].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2064617110}
+      objectReference: {fileID: 2113367887}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[63].gravitationalPlane.plane
@@ -25637,12 +25732,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[63].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 936684353}
+      objectReference: {fileID: 1441296642}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[63].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1360905621}
+      objectReference: {fileID: 1333410864}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[63].isNear
@@ -25652,32 +25747,32 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[64].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 296217853}
+      objectReference: {fileID: 1803324980}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[64].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2113367887}
+      objectReference: {fileID: 1864444035}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[64].gravitationalPlane.plane
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[64].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[64].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1130105004}
+      objectReference: {fileID: 2054892241}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[64].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1458740194}
+      objectReference: {fileID: 1378456719}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[64].isNear
@@ -25687,22 +25782,22 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[65].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 296217853}
+      objectReference: {fileID: 1769501615}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[65].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2113367887}
+      objectReference: {fileID: 1864444035}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[65].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1141769827}
+      objectReference: {fileID: 1796726300}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[65].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 155342381}
+      objectReference: {fileID: 1396678311}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[65].isNear
@@ -25712,12 +25807,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[66].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 296217853}
+      objectReference: {fileID: 177233652}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[66].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2113367887}
+      objectReference: {fileID: 2070328286}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[66].gravitationalPlane.planeSide
@@ -25727,12 +25822,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[66].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 914828932}
+      objectReference: {fileID: 2058020609}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[66].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 960563845}
+      objectReference: {fileID: 1436789845}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[66].isNear
@@ -25742,12 +25837,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[67].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 296217853}
+      objectReference: {fileID: 1731945348}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[67].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2113367887}
+      objectReference: {fileID: 552499481}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[67].gravitationalPlane.plane
@@ -25757,12 +25852,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[67].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1268161818}
+      objectReference: {fileID: 1777168786}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[67].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 276211891}
+      objectReference: {fileID: 1447217797}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[67].isNear
@@ -25772,32 +25867,32 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[68].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1175312542}
+      objectReference: {fileID: 552499481}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[68].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 296217853}
+      objectReference: {fileID: 1731945348}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[68].gravitationalPlane.plane
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[68].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[68].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1679619076}
+      objectReference: {fileID: 1637510884}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[68].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1857046122}
+      objectReference: {fileID: 1486255165}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[68].isNear
@@ -25807,22 +25902,22 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[69].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1175312542}
+      objectReference: {fileID: 1426476545}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[69].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 296217853}
+      objectReference: {fileID: 98825597}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[69].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 56427058}
+      objectReference: {fileID: 1564882653}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[69].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 2085952140}
+      objectReference: {fileID: 1514982977}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[69].isNear
@@ -25832,27 +25927,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[70].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1175312542}
+      objectReference: {fileID: 2073365683}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[70].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 296217853}
+      objectReference: {fileID: 1088443491}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[70].gravitationalPlane.planeSide
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[70].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 74925736}
+      objectReference: {fileID: 1787173731}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[70].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1864982892}
+      objectReference: {fileID: 1570489967}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[70].isNear
@@ -25862,27 +25957,27 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[71].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1175312542}
+      objectReference: {fileID: 1752673865}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[71].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 296217853}
+      objectReference: {fileID: 745026439}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[71].gravitationalPlane.plane
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[71].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 164226272}
+      objectReference: {fileID: 2040460032}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[71].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 627961635}
+      objectReference: {fileID: 1678626540}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[71].isNear
@@ -25892,7 +25987,7 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[72].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1910997592}
+      objectReference: {fileID: 296217853}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[72].connectedBlocks.Array.data[1]
@@ -25912,12 +26007,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[72].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 200259620}
+      objectReference: {fileID: 1857046122}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[72].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 696356793}
+      objectReference: {fileID: 1679619076}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[72].isNear
@@ -25927,22 +26022,22 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[73].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1910997592}
+      objectReference: {fileID: 177233652}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[73].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1175312542}
+      objectReference: {fileID: 394729001}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[73].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 360328572}
+      objectReference: {fileID: 1902314926}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[73].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1866224085}
+      objectReference: {fileID: 1814992103}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[73].isNear
@@ -25952,12 +26047,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[74].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1910997592}
+      objectReference: {fileID: 1752673865}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[74].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1175312542}
+      objectReference: {fileID: 745026439}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[74].gravitationalPlane.planeSide
@@ -25967,12 +26062,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[74].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 673796416}
+      objectReference: {fileID: 2090982505}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[74].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 99892319}
+      objectReference: {fileID: 1848976117}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[74].isNear
@@ -25982,12 +26077,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[75].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1910997592}
+      objectReference: {fileID: 552499481}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[75].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1175312542}
+      objectReference: {fileID: 1186957378}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[75].gravitationalPlane.plane
@@ -25997,12 +26092,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[75].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1479665421}
+      objectReference: {fileID: 1928045078}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[75].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1117356370}
+      objectReference: {fileID: 1906352128}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[75].isNear
@@ -26012,12 +26107,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[76].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 540382732}
+      objectReference: {fileID: 1803324980}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[76].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 2064617110}
+      objectReference: {fileID: 1186957378}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[76].gravitationalPlane.plane
@@ -26027,22 +26122,22 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[76].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1424329026}
+      objectReference: {fileID: 2018505021}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[76].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 843225294}
+      objectReference: {fileID: 55653321}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[77].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1088443491}
+      objectReference: {fileID: 1769501615}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[77].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 745026439}
+      objectReference: {fileID: 1186957378}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[77].gravitationalPlane.plane
@@ -26052,22 +26147,22 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[77].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1921262901}
+      objectReference: {fileID: 1742761695}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[77].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 588728517}
+      objectReference: {fileID: 96100900}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[78].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1898544225}
+      objectReference: {fileID: 2064617110}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[78].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1803324980}
+      objectReference: {fileID: 540382732}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[78].gravitationalPlane.plane
@@ -26077,22 +26172,22 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[78].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 92976444}
+      objectReference: {fileID: 843225294}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[78].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 1982689139}
+      objectReference: {fileID: 1424329026}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[79].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1731945348}
+      objectReference: {fileID: 1088443491}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[79].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 68133711}
+      objectReference: {fileID: 745026439}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[79].gravitationalPlane.plane
@@ -26102,22 +26197,22 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[79].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 303067164}
+      objectReference: {fileID: 1921262901}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[79].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 920236997}
+      objectReference: {fileID: 588728517}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[80].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1769501615}
+      objectReference: {fileID: 1803324980}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[80].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1186957378}
+      objectReference: {fileID: 1898544225}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[80].gravitationalPlane.plane
@@ -26127,22 +26222,22 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[80].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1742761695}
+      objectReference: {fileID: 1982689139}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[80].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 96100900}
+      objectReference: {fileID: 92976444}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[81].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1186957378}
+      objectReference: {fileID: 68133711}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[81].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1803324980}
+      objectReference: {fileID: 1731945348}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[81].gravitationalPlane.plane
@@ -26152,16 +26247,266 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[81].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 55653321}
+      objectReference: {fileID: 920236997}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[81].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 2018505021}
+      objectReference: {fileID: 303067164}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: bridgesDebugDrawStartLabel
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[1].gravitationalPlane.plane
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[3].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[5].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[7].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[9].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[11].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[13].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[21].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[25].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[29].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[37].gravitationalPlane.plane
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[37].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[38].gravitationalPlane.plane
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[43].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[45].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[47].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[49].gravitationalPlane.plane
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[50].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[54].gravitationalPlane.plane
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[55].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[57].gravitationalPlane.plane
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[58].gravitationalPlane.plane
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[58].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[59].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[63].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[65].gravitationalPlane.plane
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[65].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[69].gravitationalPlane.plane
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[69].gravitationalPlane.planeSide
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[70].gravitationalPlane.plane
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[73].gravitationalPlane.plane
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[74].gravitationalPlane.plane
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[76].customCameraPositions.Array.data[0].x
+      value: 13.409998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[76].customCameraPositions.Array.data[0].y
+      value: 10.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[76].customCameraPositions.Array.data[0].z
+      value: -13.910002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[77].customCameraPositions.Array.data[0].x
+      value: 13.409998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[77].customCameraPositions.Array.data[0].y
+      value: 10.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[77].customCameraPositions.Array.data[0].z
+      value: -13.910002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[78].customCameraPositions.Array.data[0].x
+      value: 13.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[78].customCameraPositions.Array.data[0].y
+      value: 10.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[78].customCameraPositions.Array.data[0].z
+      value: 10.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[79].customCameraPositions.Array.data[0].x
+      value: 13.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[79].customCameraPositions.Array.data[0].y
+      value: 10.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[79].customCameraPositions.Array.data[0].z
+      value: 10.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[80].customCameraPositions.Array.data[0].x
+      value: -11.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[80].customCameraPositions.Array.data[0].y
+      value: 10.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[80].customCameraPositions.Array.data[0].z
+      value: 10.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[81].customCameraPositions.Array.data[0].x
+      value: -11.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[81].customCameraPositions.Array.data[0].y
+      value: 10.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: blockConnections.Array.data[81].customCameraPositions.Array.data[0].z
+      value: 10.91
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122815, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
@@ -27762,7 +28107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 204700
+  id: 154386
   connectionPoints:
   - {fileID: 1447361538}
   - {fileID: 349427351}
@@ -35025,7 +35370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 205452
+  id: 155138
   connectionPoints:
   - {fileID: 344157536}
   - {fileID: 1867913625}
@@ -35666,7 +36011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 205520
+  id: 155206
   connectionPoints:
   - {fileID: 516473319}
   - {fileID: 1921262901}
@@ -38074,7 +38419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 205770
+  id: 155456
   connectionPoints:
   - {fileID: 1117356370}
   - {fileID: 2022604503}
@@ -38308,7 +38653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 205794
+  id: 155480
   connectionPoints:
   - {fileID: 96100900}
   - {fileID: 55653321}
@@ -44804,7 +45149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 206456
+  id: 156142
   connectionPoints:
   - {fileID: 486393287}
   - {fileID: 156274204}
@@ -54146,7 +54491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 207416
+  id: 157102
   connectionPoints:
   - {fileID: 326917930}
   - {fileID: 1777168786}
@@ -54680,7 +55025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 207470
+  id: 157156
   connectionPoints:
   - {fileID: 342582739}
   - {fileID: 152669572}
@@ -55051,7 +55396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 207508
+  id: 157194
   connectionPoints:
   - {fileID: 1708828337}
   - {fileID: 652073769}
@@ -56302,7 +56647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 207636
+  id: 157322
   connectionPoints:
   - {fileID: 617846027}
   - {fileID: 668209449}
@@ -58376,7 +58721,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 207850
+  id: 157536
   connectionPoints:
   - {fileID: 1022653171}
   - {fileID: 972651448}
@@ -59605,7 +59950,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 207976
+  id: 157662
   connectionPoints:
   - {fileID: 92976444}
   - {fileID: 142937524}
@@ -60250,7 +60595,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 208042
+  id: 157728
   connectionPoints:
   - {fileID: 333610044}
   - {fileID: 401487431}
@@ -65430,7 +65775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 208584
+  id: 158270
   connectionPoints:
   - {fileID: 1837993754}
   - {fileID: 1360905621}
@@ -65690,7 +66035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 208610
+  id: 158296
   connectionPoints:
   - {fileID: 1477879971}
   - {fileID: 992475175}
@@ -65813,7 +66158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 208622
+  id: 158308
   connectionPoints:
   - {fileID: 25145293}
   - {fileID: 601515296}
@@ -67221,7 +67566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 208766
+  id: 158452
   connectionPoints:
   - {fileID: 276211891}
   - {fileID: 1043313230}
