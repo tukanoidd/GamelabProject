@@ -133,23 +133,24 @@ public class TurnAroundCamera : MonoBehaviour
 
     private IEnumerator MoveToSnapPoint()
     {
-        if (!_snapTarget.HasValue) yield break;
-            
-        _snapping = true;
-
-        Vector3 offset = transform.position - _snapTarget.Value;
-        float rotSpeed = snappingSpeed * Math.Sign(offset.z) * Math.Sign(_snapTarget.Value.x);
-        
-        while (Vector3.Distance(transform.position, _snapTarget.Value) > snapMaxDistanceDelta)
+        if (_snapTarget != null)
         {
-            RotateCamera(rotSpeed);
+            _snapping = true;
+
+            Vector3 offset = transform.position - _snapTarget.Value;
+            float rotSpeed = snappingSpeed * Math.Sign(offset.z) * Math.Sign(_snapTarget.Value.x);
+        
+            while (_snapTarget != null && Vector3.Distance(transform.position, _snapTarget.Value) > snapMaxDistanceDelta)
+            {
+                RotateCamera(rotSpeed);
             
-            yield return new WaitForFixedUpdate();
+                yield return new WaitForFixedUpdate();
+            }
+
+            if (_snapTarget != null) transform.position = _snapTarget.Value;
+
+            _snapping = false;
+            _snapTarget = null;   
         }
-
-        transform.position = _snapTarget.Value;
-
-        _snapping = false;
-        _snapTarget = null;
     }
 }
