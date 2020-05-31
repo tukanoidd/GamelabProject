@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Debug = System.Diagnostics.Debug;
 
 [RequireComponent(typeof(Camera))]
 public class TurnAroundCamera : MonoBehaviour
@@ -24,24 +25,19 @@ public class TurnAroundCamera : MonoBehaviour
     private bool _snapping = false;
     private Vector3? _snapTarget;
 
-    private IEnumerator waitTillSnappingCoroutine;
+    public Camera cam;
 
-    [NonSerialized] public Camera cam;
+    public Dictionary<Vector3, int> snappingPoints = new Dictionary<Vector3, int>();
+    public int selDeg = 0;
+    public string[] degOptions = new string[8] {"0", "45", "90", "135", "180", "225", "270", "315"};
+    public int degToSnap = 0;
 
-    [NonSerialized] public Dictionary<Vector3, int> snappingPoints;
-    [NonSerialized] public int selDeg = 0;
-    [NonSerialized] public string[] degOptions = new string[8] {"0", "45", "90", "135", "180", "225", "270", "315"};
-    [NonSerialized] public int degToSnap = 0;
-    [NonSerialized] public bool circleCalc = false;
-
-    [NonSerialized] public List<Vector3> customPositions = new List<Vector3>();
+    public List<Vector3> customPositions = new List<Vector3>();
     //--------Private and Public Invisible In Inspector--------\\
 
     private void Awake()
     {
         cam = GetComponent<Camera>();
-
-        waitTillSnappingCoroutine = GameManager.Countdown(waitTillSnapping, SnapToNearestCustomPosition);
         CreateTargetToLookAt();
     }
 
@@ -53,7 +49,9 @@ public class TurnAroundCamera : MonoBehaviour
     private void LateUpdate()
     {
         TurnCamera();
-        MoveToSnapPoint();
+        
+        // Look at the object
+        transform.LookAt(targetToLookAt.transform);
     }
 
     public void CreateTargetToLookAt()
@@ -76,23 +74,29 @@ public class TurnAroundCamera : MonoBehaviour
             float horizontal = -GetHorizontalRotation();
             if (Math.Abs(horizontal) > 0.05f)
             {
-                StopCoroutine(waitTillSnappingCoroutine);
+                
+                StopAllCoroutines();
+                _snapping = false;
 
-                // Rotate with value that got from in[ut
-                targetToLookAt.transform.Rotate(0, horizontal, 0);
-
-                // Find desired position of the camera based on objects position and rotation
-                float desiredAngle = targetToLookAt
-                    .transform.eulerAngles.y;
-                Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
-                transform.position = targetToLookAt.transform.position - (rotation * _offsetFromTarget);
-
-                // Look at the object
-                transform.LookAt(targetToLookAt.transform);
+                RotateCamera(horizontal);
             }
-
-            //else StartCoroutine(waitTillSnappingCoroutine);
+            else
+            {
+                StartCoroutine(CheckForSnapping());
+            }
         }
+    }
+
+    private void RotateCamera(float speed)
+    {
+        // Rotate with value that got from in[ut
+        targetToLookAt.transform.Rotate(0, speed, 0);
+
+        // Find desired position of the camera based on objects position and rotation
+        float desiredAngle = targetToLookAt
+            .transform.eulerAngles.y;
+        Quaternion rotation = Quaternion.Euler(0, desiredAngle, 0);
+        transform.position = targetToLookAt.transform.position - (rotation * _offsetFromTarget);
     }
 
     private float GetHorizontalRotation()
@@ -108,34 +112,45 @@ public class TurnAroundCamera : MonoBehaviour
         }
     }
 
-    private void SnapToNearestCustomPosition()
+    private IEnumerator CheckForSnapping()
     {
-        _snapTarget = customPositions.FirstOrDefault(customPosition =>
-            Vector3.Distance(customPosition, transform.position) <= snappingThreshold);
-        _snapping = true;
+        if (_snapping) yield break;
+
+        yield return new WaitForSeconds(waitTillSnapping);
+
+        Vector3 pos = transform.position;
+        
+        Vector3[] checkTargets = customPositions.Where(customPosition =>
+            Vector3.Distance(customPosition, pos) <= snappingThreshold && Vector3.Distance(customPosition, pos) > 0.01f).ToArray();
+
+        if (checkTargets.Length > 0)
+        {
+            _snapTarget = checkTargets[0];
+            
+            StartCoroutine(MoveToSnapPoint());
+        }
     }
 
-    private void MoveToSnapPoint()
+    private IEnumerator MoveToSnapPoint()
     {
-        if (_snapTarget == null)
+        if (_snapTarget != null)
         {
-            _snapping = false;
-            return;
-        }
+            _snapping = true;
 
-        if (_snapping)
-        {
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                _snapTarget.Value,
-                snappingSpeed * Time.deltaTime
-            );
-
-            if (Vector3.Distance(transform.position, _snapTarget.Value) <= snapMaxDistanceDelta)
+            Vector3 offset = transform.position - _snapTarget.Value;
+            float rotSpeed = snappingSpeed * Math.Sign(offset.z) * Math.Sign(_snapTarget.Value.x);
+        
+            while (_snapTarget != null && Vector3.Distance(transform.position, _snapTarget.Value) > snapMaxDistanceDelta)
             {
-                _snapping = false;
-                _snapTarget = null;
+                RotateCamera(rotSpeed);
+            
+                yield return new WaitForFixedUpdate();
             }
+
+            if (_snapTarget != null) transform.position = _snapTarget.Value;
+
+            _snapping = false;
+            _snapTarget = null;   
         }
     }
 }
