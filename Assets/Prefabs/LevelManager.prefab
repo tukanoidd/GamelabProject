@@ -629,6 +629,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3562979625353122815}
     m_Modifications:
+    - target: {fileID: 4098288376298693608, guid: ce116e49f3c3d73498eb9ae88091ee95,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 01806dd6536dffc4d97014969f5d4969,
+        type: 3}
+    - target: {fileID: 4098288376298693608, guid: ce116e49f3c3d73498eb9ae88091ee95,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5680020181637175298, guid: ce116e49f3c3d73498eb9ae88091ee95,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -672,6 +683,22 @@ PrefabInstance:
     - target: {fileID: 7105956747632156710, guid: ce116e49f3c3d73498eb9ae88091ee95,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960931277583758740, guid: ce116e49f3c3d73498eb9ae88091ee95,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7960931277583758740, guid: ce116e49f3c3d73498eb9ae88091ee95,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d132994669c9c14438e3461c20965ffd,
+        type: 3}
+    - target: {fileID: 7960931277583758740, guid: ce116e49f3c3d73498eb9ae88091ee95,
+        type: 3}
+      propertyPath: m_Type
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7978229075971578400, guid: ce116e49f3c3d73498eb9ae88091ee95,
@@ -783,6 +810,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Settings
+      objectReference: {fileID: 0}
+    - target: {fileID: 8878500081732555760, guid: ce116e49f3c3d73498eb9ae88091ee95,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce116e49f3c3d73498eb9ae88091ee95, type: 3}
