@@ -168,7 +168,9 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 512
+  standingOnBlockMat: {fileID: 2100000, guid: 4f862594868a5f14d9b86deade3f1b74, type: 2}
   customCameraPositionMaxOffset: 0.5
+  checkForCamera: 0
   gravitationalPlane:
     plane: 1
     planeSide: 0

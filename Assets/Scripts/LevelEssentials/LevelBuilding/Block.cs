@@ -274,7 +274,7 @@ public class Block : MonoBehaviour
             StartCoroutine(
                 gm.player.MoveAlongPath(
                     gm.pathFinder.FindShortestPath(
-                        gm.player.blockStandingOn, this, gm.player.gravitationalPlane
+                        gm.player.BlockStandingOn, this, gm.player.gravitationalPlane
                         )
                     )
                 );

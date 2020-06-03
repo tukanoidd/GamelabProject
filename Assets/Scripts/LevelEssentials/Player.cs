@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float groundCheckDist = 0.4f;
     [SerializeField] private float groundedGravity = 2f;
     [SerializeField] private LayerMask groundMask;
+    
+    [SerializeField] private Material standingOnBlockMat;
 
     [SerializeField] private float customCameraPositionMaxOffset = 0.5f;
 
@@ -31,24 +33,22 @@ public class Player : MonoBehaviour
 
     public GravitationalPlane gravitationalPlane = new GravitationalPlane(Plane.XZ, PlaneSide.PlaneNormalPositive);
 
-    public Block blockStandingOn;
-
     public Block BlockStandingOn
     {
-        get => blockStandingOn;
+        get => _blockStandingOn;
         set
         {
             MeshRenderer valueMeshRenderer = value.GetComponent<MeshRenderer>();
 
-            if (blockStandingOn)
+            if (_blockStandingOn)
             {
-                MeshRenderer blockMeshRenderer = blockStandingOn.GetComponent<MeshRenderer>();
+                MeshRenderer blockMeshRenderer = _blockStandingOn.GetComponent<MeshRenderer>();
                 blockMeshRenderer.material = _savedBlockMat;
             }
 
             _savedBlockMat = valueMeshRenderer.material;
-            valueMeshRenderer.material = _testBlockMat;
-            blockStandingOn = value;
+            valueMeshRenderer.material = standingOnBlockMat;
+            _blockStandingOn = value;
         }
     }
     //---------Public and Private Visible In Inspector---------\\
@@ -58,8 +58,7 @@ public class Player : MonoBehaviour
     private float _height = 0;
 
     private Vector3? _targetPosition = null;
-
-    private Material _testBlockMat;
+    
     private Material _savedBlockMat;
 
     private BlockConnection _currentMovementConnection = null;
@@ -69,11 +68,14 @@ public class Player : MonoBehaviour
 
     private Transform _groundCheck;
 
+    private Block _blockStandingOn;
+    
     [HideInInspector] public bool grounded = false;
     [HideInInspector] public bool isMoving = false;
 
     [HideInInspector] public bool canTeleport = true;
     [HideInInspector] public ConnectionPoint teleportedLastTo = null;
+
 
     //--------Private and Public Invisible In Inspector--------\\
 
@@ -157,7 +159,6 @@ public class Player : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
         _groundCheck = transform.Find("GroundCheck");
         _height = GetComponent<MeshRenderer>().bounds.size.y;
-        _testBlockMat = Resources.Load<Material>("Materials/PathFindingBlockTest");
     }
 
     public void UpdateRotation() => transform.localEulerAngles =
