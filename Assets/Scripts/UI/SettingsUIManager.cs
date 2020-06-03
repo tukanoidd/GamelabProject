@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Canvas))]
@@ -10,18 +6,22 @@ public class SettingsUIManager : MonoBehaviour
 {
     private Settings _settings;
 
-    [Space(20)] [SerializeField] private bool isMainMenu = false;
+    [Space(20)] 
+    [SerializeField] private bool isMainMenu;
 
-    [Header("References")] [SerializeField]
-    private GameObject settingsPanel;
-
-    [SerializeField] private GameObject soundButton;
-    [SerializeField] private Text soundButtonText;
+    [Header("References")] 
+    [SerializeField] private GameObject settingsPanel;
+    [SerializeField] private Image soundButtonImage;
     [SerializeField] private GameObject backButton;
+    
+    private Sprite _soundButtonSpriteOn;
+    private Sprite _soundButtonSpriteOff;
 
     void Awake()
     {
         _settings = Resources.Load<Settings>("ScriptableObjects/Settings");
+        _soundButtonSpriteOff = Resources.Load<Sprite>("UI/SoundButtonOff");
+        _soundButtonSpriteOn = Resources.Load<Sprite>("UI/SoundButtonOn");
         
         if (!PlayerPrefs.HasKey("soundOn"))
         {
@@ -29,11 +29,7 @@ public class SettingsUIManager : MonoBehaviour
             _settings.soundOn = true;
             PlayerPrefs.Save();
         }
-        else
-        {
-            if (PlayerPrefs.GetInt("soundOn") == 0) _settings.soundOn = false;
-            else _settings.soundOn = true;
-        }
+        else _settings.soundOn = PlayerPrefs.GetInt("soundOn") != 0;
 
         UpdateSoundButton();
         settingsPanel.SetActive(false);
@@ -42,7 +38,7 @@ public class SettingsUIManager : MonoBehaviour
 
     private void UpdateSoundButton()
     {
-        soundButtonText.text = "M - " + (_settings.soundOn ? "On" : "Off");
+        soundButtonImage.sprite = _settings.soundOn ? _soundButtonSpriteOn : _soundButtonSpriteOff;
     }
 
     public void ToggleSound()
