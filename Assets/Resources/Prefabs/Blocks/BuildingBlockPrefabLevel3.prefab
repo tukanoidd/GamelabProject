@@ -54,8 +54,8 @@ GameObject:
   - component: {fileID: 4195917803425279175}
   - component: {fileID: 1461382669210002251}
   - component: {fileID: 1356510759542410576}
-  - component: {fileID: 7932663636835351550}
-  - component: {fileID: 8987988188454359721}
+  - component: {fileID: 5816804144272049558}
+  - component: {fileID: 4942719808643607417}
   m_Layer: 8
   m_Name: ConnectionPoint 3
   m_TagString: TpTrigger
@@ -93,7 +93,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2332296610456470473}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -153,7 +153,7 @@ MonoBehaviour:
       dir: 0
     - axis: 2
       dir: 2
---- !u!65 &7932663636835351550
+--- !u!65 &5816804144272049558
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,7 +166,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 5, z: 8}
   m_Center: {x: 0, y: 2.5, z: 0}
---- !u!65 &8987988188454359721
+--- !u!65 &4942719808643607417
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,8 +191,8 @@ GameObject:
   - component: {fileID: 8459010359543350088}
   - component: {fileID: 3830560052128056903}
   - component: {fileID: 3161320507101849200}
-  - component: {fileID: 305368252664388400}
-  - component: {fileID: 5268873730607959}
+  - component: {fileID: 8899055680366345771}
+  - component: {fileID: 1173176030645221857}
   m_Layer: 8
   m_Name: ConnectionPoint 2
   m_TagString: TpTrigger
@@ -230,7 +230,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2940675334316551170}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -290,7 +290,7 @@ MonoBehaviour:
       dir: 0
     - axis: 2
       dir: 0
---- !u!65 &305368252664388400
+--- !u!65 &8899055680366345771
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -303,7 +303,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8, y: 5, z: 2}
   m_Center: {x: 0, y: 2.5, z: 0}
---- !u!65 &5268873730607959
+--- !u!65 &1173176030645221857
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -328,8 +328,8 @@ GameObject:
   - component: {fileID: 5173037054738229338}
   - component: {fileID: 4062040250137987643}
   - component: {fileID: 7566355665243338017}
-  - component: {fileID: 7325793337763786022}
-  - component: {fileID: 8860458636410937517}
+  - component: {fileID: 138052365850553734}
+  - component: {fileID: 4197906275676095185}
   m_Layer: 8
   m_Name: ConnectionPoint 6
   m_TagString: TpTrigger
@@ -367,7 +367,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3232891730574710599}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -427,7 +427,7 @@ MonoBehaviour:
       dir: 2
     - axis: 2
       dir: 0
---- !u!65 &7325793337763786022
+--- !u!65 &138052365850553734
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -440,7 +440,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 8, z: 5}
   m_Center: {x: 0, y: 0, z: 2.5}
---- !u!65 &8860458636410937517
+--- !u!65 &4197906275676095185
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -516,7 +516,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4305739425354039716}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -576,8 +576,8 @@ GameObject:
   - component: {fileID: 8000991840519228588}
   - component: {fileID: 2396367157741994486}
   - component: {fileID: 7128554372769169779}
-  - component: {fileID: 4882755034446163498}
-  - component: {fileID: 8518692488479626050}
+  - component: {fileID: 3147968250319648033}
+  - component: {fileID: 5595851176217220478}
   m_Layer: 8
   m_Name: ConnectionPoint 11
   m_TagString: TpTrigger
@@ -615,7 +615,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5033505098932584027}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -675,7 +675,7 @@ MonoBehaviour:
       dir: 1
     - axis: 2
       dir: 2
---- !u!65 &4882755034446163498
+--- !u!65 &3147968250319648033
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -688,7 +688,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 5, z: 8}
   m_Center: {x: 0, y: -2.5, z: 0}
---- !u!65 &8518692488479626050
+--- !u!65 &5595851176217220478
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -713,8 +713,8 @@ GameObject:
   - component: {fileID: 8418188457228963385}
   - component: {fileID: 9142060765078814986}
   - component: {fileID: 3350007414830940878}
-  - component: {fileID: 2687462433180949034}
-  - component: {fileID: 6820110266431059215}
+  - component: {fileID: 1530095531705973515}
+  - component: {fileID: 5908228892767931282}
   m_Layer: 8
   m_Name: ConnectionPoint 9
   m_TagString: TpTrigger
@@ -752,7 +752,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5137830411763326649}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -812,7 +812,7 @@ MonoBehaviour:
       dir: 1
     - axis: 2
       dir: 2
---- !u!65 &2687462433180949034
+--- !u!65 &1530095531705973515
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -825,7 +825,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 5, z: 8}
   m_Center: {x: 0, y: -2.5, z: 0}
---- !u!65 &6820110266431059215
+--- !u!65 &5908228892767931282
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -850,8 +850,8 @@ GameObject:
   - component: {fileID: 3198919879551724469}
   - component: {fileID: 3637775984760835511}
   - component: {fileID: 735991861840582210}
-  - component: {fileID: 562852053556241358}
-  - component: {fileID: 6160635129673859561}
+  - component: {fileID: 7627699923787438002}
+  - component: {fileID: 6811727809454915601}
   m_Layer: 8
   m_Name: ConnectionPoint 4
   m_TagString: TpTrigger
@@ -889,7 +889,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5705288292747572777}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -949,7 +949,7 @@ MonoBehaviour:
       dir: 0
     - axis: 2
       dir: 1
---- !u!65 &562852053556241358
+--- !u!65 &7627699923787438002
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -962,7 +962,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8, y: 5, z: 2}
   m_Center: {x: 0, y: 2.5, z: 0}
---- !u!65 &6160635129673859561
+--- !u!65 &6811727809454915601
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1038,7 +1038,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5906568327145156843}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1149,7 +1149,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6006788189312906880}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1209,8 +1209,8 @@ GameObject:
   - component: {fileID: 8174309915766666824}
   - component: {fileID: 8997631512831111256}
   - component: {fileID: 608707853572242465}
-  - component: {fileID: 6082879404151372339}
-  - component: {fileID: 8291559322250292210}
+  - component: {fileID: 8690151953076755744}
+  - component: {fileID: 1915912861676253457}
   m_Layer: 8
   m_Name: ConnectionPoint 7
   m_TagString: TpTrigger
@@ -1248,7 +1248,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6079144264180244111}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1308,7 +1308,7 @@ MonoBehaviour:
       dir: 2
     - axis: 2
       dir: 0
---- !u!65 &6082879404151372339
+--- !u!65 &8690151953076755744
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1321,7 +1321,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 8, z: 5}
   m_Center: {x: 0, y: 0, z: 2.5}
---- !u!65 &8291559322250292210
+--- !u!65 &1915912861676253457
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1346,8 +1346,8 @@ GameObject:
   - component: {fileID: 7368075025043231214}
   - component: {fileID: 2216402839170955617}
   - component: {fileID: 4618895605730466456}
-  - component: {fileID: 6130894810566083370}
-  - component: {fileID: 7452914644775566734}
+  - component: {fileID: 3921461826249967303}
+  - component: {fileID: 2835556717177784475}
   m_Layer: 8
   m_Name: ConnectionPoint 1
   m_TagString: TpTrigger
@@ -1385,7 +1385,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7204520325874751909}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1445,7 +1445,7 @@ MonoBehaviour:
       dir: 0
     - axis: 2
       dir: 2
---- !u!65 &6130894810566083370
+--- !u!65 &3921461826249967303
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1458,7 +1458,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 5, z: 8}
   m_Center: {x: 0, y: 2.5, z: 0}
---- !u!65 &7452914644775566734
+--- !u!65 &2835556717177784475
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1483,8 +1483,8 @@ GameObject:
   - component: {fileID: 7678995539042858907}
   - component: {fileID: 3578186370830252726}
   - component: {fileID: 3865445921445552661}
-  - component: {fileID: 1569829120700518849}
-  - component: {fileID: 776950113879027013}
+  - component: {fileID: 4593325498056038059}
+  - component: {fileID: 1870998913837771374}
   m_Layer: 8
   m_Name: ConnectionPoint 10
   m_TagString: TpTrigger
@@ -1522,7 +1522,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7271117865958789585}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1582,7 +1582,7 @@ MonoBehaviour:
       dir: 1
     - axis: 2
       dir: 0
---- !u!65 &1569829120700518849
+--- !u!65 &4593325498056038059
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1595,7 +1595,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8, y: 5, z: 2}
   m_Center: {x: 0, y: -2.5, z: 0}
---- !u!65 &776950113879027013
+--- !u!65 &1870998913837771374
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1620,8 +1620,8 @@ GameObject:
   - component: {fileID: 5965258381340181538}
   - component: {fileID: 734726633182223869}
   - component: {fileID: 9066772822497147732}
-  - component: {fileID: 4079759028576756323}
-  - component: {fileID: 8295393766666398850}
+  - component: {fileID: 8107629951743177425}
+  - component: {fileID: 343774706871842038}
   m_Layer: 8
   m_Name: ConnectionPoint 8
   m_TagString: TpTrigger
@@ -1659,7 +1659,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7345656827984463768}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1719,7 +1719,7 @@ MonoBehaviour:
       dir: 2
     - axis: 2
       dir: 1
---- !u!65 &4079759028576756323
+--- !u!65 &8107629951743177425
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1732,7 +1732,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 8, z: 5}
   m_Center: {x: 0, y: 0, z: -2.5}
---- !u!65 &8295393766666398850
+--- !u!65 &343774706871842038
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1808,7 +1808,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7388774497550371943}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -1919,7 +1919,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7997241640771761852}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -2030,7 +2030,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8321229903174420160}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -2126,8 +2126,8 @@ GameObject:
   - component: {fileID: 2244988040478867562}
   - component: {fileID: 3257206137658137778}
   - component: {fileID: 3077809567641123666}
-  - component: {fileID: 2256412785640840301}
-  - component: {fileID: 2627521802152983647}
+  - component: {fileID: 8302458066543761764}
+  - component: {fileID: 318430980573455452}
   m_Layer: 8
   m_Name: ConnectionPoint 12
   m_TagString: TpTrigger
@@ -2165,7 +2165,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8447491672041139416}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -2225,7 +2225,7 @@ MonoBehaviour:
       dir: 1
     - axis: 2
       dir: 1
---- !u!65 &2256412785640840301
+--- !u!65 &8302458066543761764
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2238,7 +2238,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8, y: 5, z: 2}
   m_Center: {x: 0, y: -2.5, z: 0}
---- !u!65 &2627521802152983647
+--- !u!65 &318430980573455452
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2263,8 +2263,8 @@ GameObject:
   - component: {fileID: 6839417063065104715}
   - component: {fileID: 6813983055876068449}
   - component: {fileID: 3642797204673202226}
-  - component: {fileID: 148980688312070170}
-  - component: {fileID: 5867120097265296419}
+  - component: {fileID: 8402043745681040675}
+  - component: {fileID: 5654510830216462130}
   m_Layer: 8
   m_Name: ConnectionPoint 5
   m_TagString: TpTrigger
@@ -2302,7 +2302,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8467373072677708895}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -2362,7 +2362,7 @@ MonoBehaviour:
       dir: 2
     - axis: 2
       dir: 1
---- !u!65 &148980688312070170
+--- !u!65 &8402043745681040675
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2375,7 +2375,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 8, z: 5}
   m_Center: {x: 0, y: 0, z: -2.5}
---- !u!65 &5867120097265296419
+--- !u!65 &5654510830216462130
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2406,7 +2406,7 @@ GameObject:
   m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &8485869265477385646
 Transform:
@@ -2440,7 +2440,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8485869265477385649}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
   m_MotionVectors: 1
@@ -2496,7 +2496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 459496
+  id: 90342
   connectionPoints:
   - {fileID: 4618895605730466456}
   - {fileID: 3161320507101849200}
