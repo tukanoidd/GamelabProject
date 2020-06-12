@@ -974,7 +974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 658742
+  id: 346184
   connectionPoints:
   - {fileID: 199616069}
   - {fileID: 163703133}
@@ -3178,7 +3178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 658964
+  id: 346410
   connectionPoints:
   - {fileID: 628365530}
   - {fileID: 2084359533}
@@ -3301,7 +3301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 658976
+  id: 346422
   connectionPoints:
   - {fileID: 1225571828}
   - {fileID: 1078015596}
@@ -8217,7 +8217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 659476
+  id: 346928
   connectionPoints:
   - {fileID: 1072802445}
   - {fileID: 1232052229}
@@ -10073,7 +10073,7 @@ PrefabInstance:
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[100].customCameraPositions.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
@@ -10208,7 +10208,7 @@ PrefabInstance:
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[109].customCameraPositions.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
@@ -13704,12 +13704,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[108].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 807224858}
+      objectReference: {fileID: 1751105159}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[108].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 639877055}
+      objectReference: {fileID: 1732157736}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[108].gravitationalPlane.plane
@@ -13719,12 +13719,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[108].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1889580677}
+      objectReference: {fileID: 1738258778}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[108].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 944241058}
+      objectReference: {fileID: 542390498}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[108].customCameraPositions.Array.data[0].x
@@ -13744,12 +13744,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[109].connectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1751105159}
+      objectReference: {fileID: 574712682}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[109].connectedBlocks.Array.data[1]
       value: 
-      objectReference: {fileID: 1732157736}
+      objectReference: {fileID: 639877055}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[109].gravitationalPlane.plane
@@ -13759,12 +13759,12 @@ PrefabInstance:
         type: 3}
       propertyPath: blockConnections.Array.data[109].connectionPoints.Array.data[0]
       value: 
-      objectReference: {fileID: 1738258778}
+      objectReference: {fileID: 815575498}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[109].connectionPoints.Array.data[1]
       value: 
-      objectReference: {fileID: 542390498}
+      objectReference: {fileID: 944241058}
     - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: blockConnections.Array.data[109].customCameraPositions.Array.data[0].x
@@ -13820,6 +13820,11 @@ PrefabInstance:
       propertyPath: blockConnections.Array.data[110].customCameraPositions.Array.data[0].z
       value: -12.410002
       objectReference: {fileID: 0}
+    - target: {fileID: 3562979625353122812, guid: e4c23ff47de2f8342b9e74f935033f38,
+        type: 3}
+      propertyPath: mapBuilder
+      value: 
+      objectReference: {fileID: 2071572873}
     - target: {fileID: 3562979625353122815, guid: e4c23ff47de2f8342b9e74f935033f38,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14984,7 +14989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 659666
+  id: 347122
   connectionPoints:
   - {fileID: 1612417258}
   - {fileID: 2017222216}
@@ -21351,7 +21356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 660294
+  id: 347764
   connectionPoints:
   - {fileID: 2107072539}
   - {fileID: 598909355}
@@ -21907,7 +21912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 660352
+  id: 347824
   connectionPoints:
   - {fileID: 1919269249}
   - {fileID: 502240725}
@@ -23733,7 +23738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 660534
+  id: 348008
   connectionPoints:
   - {fileID: 3998413}
   - {fileID: 1085709057}
@@ -25364,7 +25369,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 660686
+  id: 348164
   connectionPoints:
   - {fileID: 862149914}
   - {fileID: 300501550}
@@ -26822,7 +26827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 660832
+  id: 348310
   connectionPoints:
   - {fileID: 1905259399}
   - {fileID: 815575498}
@@ -29375,7 +29380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 661094
+  id: 348572
   connectionPoints:
   - {fileID: 1012949479}
   - {fileID: 1257949581}
@@ -29823,7 +29828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 661140
+  id: 348618
   connectionPoints:
   - {fileID: 277228974}
   - {fileID: 1138677219}
@@ -33828,7 +33833,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 661532
+  id: 349022
   connectionPoints:
   - {fileID: 1567876182}
   - {fileID: 398666971}
@@ -37179,7 +37184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 661854
+  id: 349348
   connectionPoints:
   - {fileID: 475366628}
   - {fileID: 1889580677}
@@ -37380,7 +37385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customMaxCamOffset: 0.5
   parentBlock: {fileID: 574712682}
-  isConnected: 0
+  isConnected: 1
   isConnectedNearby: 0
   posDirs:
     gravitationalPlanes:
@@ -37413,7 +37418,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f6df3864e85dfe74ca32ef08e08cca0f, type: 2}
+  - {fileID: 2100000, guid: 4352b14d325009d4c8e402211e307775, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -37798,7 +37803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 661918
+  id: 349412
   connectionPoints:
   - {fileID: 699066411}
   - {fileID: 1345918803}
@@ -38342,7 +38347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 661974
+  id: 349468
   connectionPoints:
   - {fileID: 875774704}
   - {fileID: 2132296569}
@@ -40216,7 +40221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 662166
+  id: 349662
   connectionPoints:
   - {fileID: 1463367497}
   - {fileID: 1813362962}
@@ -40476,7 +40481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 662192
+  id: 349688
   connectionPoints:
   - {fileID: 144511714}
   - {fileID: 1595577890}
@@ -43104,7 +43109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 662464
+  id: 349962
   connectionPoints:
   - {fileID: 1678507373}
   - {fileID: 2053889593}
@@ -51632,7 +51637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 663328
+  id: 350832
   connectionPoints:
   - {fileID: 297575477}
   - {fileID: 2083084525}
@@ -51755,7 +51760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 663340
+  id: 350844
   connectionPoints:
   - {fileID: 1781283770}
   - {fileID: 2041340970}
@@ -55687,7 +55692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 663720
+  id: 351232
   connectionPoints:
   - {fileID: 1833997693}
   - {fileID: 469014648}
@@ -56938,7 +56943,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 663850
+  id: 351362
   connectionPoints:
   - {fileID: 1892612496}
   - {fileID: 1547932751}
@@ -59024,7 +59029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 664068
+  id: 351582
   connectionPoints:
   - {fileID: 1274247967}
   - {fileID: 1051832421}
@@ -72257,7 +72262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 665346
+  id: 352888
   connectionPoints:
   - {fileID: 1660651805}
   - {fileID: 798882686}
@@ -77680,7 +77685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 665890
+  id: 353438
   connectionPoints:
   - {fileID: 765996679}
   - {fileID: 1278157841}
@@ -78563,7 +78568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 665982
+  id: 353530
   connectionPoints:
   - {fileID: 1309748716}
   - {fileID: 73684328}
@@ -79746,7 +79751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 666104
+  id: 353652
   connectionPoints:
   - {fileID: 1313199471}
   - {fileID: 1625958148}
@@ -79917,7 +79922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 666122
+  id: 353670
   connectionPoints:
   - {fileID: 318648444}
   - {fileID: 1738258778}
@@ -86106,7 +86111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 666746
+  id: 354298
   connectionPoints:
   - {fileID: 1418750682}
   - {fileID: 1165624917}
@@ -86307,7 +86312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customMaxCamOffset: 0.5
   parentBlock: {fileID: 807224858}
-  isConnected: 1
+  isConnected: 0
   isConnectedNearby: 0
   posDirs:
     gravitationalPlanes:
@@ -86340,7 +86345,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4352b14d325009d4c8e402211e307775, type: 2}
+  - {fileID: 2100000, guid: f6df3864e85dfe74ca32ef08e08cca0f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -89510,7 +89515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 667098
+  id: 354652
   connectionPoints:
   - {fileID: 2135241274}
   - {fileID: 1554752388}
@@ -89661,7 +89666,7 @@ PrefabInstance:
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.409998
+      value: 12.41
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
@@ -89671,27 +89676,27 @@ PrefabInstance:
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.410002
+      value: 12.41
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.27984816
+      value: -0.1159169
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.36470515
+      value: 0.8804763
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.11591688
+      value: -0.27984816
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8804763
+      value: -0.3647052
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839395, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
@@ -89720,18 +89725,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
+      propertyPath: customPositions.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
       propertyPath: targetToLookAt
       value: 
       objectReference: {fileID: 300757245}
     - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: selDeg
-      value: 7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
         type: 3}
       propertyPath: degToSnap
-      value: 315
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[0].x
+      value: 12.409998
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[0].y
+      value: 9.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[0].z
+      value: -12.410002
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[1].x
+      value: 12.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[1].y
+      value: 9.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 3954717491784839423, guid: 8fb1ca12a0982b245a72fc0f98073909,
+        type: 3}
+      propertyPath: customPositions.Array.data[1].z
+      value: 12.41
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fb1ca12a0982b245a72fc0f98073909, type: 3}
@@ -92949,7 +92989,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 667438
+  id: 354994
   connectionPoints:
   - {fileID: 1823518027}
   - {fileID: 1490955911}
@@ -93251,7 +93291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 667468
+  id: 355024
   connectionPoints:
   - {fileID: 714539656}
   - {fileID: 1201976638}
@@ -95491,6 +95531,18 @@ Transform:
   m_Father: {fileID: 1751105155}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2071572873 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8229593832200055687, guid: e4c23ff47de2f8342b9e74f935033f38,
+    type: 3}
+  m_PrefabInstance: {fileID: 230156034}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554bd42d818041b78ea66bfc8e4c09db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2075440775
 GameObject:
   m_ObjectHideFlags: 0
@@ -98036,7 +98088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 667950
+  id: 355508
   connectionPoints:
   - {fileID: 1834556547}
   - {fileID: 1968587015}
@@ -98159,7 +98211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 667962
+  id: 355520
   connectionPoints:
   - {fileID: 1587750792}
   - {fileID: 36935211}
@@ -98282,7 +98334,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e88dcf40416f9c444af209860542ab16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 667974
+  id: 355532
   connectionPoints:
   - {fileID: 1775041488}
   - {fileID: 1196204694}
