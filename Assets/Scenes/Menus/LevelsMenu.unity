@@ -141,7 +141,7 @@ PrefabInstance:
     - target: {fileID: 312416595097979560, guid: f752af2a59dc1e4438d2aaa6964cdf2d,
         type: 3}
       propertyPath: levelName
-      value: Level 3 [CameraBroken]
+      value: Level 3
       objectReference: {fileID: 0}
     - target: {fileID: 312416595097979564, guid: f752af2a59dc1e4438d2aaa6964cdf2d,
         type: 3}

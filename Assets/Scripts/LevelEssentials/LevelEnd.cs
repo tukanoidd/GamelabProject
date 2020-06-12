@@ -56,6 +56,7 @@ public class LevelEnd : MonoBehaviour
         
         if (_levelsProgress.levelsUnlocked.Any(lName => lName.Contains((nextLevel + 1).ToString()))) return;
         _levelsProgress.levelsUnlocked.Add(_levelsProgress.allLevels[nextLevel]);
+        _levelsProgress.levelsUnlocked.Sort();
 
         HelperMethods.SaveLevelsProgress(_levelsProgress.ToLevelsProgressData());
     }
