@@ -17,11 +17,23 @@ public class UIManager : MonoBehaviour
     
     private LevelsProgress _levelsProgress;
     private GameObject _levelButtonsHolder;
+
+    private Settings _settings;
     
     private void Awake()
     {
         _levelButtonsHolder = GameObject.Find("LevelButtons");
         _levelsProgress = Resources.Load<LevelsProgress>("ScriptableObjects/LevelsProgress");
+
+        _settings = Resources.Load<Settings>("ScriptableObjects/Settings");
+
+        if (!PlayerPrefs.HasKey("cutScenesPlayed"))
+        {
+            PlayerPrefs.SetInt("cutScenesPlayed", 0);
+            _settings.cutScenesPlayed = false;
+            PlayerPrefs.Save();
+        }
+        else _settings.cutScenesPlayed = PlayerPrefs.GetInt("cutScenesPlayed") != 0;
 
         LoadLevelsProgress();
 
@@ -30,10 +42,14 @@ public class UIManager : MonoBehaviour
             levelButtons = new List<LoadLevelButton>();
             foreach (Transform child in _levelButtonsHolder.transform)
             {
-                LoadLevelButton button = child.gameObject.GetComponent<LoadLevelButton>(); 
+                LoadLevelButton button = child.gameObject.GetComponent<LoadLevelButton>();
+                button.lastLevel = false;
                 levelButtons.Add(button);
-                child.gameObject.SetActive(_levelsProgress.levelsUnlocked.Contains(button.levelName));
+                child.gameObject.SetActive(_levelsProgress.levelsUnlocked.Any(lName => button.levelName.Contains(lName.Trim())));
             }
+            
+            levelButtons.First(button => button.levelName.Contains(_levelsProgress.levelsUnlocked.Last())).lastLevel =
+                true;
         }
     }
 

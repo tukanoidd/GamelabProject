@@ -51,8 +51,9 @@ public class LevelEnd : MonoBehaviour
     private void UnlockNewLevel()
     {
         int nextLevel = int.Parse(SceneManager.GetActiveScene().name.Split(' ')[1]);
+
+        if (nextLevel >= _levelsProgress.allLevels.Count) return;
         
-        if (nextLevel >= _levelsProgress.allLevels.Count()) return;
         if (_levelsProgress.levelsUnlocked.Any(lName => lName.Contains((nextLevel + 1).ToString()))) return;
         _levelsProgress.levelsUnlocked.Add(_levelsProgress.allLevels[nextLevel]);
 

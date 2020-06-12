@@ -266,7 +266,7 @@ public class GameManager : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        if (drawDebugConnectionLines)
+        if (drawDebugConnectionLines && blockConnections.Any())
         {
             Gizmos.color = Color.yellow;
             foreach (BlockConnection blockConnection in blockConnections)

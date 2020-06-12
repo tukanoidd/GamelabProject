@@ -6,4 +6,5 @@ using UnityEngine;
 public class Settings : ScriptableObject
 {
     public bool soundOn = true;
+    public bool cutScenesPlayed = false;
 }

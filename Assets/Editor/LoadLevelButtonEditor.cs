@@ -50,7 +50,9 @@ public class LoadLevelButtonEditor : Editor
             {
                 _button.selectedLevelIndex = EditorGUILayout.Popup("Select A Level", _button.selectedLevelIndex, _levels.ToArray());
                 _button.levelName = _levels[_button.selectedLevelIndex];
-            }   
+            }
+            
+            EditorUtility.SetDirty(_button);
         }
 
         DrawDefaultInspector();
