@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DataTypes;
+using UnityEditor.Animations;
 using UnityEngine;
 using Plane = DataTypes.Plane;
 
@@ -10,6 +11,9 @@ using Plane = DataTypes.Plane;
 public class Player : MonoBehaviour
 {
     //---------Public and Private Visible In Inspector---------\\
+    [SerializeField] private SkinnedMeshRenderer catMeshRenderer;
+    [SerializeField] private Animator catAnimator;
+    
     [SerializeField] private bool drawDebugLineToTarget = true;
     [SerializeField] private bool drawDebugLineForward = true;
     [SerializeField] private float debugLineForwardLength = 3f;
@@ -156,7 +160,7 @@ public class Player : MonoBehaviour
     {
         _characterController = GetComponent<CharacterController>();
         _groundCheck = transform.Find("GroundCheck");
-        _height = GetComponent<MeshRenderer>().bounds.size.y;
+        _height = catMeshRenderer.bounds.size.y;
     }
 
     public void UpdateRotation() => transform.localEulerAngles =
@@ -165,6 +169,7 @@ public class Player : MonoBehaviour
     public IEnumerator MoveAlongPath(List<PathFindingLocation> path)
     {
         isMoving = true;
+        SetMovementAnimationState();
 
         int lastI = -1;
 
@@ -249,8 +254,13 @@ public class Player : MonoBehaviour
             }
         }
 
-        
         ResetMovement();
+    }
+
+    private void SetMovementAnimationState()
+    {
+        catAnimator.SetBool("isWalking", isMoving);
+        if (!isMoving) catAnimator.Rebind();
     }
 
     private void ResetMovement()
@@ -260,6 +270,8 @@ public class Player : MonoBehaviour
         _velocity = Vector3.zero;
         isMoving = false;
         GameManager.current.cameraLockedMovement = false;
+        
+        SetMovementAnimationState();
     }
 
     private void TeleportTo(Vector3 newPos)
