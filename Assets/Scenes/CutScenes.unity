@@ -216,8 +216,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 0, y: -632}
+  m_SizeDelta: {x: 600, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &388472285
 MonoBehaviour:
@@ -239,8 +239,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: Sample Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 28b3d88d75ea430448ab55794d4e190b, type: 2}
+  m_sharedMaterial: {fileID: 4533793343234489912, guid: 28b3d88d75ea430448ab55794d4e190b,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -265,14 +266,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 60
+  m_fontSizeBase: 60
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_textAlignment: 257
+  m_fontStyle: 1
+  m_textAlignment: 258
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -603,13 +604,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cutScenes:
-  - {fileID: 21300000, guid: 1c022c56c1cf8134687f97d6a89daf5e, type: 3}
-  - {fileID: 21300000, guid: f28fe32c5e7258a408de14310620b65e, type: 3}
-  - {fileID: 21300000, guid: 020e99c83a535fa4ead2352998d07231, type: 3}
+  - {fileID: 21300000, guid: e4e96c49e0e449f4d9f3788568164605, type: 3}
+  - {fileID: 21300000, guid: 637a06131ef93c64ab754ae287d199c0, type: 3}
+  - {fileID: 21300000, guid: dbb74f3fcb15c3b48b14916a5d5bfc5f, type: 3}
+  - {fileID: 21300000, guid: e45b19b1ec8761d449ada07aeda7bd83, type: 3}
+  - {fileID: 21300000, guid: ba68dd85ac252b44aafe1012e6757dad, type: 3}
+  - {fileID: 21300000, guid: a5fcbc02e90e5c84fa2e4ec277f58d2c, type: 3}
+  - {fileID: 21300000, guid: 9680d0d05668df848926c961c72faa7d, type: 3}
+  - {fileID: 21300000, guid: dec4924cdf8696f49a957631ce321456, type: 3}
+  - {fileID: 21300000, guid: b7d4dd009db37f1428b632738a9d693c, type: 3}
+  - {fileID: 21300000, guid: 5ffbf42406ad47e47be47f72a3714650, type: 3}
+  - {fileID: 21300000, guid: d4f78ac35a4f64149a9827b957881a04, type: 3}
+  - {fileID: 21300000, guid: 826210471969b1f43900027a4d4dde93, type: 3}
+  - {fileID: 21300000, guid: adfcfb43c64db014bb0df972afc543ed, type: 3}
+  - {fileID: 21300000, guid: 6c49e23193f305344949d6a7a2d7884e, type: 3}
+  - {fileID: 21300000, guid: 7eaa71aafb70d364884c3ada1c30c9a4, type: 3}
   cutSceneTexts:
-  - A
-  - B
-  - C
+  - Under the night sky, Iku was sound asleep
+  - Eyes fluttering open, a smell startled his nose.
+  - ' Smitten by the scent, waking up, he quickly rose'
+  - Seeking out the smell, wondering what it might be
+  - Seeking out the smell, wondering what it might be
+  - Seeking out the smell, wondering what it might be
+  - A vibrant bush of catnip, underneath a great tree.
+  - Iku leaned in, and gave it a lick. Unknowing of the plant's kick.
+  - Then it became clear, that this plant was unique.
+  - The cat's eyes lit up, and his senses filled with mystique.
+  - The cat's eyes lit up, and his senses filled with mystique.
+  - So he ventured out, on a quest to explore
+  - So he ventured out, on a quest to explore
+  - And hopefully, find that plant again.. To get some more.
+  - '  '
   gotoLevel: Level 1
 --- !u!199 &969687434
 ParticleSystemRenderer:
