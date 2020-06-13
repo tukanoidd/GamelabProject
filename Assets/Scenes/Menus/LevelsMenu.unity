@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -143,6 +143,12 @@ PrefabInstance:
       propertyPath: levelName
       value: Level 3
       objectReference: {fileID: 0}
+    - target: {fileID: 312416595097979562, guid: f752af2a59dc1e4438d2aaa6964cdf2d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5a81a968b33bdf54aaf416bc1a6f4f90,
+        type: 3}
     - target: {fileID: 312416595097979564, guid: f752af2a59dc1e4438d2aaa6964cdf2d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1062,6 +1068,12 @@ PrefabInstance:
       propertyPath: m_Text
       value: Level 6
       objectReference: {fileID: 0}
+    - target: {fileID: 312416595097979562, guid: f752af2a59dc1e4438d2aaa6964cdf2d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: cb1cb795d5c4317468d5d287b7aaa382,
+        type: 3}
     - target: {fileID: 312416595097979564, guid: f752af2a59dc1e4438d2aaa6964cdf2d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1308,6 +1320,12 @@ PrefabInstance:
       propertyPath: m_Text
       value: Level 5
       objectReference: {fileID: 0}
+    - target: {fileID: 312416595097979562, guid: f752af2a59dc1e4438d2aaa6964cdf2d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: bf7f105f7af37e94483ed67d6c45021e,
+        type: 3}
     - target: {fileID: 312416595097979564, guid: f752af2a59dc1e4438d2aaa6964cdf2d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1514,6 +1532,12 @@ PrefabInstance:
       propertyPath: levelName
       value: Level 4
       objectReference: {fileID: 0}
+    - target: {fileID: 312416595097979562, guid: f752af2a59dc1e4438d2aaa6964cdf2d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 947772ea874430b459a181b9891774d7,
+        type: 3}
     - target: {fileID: 312416595097979564, guid: f752af2a59dc1e4438d2aaa6964cdf2d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1654,6 +1678,12 @@ PrefabInstance:
       propertyPath: levelName
       value: Level 2
       objectReference: {fileID: 0}
+    - target: {fileID: 312416595097979562, guid: f752af2a59dc1e4438d2aaa6964cdf2d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a42ff10259d052e44be0e9212fd54d5c,
+        type: 3}
     - target: {fileID: 312416595097979564, guid: f752af2a59dc1e4438d2aaa6964cdf2d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1872,6 +1902,12 @@ PrefabInstance:
       propertyPath: levelName
       value: Level 1
       objectReference: {fileID: 0}
+    - target: {fileID: 312416595097979562, guid: f752af2a59dc1e4438d2aaa6964cdf2d,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f5fa8d9ed77508a4492dc1200260131b,
+        type: 3}
     - target: {fileID: 312416595097979564, guid: f752af2a59dc1e4438d2aaa6964cdf2d,
         type: 3}
       propertyPath: m_LocalPosition.x
