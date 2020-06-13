@@ -7,8 +7,6 @@ using UnityEngine;
 using Plane = DataTypes.Plane;
 
 [RequireComponent(typeof(CharacterController))]
-[RequireComponent(typeof(MeshRenderer))]
-[RequireComponent(typeof(MeshFilter))]
 public class Player : MonoBehaviour
 {
     //---------Public and Private Visible In Inspector---------\\
