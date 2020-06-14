@@ -14,8 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelsUnlocked:
   - Level 1
-  - Level 2
-  - Level 3
   allLevels:
   - Level 1
   - Level 2

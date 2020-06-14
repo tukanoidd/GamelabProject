@@ -53,8 +53,8 @@ public class ConnectionPoint : MonoBehaviour
 
     void InitPrivateVars()
     {
-#if UNITY_EDITOR
         _meshRenderer = GetComponent<MeshRenderer>();
+#if UNITY_EDITOR
         _standardMat = Resources.Load<Material>("Materials/ConnectionPointMat");
         _connectedMat = Resources.Load<Material>("Materials/ConnectedConnectionPoint");
 #endif
@@ -217,11 +217,14 @@ public class ConnectionPoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(!isConnectedNearby);
+        Debug.Log(isConnected);
         if (!isConnectedNearby && isConnected)
         {
             Player player = other.GetComponent<Player>();
+            Debug.Log(player);
             if (!player) return;
-
+            Debug.Log(player.canTeleport);
             if (player.canTeleport) player.TeleportFrom(this);
         }
     }
