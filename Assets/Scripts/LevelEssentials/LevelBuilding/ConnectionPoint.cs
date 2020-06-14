@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using DataTypes;
 using UnityEditor;
-using UnityEditor.Rendering.LookDev;
 using UnityEngine;
-using UnityEngine.UIElements;
 using Plane = DataTypes.Plane;
 
 [ExecuteAlways]
@@ -25,8 +22,8 @@ public class ConnectionPoint : MonoBehaviour
     //---------Public and Private Visible In Inspector---------\\
 
     //--------Private and Public Invisible In Inspector--------\\
-#if UNITY_EDITOR
     private MeshRenderer _meshRenderer;
+#if UNITY_EDITOR
     private Material _standardMat;
     private Material _connectedMat;
 #endif

@@ -86,7 +86,9 @@ public class GameManager : MonoBehaviour
             RemoveConnectionsFromConnectionPoint(connectionPoint, onlyNearby);
         }
 
-        EditorUtility.SetDirty(this);
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(this);  
+#endif
     }
 
     public void RemoveConnectionsFromConnectionPoint(ConnectionPoint connectionPoint, bool onlyNearby = false)
@@ -105,7 +107,9 @@ public class GameManager : MonoBehaviour
             blockConnections.RemoveAll(blockConnection => blockConnection.connectionPoints.Contains(connectionPoint));
         }
 
-        EditorUtility.SetDirty(this);
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(this);  
+#endif
     }
 
     public void DisconnectPoints(BlockConnection[] removeConnectionsList)
@@ -136,7 +140,9 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        EditorUtility.SetDirty(this);
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(this);  
+#endif
     }
 
     private void DisconnectPoint(ConnectionPoint connectionPoint)
@@ -161,7 +167,9 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        EditorUtility.SetDirty(this);
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(this);  
+#endif
     }
 
     public void AddCameraPosition(ConnectionPoint[] connectionPoints)
@@ -176,8 +184,10 @@ public class GameManager : MonoBehaviour
             if (!connection.customCameraPositions.Contains(camPos)) connection.customCameraPositions.Add(camPos);
         }
 
+#if UNITY_EDITOR
         EditorUtility.SetDirty(this);
-        EditorUtility.SetDirty(mainCamera);
+        EditorUtility.SetDirty(mainCamera);  
+#endif
     }
 
     public void ConnectBlocks(ConnectionPoint connectionPoint1, ConnectionPoint connectionPoint2, bool isNear)
@@ -226,7 +236,9 @@ public class GameManager : MonoBehaviour
         ConnectPoint(connectionPoint1, isNear);
         ConnectPoint(connectionPoint2, isNear);
 
-        EditorUtility.SetDirty(this);
+#if UNITY_EDITOR
+        EditorUtility.SetDirty(this);  
+#endif
     }
 
     private void ConnectPoint(ConnectionPoint connectionPoint, bool isNear)

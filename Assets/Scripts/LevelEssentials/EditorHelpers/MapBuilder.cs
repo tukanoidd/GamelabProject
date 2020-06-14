@@ -59,7 +59,8 @@ public class MapBuilder : MonoBehaviour
             }
         }
     }
-
+    
+#if UNITY_EDITOR
     public GameObject AddMapPartBuilder()
     {
         GameObject newMapPartBuilder = new GameObject("MapPartBuilder " +
@@ -71,7 +72,6 @@ public class MapBuilder : MonoBehaviour
         return newMapPartBuilder;
     }
 
-#if UNITY_EDITOR
     public void ShowMap()
     {
         if (showMapGravitationalPlane == null ||

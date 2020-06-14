@@ -48,7 +48,9 @@ public class Block : MonoBehaviour
     public Dictionary<GravitationalPlane, IsWalkablePoint> isWalkablePoints =
         new Dictionary<GravitationalPlane, IsWalkablePoint>();
 
+    #if UNITY_EDITOR
     public MapPartBuilder mapPartBuilderParent;
+    #endif
     //--------Private and Public Invisible In Inspector--------\\
 
     private void Awake()
